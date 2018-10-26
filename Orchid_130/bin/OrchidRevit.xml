@@ -1,0 +1,752 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrchidRevit</name>
+    </assembly>
+    <members>
+        <member name="T:Orchid.Revit.Applications.Sigma">
+            <summary>
+            Sigma methods (that needs RevitAPI)
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Applications.Sigma.Component(System.Collections.IList,System.Collections.IList,System.String,System.String,System.String,System.Double,System.Boolean)">
+            <summary>
+            Create Sigma Estimate component data
+            </summary>
+            <param name="componentTree">List containing the structure as strings {"number","text"}\nAt least one 'level' is needed!</param>
+            <param name="element">Element(s)</param>
+            <param name="parameterName">Property identity field for Sigma</param>
+            <param name="revitUnit">Element quantity (Pcs, Length, Area, Volume)</param>
+            <param name="sigmaUnit">Unit identifier for Sigma</param>
+            <param name="sigmaRegulation">Regulation for the Sigma Component</param>
+            <param name="instance">Component as instances or summarized/nTrue select Data to be Instances, False select Data to be summarized</param>
+            <returns name="component">Component</returns>
+        </member>
+        <member name="T:Orchid.Revit.Core.Document">
+            <summary>
+            Document methods
+            </summary>
+        </member>
+        <member name="P:Orchid.Revit.Core.Document.Current">
+            <summary>
+            Get current document
+            </summary>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.ActiveView(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get the active view in document
+            </summary>
+            <returns name="View">ActiveView</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Name(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get the current document name
+            </summary>
+            <param name="document">The name of the document</param>
+            <returns name="string">string</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.BackgroundOpen(System.String)">
+            <summary>
+            Open documents in background
+            </summary>
+            <param name="file">File (path) to open in the background</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Save(Autodesk.Revit.DB.Document)">
+            <summary>
+            Save document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.SaveAs(Autodesk.Revit.DB.Document,System.String)">
+            <summary>
+            SaveAs document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="name">Name for the document incl. path</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Close(Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            Close document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="save">Save opened document?</param>
+            <returns name="watch">Add a watch node to verify the data processing</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.ImportImage(System.String)">
+            <summary>
+            Import Image into document
+            </summary>
+            <param name="path">Image path including file name and extension</param>
+            <returns name="ImageType">ImageType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Info(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get document info
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="info">Document info</returns>
+        </member>
+        <member name="T:Orchid.Revit.Core.Print">
+            <summary>
+            Print methods for core processes
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.Print.ByView(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IList{System.String},System.String,System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
+            <summary>
+            Print by view. --> Please note: If combined into one file is changed
+            in this session, then the dynamo graph needs to be reloaded!
+            </summary>
+            <param name="printer">Printer name as string. If value is not set is default printer selected</param>
+            <param name="combine">Print to file as boolean. If changed in this session, then reload!</param>
+            <param name="file">Print to file as boolean</param>
+            <param name="filePath">Give a valid path and filename for the print output. If value is not set is the user asked later!</param>
+            <param name="printRange">Print range as string</param>
+            <param name="view">View to print as Revit Element</param>
+            <param name="printSetting">Printer setting as string or Revit Element</param>
+        </member>
+        <member name="M:Orchid.Revit.Core.Print.ByViewSheetSet(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IList{System.String},Revit.Elements.Element,System.Object)">
+            <summary>
+            Print by view sheet set. --> Please note: If combined into one file is changed
+            in this session, then the dynamo graph needs to be reloaded!
+            </summary>
+            <param name="printer">Printer name as string. If value is not set is default printer selected</param>
+            <param name="combine">Print to file as boolean. If changed in this session, then reload!</param>
+            <param name="file">Print to file as boolean</param>
+            <param name="filePath">Give a valid path and filename for the print output. If value is not set is the user asked later!</param>
+            <param name="viewSheetSet">ViewSheetSet to print as Revit Element</param>
+            <param name="printSetting">Printer setting as string or Revit Element</param>
+        </member>
+        <member name="M:Orchid.Revit.Core.Print.CreateSetting(System.String,System.String,System.String,System.String,System.String,System.String,System.Double[],System.String,System.Int32)">
+            <summary>
+            Set print setting 
+            </summary>
+            <param name="printer">Printer name as string. If value is not set is default printer selected</param>
+            <param name="name">name to create for the print setting</param>
+            <param name="paperZize">Paper size as string. If value is not set is default paper size selected</param>
+            <param name="pageOrientation">Page orientation as string.</param>
+            <param name="paperPlacement">Paper placement</param>
+            <param name="marginType">Print margin type</param>
+            <param name="margin">Print margin value as double</param>
+            <param name="zoomType">Zoom type as string</param>
+            <param name="zoom">Zoom value as integer</param>       
+            <returns name="PrintSetting">PrintSetting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Print.ChangeSetting(System.String,System.Object,System.String,System.String,System.String,System.String,System.Double[],System.String,System.Int32)">
+            <summary>
+            Change print setting 
+            </summary>
+            <param name="printer">Printer name as string. If value is not set is default printer selected</param>
+            <param name="printSetting">printer setting as string or Revit Element</param>
+            <param name="paperZize">Paper size as string. If value is not set is default paper size selected</param>
+            <param name="pageOrientation">Page orientation as string.</param>
+            <param name="paperPlacement">Paper placement</param>
+            <param name="marginType">Print margin type</param>
+            <param name="margin">Print margin value as double</param>
+            <param name="zoomType">Zoom type as string</param>
+            <param name="zoom">Zoom value as integer</param>       
+            <returns name="PrintSetting">PrintSetting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Print.DeleteSetting(System.Object)">
+            <summary>
+            Delete print setting
+            </summary>
+            <param name="printSetting">printer setting as string or Revit Element</param>
+        </member>
+        <member name="T:Orchid.Revit.Core.ViewSheetSet">
+            <summary>
+            View methods for core processes
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.ViewSheetSet.Create(System.Collections.Generic.IList{Revit.Elements.Element},System.String)">
+            <summary>
+            Create ViewSheetSet 
+            </summary>
+            <param name="view">View as Revit Element</param>
+            <param name="name">Name for the ViewSheetSet</param>
+            <returns name="ViewSheetSet">ViewSheetSet</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.ViewSheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
+            <summary>
+            Change ViewSheetSet
+            </summary>
+            <param name="view">View as Revit Element</param>
+            <param name="viewSheetSet">ViewSheetSet as string or Revit Element</param>
+            <returns name="ViewSheetSet">ViewSheetSet</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.ViewSheetSet.GetView(System.Object)">
+            <summary>
+            Get View from ViewSheetSet
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Revit Element</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.ViewSheetSet.Delete(System.Object)">
+            <summary>
+            Delete ViewSheetSet
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Revit Element</param>
+        </member>
+        <member name="T:Orchid.Revit.Core.File">
+            <summary>
+            File methods for core processes
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.File.Info(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Get file(s) info
+            </summary>
+            <param name="file">File(s), incl. path</param>
+            <returns name="info">File(s) info</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.File.NewProject(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Create new project by name
+            </summary>
+            <param name="file">File(s), must be new project file name(s) incl. path</param>
+            <param name="template">Template(s) incl. path</param>
+            <returns name="watch">Add a watch node to verify the data processing</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.File.SaveFamily(System.String,System.Collections.Generic.IList{Revit.Elements.Family},System.Boolean,System.Boolean)">
+            <summary>
+            Save family by name
+            </summary>
+            <param name="path">Path to save files(s)</param>
+            <param name="family">Family to be saved</param>
+            <param name="subfolder">Create subfolder by category?</param>
+            <param name="overwrite">Overwrite existing families?</param>
+            <returns name="watch">Add a watch node to verify the data processing</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.File.LoadFamily(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Load family by file name, same core process as FamilyDocument.LoadFamily
+            </summary>
+            <param name="family">Path to the family file(s)</param>
+            <returns name="Family">Family</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.File.LoadFamily(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Open document and load family by path, existing families will be overwritten,
+            and families is upgraded if needed. Documents will be saved and closed.
+            </summary>
+            <param name="document">Path to the documents file(s)</param>
+            <param name="family">Path to the family file(s)</param>
+            <returns name="Family">Family</returns>
+        </member>
+        <member name="T:Orchid.Revit.Core.Object">
+            <summary>
+            Object methods
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.Object.ToAutodeskElement(Revit.Elements.Element)">
+            <summary>
+            Convert Dynamo elements to Autodesk Revit elements
+            </summary>
+            <param name="element">Revit.Elements.Element</param>
+            <returns name="Element">Autodesk.Revit.DB.Element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Object.ToDynamoElement(Autodesk.Revit.DB.Element)">
+            <summary>
+            Convert Autodesk Revit elements to Dynamo elements
+            </summary>
+            <param name="element">Autodesk.Revit.DB.Element</param>
+            <returns name="Element">Revit.Elements.Element</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Selection">
+            <summary>
+            Methods for selecting elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Selection.ElementHasMaterial(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Get elements that has material quantities in document, return element grouped by category.
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="Element">Element</returns>
+            <returns name="Category">Category</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Selection.ElementByCategory(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.IList)">
+            <summary>
+             Get all elements by category in document, return element grouped by category.
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="category">Category</param>
+            <returns name="Element">Element</returns>
+            <returns name="Category">Category</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Selection.ElementByCategoryType(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Get all elements by category in document, return element grouped by category and category type.
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="categoryType">CategoryType</param>
+            <returns name="Element">Element</returns>
+            <returns name="Category">Category</returns>
+            <returns name="CategoryType">CategoryType</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Family">
+            <summary>
+            FamilyType methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Family.GetFamilyDocument(System.Collections.IList)">
+            <summary>
+            Open family document by family 
+            </summary>
+            <param name="family">family</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.FamilyType">
+            <summary>
+            FamilyType methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.FamilyType.GetFamilyDocument(System.Collections.IList)">
+            <summary>
+            Open family document by family type
+            </summary>
+            <param name="familyType">family types</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.FamilyType.ByFamilyName(System.Collections.IList)">
+            <summary>
+            Create family type by name 
+            </summary>
+            <param name="familyName">The name of the family type</param>
+            <returns name="FamilyType">FamilyType</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Floor">
+            <summary>
+            Floor methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Floor.SetAreaLoad(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Set (structural) floor area load
+            </summary>
+            <param name="element">Element(s)</param>
+            <param name="value">Load value</param>
+            <param name="areaLoadType">AreaLoadType</param>
+            <returns name="value">Load value</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Parameter">
+            <summary>
+            Methods for parameters
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Parameter.AddProjectParameter(System.Collections.Generic.IList{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.IList{Revit.Elements.Category})">
+            <summary>
+            Add (create) project parameter by name. If the parameter exists in the project is the category binding being updated.
+            </summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Parameter.AddSharedParameter(System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.IList{Revit.Elements.Category})">
+            <summary>
+            Add (create) shared parameter by name in the project. If the parameter exists in the project is the category binding being updated.
+            </summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="groupName">Group of the parameter for shared parameters</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Parameter.ChangeCategory(System.Collections.Generic.IList{System.String},System.Boolean,System.Collections.Generic.IList{Revit.Elements.Category})">
+            <summary>
+            Change category binding for parameter by name in the project
+            </summary>
+            <param name="parameterName">The name of the parameter to change</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) to change the parameter binding to</param>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Parameter.DeleteParameter(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Delete parameter by name in the project
+            </summary>
+            <param name="parameterName">The name of the parameter to delete</param>
+        </member>
+        <member name="T:Orchid.Revit.Elements.SystemFamily">
+            <summary>
+            Methods for system families
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.CreateCompoundLayer(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Create a layer by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="function">The function of the layer (integer)</param>
+            <param name="material">The material (dynamo type)</param>
+            <param name="thickness">Thickness of the layer</param>
+            <param name="wrapping">Wrapping of the layer</param>
+            <param name="placement">Placement of the layer (string)</param>
+            <param name="index">The index of the layer</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.DeleteCompoundLayer(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Delete a layer by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="index">The index of the layer</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerMaterial(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Sets the material by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="material">The material (dynamo type)</param>
+            <param name="index">The index to set</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerWidth(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Sets the width by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="thickness">Thickness of the layer</param>
+            <param name="index">The index to set</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Boolean">
+            <summary>
+            Boolean methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Boolean.Flipped(System.Collections.IList)">
+            <summary>
+            Get the element flip condition, output as boolean
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="bool">List of booleans</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Boolean.HandFlipped(System.Collections.IList)">
+            <summary>
+            Get the element hand flip condition, output as boolean
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="bool">List of booleans</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Boolean.FaceFlipped(System.Collections.IList)">
+            <summary>
+            Get the element face flip condition, output as boolean
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="bool">List of booleans</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Element">
+            <summary>
+            Methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.Flipped(System.Collections.IList)">
+            <summary>
+            Get the element flip condition, output as element
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="true">List of flipped elements</returns>
+            <returns name="false">List of not flipped elements</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.HandFlipped(System.Collections.IList)">
+            <summary>
+            Get the element hand flip condition, output as element
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="true">List of flipped elements</returns>
+            <returns name="false">List of not flipped elements</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.FaceFlipped(System.Collections.IList)">
+            <summary>
+            Get the element face flip condition, output as element
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="true">List of flipped elements</returns>
+            <returns name="false">List of not flipped elements</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.Delete(System.Collections.IList)">
+            <summary>
+            Delete elements
+            </summary>
+            <param name="element">List of elements</param>
+            <returns name="watch">Add a watch node to verify the data processing</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.MaterialDensity(System.Collections.IList)">
+            <summary>
+            Get material density, return physical and thermal values in SI unit (kg/m3)
+            </summary>
+            <param name="material">List of materials</param>
+            <returns name="physical">Physical value</returns>
+            <returns name="thermal">Thermal value</returns>
+            <returns name="name">Name as string</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.SetAnalyticalLocation(System.Collections.IList,System.String)">
+            <summary>
+            Set (structural) element analytical location
+            </summary>
+            <param name="element">Element(s)</param>
+            <param name="location">Element analytical location</param>
+            <returns name="Element">Analytical floor element</returns>
+        </member>
+        <member name="T:Orchid.Revit.FamilyDocument.Document">
+            <summary>
+            Families methods for family documents
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Document.LoadFamily(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Load family by file name, same core process as File.LoadFamily
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Document.AddLookupTable(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.String)">
+            <summary>
+            Load lookup file by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="file">Lookup file (path) to load.</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Document.GetCategory(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Get the family document category.
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="Category">Category as string</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Document.SetCategory(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.IList)">
+            <summary>
+            Set the family document category.
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="category">Gategory as string</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="T:Orchid.Revit.FamilyDocument.Family">
+            <summary>
+            Families methods for families
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Family.GetNested(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Get nested family in the familyDocument
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="Family">Autodesk.Revit.DB.Family</returns>
+        </member>
+        <member name="T:Orchid.Revit.FamilyDocument.FamilyType">
+            <summary>
+            Families methods for family types
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current">
+            <summary>
+            Get the current family type
+            </summary>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Name(Autodesk.Revit.DB.FamilyType)">
+            <summary>
+            Get the family type name
+            </summary>
+            <param name="familyType">The name of the family type</param>
+            <returns name="string">string</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Get all family types
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="FamilyType">List of family type</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Create(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Create family type by name. If no input to name is provided,
+            then a default family type will be created named as the familyDocument.
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="name">The family type name</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Rename(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Rename family type by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="sourceName">The name of the source family type</param>
+            <param name="targetName">The name of the target family type</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Delete(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Delete family type by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="familyType">The name of the family type to delete</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.GetNested(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Get nested family in the familyDocument
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilySymbol</returns>
+        </member>
+        <member name="T:Orchid.Revit.FamilyDocument.Formula">
+            <summary>
+            Families methods for formulas
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Formula.GetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Get family formula value by parameter name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to get</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="formula">Formula as string</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Formula.SetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Set family formula value by parameter name. Please notice a default type must exist!
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to set</param>
+            <param name="value">The value</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Formula.Remove(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Remove family formula value by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to remove formula</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="T:Orchid.Revit.FamilyDocument.Parameter">
+            <summary>
+            Families methods for parameters
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.Parameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Obtain all of the Parameters from the family document, sorted by Name.
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="Parameter">Parameter</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.AddParameter(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Add (create) parameter by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to create</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="tooltip">Tooltip for the parameter</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.AddParameter(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},Revit.Elements.Category,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Add (create) parameter by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to create</param>
+            <param name="category">Category for Family Type as Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="tooltip">Tooltip for the parameter</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.AddSharedParameter(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Add (create) shared parameter by name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="groupName">Group of the parameter for the shared parameter</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="tooltip">Tooltip for the parameter</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.GetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Get family parameter value by parameter name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="familyType">The name of the family type</param>
+            <param name="parameterName">The name of the parameter to get</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="valueByType">Value by familyType</returns>
+            <returns name="valueByParameter">Value by parameterName</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.SetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.IList)">
+            <summary>
+            Set family parameter value by parameter name. Please notice a default type must exist!
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="familyType">The name of the family type</param>
+            <param name="parameterName">The name of the parameter to set</param>
+            <param name="value">The value to set</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.Rename(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Rename family parameter by parameter name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="sourceName">The name of the source parameter</param>
+            <param name="targetName">The name of the target parameter</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.Delete(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Delete family parameter by parameter name
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to delete</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.IsReporting(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
+            <summary>
+            Verify if parameter is a reporting parameter
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="parameterName">The name of the parameter to verify</param>
+            <returns name="bool">List of booleans</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.Associate(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{Revit.Elements.Element},System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Associate document parameter with nested family parameter
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <param name="familyType">Nested element (family type) in the familyDocument</param>
+            <param name="documentParameter">The name of the familyDocument parameter to be associated</param>
+            <param name="familyParameter">The name of the nested element parameter to be associated</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+        </member>
+    </members>
+</doc>

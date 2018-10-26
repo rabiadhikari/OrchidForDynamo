@@ -1,0 +1,474 @@
+{
+  "Uuid": "1cf55576-49bf-44e7-83bf-55ed8a85c515",
+  "IsCustomNode": true,
+  "Category": "Orchid.Applications.Query",
+  "Description": "Get element id from FEM-design",
+  "Name": "FEMdesign.GetElementID",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "String": {
+        "Key": "DSCore.String",
+        "Value": "DSCoreNodes.dll"
+      },
+      "DSCore.List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [
+    {
+      "Id": "204e25963a584f9c927163497e5251ae",
+      "Name": "Filename",
+      "Type": "string",
+      "Value": "FEMdesign_GetElementID.py",
+      "Description": "Creates a string."
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "t1 = DSCore.List.Flatten([elements]);\nt1.GetParameterValueByName(\"StruXML Guid\");",
+      "Id": "6e0546fbd6854a258f7b664d1b6d39a2",
+      "Inputs": [
+        {
+          "Id": "a04e744bbb9d482cbfeb3887bc921ddd",
+          "Name": "elements",
+          "Description": "elements",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c749c697c0f94855b586c64a10e6e6ea",
+          "Name": "",
+          "Description": "t1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "eb5e2f1fe96546e5a75598efb9b850b8",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "file",
+        "TypeName": "string",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": "Path and Filename to the FEM-design\nxml file including extension!"
+      },
+      "Id": "e82bc57dc6074af0aa229c3cad5bf065",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4b0fc06af0a74b5897e272a7e0751321",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "element",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": "Element(s)"
+      },
+      "Id": "727831f4727a40469af099212334e91a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5a36b09120a34515955274755810f31a",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "FEMdesign_GetElementID.py",
+      "Id": "204e25963a584f9c927163497e5251ae",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2c2193e7c85244d4b05bd87fcc061e9c",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "ee7b31bfc8604e39a1434c505527ae65",
+      "Inputs": [
+        {
+          "Id": "09ca6e2aa17742759ff57adf0b70a99c",
+          "Name": "script",
+          "Description": "Python script to run.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bfe22461de204115a5e36b9a6a7b3831",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3ca3a6c86da74d85933f9b802dbb27cc",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "36d5bc8e61934f12a948bfd021940d74",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eac09a0967b040d4881eb0aa955bc68b",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs a IronPython script from a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "//FEM element id\r\nFEMid",
+      "Id": "e19680a248ca48588303e91546cbddcc",
+      "Inputs": [
+        {
+          "Id": "95ef7a1410be467c8cb81e5805c844dd",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Generic.Core.Scripting.ScriptFileReader@string,string,bool",
+      "Id": "5bdb3931f9d94a10a91e31bc10c9257a",
+      "Inputs": [
+        {
+          "Id": "b726f38b09ed4329bc2f0e04f7f25d6a",
+          "Name": "path",
+          "Description": "Path to file\n\nstring\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ca22a7293e1b43ed9bb573ae25ad2584",
+          "Name": "file",
+          "Description": "Filename including file extension\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "717a6d76661c48d4a8585239cd69f84a",
+          "Name": "refresh",
+          "Description": "Toggle true/false for refreshing\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f6d6c6835ccc4d43b010a7135c5acec6",
+          "Name": "script",
+          "Description": "Script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Read 'script' file content, with refreshing option.\n\nScripting.ScriptFileReader (path: string = null, file: string, refresh: bool = false): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c749c697c0f94855b586c64a10e6e6ea",
+      "End": "3ca3a6c86da74d85933f9b802dbb27cc",
+      "Id": "7e51ac66efbb4a50a442384618a9ff21"
+    },
+    {
+      "Start": "eb5e2f1fe96546e5a75598efb9b850b8",
+      "End": "36d5bc8e61934f12a948bfd021940d74",
+      "Id": "cdbeaf97421e4b5598e4404afa442ff9"
+    },
+    {
+      "Start": "4b0fc06af0a74b5897e272a7e0751321",
+      "End": "bfe22461de204115a5e36b9a6a7b3831",
+      "Id": "11d54de40d9a44d48a69b72a1fc0d257"
+    },
+    {
+      "Start": "5a36b09120a34515955274755810f31a",
+      "End": "a04e744bbb9d482cbfeb3887bc921ddd",
+      "Id": "c07ede59c24342c3a93e08488d7b72ba"
+    },
+    {
+      "Start": "2c2193e7c85244d4b05bd87fcc061e9c",
+      "End": "ca22a7293e1b43ed9bb573ae25ad2584",
+      "Id": "8fddaadf2ebf40d79f5c14a7d26b26ab"
+    },
+    {
+      "Start": "eac09a0967b040d4881eb0aa955bc68b",
+      "End": "95ef7a1410be467c8cb81e5805c844dd",
+      "Id": "626190c0f0be4458bac99f9d28768415"
+    },
+    {
+      "Start": "f6d6c6835ccc4d43b010a7135c5acec6",
+      "End": "09ca6e2aa17742759ff57adf0b70a99c",
+      "Id": "0155184c784f4c0aa9058b781a93e0fd"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.0.4655",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "6e0546fbd6854a258f7b664d1b6d39a2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 92.584227039878954,
+        "Y": 1071.4693584815843
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "e82bc57dc6074af0aa229c3cad5bf065",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 92.584227039878954,
+        "Y": 960.04269181491759
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "727831f4727a40469af099212334e91a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -185.41577296012105,
+        "Y": 1067.256025148251
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Filename",
+        "Id": "204e25963a584f9c927163497e5251ae",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 102.58422703987895,
+        "Y": 811.04269181491759
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Source",
+        "Id": "ee7b31bfc8604e39a1434c505527ae65",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 704.5842270398789,
+        "Y": 910.04269181491759
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "e19680a248ca48588303e91546cbddcc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 933.5842270398789,
+        "Y": 910.04269181491759
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Scripting.ScriptFileReader",
+        "Id": "5bdb3931f9d94a10a91e31bc10c9257a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 397.58422703987895,
+        "Y": 785.04269181491759
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "607e787f6c6d48108f47b4731e6a0e4a",
+        "Title": "read source code from the package",
+        "Nodes": [
+          "204e25963a584f9c927163497e5251ae",
+          "5bdb3931f9d94a10a91e31bc10c9257a"
+        ],
+        "Left": 92.584227039878954,
+        "Top": 746.04269181491759,
+        "Width": 512.0,
+        "Height": 184.0,
+        "FontSize": 24.0,
+        "InitialTop": 785.04269181491759,
+        "InitialHeight": 171.0,
+        "TextblockHeight": 29.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "607e787f6c6d48108f47b4731e6a0e4a",
+        "Title": "read source code from the package",
+        "Nodes": [
+          "204e25963a584f9c927163497e5251ae",
+          "5bdb3931f9d94a10a91e31bc10c9257a"
+        ],
+        "Left": 92.584227039878954,
+        "Top": 746.04269181491759,
+        "Width": 512.0,
+        "Height": 184.0,
+        "FontSize": 24.0,
+        "InitialTop": 785.04269181491759,
+        "InitialHeight": 171.0,
+        "TextblockHeight": 29.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "607e787f6c6d48108f47b4731e6a0e4a",
+        "Title": "read source code from the package",
+        "Nodes": [
+          "204e25963a584f9c927163497e5251ae",
+          "5bdb3931f9d94a10a91e31bc10c9257a"
+        ],
+        "Left": 92.584227039878954,
+        "Top": 746.04269181491759,
+        "Width": 512.0,
+        "Height": 184.0,
+        "FontSize": 24.0,
+        "InitialTop": 785.04269181491759,
+        "InitialHeight": 171.0,
+        "TextblockHeight": 29.0,
+        "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "607e787f6c6d48108f47b4731e6a0e4a",
+        "Title": "read source code from the package",
+        "Nodes": [
+          "204e25963a584f9c927163497e5251ae",
+          "5bdb3931f9d94a10a91e31bc10c9257a"
+        ],
+        "Left": 92.584227039878954,
+        "Top": 746.04269181491759,
+        "Width": 512.0,
+        "Height": 184.0,
+        "FontSize": 24.0,
+        "InitialTop": 785.04269181491759,
+        "InitialHeight": 171.0,
+        "TextblockHeight": 29.0,
+        "Background": "#FFBB87C6"
+      }
+    ],
+    "X": 255.22009580479966,
+    "Y": -661.79264256883573,
+    "Zoom": 1.2146760343481655
+  }
+}
