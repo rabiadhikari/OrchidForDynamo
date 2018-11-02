@@ -569,9 +569,17 @@
             Families methods for family types
             </summary>
         </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Get the current family type in list of documents
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
+            <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
+        </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current">
             <summary>
-            Get the current family type
+            Get the current family type in current document
             </summary>
             <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
         </member>
@@ -584,11 +592,17 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
-            Get all family types
+            Get all family types in list of documents
             </summary>
             <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
             <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
-            <returns name="FamilyType">List of family type</returns>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All">
+            <summary>
+            Get all family types in current document
+            </summary>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Create(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
             <summary>
@@ -708,23 +722,23 @@
             <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
             <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
         </member>
-        <member name="M:Orchid.Revit.FamilyDocument.Parameter.GetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String})">
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.GetValue(System.Collections.Generic.List{Autodesk.Revit.DB.Document},System.Collections.IList,System.Collections.Generic.List{System.String})">
             <summary>
             Get family parameter value by parameter name
             </summary>
             <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
-            <param name="familyType">The name of the family type</param>
+            <param name="familyType">The name of the family type as string or Autodesk.Revit.DB.FamilyType</param>
             <param name="parameterName">The name of the parameter to get</param>
             <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
             <returns name="valueByType">Value by familyType</returns>
             <returns name="valueByParameter">Value by parameterName</returns>
         </member>
-        <member name="M:Orchid.Revit.FamilyDocument.Parameter.SetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.IList)">
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.SetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.IList,System.Collections.Generic.IList{System.String},System.Collections.IList)">
             <summary>
             Set family parameter value by parameter name. Please notice a default type must exist!
             </summary>
             <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
-            <param name="familyType">The name of the family type</param>
+            <param name="familyType">The name of the family type as string or Autodesk.Revit.DB.FamilyType</param>
             <param name="parameterName">The name of the parameter to set</param>
             <param name="value">The value to set</param>
             <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
