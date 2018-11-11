@@ -4,6 +4,24 @@
         <name>OrchidRevit</name>
     </assembly>
     <members>
+        <member name="T:Orchid.Revit.Applications.Sigma">
+            <summary>
+            Sigma methods
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Applications.Sigma.Component(System.Collections.IList,System.Collections.Generic.List{Revit.Elements.Element},System.String,System.Collections.Generic.List{System.Double},System.String,System.Double,System.Boolean)">
+            <summary>
+            Create Sigma Estimate component data
+            </summary>
+            <param name="componentTree">List containing the structure as strings {"number","text"}\nAt least one 'level' is needed!</param>
+            <param name="element">Element(s)</param>
+            <param name="code">Element identifier for Sigma</param>
+            <param name="quantity">Quantity as numeric value</param>
+            <param name="sigmaUnit">Unit identifier for Sigma</param>
+            <param name="sigmaRegulation">Regulation for the Sigma Component</param>
+            <param name="instance">Component as instances or summarized/nTrue select Data to be Instances, False select Data to be summarized</param>
+            <returns name="component">Component</returns>
+        </member>
         <member name="T:Orchid.Revit.Core.Document">
             <summary>
             Document methods
@@ -365,7 +383,7 @@
             Methods for system families
             </summary>
         </member>
-        <member name="M:Orchid.Revit.Elements.SystemFamily.CreateCompoundLayer(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32})">
+        <member name="M:Orchid.Revit.Elements.SystemFamily.CreateCompoundLayer(System.Collections.IList,System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32})">
             <summary>
             Create a layer by index at a specified compound layer in a system
             family type that have a compound structure (walls, floors, roofs etc.).
@@ -375,11 +393,13 @@
             <param name="material">The material (dynamo type)</param>
             <param name="thickness">Thickness of the layer</param>
             <param name="wrapping">Wrapping of the layer</param>
+            <param name="variable">Set the layer variable</param>
+            <param name="structural">Set the layer structural</param>
             <param name="placement">Placement of the layer (string)</param>
             <param name="index">The index of the layer</param>
             <returns name="ElementType">FamilyType</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.SystemFamily.DeleteCompoundLayer(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32})">
+        <member name="M:Orchid.Revit.Elements.SystemFamily.DeleteCompoundLayer(System.Collections.IList,System.Collections.Generic.List{System.Int32})">
             <summary>
             Delete a layer by index at a specified compound layer in a system
             family type that have a compound structure (walls, floors, roofs etc.).
@@ -388,7 +408,7 @@
             <param name="index">The index of the layer</param>
             <returns name="ElementType">FamilyType</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.SystemFamily.GetCompoundLayerMaterial(System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.Revit.Elements.SystemFamily.GetCompoundLayerMaterial(System.Collections.IList)">
             <summary>
             Get the compound layer material in a system family type that
             have a compound structure (walls, floors, roofs etc.).
@@ -396,7 +416,7 @@
             <param name="elementType">The system family type</param>
             <returns name="Material">Material</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.SystemFamily.GetCompoundLayerWidth(System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.Revit.Elements.SystemFamily.GetCompoundLayerWidth(System.Collections.IList)">
             <summary>
             Get the compound layer width in a system family type that
             have a compound structure (walls, floors, roofs etc.).
@@ -404,7 +424,7 @@
             <param name="elementType">The system family type</param>
             <returns name="double">Width</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerMaterial(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32})">
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerMaterial(System.Collections.IList,System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Int32})">
             <summary>
             Set the material by index at a specified compound layer in a system
             family type that have a compound structure (walls, floors, roofs etc.).
@@ -414,13 +434,43 @@
             <param name="index">The index to set</param>
             <returns name="ElementType">FamilyType</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerWidth(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32})">
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerWidth(System.Collections.IList,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32})">
             <summary>
             Set the width by index at a specified compound layer in a system
             family type that have a compound structure (walls, floors, roofs etc.).
             </summary>
             <param name="elementType">The system family type</param>
             <param name="thickness">Thickness of the layer</param>
+            <param name="index">The index to set</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerWrapping(System.Collections.IList,System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Wrapping of the layer by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="wrapping">Wrapping of the layer</param>
+            <param name="index">The index to set</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerVariable(System.Collections.IList,System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Set the layer variable by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="variable">Set the layer variable</param>
+            <param name="index">The index to set</param>
+            <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.SetCompoundLayerStructural(System.Collections.IList,System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Set the layer structural by index at a specified compound layer in a system
+            family type that have a compound structure (walls, floors, roofs etc.).
+            </summary>
+            <param name="elementType">The system family type</param>
+            <param name="structural">Set the layer structural</param>
             <param name="index">The index to set</param>
             <returns name="ElementType">FamilyType</returns>
         </member>
