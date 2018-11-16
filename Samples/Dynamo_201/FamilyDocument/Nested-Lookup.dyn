@@ -111,7 +111,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.AddParameter@var[],string[],string,string,bool,bool",
+      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.AddParameter@var[],string[],string,string,string,bool,bool",
       "Id": "1bb38fec400c4f218488d70667c4b2fe",
       "Inputs": [
         {
@@ -152,6 +152,15 @@
         },
         {
           "Id": "6ffa84fda5b64ff8b1653616d8b5f726",
+          "Name": "tooltip",
+          "Description": "Tooltip for the parameter\n\nstring\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3bf197649bed4aed975bf7a191035e86",
           "Name": "instance",
           "Description": "Is instance parameter, otherwise it's a type parameter\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -160,7 +169,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "3bf197649bed4aed975bf7a191035e86",
+          "Id": "ac0bd20d0e3f47e2a87d00b631c52419",
           "Name": "reporting",
           "Description": "Is reporting parameter. Is only available to Length and Angle parameters!\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -181,7 +190,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Add (create) parameter by name\n\nParameter.AddParameter (familyDocument: var[] = null, parameterName: string[], type: string, group: string, instance: bool = false, reporting: bool = false): var[]"
+      "Description": "Add (create) parameter by name\n\nParameter.AddParameter (familyDocument: var[] = null, parameterName: string[], type: string, group: string, tooltip: string = null, instance: bool = false, reporting: bool = false): var[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -235,7 +244,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.SetValue@var[],string[],string[],var[]..[]",
+      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.SetValue@var[],var[]..[],string[],var[]..[]",
       "Id": "546dc216fb9b461ab7e533cc484fb727",
       "Inputs": [
         {
@@ -250,7 +259,7 @@
         {
           "Id": "a7286946650a45f98d3666e1f6f17e49",
           "Name": "familyType",
-          "Description": "The name of the family type\n\nstring[]\nDefault value : null",
+          "Description": "The name of the family type as string or Autodesk.Revit.DB.FamilyType\n\nvar[]..[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -287,7 +296,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set family parameter value by parameter name. Please notice a default type must exist!\n\nParameter.SetValue (familyDocument: var[] = null, familyType: string[] = null, parameterName: string[], value: var[]..[]): var[]"
+      "Description": "Set family parameter value by parameter name. Please notice a default type must exist!\n\nParameter.SetValue (familyDocument: var[] = null, familyType: var[]..[] = null, parameterName: string[], value: var[]..[]): var[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -494,7 +503,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.AddParameter@var[],string[],string,string,bool,bool",
+      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.AddParameter@var[],string[],string,string,string,bool,bool",
       "Id": "9e8841e53687461fb67db16a4e48fbbf",
       "Inputs": [
         {
@@ -535,6 +544,15 @@
         },
         {
           "Id": "0706fa017d6147a8bf618efbb9fa424f",
+          "Name": "tooltip",
+          "Description": "Tooltip for the parameter\n\nstring\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a36fb3282f534188a2a59a70e7d38d4c",
           "Name": "instance",
           "Description": "Is instance parameter, otherwise it's a type parameter\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -543,7 +561,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "a36fb3282f534188a2a59a70e7d38d4c",
+          "Id": "06abd7a9453d4a779911855265877b0c",
           "Name": "reporting",
           "Description": "Is reporting parameter. Is only available to Length and Angle parameters!\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -564,7 +582,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Add (create) parameter by name\n\nParameter.AddParameter (familyDocument: var[] = null, parameterName: string[], type: string, group: string, instance: bool = false, reporting: bool = false): var[]"
+      "Description": "Add (create) parameter by name\n\nParameter.AddParameter (familyDocument: var[] = null, parameterName: string[], type: string, group: string, tooltip: string = null, instance: bool = false, reporting: bool = false): var[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -708,45 +726,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "[waitFor,pass][1];",
-      "Id": "330dac84dbf74ebcb41e99af49d373cf",
-      "Inputs": [
-        {
-          "Id": "1e30925dea6342ce8e3745d1edf85ef2",
-          "Name": "waitFor",
-          "Description": "waitFor",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "d3ef0cb22a0749b585e81a1888197b06",
-          "Name": "pass",
-          "Description": "pass",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "8cf8c59439cb41dd9f213a2539035737",
-          "Name": "",
-          "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
       "Code": "//Parameter name\n[\"Lookup Table Name\",\"testKey\"];\n//Values\n[\"CSVLookuptable\",\"11x300\"];",
       "Id": "7c8eb82e203e45cbb321e84ff9dd83cc",
       "Inputs": [],
@@ -776,7 +755,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.SetValue@var[],string[],string[],var[]..[]",
+      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.SetValue@var[],var[]..[],string[],var[]..[]",
       "Id": "a15a6e22737d4a42ae2c10207e1f5ff4",
       "Inputs": [
         {
@@ -791,7 +770,7 @@
         {
           "Id": "88245c05a356472285a40f78d348531c",
           "Name": "familyType",
-          "Description": "The name of the family type\n\nstring[]\nDefault value : null",
+          "Description": "The name of the family type as string or Autodesk.Revit.DB.FamilyType\n\nvar[]..[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -828,7 +807,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set family parameter value by parameter name. Please notice a default type must exist!\n\nParameter.SetValue (familyDocument: var[] = null, familyType: string[] = null, parameterName: string[], value: var[]..[]): var[]"
+      "Description": "Set family parameter value by parameter name. Please notice a default type must exist!\n\nParameter.SetValue (familyDocument: var[] = null, familyType: var[]..[] = null, parameterName: string[], value: var[]..[]): var[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
@@ -1458,7 +1437,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.AddParameter@var[],string[],Revit.Elements.Category,string,bool,bool",
+      "FunctionSignature": "Orchid.Revit.FamilyDocument.Parameter.AddParameter@var[],string[],Revit.Elements.Category,string,string,bool,bool",
       "Id": "db9787476cba421ca8de6b18a46083f8",
       "Inputs": [
         {
@@ -1499,6 +1478,15 @@
         },
         {
           "Id": "3e7d2385f0d844e09fd0a6bc2bc8f2b9",
+          "Name": "tooltip",
+          "Description": "Tooltip for the parameter\n\nstring\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0bc0c2bda184484f80194551bd7157c4",
           "Name": "instance",
           "Description": "Is instance parameter, otherwise it's a type parameter\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -1507,7 +1495,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "0bc0c2bda184484f80194551bd7157c4",
+          "Id": "eee44a8f684e4cbf9a079a708007753e",
           "Name": "reporting",
           "Description": "Is reporting parameter. Is only available to Length and Angle parameters!\n\nbool\nDefault value : false",
           "UsingDefaultValue": true,
@@ -1528,7 +1516,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Add (create) parameter by name\n\nParameter.AddParameter (familyDocument: var[] = null, parameterName: string[], category: Category, group: string, instance: bool = false, reporting: bool = false): var[]"
+      "Description": "Add (create) parameter by name\n\nParameter.AddParameter (familyDocument: var[] = null, parameterName: string[], category: Category, group: string, tooltip: string = null, instance: bool = false, reporting: bool = false): var[]"
     },
     {
       "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
@@ -1647,6 +1635,45 @@
       ],
       "Replication": "Disabled",
       "Description": "Select a built-in parameter group."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Generic.Core.Data.Await@var,var[]..[]",
+      "Id": "68923d586d9b4386afef521c98c490f3",
+      "Inputs": [
+        {
+          "Id": "2ac355e5ee134ec98941ba960689607e",
+          "Name": "pass",
+          "Description": "Data to pass\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "16360e7aeca449f09b9e30b78911b7e5",
+          "Name": "waitFor",
+          "Description": "Data object to wait for\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "23f55029b7324fb0823af97d71549f91",
+          "Name": "pass",
+          "Description": "Passed data",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Await a data stream before passing another data stream\n\nData.Await (pass: var, waitFor: var[]..[]): var[]..[]"
     }
   ],
   "Connectors": [
@@ -1782,18 +1809,13 @@
     },
     {
       "Start": "3b01a3ffca4344ca80167351ce4ab316",
-      "End": "1e30925dea6342ce8e3745d1edf85ef2",
-      "Id": "dfe5b7e433bb4019a346a337da01cb89"
+      "End": "16360e7aeca449f09b9e30b78911b7e5",
+      "Id": "edd303b53d6943c5a2b49b2030c5e2de"
     },
     {
       "Start": "69b969cedae74799ba153a9280c2d312",
-      "End": "d3ef0cb22a0749b585e81a1888197b06",
-      "Id": "e638aef30a7e4c1f831b2b35183aafc5"
-    },
-    {
-      "Start": "8cf8c59439cb41dd9f213a2539035737",
-      "End": "de1b5ad5b6994561bcfa9c60dab48275",
-      "Id": "d0ed8f057ef64d94b53d08df99db0ff1"
+      "End": "2ac355e5ee134ec98941ba960689607e",
+      "Id": "c02555fcca2c45c8b3a6864db9e1e847"
     },
     {
       "Start": "b3e50ab9d1ca4e18bbe9a0c9c1e99094",
@@ -1888,7 +1910,7 @@
     {
       "Start": "29b6f378d37c451eb8f87eab4f50201a",
       "End": "18917c89b75040e499eb6c04a55b8a63",
-      "Id": "b59e42b854e14ea6a838d7daa305c158"
+      "Id": "57b9ec8d29b34feeb0eeadc81bedca96"
     },
     {
       "Start": "28d2833b3be14930a1289a6a2e252a95",
@@ -1904,6 +1926,11 @@
       "Start": "cc25b2a807bc41f19f9420cec8320b7f",
       "End": "77d7d0854b704eb48b989f7336b6a815",
       "Id": "08c567b3347044aa86c6654c78934104"
+    },
+    {
+      "Start": "23f55029b7324fb0823af97d71549f91",
+      "End": "de1b5ad5b6994561bcfa9c60dab48275",
+      "Id": "be29bc88bd01459ea9da5ecd0f40aad3"
     }
   ],
   "Dependencies": [],
@@ -1913,7 +1940,7 @@
       "ScaleFactor": 1.0,
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
-      "Version": "2.1.0.6255",
+      "Version": "2.0.1.5055",
       "RunType": "Manual",
       "RunPeriod": "1000"
     },
@@ -2099,16 +2126,6 @@
         "Excluded": false,
         "X": 1308.60625676328,
         "Y": -365.144240477561
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Code Block",
-        "Id": "330dac84dbf74ebcb41e99af49d373cf",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1534.46962356617,
-        "Y": -428.709652425396
       },
       {
         "ShowGeometry": true,
@@ -2389,6 +2406,16 @@
         "Excluded": false,
         "X": -89.8714937373925,
         "Y": 290.450922232337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Data.Await",
+        "Id": "68923d586d9b4386afef521c98c490f3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1561.3734977894349,
+        "Y": -434.0921086326581
       }
     ],
     "Annotations": [
@@ -2404,7 +2431,7 @@
         "Height": 201.0,
         "FontSize": 30.0,
         "InitialTop": -717.434777286573,
-        "InitialHeight": 149.0,
+        "InitialHeight": 145.0,
         "TextblockHeight": 72.0,
         "Background": "#FFC1D676"
       },
@@ -2418,10 +2445,10 @@
         "Left": -101.3440196033454,
         "Top": -541.179565140618,
         "Width": 638.43421007735037,
-        "Height": 268.60158812589503,
+        "Height": 295.0,
         "FontSize": 30.0,
         "InitialTop": -495.179565140618,
-        "InitialHeight": 293.493333333334,
+        "InitialHeight": 195.60158812589503,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2438,7 +2465,7 @@
         "Height": 254.08815239459108,
         "FontSize": 30.0,
         "InitialTop": -495.588907084872,
-        "InitialHeight": 202.08,
+        "InitialHeight": 216.08815239459108,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2463,7 +2490,7 @@
         "Height": 568.93037145461653,
         "FontSize": 30.0,
         "InitialTop": -219.363426219122,
-        "InitialHeight": 220.0,
+        "InitialHeight": 435.65946227155422,
         "TextblockHeight": 72.0,
         "Background": "#FFA4E1FF"
       },
@@ -2473,7 +2500,6 @@
         "Nodes": [
           "fe2b705614fe494bb9d72d676d774cba",
           "b99da560bf544b5097ff5fdac0b691ff",
-          "330dac84dbf74ebcb41e99af49d373cf",
           "5bc7816192c140de97074cd406e5f037",
           "edb25ffc92af46618068adb0c36f3b72"
         ],
@@ -2483,7 +2509,7 @@
         "Height": 347.20957560281096,
         "FontSize": 30.0,
         "InitialTop": -494.835617472584,
-        "InitialHeight": 201.066666666667,
+        "InitialHeight": 309.20957560281096,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2497,10 +2523,10 @@
         "Left": 298.780453521874,
         "Top": -200.927450243561,
         "Width": 679.143343580402,
-        "Height": 277.88277465838041,
+        "Height": 295.0,
         "FontSize": 30.0,
         "InitialTop": -154.927450243561,
-        "InitialHeight": 253.0,
+        "InitialHeight": 204.88277465838041,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2519,7 +2545,7 @@
         "Height": 165.0,
         "FontSize": 30.0,
         "InitialTop": -718.212648559875,
-        "InitialHeight": 159.209748167737,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFD4B6DB"
       },
@@ -2536,7 +2562,7 @@
         "Height": 216.058349749486,
         "FontSize": 30.0,
         "InitialTop": 185.373327174455,
-        "InitialHeight": 201.066666666667,
+        "InitialHeight": 178.058349749486,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2556,7 +2582,7 @@
         "Height": 412.662561125255,
         "FontSize": 30.0,
         "InitialTop": 184.642027151362,
-        "InitialHeight": 383.291632942744,
+        "InitialHeight": 428.662561125255,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -2577,7 +2603,7 @@
         "Height": 417.75122175032095,
         "FontSize": 30.0,
         "InitialTop": -828.271268229837,
-        "InitialHeight": 294.71971835936,
+        "InitialHeight": 279.583836154585,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -2595,7 +2621,7 @@
         "Height": 350.767945413056,
         "FontSize": 30.0,
         "InitialTop": 444.449253746447,
-        "InitialHeight": 253.0,
+        "InitialHeight": 356.767945413056,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -2614,13 +2640,13 @@
         "Height": 272.706389849171,
         "FontSize": 30.0,
         "InitialTop": 290.450922232337,
-        "InitialHeight": 241.706389849171,
+        "InitialHeight": 262.706389849171,
         "TextblockHeight": 36.0,
         "Background": "#FFD8D8D8"
       }
     ],
-    "X": 44.744172591483782,
-    "Y": 507.09080579837735,
-    "Zoom": 0.16141366074658475
+    "X": 65.948534068058819,
+    "Y": 522.50753842942686,
+    "Zoom": 0.39355104170106209
   }
 }
