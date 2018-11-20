@@ -90,11 +90,15 @@
             <param name="document">Autodesk.Revit.DB.Document</param>
             <returns name="info">Document info</returns>
         </member>
-        <member name="M:Orchid.Revit.Core.Document.Purge(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+        <member name="M:Orchid.Revit.Core.Document.Purge(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Boolean)">
             <summary>
-            Purge document
+            Purge document. Set "completely" to true for including materials and assets!
+            Please note "completely" purges also materials and materials assets that are 
+            used in "peripheral" elements and settings. Among this is included materials/assets 
+            bound to imported model elements, and materials/assets in settings like "Site" etc.
             </summary>
             <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="completely">Includes purging materials and assets</param>
         </member>
         <member name="T:Orchid.Revit.Core.Print">
             <summary>
