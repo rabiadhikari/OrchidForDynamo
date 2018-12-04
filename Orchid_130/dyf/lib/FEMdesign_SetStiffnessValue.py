@@ -1,6 +1,6 @@
 ﻿# coding=utf-8
-# Copyright(c) 2014-2018 by Erik Falck Jørgensen
-# This file is covered by the (GPL-3.0) LICENSE in this Dynamo package 'extra' folder
+# Copyright(c) 2014 by Erik Falck Jørgensen
+# This file is covered by the LICENSE at the repository root folder
 '''
 Set stiffness value in FEM-design xml-file
 '''
@@ -8,6 +8,7 @@ Set stiffness value in FEM-design xml-file
 # Set sys.path
 import sys
 sys.path.insert(0, 'C:\Program files (x86)\IronPython 2.7\Lib')
+sys.path.insert(1, 'C:\Program files\IronPython 2.7\Lib')
 
 # Python and Dynamo module
 import traceback

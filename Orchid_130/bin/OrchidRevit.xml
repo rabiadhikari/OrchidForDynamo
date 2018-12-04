@@ -9,6 +9,9 @@
             Sigma methods
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Applications.Sigma.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Applications.Sigma.Component(System.Collections.IList,System.Collections.Generic.List{Revit.Elements.Element},System.String,System.Collections.Generic.List{System.Double},System.String,System.Double,System.Boolean)">
             <summary>
             Create Sigma Estimate component data
@@ -27,6 +30,9 @@
             PostCommand methods
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Core.PostCommand.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Core.PostCommand.Purge(System.Boolean)">
             <summary>
             Purge document by Post Command.
@@ -40,6 +46,9 @@
             <summary>
             Document methods
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="P:Orchid.Revit.Core.Document.Current">
             <summary>
@@ -116,7 +125,7 @@
             Does document contain type?
             </summary>
             <param name="type">Type to validate is contained in the document</param>
-            <returns name="watch">Add a watch node to verify the data processing</returns>
+            <returns name="bool">List of booleans</returns>
         </member>
         <member name="M:Orchid.Revit.Core.Document.Purge(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Boolean)">
             <summary>
@@ -132,6 +141,9 @@
             <summary>
             Print methods for core processes
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.Print.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Core.Print.ByView(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IList{System.String},System.String,System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
             <summary>
@@ -199,6 +211,9 @@
             View methods for core processes
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Core.ViewSheetSet.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Core.ViewSheetSet.Create(System.Collections.Generic.IList{Revit.Elements.Element},System.String)">
             <summary>
             Create ViewSheetSet
@@ -232,6 +247,9 @@
             <summary>
             File methods for core processes
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.File.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Core.File.Info(System.Collections.Generic.IList{System.String})">
             <summary>
@@ -279,6 +297,9 @@
             Object methods
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Core.Object.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Core.Object.ToAutodeskElement(Revit.Elements.Element)">
             <summary>
             Convert Dynamo elements to Autodesk Revit elements
@@ -293,10 +314,38 @@
             <param name="element">Autodesk.Revit.DB.Element</param>
             <returns name="Element">Revit.Elements.Element</returns>
         </member>
+        <member name="T:Orchid.Revit.Elements.Material">
+            <summary>
+            Methods for materials
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Material.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Elements.Material.SumByElement(System.Collections.IList)">
+            <summary>
+            Material sum by element, return values in SI unit (m2/m3)
+            </summary>
+            <param name="element">List of element</param>
+            <returns name="Material">List of material</returns>
+            <returns name="area">List of area</returns>
+            <returns name="volumne">List of volumne</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Material.Density(System.Collections.IList)">
+            <summary>
+            Get material asset as physical and thermal density in SI unit (kg/m3)
+            </summary>
+            <param name="material">List of material</param>
+            <returns name="physical">List of physical density</returns>
+            <returns name="thermal">List of thermal density</returns>
+        </member>
         <member name="T:Orchid.Revit.Elements.Selection">
             <summary>
             Methods for selecting elements
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Selection.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Elements.Selection.ElementHasMaterial(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
@@ -330,6 +379,9 @@
             FamilyType methods for elements
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Elements.Family.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Elements.Family.GetFamilyDocument(System.Collections.IList)">
             <summary>
             Open family document by family 
@@ -342,6 +394,9 @@
             FamilyType methods for elements
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Elements.FamilyType.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Elements.FamilyType.GetFamilyDocument(System.Collections.IList)">
             <summary>
             Open family document by family type
@@ -349,31 +404,30 @@
             <param name="familyType">family types</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.FamilyType.ByFamilyName(System.Collections.IList)">
-            <summary>
-            Create family type by name 
-            </summary>
-            <param name="familyName">The name of the family type</param>
-            <returns name="FamilyType">FamilyType</returns>
-        </member>
         <member name="T:Orchid.Revit.Elements.Floor">
             <summary>
             Floor methods for elements
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Elements.Floor.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Elements.Floor.SetAreaLoad(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
             <summary>
             Set (structural) floor area load
             </summary>
-            <param name="element">Element(s)</param>
-            <param name="value">Load value</param>
+            <param name="element">Element</param>
             <param name="areaLoadType">AreaLoadType</param>
+            <param name="value">List of Load value</param>
             <returns name="value">Load value</returns>
         </member>
         <member name="T:Orchid.Revit.Elements.Parameter">
             <summary>
             Methods for parameters
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Parameter.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Elements.Parameter.AddProjectParameter(System.Collections.Generic.IList{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.IList{Revit.Elements.Category})">
             <summary>
@@ -414,6 +468,9 @@
             <summary>
             Methods for system families
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.SystemFamily.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Elements.SystemFamily.CreateCompoundLayer(System.Collections.IList,System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32})">
             <summary>
@@ -511,6 +568,9 @@
             Boolean methods for elements
             </summary>
         </member>
+        <member name="M:Orchid.Revit.Elements.Boolean.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.Elements.Boolean.Flipped(System.Collections.IList)">
             <summary>
             Get the element flip condition, output as boolean
@@ -536,6 +596,9 @@
             <summary>
             Methods for elements
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Elements.Element.Flipped(System.Collections.IList)">
             <summary>
@@ -568,14 +631,23 @@
             <param name="element">List of elements</param>
             <returns name="watch">Add a watch node to verify the data processing</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.Element.MaterialDensity(System.Collections.IList)">
+        <member name="M:Orchid.Revit.Elements.Element.GetMaterial(System.Collections.IList)">
             <summary>
-            Get material density, return physical and thermal values in SI unit (kg/m3)
+            Get material by element, return values in SI unit (m2/m3)
             </summary>
-            <param name="material">List of materials</param>
-            <returns name="physical">Physical value</returns>
-            <returns name="thermal">Thermal value</returns>
-            <returns name="name">Name as string</returns>
+            <param name="element">List of element</param>
+            <returns name="Material">Material</returns>
+            <returns name="area">List of area</returns>
+            <returns name="volumne">List of volumne</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.SumByMaterial(System.Collections.IList)">
+            <summary>
+            Element by (summarized) material, return values in SI unit (m2/m3)
+            </summary>
+            <param name="material">List of material</param>
+            <returns name="Element">List of element</returns>
+            <returns name="area">List of area</returns>
+            <returns name="volumne">List of volumne</returns>
         </member>
         <member name="M:Orchid.Revit.Elements.Element.SetAnalyticalLocation(System.Collections.IList,System.String)">
             <summary>
@@ -585,10 +657,20 @@
             <param name="location">Element analytical location</param>
             <returns name="Element">Analytical floor element</returns>
         </member>
+        <member name="M:Orchid.Revit.Elements.Element.GetAnalytical(Revit.Elements.Element)">
+            <summary>
+            Get analytical element
+            </summary>
+            <param name="element">Revit.Elements.Element</param>
+            <returns name="Element">Revit.Elements.Element</returns>
+        </member>
         <member name="T:Orchid.Revit.FamilyDocument.Document">
             <summary>
             Families methods for family documents
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Document.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Document.LoadFamily(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
@@ -626,6 +708,9 @@
             Families methods for families
             </summary>
         </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Family.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.FamilyDocument.Family.GetNested(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
             Get nested family in the familyDocument
@@ -639,18 +724,21 @@
             Families methods for family types
             </summary>
         </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current">
+            <summary>
+            Get the current family type in current document
+            </summary>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
+        </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
             Get the current family type in list of documents
             </summary>
             <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
             <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
-            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
-        </member>
-        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current">
-            <summary>
-            Get the current family type in current document
-            </summary>
             <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Name(Autodesk.Revit.DB.FamilyType)">
@@ -660,18 +748,18 @@
             <param name="familyType">The name of the family type</param>
             <returns name="string">string</returns>
         </member>
+        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All">
+            <summary>
+            Get all family types in current document
+            </summary>
+            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
+        </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
             Get all family types in list of documents
             </summary>
             <param name="familyDocument">Family document (rfa) as Autodesk.Revit.DB.Document</param>
             <returns name="Document">Family document (rfa) as Autodesk.Revit.DB.Document</returns>
-            <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
-        </member>
-        <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All">
-            <summary>
-            Get all family types in current document
-            </summary>
             <returns name="FamilyType">Autodesk.Revit.DB.FamilyType</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Create(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
@@ -713,6 +801,9 @@
             Families methods for formulas
             </summary>
         </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Formula.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
         <member name="M:Orchid.Revit.FamilyDocument.Formula.GetValue(System.Collections.Generic.IList{Autodesk.Revit.DB.Document},System.Collections.Generic.IList{System.String})">
             <summary>
             Get family formula value by parameter name
@@ -743,6 +834,9 @@
             <summary>
             Families methods for parameters
             </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Parameter.#ctor">
+            default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Parameter.Parameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
