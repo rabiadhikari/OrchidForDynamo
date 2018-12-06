@@ -4,6 +4,67 @@
         <name>OrchidGeneric</name>
     </assembly>
     <members>
+        <member name="T:Orchid.Generic.About">
+            <summary>
+            About the package.
+            </summary>
+        </member>
+        <member name="M:Orchid.Generic.About.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Generic.About.Orchid">
+            <summary>
+            About the package.
+            </summary>
+            <returns name="watch">Add a watch node!</returns>
+        </member>
+        <member name="T:Orchid.Generic.Applications.FEMdesign">
+            <summary>
+            FEMdesign methods
+            </summary>
+        </member>
+        <member name="M:Orchid.Generic.Applications.FEMdesign.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Generic.Applications.FEMdesign.SetLinearRelease(System.String,System.Collections.IList,System.Collections.IList,System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Set linear release in FEM-design xml-file
+            </summary>
+            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
+            <param name="element">Element(s)</param>
+            <param name="release">Release --> List order: Top, Bottom, Right and Left</param>
+            <param name="XYaxis">Element XY-axis value (in meter) --> List order: XY StartPoint, XY EndPoint, StruXML Guid</param>
+            <param name="Zaxis">Element Z-axis value (in meter) --> List order: Z MinPoint, Z MaxPoint, StruXML Guid</param>
+            <returns name="release">FEM release</returns>
+        </member>
+        <member name="M:Orchid.Generic.Applications.FEMdesign.SetStiffnessValue(System.String,System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Set stiffness value globally in FEM-design
+            </summary>
+            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
+            <param name="stiffness">Stiffness to set</param>
+            <param name="value">Value to set</param>
+            <returns name="file">Path and Filename to the FEM-design xml file including extension!</returns>
+        </member>
+        <member name="M:Orchid.Generic.Applications.FEMdesign.GetElementID(System.String,System.Collections.IList)">
+            <summary>
+            Get element id from FEM-design
+            </summary>
+            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
+            <param name="element">Element(s)</param>
+            <returns name="FEMid">FEM element id</returns>
+        </member>
+        <member name="M:Orchid.Generic.Applications.FEMdesign.GetReinforcement(System.String,System.Collections.IList)">
+            <summary>
+            Get reinforcement from FEM-design
+            </summary>
+            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
+            <param name="element">Element(s)</param>
+            <returns name="Element">Element(s)</returns>
+            <returns name="wire">Reinforcement wire</returns>
+            <returns name="mesh">Reinforcement mesh size</returns>
+            <returns name="location">Reinforcement location</returns>
+        </member>
         <member name="T:Orchid.Generic.Applications.Sigma">
             <summary>
             Sigma methods

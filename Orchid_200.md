@@ -4,6 +4,11 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 
 ### History of Orchid for Dynamo 2.0.x ###  
 
+201.3.7  
+- Last Custom Nodes turned into ZeroTouch nodes --> nodes for FEM-design.  
+- Revit: Nodes for Materials created and nodes for Document.contain (Category/Types)  
+- Revit: Purge nodes updated, comes in a PostCommand and a Document version.  
+
 201.3.6  
 - Revit: Print --> Nodes to handle printing, several nodes created.  
 
