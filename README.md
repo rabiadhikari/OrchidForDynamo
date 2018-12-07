@@ -15,7 +15,7 @@ In the [Samples](Samples) folder can samples using the Orchid package be found. 
   
 ---
 ### Install or Update in Dynamo  
-Use the executable installer in the [Builds](Builds) folder to install the Orchid package.  
+Use the executable installer in the **[Builds](Builds)** folder to install the Orchid package.  
 Select the installer according to your dynamo version!  
 
 <span style="color:red">REVIT AND DYNAMO MUST BE CLOSED DURING INSTALLATION!</span>  
