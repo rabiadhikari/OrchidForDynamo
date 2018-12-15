@@ -4,6 +4,10 @@ The major number follows the Dynamo version, 132.x.x is usable in Dynamo +1.3.2.
 
 ### History of Orchid for Dynamo 1.3.x ###  
 
+132.3.8  
+- Installer split into two parallels, 132.x.x.x and 201.x.x.x version installer.  
+- Revit: Family All and ByCategory / FamilyType All and ByCategory.  
+
 132.3.7  
 - Last Custom Nodes turned into ZeroTouch nodes --> nodes for FEM-design.  
 - Revit: Nodes for Materials created and nodes for Document.contain (Category/Types)  

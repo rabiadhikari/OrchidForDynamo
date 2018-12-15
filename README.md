@@ -18,7 +18,7 @@ In the [Samples](Samples) folder can samples using the Orchid package be found. 
 Use the executable installer in the **[Builds](Builds)** folder to install the Orchid package.  
 Select the installer according to your dynamo version!  
 
-<span style="color:red">REVIT AND DYNAMO MUST BE CLOSED DURING INSTALLATION!</span>  
+<span style="color:red">**REVIT AND DYNAMO MUST BE CLOSED DURING INSTALLATION!**</span>  
 
 The Orchid package may also be installed by manually copying files from the repository. This is only recommendable for experienced users! To install/update this way, please copy the content of the chosen version into your package folder path into the 'Orchid' folder! Download is handled by either cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
 
@@ -28,10 +28,6 @@ OrchidForDynamo
 ├── Orchid_130    (for the dynamo 1.3.x branch)  
 └── Orchid_200    (for the dynamo 2.0.x branch)  
 </pre>
-
-In case of installation from inside Dynamo or the Dynamo package manager site (<a href="https://dynamopackages.com" target="_blank">dynamopackages.com</a>), then only one node is available. This node will give the instruction and open this GitHub repository site for the user in a web browser.  
-
-<img src="defaultInstall.png" width="720" />  
 
 ---
 ### License  
