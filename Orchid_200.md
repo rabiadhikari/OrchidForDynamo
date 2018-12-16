@@ -7,6 +7,7 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 201.3.8  
 - Installer split into two parallels, 132.x.x.x and 201.x.x.x version installer.  
 - Revit: Family All and ByCategory / FamilyType All and ByCategory.  
+- Revit: Nodes for Subcategory, create, remove, get by category and by name.  
 
 201.3.7  
 - Last Custom Nodes turned into ZeroTouch nodes --> nodes for FEM-design.  
