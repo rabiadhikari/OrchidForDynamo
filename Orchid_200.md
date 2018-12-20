@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 
 ### History of Orchid for Dynamo 2.0.x ###  
 
+201.3.9  
+- Revit: Nodes for SharedParameter --> SetFile, GroupByGroupName, GroupByType.  
+
 201.3.8  
 - Installer split into two parallels, 132.x.x.x and 201.x.x.x version installer.  
 - Revit: Family All and ByCategory / FamilyType All and ByCategory.  
