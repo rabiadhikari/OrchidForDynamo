@@ -1,6 +1,6 @@
 # Orchid Samples  
 
-Please clone the sample files in this folder to use them. The sample files are also included in the executable installer and will be installed in the "user document" folder named "Orchid Samples" if the option for installing it is selected!  
+Please clone the sample files in this folder to use them. The sample files are also available as an executable installer (in the Builds folder) and will be installed in the "user document" folder named "Orchid Samples".  
 
 <img src="../samples1.png" />  
 
