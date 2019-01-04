@@ -331,6 +331,28 @@
             <param name="element">Autodesk.Revit.DB.Element</param>
             <returns name="Element">Revit.Elements.Element</returns>
         </member>
+        <member name="T:Orchid.Revit.Elements.ElementType">
+            <summary>
+            Methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.ElementType.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Elements.ElementType.Name(Revit.Elements.Element)">
+            <summary>
+            Get element type name
+            </summary>
+            <param name="elementType">Revit.Elements.Element</param>
+            <returns name="string">Name as string</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.ElementType.FamilyName(Revit.Elements.Element)">
+            <summary>
+            Get element type family name
+            </summary>
+            <param name="elementType">Revit.Elements.Element</param>
+            <returns name="string">Family name as string</returns>
+        </member>
         <member name="T:Orchid.Revit.Elements.Material">
             <summary>
             Methods for materials
@@ -417,7 +439,7 @@
             <summary>
             Open family document by family 
             </summary>
-            <param name="family">family</param>
+            <param name="family">Family</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
         <member name="T:Orchid.Revit.Elements.FamilyType">
@@ -432,7 +454,7 @@
             <summary>
             Get all family types in current document
             </summary>
-            <returns name="FamilyType">FamilyType</returns>
+            <returns name="FamilyType">Family type</returns>
             <returns name="Category">Category</returns>
         </member>
         <member name="M:Orchid.Revit.Elements.FamilyType.ByCategory(System.Object)">
@@ -440,13 +462,13 @@
             Get all family types by category in list of documents
             </summary>
             <param name="category">Category as string or Category type</param>
-            <returns name="FamilyType">FamilyType</returns>
+            <returns name="FamilyType">Family type</returns>
         </member>
         <member name="M:Orchid.Revit.Elements.FamilyType.GetFamilyDocument(System.Collections.IList)">
             <summary>
             Open family document by family type
             </summary>
-            <param name="familyType">family types</param>
+            <param name="familyType">Family type</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
         <member name="T:Orchid.Revit.Elements.Floor">
@@ -797,6 +819,13 @@
             </summary>
             <param name="element">Revit.Elements.Element</param>
             <returns name="Element">Revit.Elements.Element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.FamilyName(Revit.Elements.Element)">
+            <summary>
+            Get element family name
+            </summary>
+            <param name="element">Revit.Elements.Element</param>
+            <returns name="string">Family name as string</returns>
         </member>
         <member name="T:Orchid.Revit.FamilyDocument.Document">
             <summary>
