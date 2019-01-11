@@ -4,24 +4,30 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 
 ### History of Orchid for Dynamo 2.0.x ###  
 
+202.3.10  
+- Package refactored to comply with naming convensions
+- Primary support for Dynamo version changed to 2.0.2.x
+- Parameter: ProjectParameters, SharedParameters, GlobalParameters, AddIfcParameters (in document and Family document)
+- FamilyName (for element and element type), ElementType.Name 
+
 201.3.9  
-- Revit: Nodes for SharedParameter --> SetFile, GroupByGroupName, GroupByType.  
+- SharedParameter: SetFile, GroupByGroupName, GroupByType.  
 
 201.3.8  
 - Installer split into two parallels, 132.x.x.x and 201.x.x.x version installer.  
-- Revit: Family All and ByCategory / FamilyType All and ByCategory.  
-- Revit: Nodes for Subcategory, create, remove, get by category and by name.  
+- Family All and ByCategory / FamilyType All and ByCategory.  
+- Nodes for Subcategory, create, remove, get by category and by name.  
 
 201.3.7  
 - Last Custom Nodes turned into ZeroTouch nodes --> nodes for FEM-design.  
-- Revit: Nodes for Materials created and nodes for Document.contain (Category/Types)  
-- Revit: Purge nodes updated, comes in a PostCommand and a Document version.  
+- Nodes for Materials created and nodes for Document.contain (Category/Types)  
+- Purge nodes updated, comes in a PostCommand and a Document version.  
 
 201.3.6  
-- Revit: Print --> Nodes to handle printing, several nodes created.  
+- Print: Nodes to handle printing, several nodes created.  
 
 201.3.5  
-- Revit: SystemFamily --> CreateCompoundLayer, DeleteCompoundLayer, SetCompoundLayerWidth, and two dropdown nodes added.  
+- SystemFamily: CreateCompoundLayer, DeleteCompoundLayer, SetCompoundLayerWidth, and two dropdown nodes added.  
 
 201.3.4  
 - Core: Directory.Current, Directory.FromPath and File.FromPath nodes added.  
