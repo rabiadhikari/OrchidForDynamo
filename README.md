@@ -3,6 +3,9 @@ Orchid is a solution designed for use in the [Dynamo](http://dynamobim.org) envi
   
 **Software environment:** Built for Dynamo +1.3.4, +2.0.2 and Revit +2018  
   
+**Orchid Blog:**  
+At the <a href="https://erfajo.blogspot.com" target="_blank">blog</a> is information, updates, tips and tricks for Orchid published.  
+  
 **Orchid Dictionary:**  
 In the <a href="https://erfajo.github.io/dictionary/index.html" target="_blank">dictionary</a> is nodes in the Ochid package described.  
   
