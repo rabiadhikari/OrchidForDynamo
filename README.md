@@ -7,10 +7,10 @@ Orchid is a solution designed for use in the [Dynamo](http://dynamobim.org) envi
 At the <a href="https://erfajo.blogspot.com" target="_blank">blog</a> is information, updates, tips and tricks for Orchid published.  
   
 **Orchid Dictionary:**  
-In the <a href="https://erfajo.github.io/dictionary/index.html" target="_blank">dictionary</a> is nodes in the Ochid package described.  
+In the <a href="https://erfajo.github.io/dictionary/index.html" target="_blank">dictionary</a> is nodes in the Orchid package described.  
   
 **Orchid Samples:**  
-In the [Samples](Samples) folder can samples using the Orchid package be found. For further informations read the [Readme](Samples/readme.md) file!  
+In the [samples](Samples) folder are examples in using the Orchid package placed. For further informations read the [Readme](Samples/readme.md) file!    
   
 **History/Change Log:**  
 <a href="Orchid_130.md">Orchid 1.3.x</a>  
