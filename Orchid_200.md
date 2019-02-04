@@ -4,11 +4,17 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 
 ### History of Orchid for Dynamo 2.0.x ###  
 
+202.3.11  
+- Nodes for associate - Elements: Parameter.Associate, Parameter.HasAssociated, Parameter.GetAssociated, Family.HasAssociated, FamilyType.HasAssociated, FamillyDocument: Parameter.HasAssociated, Nested.GetAssociated.  
+- Element: Category.BuiltInCategory, Category.InDocument, Category.CategoryType, Category.ByCategoryType, Element.Settype.  
+- Core: Math.Random, Math.RandomList.  
+
 202.3.10  
-- Package refactored to comply with naming convensions
-- Primary support for Dynamo version changed to 2.0.2.x
-- Parameter: ProjectParameters, SharedParameters, GlobalParameters, AddIfcParameters (in document and Family document)
-- FamilyName (for element and element type), ElementType.Name 
+- Package refactored to comply with naming convensions  
+- Primary support for Dynamo version changed to 2.0.2.x  
+- Parameter: ProjectParameters, SharedParameters, GlobalParameters, AddIfcParameters (in document and Family document)  
+- FamilyName (for element and element type), ElementType.Name  
+- FamillyDocument: Convert (from shared to normal parameter)  
 
 201.3.9  
 - SharedParameter: SetFile, GroupByGroupName, GroupByType.  

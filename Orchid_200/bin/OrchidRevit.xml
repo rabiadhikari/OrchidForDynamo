@@ -360,6 +360,12 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
         </member>
+        <member name="M:Orchid.Revit.Core.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+        </member>
         <member name="M:Orchid.Revit.Core.Parameter.ProjectParameters(Autodesk.Revit.DB.Document)">
             <summary>
             Get all project parameters in the document
@@ -405,11 +411,21 @@
             <param name="globalParameter">The name of the global parameter</param>
             <returns name="Element">Revit.Elements.Element</returns>
         </member>
-        <member name="M:Orchid.Revit.Core.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+        <member name="M:Orchid.Revit.Core.Parameter.HasAssociated(Revit.Elements.Element,System.String)">
             <summary>
-            Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
+            Verify if parameter has associated global parameter
             </summary>
-            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="element">Element as string or Revit.Elements.Element</param>
+            <param name="parameterName">The name of the parameter</param>
+            <returns name="bool">Boolean value</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Parameter.GetAssociated(Revit.Elements.Element,System.String)">
+            <summary>
+            Get associated global parameter
+            </summary>
+            <param name="element">Element as string or Revit.Elements.Element</param>
+            <param name="parameterName">The name of the parameter</param>
+            <returns name="Parameter">Parameter</returns>
         </member>
         <member name="T:Orchid.Revit.Core.SharedParameter">
             <summary>
@@ -445,6 +461,41 @@
             <returns name="guid">List of guids</returns>
             <returns name="groupName">List of group names</returns>
             <returns name="type">List of types</returns>
+        </member>
+        <member name="T:Orchid.Revit.Elements.Category">
+            <summary>
+            Methods for categories
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Category.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Elements.Category.BuiltInCategory">
+            <summary>
+            Get all built in categories
+            </summary>
+            <returns name="Category">Category</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Category.ByCategoryType(System.String)">
+            <summary>
+            Get all categories by category type
+            </summary>
+            <param name="categoryType">CategoryType</param>
+            <returns name="Category">Category</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Category.InDocument(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all categories in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="Category">Category</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Category.CategoryType(System.Object)">
+            <summary>
+            Get the category type
+            </summary>
+            <param name="category">Category</param>
+            <returns name="CategoryType">CategoryType</returns>
         </member>
         <member name="T:Orchid.Revit.Elements.ElementType">
             <summary>
@@ -557,6 +608,13 @@
             <param name="family">Family</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
+        <member name="M:Orchid.Revit.Elements.Family.HasAssociated(Revit.Elements.Family)">
+            <summary>
+            Verify if family has associated elements
+            </summary>
+            <param name="family">Family</param>
+            <returns name="bool">Boolean value</returns>
+        </member>
         <member name="T:Orchid.Revit.Elements.FamilyType">
             <summary>
             FamilyType methods for elements
@@ -585,6 +643,13 @@
             </summary>
             <param name="familyType">Family type</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.FamilyType.HasAssociated(Revit.Elements.FamilyType)">
+            <summary>
+            Verify if family type has associated elements
+            </summary>
+            <param name="familyType">Family type</param>
+            <returns name="bool">Boolean value</returns>
         </member>
         <member name="T:Orchid.Revit.Elements.Floor">
             <summary>
@@ -619,12 +684,13 @@
             <param name="name">Name of the subcategory</param>
             <returns name="SubCategory">Category</returns>
         </member>
-        <member name="M:Orchid.Revit.Elements.SubCategory.Remove(System.Object,System.String)">
+        <member name="M:Orchid.Revit.Elements.SubCategory.Remove(System.Object,System.Object)">
             <summary>
             Remove subcategory by category in document.
             </summary>
             <param name="category">Category</param>
-            <param name="name">Name of the subcategory</param>
+            <param name="subCategory">The subcategory as string or category</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.Revit.Elements.SubCategory.ByCategory(System.Object)">
             <summary>
@@ -833,6 +899,14 @@
             <returns name="area">List of area</returns>
             <returns name="volumne">List of volumne</returns>
         </member>
+        <member name="M:Orchid.Revit.Elements.Element.SetType(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Set element by family type
+            </summary>
+            <param name="element">Element(s)</param>
+            <param name="familyType">FamilyType(s)</param>
+            <returns name="Element">Revit.Elements.Element</returns>
+        </member>
         <member name="M:Orchid.Revit.Elements.Element.SetAnalyticalLocation(System.Collections.IList,System.String)">
             <summary>
             Set (structural) element analytical location
@@ -1015,6 +1089,24 @@
             <param name="parameterName">The name of the parameter to remove formula</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
+        <member name="T:Orchid.Revit.FamilyDocument.Nested">
+            <summary>
+            Families methods for parameters
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Nested.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.FamilyDocument.Nested.GetAssociated(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get associated parameter, nested family, nested family type, and nested family parameter
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <returns name="documentParameter">Family document parameter</returns>
+            <returns name="Family">Nested family in the document</returns>
+            <returns name="FamilyType">Nested family type in the document</returns>
+            <returns name="familyParameter">Nested family parameter in the document</returns>
+        </member>
         <member name="T:Orchid.Revit.FamilyDocument.Parameter">
             <summary>
             Families methods for parameters
@@ -1029,13 +1121,6 @@
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="Parameter">Parameter</returns>
-        </member>
-        <member name="M:Orchid.Revit.FamilyDocument.Parameter.Name(Autodesk.Revit.DB.FamilyParameter)">
-            <summary>
-            Get family parameter name
-            </summary>
-            <param name="parameter">FamilyParameter as Revit object</param>
-            <returns name="string">Name as string</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Parameter.AddParameter(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
@@ -1150,7 +1235,7 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Parameter.HasAssociated(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
-            Verify if parameter has Associated elements
+            Verify if parameter has associated elements
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to verify</param>
