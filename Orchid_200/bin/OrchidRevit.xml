@@ -519,6 +519,14 @@
             <param name="elementType">Revit.Elements.Element</param>
             <returns name="string">Family name as string</returns>
         </member>
+        <member name="M:Orchid.Revit.Elements.ElementType.Element(Autodesk.Revit.DB.Document,System.Object)">
+            <summary>
+            Returns the Element for this ElementType in the document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="elementType">ElementType</param>
+            <returns name="Element">Element or Null.</returns>
+        </member>
         <member name="T:Orchid.Revit.Elements.Material">
             <summary>
             Methods for materials
@@ -928,6 +936,21 @@
             </summary>
             <param name="element">Revit.Elements.Element</param>
             <returns name="string">Family name as string</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.ElementType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            Returns the ElementType for this Element. Returns null if the Element cannot have a ElementType assigned.
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="element">Revit.Elements.Element</param>
+            <returns name="ElementType">Element Type or Null.</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.View(Revit.Elements.Element)">
+            <summary>
+            Get the view where the element is located
+            </summary>
+            <param name="element">Revit.Elements.Element</param>
+            <returns name="View">View</returns>
         </member>
         <member name="T:Orchid.Revit.FamilyDocument.Document">
             <summary>
