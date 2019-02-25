@@ -4,16 +4,21 @@ The major number follows the Dynamo version, 132.x.x is usable in Dynamo +1.3.2.
 
 ### History of Orchid for Dynamo 1.3.x ###  
 
+134.4.0  
+- Element: Selection.ElementByFamily and Families.  
+- Core: IFC export – IFC.SettingGeneral, IFC.SettingAdditional, IFC.SettingProperty, IFC.SettingAdvanced, IFC.Export, IFC File Type, IFC Setting, IFC Version, IFC Level Of Detail, IFC Site Placement, and IFC Space Boundary.  
+- Core: String.Substring, String.Replace, Document.OpenView, Project.SetProjectLocation, Project.GetProjectLocation, Project Origin, and Phases.  
+
 134.3.11  
 - Nodes for associate - Elements: Parameter.Associate, Parameter.HasAssociated, Parameter.GetAssociated, Family.HasAssociated, FamilyType.HasAssociated, FamillyDocument: Parameter.HasAssociated, Nested.GetAssociated.  
 - Element: Category.BuiltInCategory, Category.InDocument, Category.CategoryType, Category.ByCategoryType, Element.Settype.  
 - Core: Math.Random, Math.RandomList.  
 
 134.3.10  
-- Package refactored to comply with naming convensions
-- Primary support for Dynamo version changed to 1.3.4.x
-- Parameter: ProjectParameters, SharedParameters, GlobalParameters, AddIfcParameters (in document and Family document)
-- FamilyName (for element and element type), ElementType.Name 
+- Package refactored to comply with naming convensions  
+- Primary support for Dynamo version changed to 1.3.4.x  
+- Parameter: ProjectParameters, SharedParameters, GlobalParameters, AddIfcParameters (in document and Family document)  
+- FamilyName (for element and element type), ElementType.Name  
 - FamillyDocument: Convert (from shared to normal parameter)  
 
 132.3.9  

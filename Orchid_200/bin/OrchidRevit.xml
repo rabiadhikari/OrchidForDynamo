@@ -43,6 +43,7 @@
             <summary>
             Get the active view in document
             </summary>
+            <param name="document">The name of the document</param>
             <returns name="View">ActiveView</returns>
         </member>
         <member name="M:Orchid.Revit.Core.Document.OpenView(Revit.Elements.Element)">
@@ -126,6 +127,96 @@
             </summary>
             <param name="document">Autodesk.Revit.DB.Document</param>
             <param name="completely">Includes purging materials and assets</param>
+        </member>
+        <member name="T:Orchid.Revit.Core.IFC">
+            <summary>
+            IFC methods, retrieved from
+            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExportConfiguration.cs
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.SettingByName(System.String)">
+            <summary>
+            Ifc export setting, based on the available in the document
+            </summary>
+            <param name="name">The IFC setting name</param>
+            <returns name="Setting">Ifc export setting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Set general IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="ifcVersion">IFC version as string</param>
+            <param name="ifcFileType">IFC file type as string</param>
+            <param name="spaceBoundary">Space boundaries as integer</param>
+            <param name="projectOrigin">Project origin as integer</param>
+            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
+            <param name="includeSteel">Include steel elements?</param>
+            <param name="fileHeader">File header setting</param>
+            <param name="projectAddress">Project address setting</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Set additional content and level of detail IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="Export2Dplan">Export 2D plan view elements?</param>
+            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
+            <param name="VisibleElements">Export only elements visible in view?</param>
+            <param name="RoomsInView">Export rooms in 3D views?</param>
+            <param name="LOD">Level of detail for some element geometry</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+            <summary>
+            Set Property sets IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="revitProperty">Export Revit property sets?</param>
+            <param name="commonProperty">Export IFC common property sets?</param>
+            <param name="baseQuantities">Export base quantities?</param>
+            <param name="exportSchedules">Export schedules as property sets?</param>
+            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
+            <param name="userProperty">Export user defined property sets?</param>
+            <param name="userPropertyFile">Property set file name incl. path</param>
+            <param name="parameterMapping">Export parameter mapping table?</param>
+            <param name="parameterMappingFile">Mapping table file name incl. path</param>
+            <param name="classification">Classification setting</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Set advanced IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="exportParts">Export parts as building elements?</param>
+            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
+            <param name="activeViewGeometry">Use active view when creating geometry?</param>
+            <param name="familyAndType">Use family and type name for reference?</param>
+            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
+            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
+            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
+            <param name="boundingBox">Export bounding box?</param>
+            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.IFC.Export(Autodesk.Revit.DB.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Element,Revit.Elements.Element,System.String,System.Boolean)">
+            <summary>
+            Export to IFC. Require IFC exporter 19.1.0 or higher
+            https://sourceforge.net/projects/ifcexporter
+            . the export function includes a default IFC export setting!
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="setting">IFC export setting</param>
+            <param name="view">View as object</param>
+            <param name="phase">Phase to export as object</param>
+            <param name="file">The export file name incl. path</param>
+            <param name="overwrite">Overwrite existing file?</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="T:Orchid.Revit.Core.PostCommand">
             <summary>
@@ -230,6 +321,27 @@
             <param name="colorDepth">Appearance: Colors</param>
             <returns name="PrintSetting">PrintSetting</returns>
         </member>
+        <member name="T:Orchid.Revit.Core.Project">
+            <summary>
+            Project methods
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.Project.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Core.Project.GetProjectLocation">
+            <summary>
+            Get project location
+            </summary>
+            <returns name="Origin">Origin as project location</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Project.SetProjectLocation(Revit.Elements.Element)">
+            <summary>
+            Set project location
+            </summary>
+            <param name="origin">Origin as project location</param>
+            <returns name="Origin">Origin as project location</returns>
+        </member>
         <member name="T:Orchid.Revit.Core.ViewSheetSet">
             <summary>
             View methods for core processes
@@ -294,7 +406,7 @@
             <summary>
             Save family by name
             </summary>
-            <param name="path">Path to save files(s)</param>
+            <param name="path">Path to save file(s)</param>
             <param name="family">Family to be saved</param>
             <param name="subfolder">Create subfolder by category?</param>
             <param name="overwrite">Overwrite existing families?</param>

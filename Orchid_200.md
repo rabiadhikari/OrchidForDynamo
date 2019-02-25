@@ -4,6 +4,11 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 
 ### History of Orchid for Dynamo 2.0.x ###  
 
+202.4.0  
+- Element: Selection.ElementByFamily and Families.  
+- Core: IFC export – IFC.SettingGeneral, IFC.SettingAdditional, IFC.SettingProperty, IFC.SettingAdvanced, IFC.Export, IFC File Type, IFC Setting, IFC Version, IFC Level Of Detail, IFC Site Placement, and IFC Space Boundary.  
+- Core: String.Substring, String.Replace, Document.OpenView, Project.SetProjectLocation, Project.GetProjectLocation, Project Origin, and Phases.  
+
 202.3.11  
 - Nodes for associate - Elements: Parameter.Associate, Parameter.HasAssociated, Parameter.GetAssociated, Family.HasAssociated, FamilyType.HasAssociated, FamillyDocument: Parameter.HasAssociated, Nested.GetAssociated.  
 - Element: Category.BuiltInCategory, Category.InDocument, Category.CategoryType, Category.ByCategoryType, Element.Settype.  
