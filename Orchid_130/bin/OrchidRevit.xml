@@ -1144,13 +1144,17 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current">
             <summary>
-            Get the current family type
+            Get the current family type.
+            Note: If no current family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <returns name="FamilyType">FamilyType as Revit object</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Current(Autodesk.Revit.DB.Document)">
             <summary>
-            Get the current family type in the familyDocument
+            Get the current family type in the familyDocument. 
+            Note: If no current family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="FamilyType">FamilyType as Revit object</returns>
@@ -1164,21 +1168,26 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All">
             <summary>
-            Get all family types
+            Get all family types.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <returns name="FamilyType">FamilyType as Revit object</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.All(Autodesk.Revit.DB.Document)">
             <summary>
-            Get all family types in the familyDocument
+            Get all family types in the familyDocument.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="FamilyType">FamilyType as Revit object</returns>
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.FamilyType.Create(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
-            Create family type by name. If no input to name is provided,
-            then a default family type will be created named as the familyDocument.
+            Create family type by name.
+            Note: If no input to name is provided (default as null), then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="name">The family type name</param>
@@ -1218,7 +1227,9 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Formula.Get(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
-            Get family formula by parameter name
+            Get family formula by parameter name.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to get</param>
@@ -1226,7 +1237,9 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Formula.Set(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
-            Set family formula by parameter name. Please notice a default type must exist!
+            Set family formula by parameter name.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to set</param>
@@ -1236,6 +1249,8 @@
         <member name="M:Orchid.Revit.FamilyDocument.Formula.Remove(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
             Remove family formula value by name
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to remove formula</param>
@@ -1331,6 +1346,10 @@
         <member name="M:Orchid.Revit.FamilyDocument.Parameter.GetValue(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.Object},System.Collections.Generic.List{System.String})">
             <summary>
             Get family parameter value by parameter name
+            Note: If no family type is provided (default as null), then will the
+            default family type in the familyDocument be used. Furthermore, 
+            If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="familyType">Family type as string or Revit object</param>
@@ -1340,7 +1359,11 @@
         </member>
         <member name="M:Orchid.Revit.FamilyDocument.Parameter.SetValue(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.Object},System.Collections.Generic.List{System.String},System.Collections.IList)">
             <summary>
-            Set family parameter value by parameter name. Please notice a default type must exist!
+            Set family parameter value by parameter name.
+            Note: If no family type is provided (default as null), then will the
+            default family type in the familyDocument be used. Furthermore, 
+            If no family types exists, then a default 
+            family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="familyType">Family type as string or Revit object</param>
