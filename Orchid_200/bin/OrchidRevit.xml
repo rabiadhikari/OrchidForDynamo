@@ -155,8 +155,6 @@
             <param name="projectOrigin">Project origin as integer</param>
             <param name="splitByLevel">Split walls, columns, ducts by level?</param>
             <param name="includeSteel">Include steel elements?</param>
-            <param name="fileHeader">File header setting</param>
-            <param name="projectAddress">Project address setting</param>
             <returns name="Setting">IFC export setting</returns>
         </member>
         <member name="M:Orchid.Revit.Core.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
@@ -185,7 +183,6 @@
             <param name="userPropertyFile">Property set file name incl. path</param>
             <param name="parameterMapping">Export parameter mapping table?</param>
             <param name="parameterMappingFile">Mapping table file name incl. path</param>
-            <param name="classification">Classification setting</param>
             <returns name="Setting">IFC export setting</returns>
         </member>
         <member name="M:Orchid.Revit.Core.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
@@ -1478,49 +1475,23 @@
             <param name="imagePath">path to file</param>
             <returns name="AppearanceAsset">Appearance asset as object</returns>
         </member>
-        <member name="T:Orchid.Revit.Materials.Material">
+        <member name="M:Orchid.Revit.Materials.AppearanceAsset.GetInformation(System.Object)">
+            <summary>
+            Get information.
+            </summary>
+            <param name="appearanceAsset">Appearance asset as object</param>
+            <returns name="description"></returns>
+            <returns name="keywords"></returns>
+        </member>
+        <member name="T:Orchid.Revit.Materials.Graphics">
             <summary>
             Methods for materials
             </summary>
         </member>
-        <member name="M:Orchid.Revit.Materials.Material.#ctor">
+        <member name="M:Orchid.Revit.Materials.Graphics.#ctor">
             default private constructor --> hides the class in dynamo
         </member>
-        <member name="M:Orchid.Revit.Materials.Material.Create(System.String)">
-            <summary>
-            Create material.
-            </summary>
-            <param name="name">The material name</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.Create(System.String,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
-            <summary>
-            Create material.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            Valid color input is either a Dynamo color object or as a 
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            </summary>
-            <param name="name">The material name</param>
-            <param name="useRenderAppearance">Use render appearance as boolean</param>
-            <param name="shadingColor">Color as list of integer or object</param>
-            <param name="transparency">Transparency as integer</param>
-            <param name="surfacePattern">Pattern as string or object</param>
-            <param name="surfacePatternColor">Color as list of integer or object</param>
-            <param name="cutPattern">Pattern as string or object</param>
-            <param name="cutPatternColor">Color as list of integer or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.Duplicate(System.Object,System.String)">
-            <summary>
-            Duplicate material
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="name">The material name to duplicate</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.Set(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.Set(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
             <summary>
             Set material.
             Valid pattern input is either a Dynamo fill pattern object or as
@@ -1537,6 +1508,190 @@
             <param name="surfacePatternColor">Color as list of integer or object</param>
             <param name="cutPattern">Pattern as string or object</param>
             <param name="cutPatternColor">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetRenderAppearance(System.Object,System.Boolean)">
+            <summary>
+            Set render appearance.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="useRenderAppearance">Use render appearance as boolean</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetShadingColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set shading color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetTransparency(System.Object,System.Int32)">
+            <summary>
+            Set transparency.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="transparency">Transparency as integer</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePattern(System.Object,System.Object)">
+            <summary>
+            Set surface pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set surface pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPattern(System.Object,System.Object)">
+            <summary>
+            Set cut pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set cut pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSmoothness(System.Object,System.Int32)">
+            <summary>
+            Get smoothness.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="smoothness">Smoothness as integer</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetShininess(System.Object,System.Int32)">
+            <summary>
+            Get shininess.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="shininess">Shininess as integer</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.Get(System.Object)">
+            <summary>
+            Get material.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="UseRenderAppearance">Use render appearance as boolean</returns>
+            <returns name="ShadingColor">Color as object</returns>
+            <returns name="Transparency">Transparency as integer</returns>
+            <returns name="SurfacePattern">Pattern as object</returns>
+            <returns name="SurfacePatternColor">Color as object</returns>
+            <returns name="CutPattern">Pattern as object</returns>
+            <returns name="CutPatternColor">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetRenderAppearance(System.Object)">
+            <summary>
+            Get render appearance.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="bool">Use render appearance as boolean</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetShadingColor(System.Object)">
+            <summary>
+            Get shading color.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetTransparency(System.Object)">
+            <summary>
+            Get transparency.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="int">Transparency as integer</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfacePattern(System.Object)">
+            <summary>
+            Get surface pattern.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfacePatternColor(System.Object)">
+            <summary>
+            Get surface pattern color.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutPattern(System.Object)">
+            <summary>
+            Get cut pattern.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutPatternColor(System.Object)">
+            <summary>
+            Get cut pattern color.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSmoothness(System.Object)">
+            <summary>
+            Get smoothness.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="int">Smoothness as integer</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetShininess(System.Object)">
+            <summary>
+            Get shininess.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="int">Shininess as integer</returns>
+        </member>
+        <member name="T:Orchid.Revit.Materials.Material">
+            <summary>
+            Methods for materials
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Material.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Materials.Material.Create(System.String)">
+            <summary>
+            Create material.
+            </summary>
+            <param name="name">The material name</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Material.Duplicate(System.Object,System.String)">
+            <summary>
+            Duplicate material
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="name">The material name to duplicate</param>
             <returns name="Material">Material as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.Material.SetAsset(System.Object,System.String,System.Object)">
@@ -1572,104 +1727,6 @@
             <param name="name">The material class name to set</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetRenderAppearance(System.Object,System.Boolean)">
-            <summary>
-            Set render appearance.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="useRenderAppearance">Use render appearance as boolean</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetShadingColor(System.Object,System.Collections.IList)">
-            <summary>
-            Set shading color.
-            Valid color input is either a Dynamo color object or as a 
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetTransparency(System.Object,System.Int32)">
-            <summary>
-            Set transparency.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="transparency">Transparency as integer</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetSurfacePattern(System.Object,System.Object)">
-            <summary>
-            Set surface pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetSurfacePatternColor(System.Object,System.Collections.IList)">
-            <summary>
-            Set surface pattern color.
-            Valid color input is either a Dynamo color object or as a 
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetCutPattern(System.Object,System.Object)">
-            <summary>
-            Set cut pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetCutPatternColor(System.Object,System.Collections.IList)">
-            <summary>
-            Set cut pattern color.
-            Valid color input is either a Dynamo color object or as a 
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetSmoothness(System.Object,System.Int32)">
-            <summary>
-            Get smoothness.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="smoothness">Smoothness as integer</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.SetShininess(System.Object,System.Int32)">
-            <summary>
-            Get shininess.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="shininess">Shininess as integer</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.Get(System.Object)">
-            <summary>
-            Get material.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="UseRenderAppearance">Use render appearance as boolean</returns>
-            <returns name="ShadingColor">Color as object</returns>
-            <returns name="Transparency">Transparency as integer</returns>
-            <returns name="SurfacePattern">Pattern as object</returns>
-            <returns name="SurfacePatternColor">Color as object</returns>
-            <returns name="CutPattern">Pattern as object</returns>
-            <returns name="CutPatternColor">Color as object</returns>
-        </member>
         <member name="M:Orchid.Revit.Materials.Material.GetCategory(System.Object)">
             <summary>
             Get material category.
@@ -1683,69 +1740,6 @@
             </summary>
             <param name="material">Material as string or object</param>
             <returns name="string">The material class name</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetRenderAppearance(System.Object)">
-            <summary>
-            Get render appearance.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="bool">Use render appearance as boolean</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetShadingColor(System.Object)">
-            <summary>
-            Get shading color.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetTransparency(System.Object)">
-            <summary>
-            Get transparency.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="int">Transparency as integer</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetSurfacePattern(System.Object)">
-            <summary>
-            Get surface pattern.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetSurfacePatternColor(System.Object)">
-            <summary>
-            Get surface pattern color.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetCutPattern(System.Object)">
-            <summary>
-            Get cut pattern.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetCutPatternColor(System.Object)">
-            <summary>
-            Get cut pattern color.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetSmoothness(System.Object)">
-            <summary>
-            Get smoothness.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="int">Smoothness as integer</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Material.GetShininess(System.Object)">
-            <summary>
-            Get shininess.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="int">Shininess as integer</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.Material.All">
             <summary>
