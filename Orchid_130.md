@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 132.x.x is usable in Dynamo +1.3.2.
 
 ### History of Orchid for Dynamo 1.3.x ###  
 
+134.4.1  
+- Materials: +50 new nodes for materials in a new branch.  
+
 134.4.0  
 - Element: Selection.ElementByFamily and Families.  
 - Core: IFC export – IFC.SettingGeneral, IFC.SettingAdditional, IFC.SettingProperty, IFC.SettingAdvanced, IFC.Export, IFC File Type, IFC Setting, IFC Version, IFC Level Of Detail, IFC Site Placement, and IFC Space Boundary.  

@@ -32,6 +32,10 @@ http://opensource.org/licenses/apache2.0.php
 IronPython Stubs  
 https://github.com/gtalarico/ironpython-stubs/blob/master/LICENSE.md  
   
+Python  
+https://docs.python.org/2/license.html  
+https://docs.python.org/3/license.html  
+  
 Microsoft  
 https://www.microsoft.com/en-us/servicesagreement/  
   
@@ -56,10 +60,9 @@ Prism
 http://msdn.microsoft.com/en-us/library/gg406140.aspx  
 http://msdn.microsoft.com/en-us/library/gg405489(PandP.40).aspx  
   
-Python  
-https://docs.python.org/2/license.html  
-https://docs.python.org/3/license.html  
-  
+PDFsharp
+http://www.pdfsharp.net/Licensing.ashx
+
 Sigma Estimates  
 http://www.sigmaservice.net/licenseinformation/SIGMA_EULA.pdf  
   
