@@ -1491,14 +1491,15 @@
         <member name="M:Orchid.Revit.Materials.Graphics.#ctor">
             default private constructor --> hides the class in dynamo
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.Set(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetGraphics(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
             <summary>
-            Set material.
+            Set material graphics.
             Valid pattern input is either a Dynamo fill pattern object or as
             a name of a fill pattern in the document.
             Valid color input is either a Dynamo color object or as a 
             list of integers containing "alpha, red, green, blue" value
             or "red, green, blue" value.
+            Note, this node can be used up to and including Revit 2018!
             </summary>
             <param name="material">Material as string or object</param>
             <param name="useRenderAppearance">Use render appearance as boolean</param>
@@ -1508,6 +1509,168 @@
             <param name="surfacePatternColor">Color as list of integer or object</param>
             <param name="cutPattern">Pattern as string or object</param>
             <param name="cutPatternColor">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePattern(System.Object,System.Object)">
+            <summary>
+            Set surface pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set surface pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPattern(System.Object,System.Object)">
+            <summary>
+            Set cut pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set cut pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.Set(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
+            <summary>
+            Set material graphics.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="useRenderAppearance">Use render appearance as boolean</param>
+            <param name="shadingColor">Color as list of integer or object</param>
+            <param name="transparency">Transparency as integer</param>
+            <param name="surfaceForegroundPattern">Pattern as string or object</param>
+            <param name="surfaceForegroundPatternColor">Color as list of integer or object</param>
+            <param name="surfaceBackgroundPattern">Pattern as string or object</param>
+            <param name="surfaceBackgroundPatternColor">Color as list of integer or object</param>
+            <param name="cutForegroundPattern">Pattern as string or object</param>
+            <param name="cutForegroundPatternColor">Color as list of integer or object</param>
+            <param name="cutBackgroundPattern">Pattern as string or object</param>
+            <param name="cutBackgroundPatternColor">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceForegroundPattern(System.Object,System.Object)">
+            <summary>
+            Set surface foreground pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceForegroundPatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set surface foreground pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceBackgroundPattern(System.Object,System.Object)">
+            <summary>
+            Set surface background pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceBackgroundPatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set surface background pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutForegroundPattern(System.Object,System.Object)">
+            <summary>
+            Set cut foreground pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutForegroundPatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set cut foreground pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutBackgroundPattern(System.Object,System.Object)">
+            <summary>
+            Set cut background pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutBackgroundPatternColor(System.Object,System.Collections.IList)">
+            <summary>
+            Set cut background pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
             <returns name="Material">Material as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.Graphics.SetRenderAppearance(System.Object,System.Boolean)">
@@ -1537,48 +1700,6 @@
             <param name="transparency">Transparency as integer</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePattern(System.Object,System.Object)">
-            <summary>
-            Set surface pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePatternColor(System.Object,System.Collections.IList)">
-            <summary>
-            Set surface pattern color.
-            Valid color input is either a Dynamo color object or as a 
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPattern(System.Object,System.Object)">
-            <summary>
-            Set cut pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPatternColor(System.Object,System.Collections.IList)">
-            <summary>
-            Set cut pattern color.
-            Valid color input is either a Dynamo color object or as a 
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as object</returns>
-        </member>
         <member name="M:Orchid.Revit.Materials.Graphics.SetSmoothness(System.Object,System.Int32)">
             <summary>
             Get smoothness.
@@ -1595,9 +1716,10 @@
             <param name="shininess">Shininess as integer</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.Get(System.Object)">
+        <member name="M:Orchid.Revit.Materials.Graphics.GetGraphics(System.Object)">
             <summary>
-            Get material.
+            Get material graphics.
+            Note, this node can be used up to and including Revit 2018!
             </summary>
             <param name="material">Material as string or object</param>
             <returns name="UseRenderAppearance">Use render appearance as boolean</returns>
@@ -1607,6 +1729,120 @@
             <returns name="SurfacePatternColor">Color as object</returns>
             <returns name="CutPattern">Pattern as object</returns>
             <returns name="CutPatternColor">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfacePattern(System.Object)">
+            <summary>
+            Get surface pattern.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfacePatternColor(System.Object)">
+            <summary>
+            Get surface pattern color.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutPattern(System.Object)">
+            <summary>
+            Get cut pattern.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutPatternColor(System.Object)">
+            <summary>
+            Get cut pattern color.
+            Note, this node can be used up to and including Revit 2018!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.Get(System.Object)">
+            <summary>
+            Get material graphics.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="UseRenderAppearance">Use render appearance as boolean</returns>
+            <returns name="ShadingColor">Color as object</returns>
+            <returns name="Transparency">Transparency as integer</returns>
+            <returns name="surfaceForegroundPattern">Pattern as object</returns>
+            <returns name="surfaceForegroundPatternColor">Color as object</returns>
+            <returns name="surfaceBackgroundPattern">Pattern as object</returns>
+            <returns name="surfaceBackgroundPatternColor">Color as object</returns>
+            <returns name="cutForegroundPattern">Pattern as object</returns>
+            <returns name="cutForegroundPatternColor">Color as object</returns>
+            <returns name="cutBackgroundPattern">Pattern as object</returns>
+            <returns name="cutBackgroundPatternColor">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfaceForegroundPattern(System.Object)">
+            <summary>
+            Get surface foreground pattern.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfaceForegroundPatternColor(System.Object)">
+            <summary>
+            Get surface foreground pattern color.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfaceBackgroundPattern(System.Object)">
+            <summary>
+            Get surface background pattern.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfaceBackgroundPatternColor(System.Object)">
+            <summary>
+            Get surface background pattern color.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutForegroundPattern(System.Object)">
+            <summary>
+            Get cut foreground pattern.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutForegroundPatternColor(System.Object)">
+            <summary>
+            Get cut foreground pattern color.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutBackgroundPattern(System.Object)">
+            <summary>
+            Get cut background pattern.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Graphics.GetCutBackgroundPatternColor(System.Object)">
+            <summary>
+            Get cut background pattern color.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.Graphics.GetRenderAppearance(System.Object)">
             <summary>
@@ -1628,34 +1864,6 @@
             </summary>
             <param name="material">Material as string or object</param>
             <returns name="int">Transparency as integer</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfacePattern(System.Object)">
-            <summary>
-            Get surface pattern.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.GetSurfacePatternColor(System.Object)">
-            <summary>
-            Get surface pattern color.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.GetCutPattern(System.Object)">
-            <summary>
-            Get cut pattern.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.GetCutPatternColor(System.Object)">
-            <summary>
-            Get cut pattern color.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.Graphics.GetSmoothness(System.Object)">
             <summary>
