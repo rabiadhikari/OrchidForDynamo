@@ -129,6 +129,15 @@
             <param name="document">Autodesk.Revit.DB.Document</param>
             <param name="completely">Includes purging materials and assets</param>
         </member>
+        <member name="M:Orchid.Revit.Core.Document.Transfer(Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer project standards by category from source document.
+            </summary>
+            <param name="source">Source as Autodesk.Revit.DB.Document</param>
+            <param name="category">Category as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
         <member name="T:Orchid.Revit.Core.IFC">
             <summary>
             IFC methods, retrieved from
@@ -1954,6 +1963,13 @@
             <summary>
             Get all materials in document.
             </summary>
+            <returns name="Material">Material as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.Material.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all materials in document.
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
             <returns name="Material">Material as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.Material.Asset(System.Object)">
