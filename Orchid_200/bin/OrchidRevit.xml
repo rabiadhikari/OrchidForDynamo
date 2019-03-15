@@ -131,9 +131,19 @@
         </member>
         <member name="M:Orchid.Revit.Core.Document.Transfer(Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
             <summary>
-            Transfer project standards by category from source document.
+            Transfer project standards by category from source document to current document.
             </summary>
             <param name="source">Source as Autodesk.Revit.DB.Document</param>
+            <param name="category">Category as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Transfer(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer project standards by category from source document to target document.
+            </summary>
+            <param name="source">Source as Autodesk.Revit.DB.Document</param>
+            <param name="target">Target as Autodesk.Revit.DB.Document</param>
             <param name="category">Category as string or object</param>
             <param name="overwrite">Copy only new or overwrite existing?</param>
             <returns name="Element">Transfered element</returns>
@@ -2006,141 +2016,136 @@
             <returns name="Thermal">List of thermal density</returns>
         </member>
         <member name="T:Orchid.Revit.Materials.PhysicalAsset">
-            Methods for structural  assets
+            Methods for structural assets
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.#ctor">
             default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.Create(System.String,System.String,System.Boolean)">
             <summary>
-            Create physical asset.
+            Create physical asset and property set.
             </summary>
             <param name="name"></param>
             <param name="type"></param>
             <param name="uniqueName"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Thermal property set as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.PhysicalAsset.PropertySet(System.Object)">
-            <summary>
-            Set/Get structural asset property set.
-            </summary>
-            <param name="physicalAsset">Physical (Structural) asset as object</param>
-            <returns name="PropertySet">PropertySetElement as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetInformation(System.Object,System.String,System.String,System.String)">
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetInformation(System.Object,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Set information.
             </summary>
-            <param name="physicalAsset">Physical (Structural) asset as object</param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="description"></param>
             <param name="keywords"></param>
+            <param name="subclass"></param>
             <param name="source"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <param name="sourceUrl"></param>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetBehavior(System.Object,System.String)">
             <summary>
             Set behavior.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="behavior"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetBasicThermal(System.Object,System.Double)">
             <summary>
             Set basic thermal.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="expansionCoefficient"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetMechanical(System.Object,System.Double)">
             <summary>
             Set mechanical.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="density"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetMechanical(System.Object,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Set mechanical.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="youngModulus"></param>
             <param name="poissonRatio"></param>
             <param name="shearModulus"></param>
             <param name="density"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetStrength(System.Object,System.Double,System.Double,System.Boolean)">
             <summary>
             Set strength.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="yieldStress"></param>
             <param name="tensileStrength"></param>
             <param name="thermalTreated"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetStrength(System.Object,System.String,System.String,System.Double,System.Double,System.Double)">
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetStrength(System.Object,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
             <summary>
             Set strength.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="species"></param>
             <param name="grade"></param>
             <param name="bending"></param>
             <param name="parallelCompression"></param>
             <param name="perpendicularCompression"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <param name="parallelShear"></param>
+            <param name="tensionParallel"></param>
+            <param name="tensionPerpendicular"></param>
+            <param name="averageModulus"></param>
+            <param name="construction"></param>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetConcrete(System.Object,System.Double,System.Double,System.Boolean)">
             <summary>
             Set concrete.
             </summary>
-            <param name="physicalAsset"></param>
+            <param name="propertySet">Physical property set as object</param>
             <param name="compression"></param>
             <param name="shearStrengthReduction"></param>
             <param name="lightweight"></param>
-            <returns name="PhysicalAsset">PhysicalAsset</returns>
+            <returns name="PropertySet">Physical property set as object</returns>
         </member>
         <member name="T:Orchid.Revit.Materials.ThermalAsset">
-            Methods for structural  assets
+            Methods for thermal assets
         </member>
         <member name="M:Orchid.Revit.Materials.ThermalAsset.#ctor">
             default private constructor --> hides the class in dynamo
         </member>
         <member name="M:Orchid.Revit.Materials.ThermalAsset.Create(System.String,System.String,System.Boolean)">
             <summary>
-            Create thermal asset.
+            Create thermal asset and property set.
             </summary>
             <param name="name"></param>
             <param name="type"></param>
             <param name="uniqueName"></param>
-            <returns name="ThermalAsset">ThermalAsset</returns>
+            <returns name="PropertySet">Thermal property set as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.ThermalAsset.PropertySet(System.Object)">
-            <summary>
-            Set/Get thermal asset property set.
-            </summary>
-            <param name="thermalAsset">Thermal asset as object</param>
-            <returns name="PropertySet">PropertySetElement as object</returns>
-        </member>
-        <member name="M:Orchid.Revit.Materials.ThermalAsset.SetInformation(System.Object,System.String,System.String,System.String)">
+        <member name="M:Orchid.Revit.Materials.ThermalAsset.SetInformation(System.Object,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Set information.
             </summary>
-            <param name="thermalAsset">Thermal asset as object</param>
+            <param name="propertySet">Thermal property set as object</param>
             <param name="description"></param>
             <param name="keywords"></param>
+            <param name="subclass"></param>
             <param name="source"></param>
-            <returns name="ThermalAsset">ThermalAsset</returns>
+            <param name="sourceUrl"></param>
+            <returns name="PropertySet">Thermal property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.ThermalAsset.SetProperties(System.Object,System.Boolean,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Set properties. Note can only be used for the thermal type Solid!
             </summary>
-            <param name="thermalAsset"></param>
+            <param name="propertySet">Thermal property set as object</param>
             <param name="transmitsLight"></param>
             <param name="behavior"></param>
             <param name="thermalConductivity"></param>
@@ -2151,20 +2156,20 @@
             <param name="porosity"></param>
             <param name="reflectivity"></param>
             <param name="electricalResistivity"></param>
-            <returns name="ThermalAsset">ThermalAsset</returns>
+            <returns name="PropertySet">Thermal property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.ThermalAsset.SetBasicThermal(System.Object,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Set basic thermal. Note can only be used for the thermal type Gas or Liquid!
             </summary>
-            <param name="thermalAsset"></param>
+            <param name="propertySet">Thermal property set as object</param>
             <param name="thermalConductivity"></param>
             <param name="specificHeat"></param>
             <param name="density"></param>
             <param name="emissivity"></param>
             <param name="gasViscosity"></param>
             <param name="compressibility"></param>
-            <returns name="ThermalAsset">ThermalAsset</returns>
+            <returns name="PropertySet">Thermal property set as object</returns>
         </member>
     </members>
 </doc>
