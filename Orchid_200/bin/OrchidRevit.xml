@@ -60,6 +60,12 @@
             <param name="document">The name of the document</param>
             <returns name="string">string</returns>
         </member>
+        <member name="M:Orchid.Revit.Core.Document.Opened">
+            <summary>
+            Get background opened documents
+            </summary>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
         <member name="M:Orchid.Revit.Core.Document.BackgroundOpen(System.String)">
             <summary>
             Open documents in background
@@ -466,6 +472,15 @@
             </summary>
             <param name="element">Autodesk.Revit.DB.Element</param>
             <returns name="Element">Revit.Elements.Element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Object.XYZ(System.Double,System.Double,System.Double)">
+            <summary>
+            Create basic Autodesk XYZ object
+            </summary>
+            <param name="x">X value</param>
+            <param name="y">Y value</param>
+            <param name="z">Z value</param>
+            <returns name="XYZ">Autodesk.Revit.DB.XYZ object</returns>
         </member>
         <member name="T:Orchid.Revit.Core.Parameter">
             <summary>
@@ -1480,7 +1495,7 @@
             <param name="keywords"></param>
             <returns name="AppearanceAsset">Appearance asset as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.AppearanceAsset.SetGeneric(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.AppearanceAsset.SetGeneric(System.Object,DSCore.Color)">
             <summary>
             Set generic.
             </summary>
@@ -1512,7 +1527,7 @@
         <member name="M:Orchid.Revit.Materials.Graphics.#ctor">
             default private constructor --> hides the class in dynamo
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetGraphics(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetGraphics(System.Object,System.Boolean,DSCore.Color,System.Int32,System.Object,DSCore.Color,System.Object,DSCore.Color)">
             <summary>
             Set material graphics.
             Valid pattern input is either a Dynamo fill pattern object or as
@@ -1543,7 +1558,7 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePatternColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfacePatternColor(System.Object,DSCore.Color)">
             <summary>
             Set surface pattern color.
             Valid color input is either a Dynamo color object or as a 
@@ -1566,7 +1581,7 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPatternColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutPatternColor(System.Object,DSCore.Color)">
             <summary>
             Set cut pattern color.
             Valid color input is either a Dynamo color object or as a 
@@ -1578,7 +1593,7 @@
             <param name="color">Color as list of integer or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.Set(System.Object,System.Boolean,System.Collections.IList,System.Int32,System.Object,System.Collections.IList,System.Object,System.Collections.IList,System.Object,System.Collections.IList,System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.Set(System.Object,System.Boolean,DSCore.Color,System.Int32,System.Object,DSCore.Color,System.Object,DSCore.Color,System.Object,DSCore.Color,System.Object,DSCore.Color)">
             <summary>
             Set material graphics.
             Valid pattern input is either a Dynamo fill pattern object or as
@@ -1613,7 +1628,7 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceForegroundPatternColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceForegroundPatternColor(System.Object,DSCore.Color)">
             <summary>
             Set surface foreground pattern color.
             Valid color input is either a Dynamo color object or as a 
@@ -1636,7 +1651,7 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceBackgroundPatternColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetSurfaceBackgroundPatternColor(System.Object,DSCore.Color)">
             <summary>
             Set surface background pattern color.
             Valid color input is either a Dynamo color object or as a 
@@ -1659,7 +1674,7 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetCutForegroundPatternColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutForegroundPatternColor(System.Object,DSCore.Color)">
             <summary>
             Set cut foreground pattern color.
             Valid color input is either a Dynamo color object or as a 
@@ -1682,7 +1697,7 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetCutBackgroundPatternColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetCutBackgroundPatternColor(System.Object,DSCore.Color)">
             <summary>
             Set cut background pattern color.
             Valid color input is either a Dynamo color object or as a 
@@ -1702,7 +1717,7 @@
             <param name="useRenderAppearance">Use render appearance as boolean</param>
             <returns name="Material">Material as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.Graphics.SetShadingColor(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.Graphics.SetShadingColor(System.Object,DSCore.Color)">
             <summary>
             Set shading color.
             Valid color input is either a Dynamo color object or as a 
@@ -2043,6 +2058,20 @@
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.#ctor">
             default private constructor --> hides the class in dynamo
         </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.All">
+            <summary>
+            Get all physical property set (asset).
+            </summary>
+            <returns name="PropertySet">Physical property set as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.Duplicate(System.Object,System.String)">
+            <summary>
+            Duplicate physical property set (asset).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <param name="name">Name for the duplicated physical property set</param>
+            <returns name="PropertySet">Physical property set as object</returns>
+        </member>
         <member name="M:Orchid.Revit.Materials.PhysicalAsset.Create(System.String,System.String,System.Boolean)">
             <summary>
             Create physical asset and property set.
@@ -2080,7 +2109,7 @@
             <param name="expansionCoefficient"></param>
             <returns name="PropertySet">Physical property set as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetBasicThermal(System.Object,System.Collections.IList)">
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetBasicThermalByXYZ(System.Object,Autodesk.Revit.DB.XYZ)">
             <summary>
             Set basic thermal.
             </summary>
@@ -2107,7 +2136,7 @@
             <param name="density"></param>
             <returns name="PropertySet">Physical property set as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetMechanical(System.Object,System.Collections.IList,System.Collections.IList,System.Collections.IList,System.Double)">
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetMechanicalByXYZ(System.Object,Autodesk.Revit.DB.XYZ,Autodesk.Revit.DB.XYZ,Autodesk.Revit.DB.XYZ,System.Double)">
             <summary>
             Set mechanical.
             </summary>
@@ -2128,9 +2157,9 @@
             <param name="thermalTreated"></param>
             <returns name="PropertySet">Physical property set as object</returns>
         </member>
-        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetStrength(System.Object,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.SetStrengthExtended(System.Object,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
             <summary>
-            Set strength.
+            Set strength (extended).
             </summary>
             <param name="propertySet">Physical property set as object</param>
             <param name="species"></param>
@@ -2155,11 +2184,131 @@
             <param name="lightweight"></param>
             <returns name="PropertySet">Physical property set as object</returns>
         </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetInformation(System.Object)">
+            <summary>
+            Get information.
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="Description"></returns>
+            <returns name="Keywords"></returns>
+            <returns name="Subclass"></returns>
+            <returns name="Source"></returns>
+            <returns name="SourceUrl"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetBehavior(System.Object)">
+            <summary>
+            Get behavior.
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="Behavior"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetExpansionCoefficient(System.Object)">
+            <summary>
+            Get expansion coefficient (basic thermal).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="ExpansionCoefficient"></returns>
+            <returns name="ExpansionCoefficientX"></returns>
+            <returns name="ExpansionCoefficientY"></returns>
+            <returns name="ExpansionCoefficientZ"></returns>
+            <returns name="ExpansionCoefficient1"></returns>
+            <returns name="ExpansionCoefficient2"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetDensity(System.Object)">
+            <summary>
+            Get density (mechanical).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="Density"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetYoungModulus(System.Object)">
+            <summary>
+            Get young modulus (mechanical).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="YoungModulus"></returns>
+            <returns name="YoungModulusX"></returns>
+            <returns name="YoungModulusY"></returns>
+            <returns name="YoungModulusZ"></returns>
+            <returns name="YoungModulus1"></returns>
+            <returns name="YoungModulus2"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetPoissonRatio(System.Object)">
+            <summary>
+            Get poisson ratio (mechanical).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="PoissonRatio"></returns>
+            <returns name="PoissonRatioX"></returns>
+            <returns name="PoissonRatioY"></returns>
+            <returns name="PoissonRatioZ"></returns>
+            <returns name="PoissonRatio12"></returns>
+            <returns name="PoissonRatio23"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetShearModulus(System.Object)">
+            <summary>
+            Get shear modulus (mechanical).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="ShearModulus"></returns>
+            <returns name="ShearModulusX"></returns>
+            <returns name="ShearModulusY"></returns>
+            <returns name="ShearModulusZ"></returns>
+            <returns name="ShearModulus12"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetStrength(System.Object)">
+            <summary>
+            Get strength.
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="YieldStress"></returns>
+            <returns name="TensileStrength"></returns>
+            <returns name="ThermalTreated"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetStrengthExtended(System.Object)">
+            <summary>
+            Get strength (extended).
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="Species"></returns>
+            <returns name="Grade"></returns>
+            <returns name="Bending"></returns>
+            <returns name="ParallelCompression"></returns>
+            <returns name="PerpendicularCompression"></returns>
+            <returns name="ParallelShear"></returns>
+            <returns name="TensionParallel"></returns>
+            <returns name="TensionPerpendicular"></returns>
+            <returns name="AverageModulus"></returns>
+            <returns name="Construction"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.PhysicalAsset.GetConcrete(System.Object)">
+            <summary>
+            Get concrete.
+            </summary>
+            <param name="propertySet">Physical property set as object</param>
+            <returns name="Compression"></returns>
+            <returns name="ShearStrengthReduction"></returns>
+            <returns name="Lightweight"></returns>
+        </member>
         <member name="T:Orchid.Revit.Materials.ThermalAsset">
             Methods for thermal assets
         </member>
         <member name="M:Orchid.Revit.Materials.ThermalAsset.#ctor">
             default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Materials.ThermalAsset.All">
+            <summary>
+            Get all thermal property set (asset).
+            </summary>
+            <returns name="PropertySet">Thermal property set as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.ThermalAsset.Duplicate(System.Object,System.String)">
+            <summary>
+            Duplicate thermal property set (asset).
+            </summary>
+            <param name="propertySet">Thermal property set as object</param>
+            <param name="name">Name for the duplicated thermal property set</param>
+            <returns name="PropertySet">Thermal property set as object</returns>
         </member>
         <member name="M:Orchid.Revit.Materials.ThermalAsset.Create(System.String,System.String,System.Boolean)">
             <summary>
@@ -2211,6 +2360,45 @@
             <param name="gasViscosity"></param>
             <param name="compressibility"></param>
             <returns name="PropertySet">Thermal property set as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.ThermalAsset.GetInformation(System.Object)">
+            <summary>
+            Get information.
+            </summary>
+            <param name="propertySet">Thermal property set as object</param>
+            <returns name="Description"></returns>
+            <returns name="Keywords"></returns>
+            <returns name="Subclass"></returns>
+            <returns name="Source"></returns>
+            <returns name="SourceUrl"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.ThermalAsset.GetProperties(System.Object)">
+            <summary>
+            Get properties.
+            </summary>
+            <param name="propertySet">Thermal property set as object</param>
+            <returns name="TransmitsLight"></returns>
+            <returns name="Behavior"></returns>
+            <returns name="ThermalConductivity"></returns>
+            <returns name="SpecificHeat"></returns>
+            <returns name="Density"></returns>
+            <returns name="Emissivity"></returns>
+            <returns name="Permeability"></returns>
+            <returns name="Porosity"></returns>
+            <returns name="Reflectivity"></returns>
+            <returns name="ElectricalResistivity"></returns>
+        </member>
+        <member name="M:Orchid.Revit.Materials.ThermalAsset.GetBasicThermal(System.Object)">
+            <summary>
+            Get basic thermal.
+            </summary>
+            <param name="propertySet">Thermal property set as object</param>
+            <returns name="ThermalConductivity"></returns>
+            <returns name="SpecificHeat"></returns>
+            <returns name="Density"></returns>
+            <returns name="Emissivity"></returns>
+            <returns name="GasViscosity"></returns>
+            <returns name="Compressibility"></returns>
         </member>
     </members>
 </doc>

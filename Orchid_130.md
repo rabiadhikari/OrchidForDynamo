@@ -5,7 +5,7 @@ The major number follows the Dynamo version, 132.x.x is usable in Dynamo +1.3.2.
 ### History of Orchid for Dynamo 1.3.x ###  
 
 134.4.1  
-- Materials: +50 new nodes for materials in a new branch.  
+- Materials: +100 new nodes for materials in a new branch.  
 
 134.4.0  
 - Element: Selection.ElementByFamily and Families.  
