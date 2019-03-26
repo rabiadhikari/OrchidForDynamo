@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 132.x.x is usable in Dynamo +1.3.2.
 
 ### History of Orchid for Dynamo 1.3.x ###  
 
+134.4.2  
+- Core: nodes for BuiltInParameter. Nodes for copying and transferring elements between different document. Nodes for opening, save and closing central files. Nodes for linking files into documents.
+
 134.4.1  
 - Materials: +100 new nodes for materials in a new branch.  
 

@@ -25,6 +25,34 @@
             <param name="instance">Component as instances or summarized/nTrue select Data to be Instances, False select Data to be summarized</param>
             <returns name="component">Component</returns>
         </member>
+        <member name="T:Orchid.Revit.Core.BuiltInParameter">
+            <summary>
+            Methods for elements
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.BuiltInParameter.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Core.BuiltInParameter.Name(System.Int32)">
+            <summary>
+            Get the builtin parameter name
+            </summary>
+            <param name="parameter">The parameter</param>
+            <returns name="string">string</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.BuiltInParameter.Label(System.Int32)">
+            <summary>
+            Get the builtin parameter label
+            </summary>
+            <param name="parameter">The parameter</param>
+            <returns name="string">string</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.BuiltInParameter.All">
+            <summary>
+            Get all builtin parameters.
+            </summary>
+            <returns name="Parameter">Builtin parameter</returns>
+        </member>
         <member name="T:Orchid.Revit.Core.IFC">
             <summary>
             IFC methods, retrieved from
@@ -164,20 +192,6 @@
             </summary>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
-        <member name="M:Orchid.Revit.Core.Document.ActiveView(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get the active view in document
-            </summary>
-            <param name="document">The name of the document</param>
-            <returns name="View">ActiveView</returns>
-        </member>
-        <member name="M:Orchid.Revit.Core.Document.OpenView(Revit.Elements.Element)">
-            <summary>
-            Open view in the active document
-            </summary>
-            <param name="view">View to open</param>
-            <returns name="View">New active view</returns>
-        </member>
         <member name="M:Orchid.Revit.Core.Document.Name(Autodesk.Revit.DB.Document)">
             <summary>
             Get the current document name
@@ -192,19 +206,14 @@
             <param name="file">File (path) to open in the background</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
-        <member name="M:Orchid.Revit.Core.Document.Save(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.Revit.Core.Document.BackgroundOpen(System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
-            Save document
+            Open documents in background.
             </summary>
-            <param name="document">Autodesk.Revit.DB.Document</param>
-            <returns name="Document">Autodesk.Revit.DB.Document</returns>
-        </member>
-        <member name="M:Orchid.Revit.Core.Document.SaveAs(Autodesk.Revit.DB.Document,System.String)">
-            <summary>
-            SaveAs document
-            </summary>
-            <param name="document">Autodesk.Revit.DB.Document</param>
-            <param name="name">Name for the document incl. path</param>
+            <param name="file">File (path) to open in the background</param>
+            <param name="detachFromCentral">Detach from central?</param>
+            <param name="discardWorksets">Discard worksets?</param>
+            <param name="audit">Audit the document?</param>
             <returns name="Document">Autodesk.Revit.DB.Document</returns>
         </member>
         <member name="M:Orchid.Revit.Core.Document.Close(Autodesk.Revit.DB.Document,System.Boolean)">
@@ -213,6 +222,187 @@
             </summary>
             <param name="document">Autodesk.Revit.DB.Document</param>
             <param name="save">Save opened document?</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Save(Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            Save document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="compact">Save using compact mode?</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.SaveAs(Autodesk.Revit.DB.Document,System.String,System.Boolean)">
+            <summary>
+            SaveAs document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="name">Name for the document incl. path</param>
+            <param name="overwrite">Overwrite existing document?</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.SaveAs(Autodesk.Revit.DB.Document,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            SaveAs document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="name">Name for the document incl. path</param>
+            <param name="overwrite">Overwrite existing document?</param>
+            <param name="saveAsCentral">SaveAs central document?</param>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.TransferByCategory(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer project standards by category from source document to target document.
+            </summary>
+            <param name="source">Source as Autodesk.Revit.DB.Document</param>
+            <param name="target">Target as Autodesk.Revit.DB.Document</param>
+            <param name="category">Category as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.TransferByType(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer types from source document to target document.
+            </summary>
+            <param name="source">Source as Autodesk.Revit.DB.Document</param>
+            <param name="target">Target as Autodesk.Revit.DB.Document</param>
+            <param name="type">Type as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.TransferByFamily(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer types from source document to target document.
+            </summary>
+            <param name="source">Source as Autodesk.Revit.DB.Document</param>
+            <param name="target">Target as Autodesk.Revit.DB.Document</param>
+            <param name="family">Family as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.CopySchedule(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Copy schedule from source document to target document
+            </summary>
+            <param name="source">The source document as Autodesk.Revit.DB.Document</param>
+            <param name="target">The target document as Autodesk.Revit.DB.Document</param>
+            <param name="schedule">Schedule to copy</param>
+            <returns name="Schedule">Copied schedule</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.CopyDraftingView(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Copy drafting view from source document to target document
+            </summary>
+            <param name="source">The source document as Autodesk.Revit.DB.Document</param>
+            <param name="target">The target document as Autodesk.Revit.DB.Document</param>
+            <param name="draftingView">Drafting view to copy</param>
+            <returns name="DraftingView">Copied drafting view</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.CopyElement(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Copy element from source document to target document
+            </summary>
+            <param name="source">The source document as Autodesk.Revit.DB.Document</param>
+            <param name="target">The target document as Autodesk.Revit.DB.Document</param>
+            <param name="element">Element to copy</param>
+            <returns name="Element">Copied element</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.ConvertToLink(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            Convert link instance to link type
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="instance">Link instance as object</param>
+            <returns name="Link">Revit link element as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.LinkedFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked file in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="Link">External link element as object</returns>
+            <returns name="Type">External link type</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.LinkedRevitFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked Revit file in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="Link">Revit link element as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.LinkedCadFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked CAD file in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="Link">CAD link element as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.LinkReload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Reload external linked file in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="link">External link element as object</param>
+            <returns name="Link">External link element as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Unload external linked file in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="link">External link element as object</param>
+            <returns name="Link">External link element as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.LinkRepath(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            Repath external linked file in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="link">External link element as object</param>
+            <param name="file">File (path) to set (repath)</param>
+            <returns name="Link">External link element as object</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.ActiveView(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get the active view in document
+            </summary>
+            <param name="document">The name of the document</param>
+            <returns name="View">ActiveView</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.OpenView(Revit.Elements.Element)">
+            <summary>
+            Open view in the active document
+            </summary>
+            <param name="view">View to open</param>
+            <returns name="View">New active view</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.ContainCategory(System.Collections.IList)">
+            <summary>
+            Does document contain category?
+            </summary>
+            <param name="category">Category to validate is contained in the document</param>
+            <returns name="bool">List of booleans</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.ContainType(System.Collections.IList)">
+            <summary>
+            Does document contain type?
+            </summary>
+            <param name="type">Type to validate is contained in the document</param>
+            <returns name="bool">List of booleans</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.Opened">
+            <summary>
+            Get background opened documents
+            </summary>
+            <returns name="Document">Autodesk.Revit.DB.Document</returns>
+        </member>
+        <member name="M:Orchid.Revit.Core.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            Set the starting view in the document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <param name="view">The view to set</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.Revit.Core.Document.ImportImage(System.String,System.Boolean)">
@@ -230,20 +420,6 @@
             <param name="document">Autodesk.Revit.DB.Document</param>
             <returns name="info">Document info</returns>
         </member>
-        <member name="M:Orchid.Revit.Core.Document.ContainCategory(System.Collections.IList)">
-            <summary>
-            Does document contain category?
-            </summary>
-            <param name="category">Category to validate is contained in the document</param>
-            <returns name="bool">List of booleans</returns>
-        </member>
-        <member name="M:Orchid.Revit.Core.Document.ContainType(System.Collections.IList)">
-            <summary>
-            Does document contain type?
-            </summary>
-            <param name="type">Type to validate is contained in the document</param>
-            <returns name="bool">List of booleans</returns>
-        </member>
         <member name="M:Orchid.Revit.Core.Document.Purge(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Purge document. Set "completely" to true for including materials and assets!
@@ -253,25 +429,6 @@
             </summary>
             <param name="document">Autodesk.Revit.DB.Document</param>
             <param name="completely">Includes purging materials and assets</param>
-        </member>
-        <member name="M:Orchid.Revit.Core.Document.Transfer(Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
-            <summary>
-            Transfer project standards by category from source document to current document.
-            </summary>
-            <param name="source">Source as Autodesk.Revit.DB.Document</param>
-            <param name="category">Category as string or object</param>
-            <param name="overwrite">Copy only new or overwrite existing?</param>
-            <returns name="Element">Transfered element</returns>
-        </member>
-        <member name="M:Orchid.Revit.Core.Document.Transfer(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
-            <summary>
-            Transfer project standards by category from source document to target document.
-            </summary>
-            <param name="source">Source as Autodesk.Revit.DB.Document</param>
-            <param name="target">Target as Autodesk.Revit.DB.Document</param>
-            <param name="category">Category as string or object</param>
-            <param name="overwrite">Copy only new or overwrite existing?</param>
-            <returns name="Element">Transfered element</returns>
         </member>
         <member name="T:Orchid.Revit.Core.Print">
             <summary>
@@ -358,6 +515,21 @@
             <param name="rasterQuality">Appearance: Raster quality</param>
             <param name="colorDepth">Appearance: Colors</param>
             <returns name="PrintSetting">PrintSetting</returns>
+        </member>
+        <member name="T:Orchid.Revit.Core.View">
+            <summary>
+            View methods for core processes
+            </summary>
+        </member>
+        <member name="M:Orchid.Revit.Core.View.#ctor">
+            default private constructor --> hides the class in dynamo
+        </member>
+        <member name="M:Orchid.Revit.Core.View.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            All view in document
+            </summary>
+            <param name="document">Autodesk.Revit.DB.Document</param>
+            <returns name="View">View</returns>
         </member>
         <member name="T:Orchid.Revit.Core.ViewSheetSet">
             <summary>
@@ -1035,6 +1207,13 @@
             <param name="element">List of elements</param>
             <returns name="true">List of flipped elements</returns>
             <returns name="false">List of not flipped elements</returns>
+        </member>
+        <member name="M:Orchid.Revit.Elements.Element.HandOrientation(Revit.Elements.Element)">
+            <summary>
+            Get the element hand orientation, output as vector
+            </summary>
+            <param name="element">Element as object</param>
+            <returns name="XYZ">XYZ vector</returns>
         </member>
         <member name="M:Orchid.Revit.Elements.Element.Delete(System.Collections.IList)">
             <summary>

@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 201.x.x is usable in Dynamo +2.0.1.
 
 ### History of Orchid for Dynamo 2.0.x ###  
 
+202.4.2  
+- Core: nodes for BuiltInParameter. Nodes for copying and transferring elements between different document. Nodes for opening, save and closing central files. Nodes for linking files into documents.  
+
 202.4.1  
 - Materials: +100 new nodes for materials in a new branch.  
 
