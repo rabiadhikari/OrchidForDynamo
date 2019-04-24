@@ -1,0 +1,174 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "StartingView",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "SelectedString": "{3D}",
+      "NodeType": "ExtensionNode",
+      "Id": "eb60ce763e7a4b0cac3dbb4cd9c6b01d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b054501e76c14b28910a389baa83d96f",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Document.SetStartingView@var,Revit.Elements.Element",
+      "Id": "253746aaf15e47738b14436ccdf68e98",
+      "Inputs": [
+        {
+          "Id": "24e8cb83c1c3479590e1f3a6b9dfd01b",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d28a8addbda948238c96d65c91471eba",
+          "Name": "view",
+          "Description": "The view to set\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8127564c98564401a6c15cdd6d0ba908",
+          "Name": "watch",
+          "Description": "Add a watch node to verify the output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set the starting view in the document\n\nDocument.SetStartingView (document: var = null, view: Element): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "7f15ff8f65ff4013970261bc8e26980d",
+      "Inputs": [
+        {
+          "Id": "97862cdd38604264a670afc007279052",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3f4312a90d4e405fa1808c26613c582c",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b054501e76c14b28910a389baa83d96f",
+      "End": "d28a8addbda948238c96d65c91471eba",
+      "Id": "d440fae3d6734405aaa9a1865afd3afe"
+    },
+    {
+      "Start": "8127564c98564401a6c15cdd6d0ba908",
+      "End": "97862cdd38604264a670afc007279052",
+      "Id": "589e9ab9bd7d4abf89b68a7fa85e8099"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "eb60ce763e7a4b0cac3dbb4cd9c6b01d",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Views",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 20.6304044480119,
+        "Y": 128.632613240549
+      },
+      {
+        "Id": "253746aaf15e47738b14436ccdf68e98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Document.SetStartingView",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 267.630404448012,
+        "Y": 102.632613240549
+      },
+      {
+        "Id": "7f15ff8f65ff4013970261bc8e26980d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 584.630404448012,
+        "Y": 102.632613240549
+      }
+    ],
+    "Annotations": [],
+    "X": 13.0209945693354,
+    "Y": 372.235990872823,
+    "Zoom": 0.823008849557522
+  }
+}

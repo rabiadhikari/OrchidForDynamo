@@ -1,0 +1,862 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Purge",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Directory": {
+        "Key": "DSCore.IO.Directory",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Directory.Contents": {
+        "Key": "DSCore.IO.Directory",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [
+    {
+      "Id": "d0ccc0ba827b476b88c21dfb44fed1c2",
+      "Name": "Directory Path",
+      "Type": "string",
+      "Value": ".\\testSet",
+      "Description": "Creates a string."
+    },
+    {
+      "Id": "46f95421cd4f45309c22c6b793e8f488",
+      "Name": "String",
+      "Type": "string",
+      "Value": "*.rfa",
+      "Description": "Creates a string."
+    },
+    {
+      "Id": "a1ed76c172234ef9ba5c7041148f93b2",
+      "Name": "Boolean",
+      "Type": "boolean",
+      "Value": "false",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "Id": "69e9d6ed121448a3a6c7ba9d429c349a",
+      "Name": "Boolean",
+      "Type": "boolean",
+      "Value": "true",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "Id": "4149e88d3d204c79a5079ad29923b9db",
+      "Name": "Boolean",
+      "Type": "boolean",
+      "Value": "true",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "Id": "66d0bc7063f14d5ea031c1586f9b05ca",
+      "Name": "String",
+      "Type": "string",
+      "Value": "*.0001.rfa",
+      "Description": "Creates a string."
+    },
+    {
+      "Id": "89e10ad8f8ee419f83656b137ca6bd5b",
+      "Name": "Boolean",
+      "Type": "boolean",
+      "Value": "true",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": ".\\testSet",
+      "Id": "d0ccc0ba827b476b88c21dfb44fed1c2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7e5eb686b089423c805790dad3ddc7b0",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "*.rfa",
+      "Id": "46f95421cd4f45309c22c6b793e8f488",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9a5101d2a5d7483d93bb2796ced47202",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Core.Directory.Contents@string,string,bool",
+      "Id": "bac2cf647ce542deb89f024cb02b3b3a",
+      "Inputs": [
+        {
+          "Id": "769bca7e43f9423fb4731a4c25b79e34",
+          "Name": "directory",
+          "Description": "Directory to get contents from\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fe36c62cdf4642e0b593a4c86b484288",
+          "Name": "searchString",
+          "Description": "Search string used to filter results\n\nstring\nDefault value : \"*\" (disabled)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4894f76e7c66463dbb29f8caf74ab39a",
+          "Name": "deepSearch",
+          "Description": "Search option used to search in all subfolders\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bafe04128e834b54a62fe0434420d102",
+          "Name": "file",
+          "Description": "File",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the files in a directory and its subdirectories. Use string for extension type, default is * for all files! If files are are readonly but not hidden, are they included. If files are both hidden or readonly files (and thereby system files) are they left out.\n\nDirectory.Contents (directory: string, searchString: string = \"*\", deepSearch: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Document.BackgroundOpen@string",
+      "Id": "3dde7cc250dd49f886ebcb6eb1861a1d",
+      "Inputs": [
+        {
+          "Id": "a5d2100c4d07470da74eb075f764ba37",
+          "Name": "file",
+          "Description": "File (path) to open in the background\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "917b06eb7631497ba998736ebb026e4b",
+          "Name": "Document",
+          "Description": "Document as Revit type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Open documents in background\n\nDocument.BackgroundOpen (file: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Document.Close@var,bool",
+      "Id": "8d53748c9eda418895a34a099469dbf6",
+      "Inputs": [
+        {
+          "Id": "1177fe0bad1644cf9c95429b0337487c",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "caf2575c3bc94977a2a4bd15025d8e1f",
+          "Name": "save",
+          "Description": "Save opened document?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "033357f5dd224e03a15c2f3a744ee0c6",
+          "Name": "watch",
+          "Description": "Add a watch node to verify the output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Close document\n\nDocument.Close (document: var, save: bool = false): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "a1ed76c172234ef9ba5c7041148f93b2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9321cfbaeac14a80869376f30490426b",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "69e9d6ed121448a3a6c7ba9d429c349a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "245d15c87eda47538b3e1e3a183e03f6",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Core.Directory.Contents@string,string,bool",
+      "Id": "2bdde6c8181f4acca52b62da87a9101d",
+      "Inputs": [
+        {
+          "Id": "c7557126a6e04d7f868e5dada7183dc0",
+          "Name": "directory",
+          "Description": "Directory to get contents from\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0909702a5a2742de9b1f6fbb6a6a4cb2",
+          "Name": "searchString",
+          "Description": "Search string used to filter results\n\nstring\nDefault value : \"*\" (disabled)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f9ead9050f6f43a7844ab6da0b6f47e7",
+          "Name": "deepSearch",
+          "Description": "Search option used to search in all subfolders\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c35b012183a04035a8f50069be1278d1",
+          "Name": "file",
+          "Description": "File",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the files in a directory and its subdirectories. Use string for extension type, default is * for all files! If files are are readonly but not hidden, are they included. If files are both hidden or readonly files (and thereby system files) are they left out.\n\nDirectory.Contents (directory: string, searchString: string = \"*\", deepSearch: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "4149e88d3d204c79a5079ad29923b9db",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2279204c3f8946e5adffb6682f27fc60",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.DeleteFile@string",
+      "Id": "3aa252af56164047884a6172c5d0fe04",
+      "Inputs": [
+        {
+          "Id": "77616bbf947c4459aba21ca74ade8649",
+          "Name": "path",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ca9fe3948a4b4fadae07d17882df39a4",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Deletes the specified file.\n\nFileSystem.DeleteFile (path: string): void"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "*.0001.rfa",
+      "Id": "66d0bc7063f14d5ea031c1586f9b05ca",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0110a1ff5656400485c5cb9deb79aae9",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Document.Purge@var,bool",
+      "Id": "0b5c1af41c274bb0aa622a16fe986efc",
+      "Inputs": [
+        {
+          "Id": "229ea12d2c1841f487d4fa4ac1ed71ef",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cf51510087c949c988ff549bfa05013b",
+          "Name": "completely",
+          "Description": "Includes purging materials and assets\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "adba1e81bc3d4b6bac220ba7f1c4b925",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Purge document. Set \"completely\" to true for including materials and assets! Please note \"completely\" purges also materials and materials assets that are used in \"peripheral\" elements and settings. Among this is included materials/assets bound to imported model elements, and materials/assets in settings like \"Site\" etc.\n\nDocument.Purge (document: var = null, completely: bool = false): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "Id": "8bf7cbd204c941cba7c4f9000fd72333",
+      "Inputs": [
+        {
+          "Id": "05b1e32d4bcb47c18fe498ed8929acb4",
+          "Name": "pass",
+          "Description": "Data to pass\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3696ad0c2ca04bbdbf74398eeca54961",
+          "Name": "waitFor",
+          "Description": "Data object to wait for\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "46939b0e26ae45a4a52489d65f2700e9",
+          "Name": "pass",
+          "Description": "Passed data",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "Id": "ab06d428dd6c40b4b480734a6a0c5495",
+      "Inputs": [
+        {
+          "Id": "763e2cc0d9d7467bae6325fde67bfe24",
+          "Name": "pass",
+          "Description": "Data to pass\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d1b9b80ac376460c878b5c7eea309bda",
+          "Name": "waitFor",
+          "Description": "Data object to wait for\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ea18b6c4f4d241069cde94c76c22ae8f",
+          "Name": "pass",
+          "Description": "Passed data",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "89e10ad8f8ee419f83656b137ca6bd5b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9376280002e24c2fb45f1bef7d8062f7",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7e5eb686b089423c805790dad3ddc7b0",
+      "End": "769bca7e43f9423fb4731a4c25b79e34",
+      "Id": "cda544228dfb41b2b9128f34682d3d93"
+    },
+    {
+      "Start": "7e5eb686b089423c805790dad3ddc7b0",
+      "End": "05b1e32d4bcb47c18fe498ed8929acb4",
+      "Id": "492405868aec4db8abb07f69307c0841"
+    },
+    {
+      "Start": "9a5101d2a5d7483d93bb2796ced47202",
+      "End": "fe36c62cdf4642e0b593a4c86b484288",
+      "Id": "a8a1211b4e2643598e9e91ff26ea906f"
+    },
+    {
+      "Start": "bafe04128e834b54a62fe0434420d102",
+      "End": "a5d2100c4d07470da74eb075f764ba37",
+      "Id": "d4194bb095c34fd1bba4b79fd13475b1"
+    },
+    {
+      "Start": "917b06eb7631497ba998736ebb026e4b",
+      "End": "763e2cc0d9d7467bae6325fde67bfe24",
+      "Id": "9703a0fd30924aa888736c472a4ef2e9"
+    },
+    {
+      "Start": "917b06eb7631497ba998736ebb026e4b",
+      "End": "229ea12d2c1841f487d4fa4ac1ed71ef",
+      "Id": "57b6e6aeb6064cadbfb1a3eb322b2fda"
+    },
+    {
+      "Start": "033357f5dd224e03a15c2f3a744ee0c6",
+      "End": "3696ad0c2ca04bbdbf74398eeca54961",
+      "Id": "1676f2e9060d423dad51229760971cfc"
+    },
+    {
+      "Start": "9321cfbaeac14a80869376f30490426b",
+      "End": "4894f76e7c66463dbb29f8caf74ab39a",
+      "Id": "4c8f06f100264f9a833c76ccd8fe7363"
+    },
+    {
+      "Start": "245d15c87eda47538b3e1e3a183e03f6",
+      "End": "caf2575c3bc94977a2a4bd15025d8e1f",
+      "Id": "cfad0fad5f4d4c4e9b3398662676e112"
+    },
+    {
+      "Start": "c35b012183a04035a8f50069be1278d1",
+      "End": "77616bbf947c4459aba21ca74ade8649",
+      "Id": "c3c90698de874bcb973c4ecdd38c40eb"
+    },
+    {
+      "Start": "2279204c3f8946e5adffb6682f27fc60",
+      "End": "f9ead9050f6f43a7844ab6da0b6f47e7",
+      "Id": "35c52b7344244b00b7d0dfb4f651615a"
+    },
+    {
+      "Start": "0110a1ff5656400485c5cb9deb79aae9",
+      "End": "0909702a5a2742de9b1f6fbb6a6a4cb2",
+      "Id": "c256ca46541f4046bd58a696cf565ace"
+    },
+    {
+      "Start": "adba1e81bc3d4b6bac220ba7f1c4b925",
+      "End": "d1b9b80ac376460c878b5c7eea309bda",
+      "Id": "452a94c756014d9fb99523a9a1b47409"
+    },
+    {
+      "Start": "46939b0e26ae45a4a52489d65f2700e9",
+      "End": "c7557126a6e04d7f868e5dada7183dc0",
+      "Id": "1e601f3cd56b4c2fafb2d13fcbd0ff55"
+    },
+    {
+      "Start": "ea18b6c4f4d241069cde94c76c22ae8f",
+      "End": "1177fe0bad1644cf9c95429b0337487c",
+      "Id": "c5d3664ffdd340ecb27b5b6b07b2c21a"
+    },
+    {
+      "Start": "9376280002e24c2fb45f1bef7d8062f7",
+      "End": "cf51510087c949c988ff549bfa05013b",
+      "Id": "f61244cad77a404d8499f4a32f19b70f"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Directory Path",
+        "Id": "d0ccc0ba827b476b88c21dfb44fed1c2",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -856.32679191579,
+        "Y": 315.719153470091
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "46f95421cd4f45309c22c6b793e8f488",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -856.32679191579,
+        "Y": 398.935867718817
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Directory.Contents",
+        "Id": "bac2cf647ce542deb89f024cb02b3b3a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -621.32679191579,
+        "Y": 394.935867718817
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Document.BackgroundOpen",
+        "Id": "3dde7cc250dd49f886ebcb6eb1861a1d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -308.32679191579,
+        "Y": 394.935867718817
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Document.Close",
+        "Id": "8d53748c9eda418895a34a099469dbf6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 771.823007714082,
+        "Y": 483.251077144202
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "a1ed76c172234ef9ba5c7041148f93b2",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -856.32679191579,
+        "Y": 481.935867718817
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "69e9d6ed121448a3a6c7ba9d429c349a",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 479.823007714082,
+        "Y": 563.251077144202
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Directory.Contents",
+        "Id": "2bdde6c8181f4acca52b62da87a9101d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1470.54548478117,
+        "Y": 411.896078720337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "4149e88d3d204c79a5079ad29923b9db",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1135.54548478117,
+        "Y": 534.896078720337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.DeleteFile",
+        "Id": "3aa252af56164047884a6172c5d0fe04",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1783.54548478117,
+        "Y": 411.896078720337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "66d0bc7063f14d5ea031c1586f9b05ca",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1135.54548478117,
+        "Y": 450.896078720337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Document.Purge",
+        "Id": "0b5c1af41c274bb0aa622a16fe986efc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 171.501943611597,
+        "Y": 544.485850402623
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataStream.Await",
+        "Id": "8bf7cbd204c941cba7c4f9000fd72333",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1135.52171068025,
+        "Y": 314.640004391708
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataStream.Await",
+        "Id": "ab06d428dd6c40b4b480734a6a0c5495",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 479.823007714082,
+        "Y": 429.251077144202
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "89e10ad8f8ee419f83656b137ca6bd5b",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -14.1479919974299,
+        "Y": 605.342189501024
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "09c4df1a2d4640478d15285858aa7067",
+        "Title": "",
+        "Nodes": [
+          "46f95421cd4f45309c22c6b793e8f488",
+          "d0ccc0ba827b476b88c21dfb44fed1c2",
+          "3dde7cc250dd49f886ebcb6eb1861a1d",
+          "bac2cf647ce542deb89f024cb02b3b3a",
+          "a1ed76c172234ef9ba5c7041148f93b2"
+        ],
+        "Left": -866.32679191579,
+        "Top": 285.719153470091,
+        "Width": 768.0,
+        "Height": 264.216714248726,
+        "FontSize": 14.0,
+        "InitialTop": 315.719153470091,
+        "InitialHeight": 184.396575901777,
+        "TextblockHeight": 20.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "4e1ed99cf8d74eb5b6df58e7d4336de7",
+        "Title": "",
+        "Nodes": [
+          "8d53748c9eda418895a34a099469dbf6",
+          "69e9d6ed121448a3a6c7ba9d429c349a",
+          "ab06d428dd6c40b4b480734a6a0c5495"
+        ],
+        "Left": 469.823007714082,
+        "Top": 399.251077144202,
+        "Width": 529.0,
+        "Height": 232.0,
+        "FontSize": 14.0,
+        "InitialTop": 429.251077144202,
+        "InitialHeight": 240.049305894818,
+        "TextblockHeight": 20.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "6cae213a48554909a99fa20c917dbe5b",
+        "Title": "Cleanup backup files",
+        "Nodes": [
+          "2bdde6c8181f4acca52b62da87a9101d",
+          "4149e88d3d204c79a5079ad29923b9db",
+          "3aa252af56164047884a6172c5d0fe04",
+          "66d0bc7063f14d5ea031c1586f9b05ca",
+          "8bf7cbd204c941cba7c4f9000fd72333"
+        ],
+        "Left": 1125.52171068025,
+        "Top": 268.640004391708,
+        "Width": 841.02377410092,
+        "Height": 334.256074328629,
+        "FontSize": 30.0,
+        "InitialTop": 314.640004391708,
+        "InitialHeight": 325.786666666668,
+        "TextblockHeight": 36.0,
+        "Background": "#FFFFB8D8"
+      },
+      {
+        "Id": "70fdfbf404f140b6b106922293132880",
+        "Title": "Purge",
+        "Nodes": [
+          "0b5c1af41c274bb0aa622a16fe986efc",
+          "89e10ad8f8ee419f83656b137ca6bd5b"
+        ],
+        "Left": -24.147991997429898,
+        "Top": 498.485850402623,
+        "Width": 416.6499356090269,
+        "Height": 174.856339098401,
+        "FontSize": 30.0,
+        "InitialTop": 544.485850402623,
+        "InitialHeight": 123.0,
+        "TextblockHeight": 36.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 215.70318581333416,
+    "Y": 393.999451114163,
+    "Zoom": 0.21686018418024222
+  }
+}

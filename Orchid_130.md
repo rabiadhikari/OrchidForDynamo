@@ -1,8 +1,11 @@
 ﻿**Versioning:** Number syntax: Major.Minor.Build.Revision (x.x.x.x).  
-The major number follows the Dynamo version, 132.x.x is usable in Dynamo +1.3.2.x versions. The minor number is internal major builds. The build number is internal minor builds. The revision number is an internal build number without public documentation and display in this file.  
+The major number follows the Dynamo version, 130.x.x is usable in Dynamo +1.3.0.x versions. The minor number is internal major builds. The build number is internal minor builds. The revision number is an internal build number without public documentation and display in this file.  
 
 
 ### History of Orchid for Dynamo 1.3.x ###  
+
+134.5.0  
+- Total refactored and major parts recoded.  
 
 134.4.2  
 - Core: nodes for BuiltInParameter. Nodes for copying and transferring elements between different document. Nodes for opening, save and closing central files. Nodes for linking files into documents.

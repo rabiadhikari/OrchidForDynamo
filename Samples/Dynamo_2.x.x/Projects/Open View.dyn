@@ -1,0 +1,165 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Open View",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Document.OpenView@Revit.Elements.Element",
+      "Id": "6cf2d943445343758f703bc19aa00e0c",
+      "Inputs": [
+        {
+          "Id": "0a7f67e8850b4f1bac19f7b82e8e531a",
+          "Name": "view",
+          "Description": "View to open\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "97a892c1ca29443dabb89f37765dec6f",
+          "Name": "View",
+          "Description": "New active view",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Open view in the active document\n\nDocument.OpenView (view: Element): Element"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "SelectedString": "{3D}",
+      "NodeType": "ExtensionNode",
+      "Id": "b1f3fc6e094e4e4c96a8090149ad45e7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bd41812237d24678b93c03ee04ccfd44",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "bd0a3524c0194c38bf2a4cd7ab12ca00",
+      "Inputs": [
+        {
+          "Id": "aba874aca35247a19b0d6a64b1de7704",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1868ed32736645e39aa69c6c88b04e07",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "97a892c1ca29443dabb89f37765dec6f",
+      "End": "aba874aca35247a19b0d6a64b1de7704",
+      "Id": "c34a4a7c4af74d249d052a623faef928"
+    },
+    {
+      "Start": "bd41812237d24678b93c03ee04ccfd44",
+      "End": "0a7f67e8850b4f1bac19f7b82e8e531a",
+      "Id": "dedd8ad9adee4e57b21da717e6f38f16"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "6cf2d943445343758f703bc19aa00e0c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Document.OpenView",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 327.042524498116,
+        "Y": 388.037716281238
+      },
+      {
+        "Id": "b1f3fc6e094e4e4c96a8090149ad45e7",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Views",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 80.0425244981157,
+        "Y": 388.037716281238
+      },
+      {
+        "Id": "bd0a3524c0194c38bf2a4cd7ab12ca00",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 601.042524498116,
+        "Y": 388.037716281238
+      }
+    ],
+    "Annotations": [],
+    "X": -34.2511509843074,
+    "Y": 114.881561900017,
+    "Zoom": 0.802712700369913
+  }
+}
