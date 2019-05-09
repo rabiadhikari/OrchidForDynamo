@@ -1465,11 +1465,25 @@
             </summary>
             <returns name="View">All schedule views as dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.Schedule.GetValue(Revit.Elements.Views.ScheduleView)">
+        <member name="M:Orchid.RevitProject.Views.Schedule.GetData(Revit.Elements.Views.ScheduleView,System.String)">
             <summary>
-            Get schedule, return value as integer, double and/or string
+            Get schedule view, return data as setup in schedule.
+            return value as integer, double and/or string
+            according to the selected culture (Country)
             </summary>
             <param name="scheduleView">Schedule as dynamo type</param>
+            <param name="country">Country as string</param>
+            <returns name="Value">All Values in the schedule as a list</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Schedule.GetData(Revit.Elements.Views.ScheduleView,System.String,System.Double)">
+            <summary>
+            Get schedule view, return data without unit symbols.
+            Return value as integer, double and/or string
+            according to the selected culture (Country)
+            </summary>
+            <param name="scheduleView">Schedule as dynamo type</param>
+            <param name="country">Country as string</param>
+            <param name="accuracy">Accuracy for numeric values</param>
             <returns name="Value">All Values in the schedule as a list</returns>
         </member>
         <member name="T:Orchid.RevitProject.Views.View">
@@ -1592,12 +1606,19 @@
             <returns name="true">Flipped element</returns>
             <returns name="false">Not flipped element</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Orientation(Revit.Elements.Element)">
+            <summary>
+            Get the element orientation, output as vector
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Vector">Vector</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Elements.Element.HandOrientation(Revit.Elements.Element)">
             <summary>
             Get the element hand orientation, output as vector
             </summary>
             <param name="element">Element as Dynamo type</param>
-            <returns name="XYZ">XYZ vector</returns>
+            <returns name="Vector">Vector</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.Delete(System.Collections.IList)">
             <summary>
@@ -1635,6 +1656,12 @@
             Get analytical element
             </summary>
             <param name="element">Element as Dynamo type</param>
+            <returns name="Element">Element</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.GetLinePattern">
+            <summary>
+            Get line pattern element
+            </summary>
             <returns name="Element">Element</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.FamilyName(Revit.Elements.Element)">
