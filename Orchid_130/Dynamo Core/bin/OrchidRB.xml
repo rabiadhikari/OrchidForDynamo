@@ -246,6 +246,25 @@
             <param name="deepSearch">Search option used to search in all subfolders</param>
             <returns name="file">File</returns>
         </member>
+        <member name="T:Orchid.Core.Number">
+            <summary>
+            Number methods for core processes
+            </summary>
+        </member>
+        <member name="M:Orchid.Core.Number.ToDouble(System.Int32)">
+            <summary>
+            Convert number to integer.
+            </summary>
+            <param name="number">number as integer</param>
+            <returns name="double">number as double</returns>
+        </member>
+        <member name="M:Orchid.Core.Number.ToInteger(System.Double)">
+            <summary>
+            Convert number to double.
+            </summary>
+            <param name="number">number as double</param>
+            <returns name="int">number as integer</returns>
+        </member>
         <member name="T:Orchid.Core.File">
             File methods for core processes
             File methods for core processes
@@ -844,9 +863,25 @@
             <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
             <returns name="Parameter">Parameter</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.Parameter.AddSharedParameter(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+        <member name="M:Orchid.RevitFamily.Parameter.AddSharedParameter(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
-            Add (create) shared parameter by name
+            Add shared parameter by name.
+            If the parameter not exists in the shared parameter file is an error thrown!
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="groupName">Group of the parameter for the shared parameter</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="tooltip">Tooltip for the parameter</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
+            <returns name="Parameter">Parameter</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.Parameter.CreateSharedParameter(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Create shared parameter by name. 
+            If the parameter not exists in the shared parameter file is it being created.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to add</param>
@@ -1312,7 +1347,8 @@
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
-            Add (create) project parameter by name. If the parameter exists in the project is the category binding being updated.
+            Add (create) project parameter by name. 
+            If the parameter exists is the category binding being updated.
             </summary>
             <param name="parameterName">The name of the parameter to add</param>
             <param name="type">Parameter Type</param>
@@ -1320,9 +1356,24 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
-            Add (create) shared parameter by name in the project. If the parameter exists in the project is the category binding being updated.
+            Add shared parameter by name in the project.
+            If the parameter not exists in the shared parameter file is an error thrown!
+            If the parameter exists is the category binding being updated.
+            </summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="groupName">Group of the parameter for shared parameters</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+            <summary>
+            Create shared parameter by name in the project. 
+            If the parameter not exists in the shared parameter file is it being created.
+            If the parameter exists is the category binding being updated.
             </summary>
             <param name="parameterName">The name of the parameter to add</param>
             <param name="groupName">Group of the parameter for shared parameters</param>
@@ -2269,6 +2320,16 @@
               Looks up a localized string similar to No shared parameter file found..
             </summary>
         </member>
+        <member name="P:Orchid.Internals.Notifications.NoSharedParameterFound">
+            <summary>
+              Looks up a localized string similar to shared parameter not found..
+            </summary>
+        </member>
+        <member name="P:Orchid.Internals.Notifications.NoSharedParameterGroupFound">
+            <summary>
+              Looks up a localized string similar to shared parameter group not found..
+            </summary>
+        </member>
         <member name="P:Orchid.Internals.Notifications.NoSigmaBranch">
             <summary>
               Looks up a localized string similar to No Sigma branch could be found.
@@ -2289,14 +2350,14 @@
               Looks up a localized string similar to You need at least two elements for a dimension..
             </summary>
         </member>
-        <member name="P:Orchid.Internals.Notifications.NotRevitFamily">
-            <summary>
-              Looks up a localized string similar to Please run this command in a family document..
-            </summary>
-        </member>
         <member name="P:Orchid.Internals.Notifications.NotPositiveIntegerError">
             <summary>
               Looks up a localized string similar to {0} must be a positive integer.
+            </summary>
+        </member>
+        <member name="P:Orchid.Internals.Notifications.NotRevitFamily">
+            <summary>
+              Looks up a localized string similar to Please run this command in a family document..
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NoViewSheetSet">
