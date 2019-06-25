@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 130.x.x is usable in Dynamo +1.3.0.
 
 ### History of Orchid for Dynamo 1.3.x ###  
 
+134.6.0  
+- Element: nodes for grouping, views, viewports, and grids.  
+
 134.5.0  
 - Total refactored and major parts recoded.  
 

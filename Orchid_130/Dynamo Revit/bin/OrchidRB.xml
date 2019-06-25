@@ -1227,357 +1227,102 @@
             <param name="document">Document as Revit type</param>
             <param name="completely">Includes purging materials and assets</param>
         </member>
-        <member name="T:Orchid.RevitProject.IFC">
-            IFC methods, retrieved from
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExportConfiguration.cs
-            LOD --> TessellationLevelOfDetail
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/Revit.IFC.Export/Utility/ExportOptionsCache.cs
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExporterUIWindow.xaml.cs
-            
+        <member name="T:Orchid.RevitProject.Elements.Group">
+            Group methods
         </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingByName(System.String)">
+        <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
-            Ifc export setting, based on the available in the document
+            Create group by name
             </summary>
-            <param name="name">The IFC setting name</param>
-            <returns name="Setting">Ifc export setting</returns>
+            <param name="name">Group name as string</param>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Elements.Group.All">
             <summary>
-            Set general IFC export setting
+            All group in current document
             </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="ifcVersion">IFC version as string</param>
-            <param name="ifcFileType">IFC file type as string</param>
-            <param name="spaceBoundary">Space boundaries as integer</param>
-            <param name="projectOrigin">Project origin as integer</param>
-            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
-            <param name="includeSteel">Include steel elements?</param>
-            <returns name="Setting">IFC export setting</returns>
+            <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+        <member name="M:Orchid.RevitProject.Elements.Group.All(Autodesk.Revit.DB.Document)">
             <summary>
-            Set additional content and level of detail IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="Export2Dplan">Export 2D plan view elements?</param>
-            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
-            <param name="VisibleElements">Export only elements visible in view?</param>
-            <param name="RoomsInView">Export rooms in 3D views?</param>
-            <param name="LOD">Level of detail for some element geometry</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
-            <summary>
-            Set Property sets IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="revitProperty">Export Revit property sets?</param>
-            <param name="commonProperty">Export IFC common property sets?</param>
-            <param name="baseQuantities">Export base quantities?</param>
-            <param name="exportSchedules">Export schedules as property sets?</param>
-            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
-            <param name="userProperty">Export user defined property sets?</param>
-            <param name="userPropertyFile">Property set file name incl. path</param>
-            <param name="parameterMapping">Export parameter mapping table?</param>
-            <param name="parameterMappingFile">Mapping table file name incl. path</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Set advanced IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="exportParts">Export parts as building elements?</param>
-            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
-            <param name="activeViewGeometry">Use active view when creating geometry?</param>
-            <param name="familyAndType">Use family and type name for reference?</param>
-            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
-            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
-            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
-            <param name="boundingBox">Export bounding box?</param>
-            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.Export(Autodesk.Revit.DB.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Element,Revit.Elements.Element,System.String,System.Boolean)">
-            <summary>
-            Export to IFC. Require IFC exporter 19.1.0 or higher
-            https://sourceforge.net/projects/ifcexporter
-            . the export function includes a default IFC export setting!
+            All group in document
             </summary>
             <param name="document">Document as Revit type</param>
-            <param name="setting">IFC export setting</param>
-            <param name="view">View as Dynamo type</param>
-            <param name="phase">Phase to export as Dynamo type</param>
-            <param name="file">The export file name incl. path</param>
-            <param name="overwrite">Overwrite existing file?</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
+            <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Parameters.BuiltInParameter">
-            Methods for parameters
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Name(System.Int32)">
+        <member name="M:Orchid.RevitProject.Elements.Group.All(System.Collections.IList)">
             <summary>
-            Get the builtin parameter name
+            All group in current document, await a data stream before passing group 
             </summary>
-            <param name="parameter">The parameter</param>
-            <returns name="string">string</returns>
+            <param name="waitFor">Data object to wait for</param>
+            <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Label(System.Int32)">
+        <member name="M:Orchid.RevitProject.Elements.Group.GetByName(System.String)">
             <summary>
-            Get the builtin parameter label
+            Get group by name
             </summary>
-            <param name="parameter">The parameter</param>
-            <returns name="string">string</returns>
+            <param name="name">Group name as string</param>
+            <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.All">
+        <member name="M:Orchid.RevitProject.Elements.Group.UnGroup(System.String)">
             <summary>
-            Get all builtin parameters.
+            Ungroup by name
             </summary>
-            <returns name="Parameter">Builtin parameter</returns>
+            <param name="name">Group name as string</param>
         </member>
-        <member name="T:Orchid.RevitProject.Parameters.Parameter">
-            Methods for parameters
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AllCategories(Autodesk.Revit.DB.Document)">
-            Get a CategorySet for all categories
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.ToCategorySet(System.Collections.Generic.List{Revit.Elements.Category})">
-            Convert a list of categories to a category set
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Elements.Group.UnGroup(Revit.Elements.Element)">
             <summary>
-            Add (create) project parameter by name. 
-            If the parameter exists is the category binding being updated.
+            Ungroup group
             </summary>
-            <param name="parameterName">The name of the parameter to add</param>
-            <param name="type">Parameter Type</param>
-            <param name="group">Parameter Group</param>
-            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
-            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+            <param name="group">Group as Dynamo type</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Elements.Group.Delete(System.String)">
             <summary>
-            Add shared parameter by name in the project.
-            If the parameter not exists in the shared parameter file is an error thrown!
-            If the parameter exists is the category binding being updated.
+            Delete group by name
             </summary>
-            <param name="parameterName">The name of the parameter to add</param>
-            <param name="groupName">Group of the parameter for shared parameters</param>
-            <param name="type">Parameter Type</param>
-            <param name="group">Parameter Group</param>
-            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
-            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+            <param name="name">Group name as string</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Elements.Group.Delete(Revit.Elements.Element)">
             <summary>
-            Create shared parameter by name in the project. 
-            If the parameter not exists in the shared parameter file is it being created.
-            If the parameter exists is the category binding being updated.
+            Delete group
             </summary>
-            <param name="parameterName">The name of the parameter to add</param>
-            <param name="groupName">Group of the parameter for shared parameters</param>
-            <param name="type">Parameter Type</param>
-            <param name="group">Parameter Group</param>
-            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
-            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+            <param name="group">Group as Dynamo type</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+        <member name="T:Orchid.RevitProject.Elements.GroupType">
+            Group methods
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.All">
             <summary>
-            Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
+            All group type in current document
+            </summary>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            All group type in document
             </summary>
             <param name="document">Document as Revit type</param>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.ProjectParameters(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Elements.GroupType.GetByName(System.String)">
             <summary>
-            Get all project parameters in the document
+            Get group by name
             </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="parameter">List of parameters</returns>
+            <param name="name">Group name as string</param>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.GlobalParameters(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Elements.GroupType.Delete(System.String)">
             <summary>
-            Get all global parameters in the document
+            Delete group type by name
             </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="parameter">List of parameters</returns>
+            <param name="name">GroupType name as string</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.SharedParameters(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Elements.GroupType.Delete(Revit.Elements.Element)">
             <summary>
-            Get all shared parameters in the document
+            Delete group type
             </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="parameter">List of parameters</returns>
-            <returns name="guid">List of guids</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.ChangeCategory(System.Collections.Generic.IList{System.String},System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
-            <summary>
-            Change category binding for parameter by name in the project
-            </summary>
-            <param name="parameterName">The name of the parameter to change</param>
-            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
-            <param name="category">Category(ies) to change the parameter binding to</param>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.Delete(System.Collections.Generic.List{System.String})">
-            <summary>
-            Delete parameter by name in the project
-            </summary>
-            <param name="parameterName">The name of the parameter to delete</param>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.Associate(Revit.Elements.Element,System.String,System.Object)">
-            <summary>
-            Associate element parameter to global parameter
-            </summary>
-            <param name="element">Element as string or Dynamo type</param>
-            <param name="parameterName">The name of the parameter</param>
-            <param name="globalParameter">The name of the global parameter</param>
-            <returns name="Element">Element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.HasAssociated(Revit.Elements.Element,System.String)">
-            <summary>
-            Verify if parameter has associated global parameter
-            </summary>
-            <param name="element">Element as string or Dynamo type</param>
-            <param name="parameterName">The name of the parameter</param>
-            <returns name="bool">Boolean value</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.GetAssociated(Revit.Elements.Element,System.String)">
-            <summary>
-            Get associated global parameter
-            </summary>
-            <param name="element">Element as string or Dynamo type</param>
-            <param name="parameterName">The name of the parameter</param>
-            <returns name="Parameter">Parameter</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Parameters.SharedParameter">
-            Methods for parameters
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.SetFile(System.String)">
-            <summary>
-            Set the shared parameter file
-            </summary>
-            <param name="file">The "new" shared parameter file, incl. path</param>
-            <returns name="file">The previously loaded shared parameter file</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByType(System.String)">
-            <summary>
-            Get the shared parameter grouped by type
-            </summary>
-            <param name="file">The shared parameter file, incl. path</param>
-            <returns name="parameter">List of parameters</returns>
-            <returns name="guid">List of guids</returns>
-            <returns name="groupName">List of group names</returns>
-            <returns name="type">List of types</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByGroupName(System.String)">
-            <summary>
-            Get the shared parameter grouped by group name
-            </summary>
-            <param name="file">The shared parameter file, incl. path</param>
-            <returns name="parameter">List of parameters</returns>
-            <returns name="guid">List of guids</returns>
-            <returns name="groupName">List of group names</returns>
-            <returns name="type">List of types</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.PostCommand">
-            Document methods
-        </member>
-        <member name="M:Orchid.RevitProject.PostCommand.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
-            The DialogBoxShowing event handler
-        </member>
-        <member name="M:Orchid.RevitProject.PostCommand.Purge(System.Boolean)">
-            <summary>
-            Purge document by Post Command.
-            Post commands can only take the current document to be run once. Re-run the
-            graph to re-activate the post command. To get back the "Purge" window inside
-            Revit, set the "activate" value to "false" and re-run the graph once more!
-            </summary>
-            <param name="activate">Set to true to activate (and false to deactivate)</param>
-        </member>
-        <member name="T:Orchid.RevitProject.Project">
-            Project methods
-        </member>
-        <member name="M:Orchid.RevitProject.Project.GetProjectLocation">
-            <summary>
-            Get project location
-            </summary>
-            <returns name="Origin">Origin as project location</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Project.SetProjectLocation(Revit.Elements.Element)">
-            <summary>
-            Set project location
-            </summary>
-            <param name="origin">Origin as project location</param>
-            <returns name="Origin">Origin as project location</returns>
-        </member>
-        <member name="P:Orchid.RevitProject.Views.Schedule.All">
-            <summary>
-            Get all schedules
-            </summary>
-            <returns name="View">All schedule views as dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.Schedule.GetData(Revit.Elements.Views.ScheduleView,System.String)">
-            <summary>
-            Get schedule view, return data as setup in schedule.
-            return value as integer, double and/or string
-            according to the selected culture (Country)
-            </summary>
-            <param name="scheduleView">Schedule as dynamo type</param>
-            <param name="country">Country as string</param>
-            <returns name="Value">All Values in the schedule as a list</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.Schedule.GetData(Revit.Elements.Views.ScheduleView,System.String,System.Double)">
-            <summary>
-            Get schedule view, return data without unit symbols.
-            Return value as integer, double and/or string
-            according to the selected culture (Country)
-            </summary>
-            <param name="scheduleView">Schedule as dynamo type</param>
-            <param name="country">Country as string</param>
-            <param name="accuracy">Accuracy for numeric values</param>
-            <returns name="Value">All Values in the schedule as a list</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Views.View">
-            View methods for core processes
-        </member>
-        <member name="M:Orchid.RevitProject.Views.View.All(Autodesk.Revit.DB.Document)">
-            <summary>
-            All view in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="View">View</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Views.ViewSheetSet">
-            View methods for core processes
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
-            <summary>
-            Create ViewSheetSet
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="name">Name for the ViewSheetSet</param>
-            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
-            <summary>
-            Change ViewSheetSet
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.GetView(System.Object)">
-            <summary>
-            Get View from ViewSheetSet
-            </summary>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-            <returns name="View">View as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Delete(System.Object)">
-            <summary>
-            Delete ViewSheetSet
-            </summary>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <param name="groupType">GroupType as Dynamo type</param>
         </member>
         <member name="T:Orchid.RevitProject.Elements.Category">
             Methods for categories
@@ -2057,6 +1802,494 @@
             <param name="structural">Set the layer structural</param>
             <param name="index">The index to set</param>
             <returns name="ElementType">FamilyType</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Grid">
+            Group methods
+        </member>
+        <member name="M:Orchid.RevitProject.Grid.GetVerticalExtents(Revit.Elements.Element)">
+            <summary>
+            Get grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+            <returns name="TopExtent">double</returns>
+            <returns name="BottomExtent">double</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Grid.SetVerticalExtents(Revit.Elements.Element,System.Double,System.Double)">
+            <summary>
+            Set grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <param name="topExtent">double</param>
+            <param name="bottomExtent">double</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Grid.MoveVerticalExtents(Revit.Elements.Element,System.Double)">
+            <summary>
+            Move grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <param name="distance">double</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.IFC">
+            IFC methods, retrieved from
+            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExportConfiguration.cs
+            LOD --> TessellationLevelOfDetail
+            https://github.com/Autodesk/revit-ifc/blob/master/Source/Revit.IFC.Export/Utility/ExportOptionsCache.cs
+            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExporterUIWindow.xaml.cs
+            
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingByName(System.String)">
+            <summary>
+            Ifc export setting, based on the available in the document
+            </summary>
+            <param name="name">The IFC setting name</param>
+            <returns name="Setting">Ifc export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Set general IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="ifcVersion">IFC version as string</param>
+            <param name="ifcFileType">IFC file type as string</param>
+            <param name="spaceBoundary">Space boundaries as integer</param>
+            <param name="projectOrigin">Project origin as integer</param>
+            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
+            <param name="includeSteel">Include steel elements?</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Set additional content and level of detail IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="Export2Dplan">Export 2D plan view elements?</param>
+            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
+            <param name="VisibleElements">Export only elements visible in view?</param>
+            <param name="RoomsInView">Export rooms in 3D views?</param>
+            <param name="LOD">Level of detail for some element geometry</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+            <summary>
+            Set Property sets IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="revitProperty">Export Revit property sets?</param>
+            <param name="commonProperty">Export IFC common property sets?</param>
+            <param name="baseQuantities">Export base quantities?</param>
+            <param name="exportSchedules">Export schedules as property sets?</param>
+            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
+            <param name="userProperty">Export user defined property sets?</param>
+            <param name="userPropertyFile">Property set file name incl. path</param>
+            <param name="parameterMapping">Export parameter mapping table?</param>
+            <param name="parameterMappingFile">Mapping table file name incl. path</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Set advanced IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="exportParts">Export parts as building elements?</param>
+            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
+            <param name="activeViewGeometry">Use active view when creating geometry?</param>
+            <param name="familyAndType">Use family and type name for reference?</param>
+            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
+            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
+            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
+            <param name="boundingBox">Export bounding box?</param>
+            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.Export(Autodesk.Revit.DB.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Element,Revit.Elements.Element,System.String,System.Boolean)">
+            <summary>
+            Export to IFC. Require IFC exporter 19.1.0 or higher
+            https://sourceforge.net/projects/ifcexporter
+            . the export function includes a default IFC export setting!
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="setting">IFC export setting</param>
+            <param name="view">View as Dynamo type</param>
+            <param name="phase">Phase to export as Dynamo type</param>
+            <param name="file">The export file name incl. path</param>
+            <param name="overwrite">Overwrite existing file?</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Parameters.BuiltInParameter">
+            Methods for parameters
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Name(System.Int32)">
+            <summary>
+            Get the builtin parameter name
+            </summary>
+            <param name="parameter">The parameter</param>
+            <returns name="string">string</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Label(System.Int32)">
+            <summary>
+            Get the builtin parameter label
+            </summary>
+            <param name="parameter">The parameter</param>
+            <returns name="string">string</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.All">
+            <summary>
+            Get all builtin parameters.
+            </summary>
+            <returns name="Parameter">Builtin parameter</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Parameters.Parameter">
+            Methods for parameters
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AllCategories(Autodesk.Revit.DB.Document)">
+            Get a CategorySet for all categories
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.ToCategorySet(System.Collections.Generic.List{Revit.Elements.Category})">
+            Convert a list of categories to a category set
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+            <summary>
+            Add (create) project parameter by name. 
+            If the parameter exists is the category binding being updated.
+            </summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+            <summary>
+            Add shared parameter by name in the project.
+            If the parameter not exists in the shared parameter file is an error thrown!
+            If the parameter exists is the category binding being updated.
+            </summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="groupName">Group of the parameter for shared parameters</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+            <summary>
+            Create shared parameter by name in the project. 
+            If the parameter not exists in the shared parameter file is it being created.
+            If the parameter exists is the category binding being updated.
+            </summary>
+            <param name="parameterName">The name of the parameter to add</param>
+            <param name="groupName">Group of the parameter for shared parameters</param>
+            <param name="type">Parameter Type</param>
+            <param name="group">Parameter Group</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
+            <summary>
+            Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
+            </summary>
+            <param name="document">Document as Revit type</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.ProjectParameters(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all project parameters in the document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="parameter">List of parameters</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.GlobalParameters(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all global parameters in the document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="parameter">List of parameters</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.SharedParameters(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all shared parameters in the document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="parameter">List of parameters</returns>
+            <returns name="guid">List of guids</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.ChangeCategory(System.Collections.Generic.IList{System.String},System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+            <summary>
+            Change category binding for parameter by name in the project
+            </summary>
+            <param name="parameterName">The name of the parameter to change</param>
+            <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="category">Category(ies) to change the parameter binding to</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.Delete(System.Collections.Generic.List{System.String})">
+            <summary>
+            Delete parameter by name in the project
+            </summary>
+            <param name="parameterName">The name of the parameter to delete</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.Associate(Revit.Elements.Element,System.String,System.Object)">
+            <summary>
+            Associate element parameter to global parameter
+            </summary>
+            <param name="element">Element as string or Dynamo type</param>
+            <param name="parameterName">The name of the parameter</param>
+            <param name="globalParameter">The name of the global parameter</param>
+            <returns name="Element">Element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.HasAssociated(Revit.Elements.Element,System.String)">
+            <summary>
+            Verify if parameter has associated global parameter
+            </summary>
+            <param name="element">Element as string or Dynamo type</param>
+            <param name="parameterName">The name of the parameter</param>
+            <returns name="bool">Boolean value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.GetAssociated(Revit.Elements.Element,System.String)">
+            <summary>
+            Get associated global parameter
+            </summary>
+            <param name="element">Element as string or Dynamo type</param>
+            <param name="parameterName">The name of the parameter</param>
+            <returns name="Parameter">Parameter</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Parameters.SharedParameter">
+            Methods for parameters
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.SetFile(System.String)">
+            <summary>
+            Set the shared parameter file
+            </summary>
+            <param name="file">The "new" shared parameter file, incl. path</param>
+            <returns name="file">The previously loaded shared parameter file</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByType(System.String)">
+            <summary>
+            Get the shared parameter grouped by type
+            </summary>
+            <param name="file">The shared parameter file, incl. path</param>
+            <returns name="parameter">List of parameters</returns>
+            <returns name="guid">List of guids</returns>
+            <returns name="groupName">List of group names</returns>
+            <returns name="type">List of types</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByGroupName(System.String)">
+            <summary>
+            Get the shared parameter grouped by group name
+            </summary>
+            <param name="file">The shared parameter file, incl. path</param>
+            <returns name="parameter">List of parameters</returns>
+            <returns name="guid">List of guids</returns>
+            <returns name="groupName">List of group names</returns>
+            <returns name="type">List of types</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.PostCommand">
+            Document methods
+        </member>
+        <member name="M:Orchid.RevitProject.PostCommand.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
+            The DialogBoxShowing event handler
+        </member>
+        <member name="M:Orchid.RevitProject.PostCommand.Purge(System.Boolean)">
+            <summary>
+            Purge document by Post Command.
+            Post commands can only take the current document to be run once. Re-run the
+            graph to re-activate the post command. To get back the "Purge" window inside
+            Revit, set the "activate" value to "false" and re-run the graph once more!
+            </summary>
+            <param name="activate">Set to true to activate (and false to deactivate)</param>
+        </member>
+        <member name="T:Orchid.RevitProject.Project">
+            Project methods
+        </member>
+        <member name="M:Orchid.RevitProject.Project.GetProjectLocation">
+            <summary>
+            Get project location
+            </summary>
+            <returns name="Origin">Origin as project location</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Project.SetProjectLocation(Revit.Elements.Element)">
+            <summary>
+            Set project location
+            </summary>
+            <param name="origin">Origin as project location</param>
+            <returns name="Origin">Origin as project location</returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Views.Schedule.All">
+            <summary>
+            Get all schedules
+            </summary>
+            <returns name="View">All schedule views as dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Schedule.GetData(Revit.Elements.Views.ScheduleView,System.String)">
+            <summary>
+            Get schedule view, return data as setup in schedule.
+            return value as integer, double and/or string
+            according to the selected culture (Country)
+            </summary>
+            <param name="scheduleView">Schedule as dynamo type</param>
+            <param name="country">Country as string</param>
+            <returns name="Value">All Values in the schedule as a list</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Schedule.GetData(Revit.Elements.Views.ScheduleView,System.String,System.Double)">
+            <summary>
+            Get schedule view, return data without unit symbols.
+            Return value as integer, double and/or string
+            according to the selected culture (Country)
+            </summary>
+            <param name="scheduleView">Schedule as dynamo type</param>
+            <param name="country">Country as string</param>
+            <param name="accuracy">Accuracy for numeric values</param>
+            <returns name="Value">All Values in the schedule as a list</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Views.View">
+            View methods for core processes
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.All">
+            <summary>
+            All view in current document
+            </summary>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            All view in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.ModelAll">
+            <summary>
+            All model view in current document
+            </summary>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.ModelAll(Autodesk.Revit.DB.Document)">
+            <summary>
+            All model view in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.AllByType(Revit.Elements.Element)">
+            <summary>
+            All view by viewType in current document
+            </summary>
+            <param name="viewType">ViewType as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.AllByType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            All view by viewType in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="viewType">ViewType as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.GetCropBox(Revit.Elements.Element)">
+            <summary>
+            Get crop box
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <returns name="BoundingBox">BoundingBox as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.SetCropBox(Revit.Elements.Element,Autodesk.DesignScript.Geometry.BoundingBox)">
+            <summary>
+            Set crop box by bounding box
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="boundingBox">BoundingBox as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.SetCropBox(Revit.Elements.Element,System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Curve})">
+            <summary>
+            Set crop box by curve
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="curve">Curves forming a cropbox shape</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.MoveCropBox(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            Move crop box by vector
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="vector">Vector as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.MoveSectionBox(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            Move section box (View3D) by vector
+            </summary>
+            <param name="view3D">View3D as Dynamo type</param>
+            <param name="vector">Vector as Dynamo type</param>
+            <returns name="View3D">View3D</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.Move(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            Move view by vector
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="vector">Vector as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Views.Viewport">
+            View methods for core processes
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Viewport.All">
+            <summary>
+            All viewport in current document
+            </summary>
+            <returns name="Viewport">Viewport</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Viewport.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            All viewport in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="Viewport">Viewport</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Viewport.Move(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            Move viewport on sheet.
+            Important! Set vector values in true length unit values not scaled according to the viewport!
+            </summary>
+            <param name="viewport">Viewport as Dynamo type</param>
+            <param name="vector">Vector as Dynamo type</param>
+            <returns name="Viewport">Viewport</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Views.ViewSheetSet">
+            View methods for core processes
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            Create ViewSheetSet
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="name">Name for the ViewSheetSet</param>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
+            <summary>
+            Change ViewSheetSet
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.GetView(System.Object)">
+            <summary>
+            Get View from ViewSheetSet
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <returns name="View">View as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Delete(System.Object)">
+            <summary>
+            Delete ViewSheetSet
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
         </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.SeparateElements(Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId},Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId})">
             Find separate elements
