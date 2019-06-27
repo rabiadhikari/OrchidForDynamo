@@ -823,6 +823,69 @@
             <param name="document">Document as Revit type</param>
             <param name="completely">Includes purging materials and assets</param>
         </member>
+        <member name="T:Orchid.RevitProject.Elements.SpatialElement">
+            Methods for elements
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetBoundary">
+            <summary>
+            Get spatial element boundary
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetBoundary(Revit.Elements.Element)">
+            <summary>
+            Get spatial element boundary
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetSpaceBoundary">
+            <summary>
+            Get space boundary
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetRoomBoundary">
+            <summary>
+            Get room boundary
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetAreaBoundary">
+            <summary>
+            Get area boundary
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetSeparationLine">
+            <summary>
+            Get spatial element separation line
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetSeparationLine(Revit.Elements.Element)">
+            <summary>
+            Get spatial element boundary
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="T:Orchid.RevitProject.Elements.Wall">
+            Methods for elements
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Wall.AllStackedWall">
+            <summary>
+            All stacked wall in current document
+            </summary>
+            <returns name="Wall">Stacked wall as Dynamo type</returns>
+        </member>
         <member name="T:Orchid.RevitProject.Elements.GroupType">
             Group methods
         </member>
@@ -838,6 +901,18 @@
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="GroupType">GroupType as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.AllModel">
+            <summary>
+            All model group type in current document
+            </summary>
+            <returns name="Group">Group as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.AllDetail">
+            <summary>
+            All detail group type in current document
+            </summary>
+            <returns name="Group">Group as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.GetByName(System.String)">
             <summary>
@@ -882,11 +957,16 @@
             <param name="document">Document as Revit type</param>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Group.All(System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Elements.Group.AllModel">
             <summary>
-            All group in current document, await a data stream before passing group 
+            All model group in current document
             </summary>
-            <param name="waitFor">Data object to wait for</param>
+            <returns name="Group">Group as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Group.AllDetail">
+            <summary>
+            All detail group in current document
+            </summary>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.GetByName(System.String)">

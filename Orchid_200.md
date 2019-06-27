@@ -5,7 +5,7 @@ The major number follows the Dynamo version, 200.x.x is usable in Dynamo +2.0.0.
 ### History of Orchid for Dynamo 2.0.x ###  
 
 203.1.0  
-- Element: nodes for grouping, views, viewports, and grids.  
+- Element: nodes for spatial elements, grouping, views, viewports, and grids.  
 
 202.5.0  
 - Total refactored and major parts recoded.  
