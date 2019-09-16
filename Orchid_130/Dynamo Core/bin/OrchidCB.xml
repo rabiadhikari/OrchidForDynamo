@@ -4,11 +4,6 @@
         <name>OrchidCB</name>
     </assembly>
     <members>
-        <member name="T:Orchid.About">
-            <summary>
-            About the package.
-            </summary>
-        </member>
         <member name="M:Orchid.About.Orchid">
             <summary>
             About the package.
@@ -21,11 +16,6 @@
             </summary>
             <returns name="watch">Add a watch node!</returns>
         </member>
-        <member name="T:Orchid.Core.Clipboard">
-            <summary>
-            Clipboard methods for core processes.
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Clipboard.CopyTo(System.Collections.IList)">
             <summary>
             Copy object to Clipboard. Can copy elements from a 1D list, but not from 2D..nD!
@@ -33,11 +23,6 @@
             </summary>
             <param name="element">element</param>
             <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
-        <member name="T:Orchid.Core.DataStream">
-            <summary>
-            Logic methods for core processes
-            </summary>
         </member>
         <member name="M:Orchid.Core.DataStream.Await(System.Object,System.Collections.IList)">
             <summary>
@@ -55,14 +40,29 @@
             <param name="state">Set a bool value for the state</param>
             <returns name="pass">Passed data</returns>
         </member>
-        <member name="T:Orchid.Core.Dictionary">
+        <member name="P:Orchid.Core.Dictionary.Count">
             <summary>
-            Dictionary methods
+            The number of key value pairs in a Dictionary.
+            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
             </summary>
+        </member>
+        <member name="P:Orchid.Core.Dictionary.Keys">
+            <summary>
+            Produces the keys in a Dictionary.
+            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
+            </summary>
+            <returns name="keys">The keys of the Dictionary</returns>
+        </member>
+        <member name="P:Orchid.Core.Dictionary.Values">
+            <summary>
+            Produces the values in a Dictionary.
+            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
+            </summary>
+            <returns name="values">The values of the Dictionary</returns>
         </member>
         <member name="M:Orchid.Core.Dictionary.ByKeysValues(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Object})">
             <summary>
-            Produces a Dictionary with the supplied keys and values. The number of entries is 
+            Produces a Dictionary with the supplied keys and values. The number of entries is
             the shorter of keys or values.
             NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
             </summary>
@@ -79,37 +79,6 @@
             <returns name="keys">The keys of the Dictionary</returns>
             <returns name="values">The values of the Dictionary</returns>
         </member>
-        <member name="P:Orchid.Core.Dictionary.Keys">
-            <summary>
-            Produces the keys in a Dictionary.
-            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
-            </summary>
-            <returns name="keys">The keys of the Dictionary</returns>
-        </member>
-        <member name="P:Orchid.Core.Dictionary.Values">
-            <summary>
-            Produces the values in a Dictionary.
-            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
-            </summary>
-            <returns name="values">The values of the Dictionary</returns>
-        </member>
-        <member name="P:Orchid.Core.Dictionary.Count">
-            <summary>
-            The number of key value pairs in a Dictionary.
-            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
-            </summary>
-        </member>
-        <member name="M:Orchid.Core.Dictionary.SetValueAtKeys(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Object})">
-            <summary>
-            Produce a new Dictionary with a list of keys set to the new values, possibly overwriting existing key-value pairs. 
-            These two lists are expected to be of the same length. If not, the shorter of the two bounds the number of insertions.
-            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
-            </summary>
-            <param name="keys">The keys in the Dictionary to set. If the same key already exists, the value at that key will be modified.</param>
-            <param name="values">The corresponding values to insert.</param>
-            <returns name="dictionary">A new Dictionary with the entries inserted.</returns>
-            <search>insert,add</search>
-        </member>
         <member name="M:Orchid.Core.Dictionary.RemoveKeys(System.Collections.Generic.IList{System.String})">
             <summary>
             Produce a new Dictionary with the given keys removed.
@@ -118,6 +87,17 @@
             <param name="keys">The key in the Dictionary to remove</param>
             <returns name="dictionary">A new Dictionary with the key removed</returns>
             <search>drop,delete</search>
+        </member>
+        <member name="M:Orchid.Core.Dictionary.SetValueAtKeys(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Produce a new Dictionary with a list of keys set to the new values, possibly overwriting existing key-value pairs.
+            These two lists are expected to be of the same length. If not, the shorter of the two bounds the number of insertions.
+            NOTE: this node is being deprecated in the Dynamo 2.x.x series and replaced by the OOTB nodes!
+            </summary>
+            <param name="keys">The keys in the Dictionary to set. If the same key already exists, the value at that key will be modified.</param>
+            <param name="values">The corresponding values to insert.</param>
+            <returns name="dictionary">A new Dictionary with the entries inserted.</returns>
+            <search>insert,add</search>
         </member>
         <member name="M:Orchid.Core.Dictionary.ValueAtKey(System.String)">
             <summary>
@@ -128,23 +108,11 @@
             <returns name="value">The value at the specified key or null if it is not set.</returns>
             <search>lookup,valueatkey,find</search>
         </member>
-        <member name="T:Orchid.Core.Directory">
-            <summary>
-            Directory methods for core processes
-            </summary>
-        </member>
         <member name="P:Orchid.Core.Directory.Current">
             <summary>
             Get current directory
             </summary>
             <returns name="directory">Directory</returns>
-        </member>
-        <member name="M:Orchid.Core.Directory.FromPath(System.String)">
-            <summary>
-            Creates a directory object from a path
-            </summary>
-            <param name="path">Path to the directory</param>
-            <returns name="directory">Directory object</returns>
         </member>
         <member name="M:Orchid.Core.Directory.Contents(System.String,System.String,System.Boolean)">
             <summary>
@@ -159,8 +127,12 @@
             <param name="deepSearch">Search option used to search in all subfolders</param>
             <returns name="file">File</returns>
         </member>
-        <member name="T:Orchid.Core.File">
-            File methods for core processes
+        <member name="M:Orchid.Core.Directory.FromPath(System.String)">
+            <summary>
+            Creates a directory object from a path
+            </summary>
+            <param name="path">Path to the directory</param>
+            <returns name="directory">Directory object</returns>
         </member>
         <member name="M:Orchid.Core.File.FromPath(System.String)">
             <summary>
@@ -179,19 +151,14 @@
             <param name="targetName">The name of the target file</param>
             <returns name="file">File</returns>
         </member>
-        <member name="T:Orchid.Core.List">
-            <summary>
-            List methods for core processes
-            </summary>
-        </member>
-        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
-            Search values, send default if values not exist
-        </member>
         <member name="M:Orchid.Core.List.CleanUtil(System.Collections.IList,System.Collections.IList)">
             Cleaning nD list
         </member>
         <member name="M:Orchid.Core.List.ReplaceUtil(System.Collections.IList,System.Collections.IList,System.Object)">
             Replacing nD list
+        </member>
+        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
+            Search values, send default if values not exist
         </member>
         <member name="M:Orchid.Core.List.Clean(System.Collections.IList,System.Collections.IList)">
             <summary>
@@ -219,17 +186,6 @@
             <param name="descending">Return the list in descending order?</param>
             <returns name="list">List</returns>
         </member>
-        <member name="M:Orchid.Core.List.SortNatural(System.Collections.IList,System.Boolean)">
-            <summary>
-            Sort elements using the PC 'locale'. Sort elements recursively
-            preserving elements types and elements structure.Sort elements in natural
-            sort order by splitting digits from string and add leading zeros.
-            http://en.wikipedia.org/wiki/Natural_sort_order
-            </summary>
-            <param name="list">list of values</param>
-            <param name="descending">Return the list in descending order?</param>
-            <returns name="list">List</returns>
-        </member>
         <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
             <summary>
             Sort and group items into sub-lists based on their like key values
@@ -241,13 +197,16 @@
             <returns name="unique keys">key value corresponding to each group</returns>
             <search>list;sort;group;sortbykey;groupbykey;</search>
         </member>
-        <member name="M:Orchid.Core.List.IndexOf(System.Collections.IList,System.Object)">
+        <member name="M:Orchid.Core.List.SortNatural(System.Collections.IList,System.Boolean)">
             <summary>
-            Returns the index (the full path) of the member in nD list
+            Sort elements using the PC 'locale'. Sort elements recursively
+            preserving elements types and elements structure.Sort elements in natural
+            sort order by splitting digits from string and add leading zeros.
+            http://en.wikipedia.org/wiki/Natural_sort_order
             </summary>
             <param name="list">list of values</param>
-            <param name="element">Element</param>
-            <returns name="int">List of indicies</returns>
+            <param name="descending">Return the list in descending order?</param>
+            <returns name="list">List</returns>
         </member>
         <member name="M:Orchid.Core.List.GetItemAtIndex(System.Collections.IList,System.Collections.IList)">
             <summary>
@@ -256,6 +215,14 @@
             <param name="list">list to fetch an item from</param>
             <param name="index">index of the item to be fetched</param>
             <returns name="item">item in the list at the given index</returns>
+        </member>
+        <member name="M:Orchid.Core.List.IndexOf(System.Collections.IList,System.Object)">
+            <summary>
+            Returns the index (the full path) of the member in nD list
+            </summary>
+            <param name="list">list of values</param>
+            <param name="element">Element</param>
+            <returns name="int">List of indicies</returns>
         </member>
         <member name="M:Orchid.Core.List.ReplaceItemAtIndex(System.Collections.IList,System.Collections.IList,System.Object)">
             <summary>
@@ -297,11 +264,6 @@
             <returns name="unique keys">key value corresponding to each group</returns>
             <search>list;group;equal;groupbyequal;</search>
         </member>
-        <member name="T:Orchid.Core.Math">
-            <summary>
-            Math methods
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Math.Random(System.Int32)">
             <summary>
             Generates a random double in the given range (0, x).
@@ -317,11 +279,6 @@
             <param name="range">Range to slice the random numbers into.</param>
             <returns name="number">List of random numbers in the given range (0, x).</returns>
         </member>
-        <member name="T:Orchid.Core.Number">
-            <summary>
-            Number methods for core processes
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Number.ToDouble(System.Int32)">
             <summary>
             Convert number to integer.
@@ -336,11 +293,6 @@
             <param name="number">number as double</param>
             <returns name="int">number as integer</returns>
         </member>
-        <member name="T:Orchid.Core.Object">
-            <summary>
-            Objects methods for core processes
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Object.Hashing(System.Object)">
             <summary>
             Input is transferred to output along with its hassing value.
@@ -351,9 +303,6 @@
             <returns name="Element">Element as Dynamo type</returns>
             <returns name="hashing">Hashing value</returns>
         </member>
-        <member name="T:Orchid.Core.Print">
-            Print methods for core processes
-        </member>
         <member name="M:Orchid.Core.Print.MergePDF(System.Collections.Generic.List{System.String},System.String)">
             <summary>
             Merge list of PDF documents.
@@ -362,20 +311,15 @@
             <param name="filePath">Give a valid path for the merged PDF output.</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
-        <member name="T:Orchid.Core.Scripting">
+        <member name="M:Orchid.Core.Scripting.DynamoDefinitionsPath">
             <summary>
-            Scripting methods for core processes
+            Get the path to the Dynamo definition root folder.
             </summary>
+            <returns name="string">Path</returns>
         </member>
         <member name="M:Orchid.Core.Scripting.DynamoPackagesPath">
             <summary>
             Get the path to the Dynamo package root folder.
-            </summary>
-            <returns name="string">Path</returns>
-        </member>
-        <member name="M:Orchid.Core.Scripting.DynamoDefinitionsPath">
-            <summary>
-            Get the path to the Dynamo definition root folder.
             </summary>
             <returns name="string">Path</returns>
         </member>
@@ -387,11 +331,6 @@
             <param name="file">Filename including file extension</param>
             <param name="refresh">Toggle true/false for refreshing</param>
             <returns name="script">Script</returns>
-        </member>
-        <member name="T:Orchid.Core.String">
-            <summary>
-            Objects methods for core processes
-            </summary>
         </member>
         <member name="M:Orchid.Core.String.Replace(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>

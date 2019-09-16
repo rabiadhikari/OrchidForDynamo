@@ -4,11 +4,6 @@
         <name>OrchidRB</name>
     </assembly>
     <members>
-        <member name="T:Orchid.About">
-            <summary>
-            About the package.
-            </summary>
-        </member>
         <member name="M:Orchid.About.Orchid">
             <summary>
             About the package.
@@ -20,44 +15,6 @@
             Verify this version of Orchid to see if an update is available.
             </summary>
             <returns name="watch">Add a watch node!</returns>
-        </member>
-        <member name="T:Orchid.Applications.FEMdesign">
-            <summary>
-            FEMdesign methods
-            </summary>
-        </member>
-        <member name="M:Orchid.Applications.FEMdesign.GetElementID(System.String,System.Collections.Generic.List{System.Object})">
-            <summary>
-            Get element id from FEM-design
-            </summary>
-            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
-            <param name="element">Element(s)</param>
-            <returns name="FEMid">FEM element id</returns>
-        </member>
-        <member name="M:Orchid.Applications.FEMdesign.GetReinforcement(System.String,System.Collections.Generic.List{System.Object})">
-            <summary>
-            Get reinforcement from FEM-design
-            </summary>
-            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
-            <param name="element">Element(s)</param>
-            <returns name="Element">Element(s)</returns>
-            <returns name="wire">Reinforcement wire</returns>
-            <returns name="mesh">Reinforcement mesh size</returns>
-            <returns name="location">Reinforcement location</returns>
-        </member>
-        <member name="M:Orchid.Applications.FEMdesign.SetLinearRelease(System.String,System.Collections.Generic.List{System.Object},System.Collections.IList,System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Set linear release in FEM-design xml-file
-            </summary>
-            <param name="file">Path and Filename to the FEM-design xml file including extension!</param>
-            <param name="element">Element(s)</param>
-            <param name="release">Release --> List order: Top, Bottom, Right and Left</param>
-            <param name="XYaxis">Element XY-axis value (in meter) --> List order: XY StartPoint, XY EndPoint, StruXML Guid</param>
-            <param name="Zaxis">Element Z-axis value (in meter) --> List order: Z MinPoint, Z MaxPoint, StruXML Guid</param>
-            <returns name="release">FEM release</returns>
-        </member>
-        <member name="T:Orchid.Applications.Sigma">
-            Sigma methods
         </member>
         <member name="M:Orchid.Applications.Sigma.ComponentClearing(Sigma.ISigmaItem)">
             Clean Sigma from given root
@@ -108,11 +65,6 @@
             <param name="instance">Component as instances or summarized/nTrue select Data to be Instances, False select Data to be summarized</param>
             <returns name="component">Component</returns>
         </member>
-        <member name="T:Orchid.Core.Clipboard">
-            <summary>
-            Clipboard methods for core processes.
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Clipboard.CopyTo(System.Collections.IList)">
             <summary>
             Copy object to Clipboard. Can copy elements from a 1D list, but not from 2D..nD!
@@ -120,11 +72,6 @@
             </summary>
             <param name="element">element</param>
             <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
-        <member name="T:Orchid.Core.DataStream">
-            <summary>
-            Logic methods for core processes
-            </summary>
         </member>
         <member name="M:Orchid.Core.DataStream.Await(System.Object,System.Collections.IList)">
             <summary>
@@ -141,11 +88,6 @@
             <param name="pass">Data to pass</param>
             <param name="state">Set a bool value for the state</param>
             <returns name="pass">Passed data</returns>
-        </member>
-        <member name="T:Orchid.Core.Directory">
-            <summary>
-            Directory methods for core processes
-            </summary>
         </member>
         <member name="P:Orchid.Core.Directory.Current">
             <summary>
@@ -173,11 +115,6 @@
             <param name="deepSearch">Search option used to search in all subfolders</param>
             <returns name="file">File</returns>
         </member>
-        <member name="T:Orchid.Core.Number">
-            <summary>
-            Number methods for core processes
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Number.ToDouble(System.Int32)">
             <summary>
             Convert number to integer.
@@ -191,10 +128,6 @@
             </summary>
             <param name="number">number as double</param>
             <returns name="int">number as integer</returns>
-        </member>
-        <member name="T:Orchid.Core.File">
-            File methods for core processes
-            File methods for core processes
         </member>
         <member name="M:Orchid.Core.File.FromPath(System.String)">
             <summary>
@@ -213,12 +146,28 @@
             <param name="targetName">The name of the target file</param>
             <returns name="file">File</returns>
         </member>
-        <member name="M:Orchid.Core.File.Info(System.Collections.Generic.List{System.String})">
+        <member name="M:Orchid.Core.File.Info(System.String)">
             <summary>
             Get file(s) info
             </summary>
-            <param name="file">File(s), incl. path</param>
-            <returns name="info">File(s) info</returns>
+            <param name="file">File incl. path</param>
+            <returns name="info">File info</returns>
+        </member>
+        <member name="M:Orchid.Core.File.LoadFamily(System.Collections.Generic.List{System.String})">
+            <summary>
+            Load family by file name, same core process as RevitFamily.LoadFamily
+            </summary>
+            <param name="family">Path to the family file(s)</param>
+            <returns name="Family">Family</returns>
+        </member>
+        <member name="M:Orchid.Core.File.LoadFamily(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Open document and load family by path, existing families will be overwritten,
+            and families is upgraded if needed. Documents will be saved and closed.
+            </summary>
+            <param name="document">Path to the documents file(s)</param>
+            <param name="family">Path to the family file(s)</param>
+            <returns name="Family">Family</returns>
         </member>
         <member name="M:Orchid.Core.File.NewProject(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
@@ -237,27 +186,6 @@
             <param name="subfolder">Create subfolder by category?</param>
             <param name="overwrite">Overwrite existing families?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
-        <member name="M:Orchid.Core.File.LoadFamily(System.Collections.Generic.List{System.String})">
-            <summary>
-            Load family by file name, same core process as RevitFamily.LoadFamily
-            </summary>
-            <param name="family">Path to the family file(s)</param>
-            <returns name="Family">Family</returns>
-        </member>
-        <member name="M:Orchid.Core.File.LoadFamily(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
-            <summary>
-            Open document and load family by path, existing families will be overwritten,
-            and families is upgraded if needed. Documents will be saved and closed.
-            </summary>
-            <param name="document">Path to the documents file(s)</param>
-            <param name="family">Path to the family file(s)</param>
-            <returns name="Family">Family</returns>
-        </member>
-        <member name="T:Orchid.Core.List">
-            <summary>
-            List methods for core processes
-            </summary>
         </member>
         <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
             Search values, send default if values not exist
@@ -372,11 +300,6 @@
             <returns name="unique keys">key value corresponding to each group</returns>
             <search>list;group;equal;groupbyequal;</search>
         </member>
-        <member name="T:Orchid.Core.Math">
-            <summary>
-            Math methods
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Math.Random(System.Int32)">
             <summary>
             Generates a random double in the given range (0, x).
@@ -391,14 +314,6 @@
             <param name="amount">Amount of random numbers the result list will contain.</param>
             <param name="range">Range to slice the random numbers into.</param>
             <returns name="number">List of random numbers in the given range (0, x).</returns>
-        </member>
-        <member name="T:Orchid.Core.Object">
-            <summary>
-            Objects methods for core processes
-            </summary>
-            <summary>
-            Objects methods for core processes
-            </summary>
         </member>
         <member name="M:Orchid.Core.Object.ToRevitType(Revit.Elements.Element)">
             <summary>
@@ -432,10 +347,6 @@
             <param name="element">Element as Dynamo type</param>
             <returns name="Element">Element as Dynamo type</returns>
             <returns name="hashing">Hashing value</returns>
-        </member>
-        <member name="T:Orchid.Core.Print">
-            Print methods for core processes
-            Print methods for core processes
         </member>
         <member name="M:Orchid.Core.Print.MergePDF(System.Collections.Generic.List{System.String},System.String)">
             <summary>
@@ -523,11 +434,6 @@
             <param name="colorDepth">Appearance: Colors</param>
             <returns name="PrintSetting">PrintSetting</returns>
         </member>
-        <member name="T:Orchid.Core.Scripting">
-            <summary>
-            Scripting methods for core processes
-            </summary>
-        </member>
         <member name="M:Orchid.Core.Scripting.DynamoPackagesPath">
             <summary>
             Get the path to the Dynamo package root folder.
@@ -548,11 +454,6 @@
             <param name="file">Filename including file extension</param>
             <param name="refresh">Toggle true/false for refreshing</param>
             <returns name="script">Script</returns>
-        </member>
-        <member name="T:Orchid.Core.String">
-            <summary>
-            Objects methods for core processes
-            </summary>
         </member>
         <member name="M:Orchid.Core.String.Replace(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
@@ -575,9 +476,6 @@
             <param name="ignoreCase">Whether or not comparison takes case into account</param>
             <returns name="substring">Substring made from the original string</returns>
             <search>subset,get string,part,smaller string</search>
-        </member>
-        <member name="T:Orchid.RevitProject.Document">
-            Document methods
         </member>
         <member name="P:Orchid.RevitProject.Document.Current">
             <summary>
@@ -644,45 +542,6 @@
             <param name="saveAsCentral">SaveAs central document?</param>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.TransferByCategory(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
-            <summary>
-            Transfer project standards by category from source document to target document.
-            </summary>
-            <param name="source">Source as Document of Revit type</param>
-            <param name="target">Target as Document of Revit type</param>
-            <param name="category">Category as string or object</param>
-            <param name="overwrite">Copy only new or overwrite existing?</param>
-            <returns name="Element">Transfered element</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Document.TransferByType(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
-            <summary>
-            Transfer types from source document to target document.
-            </summary>
-            <param name="source">Source as Document of Revit type</param>
-            <param name="target">Target as Document of Revit type</param>
-            <param name="type">Type as string or object</param>
-            <param name="overwrite">Copy only new or overwrite existing?</param>
-            <returns name="Element">Transfered element</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Document.TransferByFamily(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
-            <summary>
-            Transfer types from source document to target document.
-            </summary>
-            <param name="source">Source as Document of Revit type</param>
-            <param name="target">Target as Document of Revit type</param>
-            <param name="family">Family as string or object</param>
-            <param name="overwrite">Copy only new or overwrite existing?</param>
-            <returns name="Element">Transfered element</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Document.CopySchedule(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
-            <summary>
-            Copy schedule from source document to target document
-            </summary>
-            <param name="source">Source as Document of Revit type</param>
-            <param name="target">Target as Document of Revit type</param>
-            <param name="schedule">Schedule to copy</param>
-            <returns name="Schedule">Copied schedule</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Document.CopyDraftingView(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Copy drafting view from source document to target document
@@ -701,6 +560,45 @@
             <param name="element">Element to copy</param>
             <returns name="Element">Copied element</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Document.CopySchedule(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Copy schedule from source document to target document
+            </summary>
+            <param name="source">Source as Document of Revit type</param>
+            <param name="target">Target as Document of Revit type</param>
+            <param name="schedule">Schedule to copy</param>
+            <returns name="Schedule">Copied schedule</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.TransferByCategory(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer project standards by category from source document to target document.
+            </summary>
+            <param name="source">Source as Document of Revit type</param>
+            <param name="target">Target as Document of Revit type</param>
+            <param name="category">Category as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.TransferByFamily(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer types from source document to target document.
+            </summary>
+            <param name="source">Source as Document of Revit type</param>
+            <param name="target">Target as Document of Revit type</param>
+            <param name="family">Family as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.TransferByType(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+            <summary>
+            Transfer types from source document to target document.
+            </summary>
+            <param name="source">Source as Document of Revit type</param>
+            <param name="target">Target as Document of Revit type</param>
+            <param name="type">Type as string or object</param>
+            <param name="overwrite">Copy only new or overwrite existing?</param>
+            <returns name="Element">Transfered element</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Document.ConvertToLink(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
             Convert link instance to link type
@@ -708,6 +606,13 @@
             <param name="document">Document as Revit type</param>
             <param name="instance">Link instance as Dynamo type</param>
             <returns name="Link">Revit link element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.LinkedCadFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked CAD file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="Link">CAD link element as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Document.LinkedFile(Autodesk.Revit.DB.Document)">
             <summary>
@@ -724,24 +629,9 @@
             <param name="document">Document as Revit type</param>
             <returns name="Link">Revit link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkedCadFile(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get external linked CAD file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="Link">CAD link element as Dynamo type</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Document.LinkReload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Reload external linked file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="link">External link element as Dynamo type</param>
-            <returns name="Link">External link element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Document.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
-            <summary>
-            Unload external linked file in document
             </summary>
             <param name="document">Document as Revit type</param>
             <param name="link">External link element as Dynamo type</param>
@@ -754,6 +644,14 @@
             <param name="document">Document as Revit type</param>
             <param name="link">External link element as Dynamo type</param>
             <param name="file">File (path) to set (repath)</param>
+            <returns name="Link">External link element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Unload external linked file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="link">External link element as Dynamo type</param>
             <returns name="Link">External link element as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Document.ActiveView(Autodesk.Revit.DB.Document)">
@@ -784,20 +682,6 @@
             <param name="type">Type to validate is contained in the document</param>
             <returns name="bool">List of boolean value</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Opened">
-            <summary>
-            Get background opened documents
-            </summary>
-            <returns name="Document">Document as Revit type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
-            <summary>
-            Set the starting view in the document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="view">The view to set</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Document.ImportImage(System.String,System.Boolean)">
             <summary>
             Import Image into document
@@ -813,18 +697,29 @@
             <param name="document">Document as Revit type</param>
             <returns name="info">Document info</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Document.Opened">
+            <summary>
+            Get background opened documents
+            </summary>
+            <returns name="Document">Document as Revit type</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Document.Purge(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Purge document. Set "completely" to true for including materials and assets!
-            Please note "completely" purges also materials and materials assets that are 
-            used in "peripheral" elements and settings. Among this is included materials/assets 
+            Please note "completely" purges also materials and materials assets that are
+            used in "peripheral" elements and settings. Among this is included materials/assets
             bound to imported model elements, and materials/assets in settings like "Site" etc.
             </summary>
             <param name="document">Document as Revit type</param>
             <param name="completely">Includes purging materials and assets</param>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.SpatialElement">
-            Methods for elements
+        <member name="M:Orchid.RevitProject.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            Set the starting view in the document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="view">The view to set</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetBoundary">
             <summary>
@@ -877,17 +772,11 @@
             <returns name="Element">Element as Dynamo type</returns>
             <returns name="Curve">Curve as Dynamo type</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.Wall">
-            Methods for elements
-        </member>
         <member name="M:Orchid.RevitProject.Elements.Wall.AllStackedWall">
             <summary>
             All stacked wall in current document
             </summary>
             <returns name="Wall">Stacked wall as Dynamo type</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.GroupType">
-            Group methods
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.All">
             <summary>
@@ -932,9 +821,6 @@
             Delete group type
             </summary>
             <param name="groupType">GroupType as Dynamo type</param>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.Group">
-            Group methods
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -1000,9 +886,6 @@
             </summary>
             <param name="group">Group as Dynamo type</param>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.Category">
-            Methods for categories
-        </member>
         <member name="M:Orchid.RevitProject.Elements.Category.BuiltInCategory">
             <summary>
             Get all built in categories
@@ -1029,9 +912,6 @@
             </summary>
             <param name="category">Category as Dynamo type</param>
             <returns name="CategoryType">CategoryType as string</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.Element">
-            Methods for elements
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.IsFlipped(Revit.Elements.Element)">
             <summary>
@@ -1169,9 +1049,6 @@
             <returns name="LastChangedBy">LastChangedBy</returns>
             <returns name="RequestedBy">RequestedBy</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.ElementType">
-            Methods for elements
-        </member>
         <member name="M:Orchid.RevitProject.Elements.ElementType.Name(Revit.Elements.Element)">
             <summary>
             Get element type name
@@ -1186,8 +1063,13 @@
             <param name="elementType">Element as Dynamo type</param>
             <returns name="string">Family name as string</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.Material">
-            Methods for elements
+        <member name="M:Orchid.RevitProject.Elements.ElementType.Duplicate(Revit.Elements.Element,System.String)">
+            <summary>
+            Get the view where the element is located
+            </summary>
+            <param name="elementType">ElementType as Dynamo type</param>
+            <param name="name">Name for the duplicated element type</param>
+            <returns name="ElementType">ElementType</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Material.Quantity(System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -1223,9 +1105,6 @@
             <param name="material">Material as Dynamo type</param>
             <returns name="physical">Physical density</returns>
             <returns name="thermal">Thermal density</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.Selection">
-            Methods for selecting elements
         </member>
         <member name="M:Orchid.RevitProject.Elements.Selection.ElementCategoryList(Autodesk.Revit.DB.Document,System.Collections.IList)">
             Internal element and category list builder.
@@ -1267,9 +1146,6 @@
             <param name="family">The Family</param>
             <returns name="Element">The list of elements matching the query.</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.Family">
-            Family methods for elements
-        </member>
         <member name="M:Orchid.RevitProject.Elements.Family.All">
             <summary>
             Get all family in current document
@@ -1297,9 +1173,6 @@
             </summary>
             <param name="family">Family</param>
             <returns name="bool">Boolean value</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.FamilyType">
-            FamilyType methods for elements
         </member>
         <member name="M:Orchid.RevitProject.Elements.FamilyType.All">
             <summary>
@@ -1329,9 +1202,6 @@
             <param name="familyType">FamilyType as Dynamo type</param>
             <returns name="bool">Boolean value</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Elements.Floor">
-            Floor methods for elements
-        </member>
         <member name="M:Orchid.RevitProject.Elements.Floor.SetAreaLoad(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double})">
             <summary>
             Set (structural) floor area load
@@ -1340,9 +1210,6 @@
             <param name="areaLoadType">AreaLoadType as Dynamo type</param>
             <param name="value">Load value as double</param>
             <returns name="value">Load value as double</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.SubCategory">
-            Methods for selecting elements
         </member>
         <member name="M:Orchid.RevitProject.Elements.SubCategory.Create(System.Object,System.String)">
             <summary>
@@ -1381,12 +1248,6 @@
             </summary>
             <param name="name">Name of the subcategory</param>
             <returns name="SubCategory">Category</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.ElemInternals">
-            Internal methods for elements
-        </member>
-        <member name="T:Orchid.RevitProject.Elements.SystemFamily">
-            Methods for system families
         </member>
         <member name="M:Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer(System.Collections.IList,System.Collections.Generic.List{System.String},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.Boolean},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32})">
             <summary>
@@ -1479,9 +1340,6 @@
             <param name="index">The index to set</param>
             <returns name="ElementType">FamilyType</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Grid">
-            Group methods
-        </member>
         <member name="M:Orchid.RevitProject.Grid.GetVerticalExtents(Revit.Elements.Element)">
             <summary>
             Get grid vertical extents
@@ -1507,14 +1365,6 @@
             <param name="grid">Grid as Dynamo type</param>
             <param name="distance">double</param>
             <returns name="Grid">Grid as Dynamo type</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.IFC">
-            IFC methods, retrieved from
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExportConfiguration.cs
-            LOD --> TessellationLevelOfDetail
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/Revit.IFC.Export/Utility/ExportOptionsCache.cs
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExporterUIWindow.xaml.cs
-            
         </member>
         <member name="M:Orchid.RevitProject.IFC.SettingByName(System.String)">
             <summary>
@@ -1594,9 +1444,6 @@
             <param name="overwrite">Overwrite existing file?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Parameters.BuiltInParameter">
-            Methods for parameters
-        </member>
         <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Name(System.Int32)">
             <summary>
             Get the builtin parameter name
@@ -1616,9 +1463,6 @@
             Get all builtin parameters.
             </summary>
             <returns name="Parameter">Builtin parameter</returns>
-        </member>
-        <member name="T:Orchid.RevitProject.Parameters.Parameter">
-            Methods for parameters
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AllCategories(Autodesk.Revit.DB.Document)">
             Get a CategorySet for all categories
@@ -1730,9 +1574,6 @@
             <param name="parameterName">The name of the parameter</param>
             <returns name="Parameter">Parameter</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Parameters.SharedParameter">
-            Methods for parameters
-        </member>
         <member name="M:Orchid.RevitProject.Parameters.SharedParameter.SetFile(System.String)">
             <summary>
             Set the shared parameter file
@@ -1760,9 +1601,6 @@
             <returns name="groupName">List of group names</returns>
             <returns name="type">List of types</returns>
         </member>
-        <member name="T:Orchid.RevitProject.PostCommand">
-            Document methods
-        </member>
         <member name="M:Orchid.RevitProject.PostCommand.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
             The DialogBoxShowing event handler
         </member>
@@ -1774,9 +1612,6 @@
             Revit, set the "activate" value to "false" and re-run the graph once more!
             </summary>
             <param name="activate">Set to true to activate (and false to deactivate)</param>
-        </member>
-        <member name="T:Orchid.RevitProject.Project">
-            Project methods
         </member>
         <member name="M:Orchid.RevitProject.Project.GetProjectLocation">
             <summary>
@@ -1818,8 +1653,64 @@
             <param name="accuracy">Accuracy for numeric values</param>
             <returns name="Value">All Values in the schedule as a list</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Views.Viewport">
-            View methods for core processes
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            All view template in document
+            Note: in dynamo 1.3.x will 3D templates fail!
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="ViewTemplate">ViewTemplate</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.All">
+            <summary>
+            All view template in current document
+            Note: in dynamo 1.3.x will 3D templates fail!
+            </summary>
+            <returns name="ViewTemplate">ViewTemplate</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.Duplicate(Revit.Elements.Element,System.String)">
+            <summary>
+            Duplicate view template
+            </summary>
+            <param name="viewTemplate">View template as Dynamo type</param>
+            <param name="name">Name for the duplicated view</param>
+            <returns name="ViewTemplate">ViewTemplate</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.Delete(Revit.Elements.Element)">
+            <summary>
+            Delete view template
+            </summary>
+            <param name="viewTemplate">View template as Dynamo type</param>
+            <returns name="watch">Add a watch node!</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.Get(Revit.Elements.Element)">
+            <summary>
+            Get view template by view
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <returns name="ViewTemplate">ViewTemplate</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameters(Revit.Elements.Element)">
+            <summary>
+            All view template in document
+            </summary>
+            <param name="viewTemplate">View template as Dynamo type</param>
+            <returns name="Parameters">ViewTemplate parameters</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.Set(Revit.Elements.Element,Revit.Elements.Element)">
+            <summary>
+            Set view template by view
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="viewTemplate">View template as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.SetNone(Revit.Elements.Element)">
+            <summary>
+            Set view template to none (remove view template)
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <returns name="view">View</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.Viewport.All">
             <summary>
@@ -1843,15 +1734,6 @@
             <param name="vector">Vector as Dynamo type</param>
             <returns name="Viewport">Viewport</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Views.View">
-            View methods for core processes
-        </member>
-        <member name="M:Orchid.RevitProject.Views.View.All">
-            <summary>
-            All view in current document
-            </summary>
-            <returns name="View">View</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Views.View.All(Autodesk.Revit.DB.Document)">
             <summary>
             All view in document
@@ -1859,9 +1741,9 @@
             <param name="document">Document as Revit type</param>
             <returns name="View">View</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.View.ModelAll">
+        <member name="M:Orchid.RevitProject.Views.View.All">
             <summary>
-            All model view in current document
+            All view in current document
             </summary>
             <returns name="View">View</returns>
         </member>
@@ -1872,11 +1754,10 @@
             <param name="document">Document as Revit type</param>
             <returns name="View">View</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.View.AllByType(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Views.View.ModelAll">
             <summary>
-            All view by viewType in current document
+            All model view in current document
             </summary>
-            <param name="viewType">ViewType as Dynamo type</param>
             <returns name="View">View</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.View.AllByType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
@@ -1885,6 +1766,22 @@
             </summary>
             <param name="document">Document as Revit type</param>
             <param name="viewType">ViewType as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.AllByType(Revit.Elements.Element)">
+            <summary>
+            All view by viewType in current document
+            </summary>
+            <param name="viewType">ViewType as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.View.Duplicate(Revit.Elements.Element,System.String,System.String)">
+            <summary>
+            Duplicate view
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="name">Name for the duplicated view</param>
+            <param name="option">View duplicate option as string</param>
             <returns name="View">View</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.View.GetCropBox(Revit.Elements.Element)">
@@ -1935,9 +1832,6 @@
             <param name="vector">Vector as Dynamo type</param>
             <returns name="View">View</returns>
         </member>
-        <member name="T:Orchid.RevitProject.Views.ViewSheetSet">
-            View methods for core processes
-        </member>
         <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
             <summary>
             Create ViewSheetSet
@@ -1985,9 +1879,6 @@
         <member name="M:Orchid.RevitProject.DuplicateUtils.TransferDetalingElements(Autodesk.Revit.DB.View,Autodesk.Revit.DB.View)">
             Transfer all view-specific elements from source view to target view.
         </member>
-        <member name="T:Orchid.RevitFamily.Document">
-            Families methods for family documents    
-        </member>
         <member name="M:Orchid.RevitFamily.Document.LoadFamily(Autodesk.Revit.DB.Document)">
             <summary>
             Load family by file name, same core process as File.LoadFamily
@@ -2018,18 +1909,12 @@
             <param name="category">Gategory as string or Dynamo type</param>
             <returns name="Category">Category as Dynamo type</returns>
         </member>
-        <member name="T:Orchid.RevitFamily.Family">
-            Families methods for families
-        </member>
         <member name="M:Orchid.RevitFamily.Family.GetNested(Autodesk.Revit.DB.Document)">
             <summary>
             Get nested family in the familyDocument
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="Family">Family as Dynamo type</returns>
-        </member>
-        <member name="T:Orchid.RevitFamily.FamilyType">
-            Families methods for family types
         </member>
         <member name="M:Orchid.RevitFamily.FamilyType.Current">
             <summary>
@@ -2106,9 +1991,6 @@
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="FamilyType">FamilyType as Dynamo type</returns>
         </member>
-        <member name="T:Orchid.RevitFamily.Formula">
-            Families methods for formulas
-        </member>
         <member name="M:Orchid.RevitFamily.Formula.Get(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
             Get family formula by parameter name.
@@ -2140,9 +2022,6 @@
             <param name="parameterName">The name of the parameter to remove formula</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
-        <member name="T:Orchid.RevitFamily.Nested">
-            Families methods for parameters
-        </member>
         <member name="M:Orchid.RevitFamily.Nested.GetAssociated(Autodesk.Revit.DB.Document)">
             <summary>
             Get associated parameter, nested family, nested family type, and nested family parameter
@@ -2152,12 +2031,6 @@
             <returns name="Family">Nested family in the document</returns>
             <returns name="FamilyType">Nested family type in the document</returns>
             <returns name="familyParameter">Nested family parameter in the document</returns>
-        </member>
-        <member name="T:Orchid.RevitFamily.FamDocInternals">
-            Families methods for parameters
-        </member>
-        <member name="T:Orchid.RevitFamily.Parameter">
-            Families methods for parameters
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.Parameters(Autodesk.Revit.DB.Document)">
             <summary>
@@ -2316,53 +2189,14 @@
             <param name="parameterName">The name of the parameter to verify</param>
             <returns name="bool">Boolean value</returns>
         </member>
-        <member name="T:Orchid.Internals.Convert">
-            Object methods
+        <member name="M:Orchid.Internals.Convert.AutodeskFamilyTypeToString(System.Object)">
+            Takes string and Revit.Elements.Element, return string
         </member>
         <member name="M:Orchid.Internals.Convert.DynamoElementToString(System.Object)">
             Takes string and Revit.Elements.Element, return string
         </member>
-        <member name="M:Orchid.Internals.Convert.AutodeskFamilyTypeToString(System.Object)">
-            Takes string and Revit.Elements.Element, return string 
-        </member>
-        <member name="T:Orchid.Internals.AcceptDuplicate">
-            A handler to accept duplicate types names created by the copy/paste operation.
-        </member>
-        <member name="T:Orchid.Internals.RejectDuplicate">
-            A handler to reject duplicate types names created by the copy/paste operation.
-        </member>
-        <member name="T:Orchid.Internals.HideWarning">
-            A failure preprocessor to hide the warning about duplicate types being pasted.
-        </member>
         <member name="M:Orchid.Internals.HideWarning.PreprocessFailures(Autodesk.Revit.DB.FailuresAccessor)">
             Implementation of the IFailuresPreprocessor.
-        </member>
-        <member name="T:Orchid.Internals.DataMarshaler">
-            Provides ability to register data marshalers which can then be used to marshal arbitrary data.
-        </member>
-        <member name="M:Orchid.Internals.DataMarshaler.RegisterMarshaler``1(System.Converter{``0,System.Object})">
-            Registers a new data marshaler for a given type.
-        </member>
-        <member name="M:Orchid.Internals.DataMarshaler.RegisterMarshaler(System.Type,System.Converter{System.Object,System.Object})">
-            Registers a new data marshaler for a given type.
-        </member>
-        <member name="M:Orchid.Internals.DataMarshaler.UnregisterMarshalerOfType``1">
-            Unregisters a data marshaler for a given type.
-        </member>
-        <member name="M:Orchid.Internals.DataMarshaler.UnregisterMarshalerOfType(System.Type)">
-            Unregisters a data marshaler for a given type.
-        </member>
-        <member name="M:Orchid.Internals.DataMarshaler.Marshal(System.Object)">
-            Marshals data using the registered marshalers. If no marshaler exists, data is returned unmodified.
-        </member>
-        <member name="T:Orchid.Internals.FamilyOption">
-            Ensure loaded families can overwrite existing families.
-        </member>
-        <member name="M:Orchid.Internals.FamilyOption.OnFamilyFound(System.Boolean,System.Boolean@)">
-            OnFamilyFound
-        </member>
-        <member name="M:Orchid.Internals.FamilyOption.OnSharedFamilyFound(Autodesk.Revit.DB.Family,System.Boolean,Autodesk.Revit.DB.FamilySource@,System.Boolean@)">
-            OnSharedFamilyFound
         </member>
         <member name="T:Orchid.Internals.Files">
             <summary>
@@ -2395,9 +2229,6 @@
               Looks up a localized resource of type System.Byte[].
             </summary>
         </member>
-        <member name="T:Orchid.Internals.OrchidNodeCategories">
-            Node categories to use by dropdown nodes
-        </member>
         <member name="T:Orchid.Internals.ObjectComparer">
             this method is forked from Dynamo
             
@@ -2409,13 +2240,6 @@
             5. Else If only one is value type, then value type object is smaller
             6. Else If only one is string, then the string is smaller than other
             7. Else don't know how to compare, so best campare them based on HashCode.
-        </member>
-        <member name="T:Orchid.Internals.NaturalStringComparer">
-            this sorting mechanism uses the StrCmpLogicalW method
-            https://www.geekality.net/2009/03/02/natural-sorting/
-        </member>
-        <member name="T:Orchid.Internals.Purge">
-            Purge class
         </member>
         <member name="F:Orchid.Internals.Purge.PurgeGuid">
             The guid of the "Project contains unused families and types" PerformanceAdviserRuleId.
@@ -2436,18 +2260,6 @@
             Type elements (element class)
             http://www.revitapidocs.com/2017/eb16114f-69ea-f4de-0d0d-f7388b105a16.htm
             http://www.revitapidocs.com/2018.1/eb16114f-69ea-f4de-0d0d-f7388b105a16.htm
-        </member>
-        <member name="T:Orchid.Internals.PythonInterpreter">
-            Python engine and embedded file reader
-        </member>
-        <member name="M:Orchid.Internals.PythonInterpreter.InvokeMethodWithParameter(System.String,System.String,System.Object[])">
-            Invoke the method with parameters
-        </member>
-        <member name="P:Orchid.Internals.PythonInterpreter.InputMarshaler">
-            Data Marshaler for all data coming into a Python node.
-        </member>
-        <member name="P:Orchid.Internals.PythonInterpreter.OutputMarshaler">
-            Data Marshaler for all data coming out of a Python node.
         </member>
         <member name="T:Orchid.Internals.Notifications">
             <summary>
@@ -2660,9 +2472,6 @@
               Looks up a localized string similar to This function is not supported by your Revit version!.
             </summary>
         </member>
-        <member name="T:Orchid.Internals.UnitConverter">
-            Unit converter, forked from Dynamo
-        </member>
         <member name="M:Orchid.Internals.UnitConverter.InDynamoUnits``1(``0)">
             Convert from Revit API internal units (feet) to Revit Display units.
             Can be used simply as geometry.InDynamoUnits() as the type is constrained
@@ -2707,9 +2516,6 @@
         </member>
         <member name="M:Orchid.Internals.Services.ReadEmbeddedResourceFile(System.String)">
             Read an embedded resource file
-        </member>
-        <member name="T:Orchid.RevitMaterial.AppearanceAsset">
-            Methods for assets
         </member>
         <member name="M:Orchid.RevitMaterial.AppearanceAsset.All">
             <summary>
@@ -2766,9 +2572,6 @@
             <param name="appearanceAsset">Appearance asset as Dynamo type</param>
             <returns name="description"></returns>
             <returns name="keywords"></returns>
-        </member>
-        <member name="T:Orchid.RevitMaterial.Graphics">
-            Methods for materials
         </member>
         <member name="M:Orchid.RevitMaterial.Graphics.SetGraphics(System.Object,System.Boolean,DSCore.Color,System.Int32,System.Object,DSCore.Color,System.Object,DSCore.Color)">
             <summary>
@@ -3158,15 +2961,6 @@
             <param name="material">Material as string or object</param>
             <returns name="int">Shininess as integer</returns>
         </member>
-        <member name="T:Orchid.RevitMaterial.MatInternals">
-            Internal methods for materials
-        </member>
-        <member name="M:Orchid.RevitMaterial.MatInternals.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
-            The DialogBoxShowing event handler
-        </member>
-        <member name="T:Orchid.RevitMaterial.Material">
-            Methods for materials
-        </member>
         <member name="M:Orchid.RevitMaterial.Material.Create(System.String)">
             <summary>
             Create material.
@@ -3295,9 +3089,6 @@
             <param name="material">List of material</param>
             <returns name="Physical">List of physical density</returns>
             <returns name="Thermal">List of thermal density</returns>
-        </member>
-        <member name="T:Orchid.RevitMaterial.PhysicalAsset">
-            Methods for structural  assets
         </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.All">
             <summary>
@@ -3530,9 +3321,6 @@
             <returns name="Compression"></returns>
             <returns name="ShearStrengthReduction"></returns>
             <returns name="Lightweight"></returns>
-        </member>
-        <member name="T:Orchid.RevitMaterial.ThermalAsset">
-            Methods for structural  assets
         </member>
         <member name="M:Orchid.RevitMaterial.ThermalAsset.All">
             <summary>
