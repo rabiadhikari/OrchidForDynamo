@@ -822,25 +822,34 @@
             </summary>
             <param name="groupType">GroupType as Dynamo type</param>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element},System.Boolean)">
             <summary>
-            Create group by name
+            Create group by name. 
+            Please note the boolean value "assort", default value (true) is set
+            NOT to include elements placed on legend or drafting view!
             </summary>
             <param name="name">Group name as string</param>
             <param name="element">Element as Dynamo type</param>
+            <param name="assort">True value does NOT include elements placed on legend or drafting view!</param>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Group.All">
+        <member name="M:Orchid.RevitProject.Elements.Group.All(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
-            All group in current document
-            </summary>
-            <returns name="Group">Group as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Group.All(Autodesk.Revit.DB.Document)">
-            <summary>
-            All group in document
+            All group in document.
+            Please note the boolean value "assort", default value (true) is set
+            NOT to include elements placed on legend or drafting view!
             </summary>
             <param name="document">Document as Revit type</param>
+            <param name="assort">True value does NOT include elements placed on legend or drafting view!</param>
+            <returns name="Group">Group as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Group.All(System.Boolean)">
+            <summary>
+            All group in current document.
+            Please note the boolean value "assort", default value (true) is set
+            NOT to include elements placed on legend or drafting view!
+            </summary>
+            <param name="assort">True value does NOT include elements placed on legend or drafting view!</param>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.AllModel">
@@ -849,10 +858,13 @@
             </summary>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Group.AllDetail">
+        <member name="M:Orchid.RevitProject.Elements.Group.AllDetail(System.Boolean)">
             <summary>
-            All detail group in current document
+            All detail group in current document.
+            Please note the boolean value "assort", default value (true) is set
+            NOT to include elements placed on legend or drafting view!
             </summary>
+            <param name="assort">True value does NOT include elements placed on legend or drafting view!</param>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.GetByName(System.String)">
@@ -1626,6 +1638,12 @@
             <param name="origin">Origin as project location</param>
             <returns name="Origin">Origin as project location</returns>
         </member>
+        <member name="P:Orchid.RevitProject.Views.Sheet.All">
+            <summary>
+            Get all sheets
+            </summary>
+            <returns name="View">All sheet views as dynamo type</returns>
+        </member>
         <member name="P:Orchid.RevitProject.Views.Schedule.All">
             <summary>
             Get all schedules
@@ -1656,7 +1674,7 @@
         <member name="M:Orchid.RevitProject.Views.ViewTemplate.All(Autodesk.Revit.DB.Document)">
             <summary>
             All view template in document
-            Note: in dynamo 1.3.x will 3D templates fail!
+            Note: due to limitations in dynamo will 3D templates fail!
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="ViewTemplate">ViewTemplate</returns>
@@ -1664,7 +1682,7 @@
         <member name="M:Orchid.RevitProject.Views.ViewTemplate.All">
             <summary>
             All view template in current document
-            Note: in dynamo 1.3.x will 3D templates fail!
+            Note: due to limitations in dynamo will 3D templates fail!
             </summary>
             <returns name="ViewTemplate">ViewTemplate</returns>
         </member>
