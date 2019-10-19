@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrchidCB</name>
+    </assembly>
+    <members>
+        <member name="M:Orchid.About.Orchid">
+            <summary>
+            About the package.
+            </summary>
+            <returns name="watch">Add a watch node!</returns>
+        </member>
+        <member name="M:Orchid.About.Update">
+            <summary>
+            Verify this version of Orchid to see if an update is available.
+            </summary>
+            <returns name="watch">Add a watch node!</returns>
+        </member>
+        <member name="M:Orchid.Core.Clipboard.CopyTo(System.Collections.IList)">
+            <summary>
+            Copy object to Clipboard. Can copy elements from a 1D list, but not from 2D..nD!
+            If List Level is used, then will the last item be available in the clipboard.
+            </summary>
+            <param name="element">element</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.Core.DataStream.Await(System.Object,System.Collections.IList)">
+            <summary>
+            Await a data stream before passing another data stream
+            </summary>
+            <param name="pass">Data to pass</param>
+            <param name="waitFor">Data object to wait for</param>
+            <returns name="pass">Passed data</returns>
+        </member>
+        <member name="M:Orchid.Core.DataStream.Circut(System.Object,System.Boolean)">
+            <summary>
+            Set a state (true/false) to pass a data stream in a circut
+            </summary>
+            <param name="pass">Data to pass</param>
+            <param name="state">Set a bool value for the state</param>
+            <returns name="pass">Passed data</returns>
+        </member>
+        <member name="P:Orchid.Core.Directory.Current">
+            <summary>
+            Get current directory
+            </summary>
+            <returns name="directory">Directory</returns>
+        </member>
+        <member name="M:Orchid.Core.Directory.FromPath(System.String)">
+            <summary>
+            Creates a directory object from a path
+            </summary>
+            <param name="path">Path to the directory</param>
+            <returns name="directory">Directory object</returns>
+        </member>
+        <member name="M:Orchid.Core.Directory.Contents(System.String,System.String,System.Boolean)">
+            <summary>
+            Get the files in a directory and its subdirectories.
+            Use string for extension type, default is * for all files!
+            If files are are readonly but not hidden, are they included.
+            If files are both hidden or readonly files
+            (and thereby system files) are they left out.
+            </summary>
+            <param name="directory">Directory to get contents from</param>
+            <param name="searchString">Search string used to filter results</param>
+            <param name="deepSearch">Search option used to search in all subfolders</param>
+            <returns name="file">File</returns>
+        </member>
+        <member name="M:Orchid.Core.File.FromPath(System.String)">
+            <summary>
+            Get file from a path
+            </summary>
+            <param name="path">Path to the file</param>
+            <returns name="file">File object</returns>
+        </member>
+        <member name="M:Orchid.Core.File.Rename(System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Rename file
+            </summary>
+            <param name="directory">The directory path as string</param>
+            <param name="extension">The file extension</param>
+            <param name="sourceName">The name of the source file</param>
+            <param name="targetName">The name of the target file</param>
+            <returns name="file">File</returns>
+        </member>
+        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
+            Search values, send default if values not exist
+        </member>
+        <member name="M:Orchid.Core.List.CleanUtil(System.Collections.IList,System.Collections.IList)">
+            Cleaning nD list
+        </member>
+        <member name="M:Orchid.Core.List.ReplaceUtil(System.Collections.IList,System.Collections.IList,System.Object)">
+            Replacing nD list
+        </member>
+        <member name="M:Orchid.Core.List.Clean(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Clean nD list
+            </summary>
+            <param name="list">List</param>
+            <param name="searchFor">Item(s) to search for</param>
+            <returns name="list">List</returns>
+        </member>
+        <member name="M:Orchid.Core.List.Replace(System.Collections.IList,System.Collections.IList,System.Object)">
+            <summary>
+            Replace item in nD list
+            </summary>
+            <param name="list">List</param>
+            <param name="searchFor">Item(s) to search for</param>
+            <param name="replaceWith">Replacement value</param>
+            <returns name="list">List</returns>
+        </member>
+        <member name="M:Orchid.Core.List.Sort(System.Collections.IList,System.Boolean)">
+            <summary>
+            Sort elements using the PC 'locale'. Sort elements recursively
+            preserving elements types and elements structure.
+            </summary>
+            <param name="list">List of values</param>
+            <param name="descending">Return the list in descending order?</param>
+            <returns name="list">List</returns>
+        </member>
+        <member name="M:Orchid.Core.List.SortNatural(System.Collections.IList,System.Boolean)">
+            <summary>
+            Sort elements using the PC 'locale'. Sort elements recursively
+            preserving elements types and elements structure.Sort elements in natural
+            sort order by splitting digits from string and add leading zeros.
+            http://en.wikipedia.org/wiki/Natural_sort_order
+            </summary>
+            <param name="list">list of values</param>
+            <param name="descending">Return the list in descending order?</param>
+            <returns name="list">List</returns>
+        </member>
+        <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Sort and group items into sub-lists based on their like key values
+            </summary>
+            <param name="list">List of items to group as sublists</param>
+            <param name="keys">Key values, one per item in the input list, used for grouping the items</param>
+            <param name="sortedKeys">Sorted unique keys, used for grouping the items by their key</param>
+            <returns name="groups">list of sublists, with items grouped by like key values</returns>
+            <returns name="unique keys">key value corresponding to each group</returns>
+            <search>list;sort;group;sortbykey;groupbykey;</search>
+        </member>
+        <member name="M:Orchid.Core.List.IndexOf(System.Collections.IList,System.Object)">
+            <summary>
+            Returns the index (the full path) of the member in nD list
+            </summary>
+            <param name="list">list of values</param>
+            <param name="element">Element</param>
+            <returns name="int">List of indicies</returns>
+        </member>
+        <member name="M:Orchid.Core.List.GetItemAtIndex(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Get an item from the given list that's located at the specified index (the full path) in nD list
+            </summary>
+            <param name="list">list to fetch an item from</param>
+            <param name="index">index of the item to be fetched</param>
+            <returns name="item">item in the list at the given index</returns>
+        </member>
+        <member name="M:Orchid.Core.List.ReplaceItemAtIndex(System.Collections.IList,System.Collections.IList,System.Object)">
+            <summary>
+            Replace an item from the given list that's located at the specified index (the full path) in nD list
+            </summary>
+            <param name="list">list to replace an item in</param>
+            <param name="index">index of the item to be replaced</param>
+            <param name="item">the item to insert</param>
+            <returns name="list">List</returns>
+        </member>
+        <member name="M:Orchid.Core.List.FilterByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Filter two list items based on common key values
+            </summary>
+            <param name="list1">Items from list 1</param>
+            <param name="key1">Keys from list 1</param>
+            <param name="list2">Items from list 2</param>
+            <param name="key2">Keys from list 2</param>
+            <returns name="listA">ListA</returns>
+            <returns name="listB">ListB</returns>
+            <returns name="key">Key</returns>
+        </member>
+        <member name="M:Orchid.Core.List.SummationByKey(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Summarize items and group by key values
+            </summary>
+            <param name="list">List of items as int and double to group and summarize as sublists</param>
+            <param name="keys">Key values, one per item in the input list, used for grouping the items</param>
+            <returns name="summarized groups">list of sublist, with items grouped and summarized by like key values</returns>
+            <returns name="unique keys">key value corresponding to each group</returns>
+            <search>list;group;summarize;summationbykey;</search>
+        </member>
+        <member name="M:Orchid.Core.List.GroupByEqual(System.Collections.IList)">
+            <summary>
+            Group items into sub-lists based on being equal
+            </summary>
+            <param name="list">List of items to group as sublists</param>
+            <returns name="groups">list of sublist, with items grouped by like key values</returns>
+            <returns name="unique keys">key value corresponding to each group</returns>
+            <search>list;group;equal;groupbyequal;</search>
+        </member>
+        <member name="M:Orchid.Core.Math.Random(System.Int32)">
+            <summary>
+            Generates a random double in the given range (0, x).
+            </summary>
+            <param name="range">Range to slice the random numbers into.</param>
+            <returns name="number">Random number in the given range (0, x).</returns>
+        </member>
+        <member name="M:Orchid.Core.Math.RandomList(System.Int32,System.Int32)">
+            <summary>
+            Produces a list containing the given amount of random doubles in the given range (0, x).
+            </summary>
+            <param name="amount">Amount of random numbers the result list will contain.</param>
+            <param name="range">Range to slice the random numbers into.</param>
+            <returns name="number">List of random numbers in the given range (0, x).</returns>
+        </member>
+        <member name="M:Orchid.Core.Number.ToDouble(System.Int32)">
+            <summary>
+            Convert number to integer.
+            </summary>
+            <param name="number">number as integer</param>
+            <returns name="double">number as double</returns>
+        </member>
+        <member name="M:Orchid.Core.Number.ToInteger(System.Double)">
+            <summary>
+            Convert number to double.
+            </summary>
+            <param name="number">number as double</param>
+            <returns name="int">number as integer</returns>
+        </member>
+        <member name="M:Orchid.Core.Object.Hashing(System.Object)">
+            <summary>
+            Input is transferred to output along with its hassing value.
+            Please note, hasing should not be mix up with guid or unique id!
+            https://en.wikipedia.org/wiki/Hash_function
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="hashing">Hashing value</returns>
+        </member>
+        <member name="M:Orchid.Core.Print.MergePDF(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Merge list of PDF documents.
+            </summary>
+            <param name="documents">List of PDF documents to be merged</param>
+            <param name="filePath">Give a valid path for the merged PDF output.</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.Core.Scripting.DynamoPackagesPath">
+            <summary>
+            Get the path to the Dynamo package root folder.
+            </summary>
+            <returns name="string">Path</returns>
+        </member>
+        <member name="M:Orchid.Core.Scripting.DynamoDefinitionsPath">
+            <summary>
+            Get the path to the Dynamo definition root folder.
+            </summary>
+            <returns name="string">Path</returns>
+        </member>
+        <member name="M:Orchid.Core.Scripting.ScriptFileReader(System.String,System.String,System.Boolean)">
+            <summary>
+            Read 'script' file content, with refreshing option.
+            </summary>
+            <param name="path">Path to file. Note: do not send a list of files as input!</param>
+            <param name="file">Filename including file extension</param>
+            <param name="refresh">Toggle true/false for refreshing</param>
+            <returns name="script">Script</returns>
+        </member>
+        <member name="M:Orchid.Core.String.Replace(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Replaces all occurrences of text in a string with other text
+            </summary>
+            <param name="string">String to replace substrings in</param>
+            <param name="searchFor">List of strings to be replaced</param>
+            <param name="replaceWith">List of strings to replace with</param>
+            <returns name="str">String with replacements made</returns>
+            <search>replace,overwrite,override,find and replace</search>
+        </member>
+        <member name="M:Orchid.Core.String.Substring(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Retrieves a substring from the given string. The substring starts at the
+            given start string/character position and ends at the given string/character
+            </summary>
+            <param name="string">String to take substring of</param>
+            <param name="startsWith">Substring to search the start for</param>
+            <param name="endsWith">Substring to search the end for</param>
+            <param name="ignoreCase">Whether or not comparison takes case into account</param>
+            <returns name="substring">Substring made from the original string</returns>
+            <search>subset,get string,part,smaller string</search>
+        </member>
+    </members>
+</doc>
