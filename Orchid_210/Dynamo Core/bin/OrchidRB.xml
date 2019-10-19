@@ -727,6 +727,41 @@
             </summary>
             <returns name="View">All sheet views as dynamo type</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.All">
+            <summary>
+            All sheet set in current document.
+            </summary>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            Create sheet set
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="name">Name for the ViewSheetSet</param>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
+            <summary>
+            Change sheet set
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.GetView(System.Object)">
+            <summary>
+            Get View from sheet set
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <returns name="View">View as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.Delete(System.Object)">
+            <summary>
+            Delete sheet set
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+        </member>
         <member name="M:Orchid.RevitProject.Views.ViewTemplate.All(Autodesk.Revit.DB.Document)">
             <summary>
             All view template in document
@@ -764,12 +799,19 @@
             <param name="view">View as Dynamo type</param>
             <returns name="ViewTemplate">ViewTemplate</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameters(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameterIds(Revit.Elements.Element)">
             <summary>
-            All view template in document
+            Get all parameter ids in view template
             </summary>
             <param name="viewTemplate">View template as Dynamo type</param>
-            <returns name="Parameters">ViewTemplate parameters</returns>
+            <returns name="int">Parameter ids</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameterNames(Revit.Elements.Element)">
+            <summary>
+            Get all parameter names in view template
+            </summary>
+            <param name="viewTemplate">View template as Dynamo type</param>
+            <returns name="string">Parameter names</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.ViewTemplate.Set(Revit.Elements.Element,Revit.Elements.Element)">
             <summary>
@@ -813,6 +855,15 @@
             <param name="accuracy">Accuracy for numeric values</param>
             <returns name="Value">All Values in the schedule as a list</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Views.View.Duplicate(Revit.Elements.Element,System.String,System.String)">
+            <summary>
+            Duplicate view
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="name">Name for the duplicated view</param>
+            <param name="option">View duplicate option as string</param>
+            <returns name="View">View</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Views.View.All(Autodesk.Revit.DB.Document)">
             <summary>
             All view in document
@@ -852,15 +903,6 @@
             All view by viewType in current document
             </summary>
             <param name="viewType">ViewType as Dynamo type</param>
-            <returns name="View">View</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.View.Duplicate(Revit.Elements.Element,System.String,System.String)">
-            <summary>
-            Duplicate view
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="name">Name for the duplicated view</param>
-            <param name="option">View duplicate option as string</param>
             <returns name="View">View</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.View.GetCropBox(Revit.Elements.Element)">
@@ -911,17 +953,17 @@
             <param name="vector">Vector as Dynamo type</param>
             <returns name="View">View</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.Viewport.All">
-            <summary>
-            All viewport in current document
-            </summary>
-            <returns name="Viewport">Viewport</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Views.Viewport.All(Autodesk.Revit.DB.Document)">
             <summary>
             All viewport in document
             </summary>
             <param name="document">Document as Revit type</param>
+            <returns name="Viewport">Viewport</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Viewport.All">
+            <summary>
+            All viewport in current document
+            </summary>
             <returns name="Viewport">Viewport</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.Viewport.Move(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
@@ -932,35 +974,6 @@
             <param name="viewport">Viewport as Dynamo type</param>
             <param name="vector">Vector as Dynamo type</param>
             <returns name="Viewport">Viewport</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
-            <summary>
-            Create ViewSheetSet
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="name">Name for the ViewSheetSet</param>
-            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
-            <summary>
-            Change ViewSheetSet
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.GetView(System.Object)">
-            <summary>
-            Get View from ViewSheetSet
-            </summary>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-            <returns name="View">View as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Delete(System.Object)">
-            <summary>
-            Delete ViewSheetSet
-            </summary>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element},System.Boolean)">
             <summary>
@@ -1038,17 +1051,17 @@
             </summary>
             <param name="group">Group as Dynamo type</param>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.GroupType.All">
-            <summary>
-            All group type in current document
-            </summary>
-            <returns name="GroupType">GroupType as Dynamo type</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.All(Autodesk.Revit.DB.Document)">
             <summary>
             All group type in document
             </summary>
             <param name="document">Document as Revit type</param>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.All">
+            <summary>
+            All group type in current document
+            </summary>
             <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.AllModel">
@@ -1166,6 +1179,79 @@
             <param name="category">Category as Dynamo type</param>
             <returns name="CategoryType">CategoryType as string</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.IsValid(Revit.Elements.Element)">
+            <summary>
+            Verify if element is valid, output as boolean
+            If element is deleted during processing is this filter valuable.
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="bool">Valid value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Valid(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Filter list for valid elements.
+            If element is deleted during processing is this filter valuable.
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Autodesk.Revit.DB.Document,System.Collections.IList)">
+            <summary>
+            Delete elements, in a document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Delete(System.Collections.IList)">
+            <summary>
+            Delete elements
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="F:Orchid.RevitProject.Elements.Element.types">
+            Host type elements
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.IsHosting(Revit.Elements.Element)">
+            <summary>
+            Get the element hosting condition, output as boolean
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="bool">Boolean value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Hosting(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Get the element hosting condition, output as element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="true">Hosting element</returns>
+            <returns name="false">Not hosting element</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.PhaseByName(System.String)">
+            <summary>
+            Get phase by name
+            </summary>
+            <param name="name">Phase name as string</param>
+            <returns name="Phase">Phase as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.GetPhase(Revit.Elements.Element)">
+            <summary>
+            Get the phase of the element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Created">Phase created</returns>
+            <returns name="Demolished">Phase demolished</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.SetPhase(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element)">
+            <summary>
+            Set the phase of the element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <param name="created">Phase created as Dynamo type</param>
+            <param name="demolished">Phase demolished as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Elements.Element.IsFlipped(Revit.Elements.Element)">
             <summary>
             Get the element flip condition, output as boolean
@@ -1224,21 +1310,6 @@
             </summary>
             <param name="element">Element as Dynamo type</param>
             <returns name="Vector">Vector</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.Delete(System.Collections.IList)">
-            <summary>
-            Delete elements
-            </summary>
-            <param name="element">Element as Dynamo type</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Autodesk.Revit.DB.Document,System.Collections.IList)">
-            <summary>
-            Delete elements, in a document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="element">Element as Dynamo type</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.SetType(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -1315,6 +1386,14 @@
             </summary>
             <param name="elementType">Element as Dynamo type</param>
             <returns name="string">Family name as string</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.ElementType.Duplicate(Revit.Elements.Element,System.String)">
+            <summary>
+            Get the view where the element is located
+            </summary>
+            <param name="elementType">ElementType as Dynamo type</param>
+            <param name="name">Name for the duplicated element type</param>
+            <returns name="ElementType">ElementType</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Material.Quantity(System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -1433,7 +1512,7 @@
             <param name="category">Category as string or Dynamo type</param>
             <returns name="FamilyType">Family type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.FamilyType.FamilyDocument(System.Collections.Generic.List{Revit.Elements.FamilyType})">
+        <member name="M:Orchid.RevitProject.Elements.FamilyType.RevitFamily(System.Collections.Generic.List{Revit.Elements.FamilyType})">
             <summary>
             open family document by family type
             </summary>
@@ -1693,27 +1772,21 @@
             <summary>
             Get the builtin parameter name
             </summary>
-            <param name="parameter">The parameter</param>
+            <param name="parameterId">Integer value for the builtin parameter</param>
             <returns name="string">string</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Label(System.Int32)">
             <summary>
             Get the builtin parameter label
             </summary>
-            <param name="parameter">The parameter</param>
+            <param name="parameterId">Integer value for the builtin parameter</param>
             <returns name="string">string</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.All">
             <summary>
             Get all builtin parameters.
             </summary>
-            <returns name="Parameter">Builtin parameter</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AllCategories(Autodesk.Revit.DB.Document)">
-            Get a CategorySet for all categories
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.ToCategorySet(System.Collections.Generic.List{Revit.Elements.Category})">
-            Convert a list of categories to a category set
+            <returns name="int">parameter ids</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
@@ -1757,6 +1830,13 @@
             Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
             </summary>
             <param name="document">Document as Revit type</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.Name(System.Int32)">
+            <summary>
+            Get the parameter name or the builtin parameter label
+            </summary>
+            <param name="parameterId">Integer value for the parameter</param>
+            <returns name="string">string</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.ProjectParameters(Autodesk.Revit.DB.Document)">
             <summary>
@@ -1871,6 +1951,12 @@
             <param name="origin">Origin as project location</param>
             <returns name="Origin">Origin as project location</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Project.AllLevels">
+            <summary>
+            Get all levels in the current document.
+            </summary>
+            <returns name="Level">The list of levels.</returns>
+        </member>
         <member name="M:Orchid.RevitFamily.Document.LoadFamily(Autodesk.Revit.DB.Document)">
             <summary>
             Load family by file name, same core process as File.LoadFamily
@@ -1932,14 +2018,6 @@
             <param name="familyType">The name of the family type</param>
             <returns name="string">Name as string</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.FamilyType.All">
-            <summary>
-            Get all family types.
-            Note: If no family types exists, then a default 
-            family type will be created named as the familyDocument.
-            </summary>
-            <returns name="FamilyType">FamilyType as Revit type</returns>
-        </member>
         <member name="M:Orchid.RevitFamily.FamilyType.All(Autodesk.Revit.DB.Document)">
             <summary>
             Get all family types in the familyDocument.
@@ -1947,6 +2025,14 @@
             family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <returns name="FamilyType">FamilyType as Revit type</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.FamilyType.All">
+            <summary>
+            Get all family types.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
+            </summary>
             <returns name="FamilyType">FamilyType as Revit type</returns>
         </member>
         <member name="M:Orchid.RevitFamily.FamilyType.Create(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
@@ -2973,17 +3059,17 @@
             <param name="material">Material as string or object</param>
             <returns name="string">The material class name</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Material.All">
-            <summary>
-            Get all materials in document.
-            </summary>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
         <member name="M:Orchid.RevitMaterial.Material.All(Autodesk.Revit.DB.Document)">
             <summary>
             Get all materials in document.
             </summary>
             <param name="document">Document as Revit type</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Material.All">
+            <summary>
+            Get all materials in document.
+            </summary>
             <returns name="Material">Material as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Material.Asset(System.Object)">

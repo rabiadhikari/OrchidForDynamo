@@ -449,24 +449,9 @@
             <param name="viewSheetSet">ViewSheetSet to print as Revit Element</param>
             <param name="printSetting">Printer setting as string or Revit Element</param>
         </member>
-        <member name="M:Orchid.Core.Print.ChangeSetting(System.String,System.Object,System.String,System.String,System.String,System.String,System.Double[],System.String,System.Int32)">
-            <summary>
-            Change print setting
-            </summary>
-            <param name="printer">Printer name as string. If value is not set is default printer selected</param>
-            <param name="printSetting">printer setting as string or Revit Element</param>
-            <param name="paperZize">Paper size as string. If value is not set is default paper size selected</param>
-            <param name="pageOrientation">Page orientation as string.</param>
-            <param name="paperPlacement">Paper placement</param>
-            <param name="marginType">Print margin type</param>
-            <param name="margin">Print margin value as double</param>
-            <param name="zoomType">Zoom type as string</param>
-            <param name="zoom">Zoom value as integer</param>
-            <returns name="PrintSetting">PrintSetting</returns>
-        </member>
         <member name="M:Orchid.Core.Print.CreateSetting(System.String,System.String,System.String,System.String,System.String,System.String,System.Double[],System.String,System.Int32)">
             <summary>
-            Set print setting
+            Set print setting 
             </summary>
             <param name="printer">Printer name as string. If value is not set is default printer selected</param>
             <param name="name">name to create for the print setting</param>
@@ -476,7 +461,22 @@
             <param name="marginType">Print margin type</param>
             <param name="margin">Print margin value as double</param>
             <param name="zoomType">Zoom type as string</param>
-            <param name="zoom">Zoom value as integer</param>
+            <param name="zoom">Zoom value as integer</param>       
+            <returns name="PrintSetting">PrintSetting</returns>
+        </member>
+        <member name="M:Orchid.Core.Print.ChangeSetting(System.String,System.Object,System.String,System.String,System.String,System.String,System.Double[],System.String,System.Int32)">
+            <summary>
+            Change print setting 
+            </summary>
+            <param name="printer">Printer name as string. If value is not set is default printer selected</param>
+            <param name="printSetting">printer setting as string or Revit Element</param>
+            <param name="paperZize">Paper size as string. If value is not set is default paper size selected</param>
+            <param name="pageOrientation">Page orientation as string.</param>
+            <param name="paperPlacement">Paper placement</param>
+            <param name="marginType">Print margin type</param>
+            <param name="margin">Print margin value as double</param>
+            <param name="zoomType">Zoom type as string</param>
+            <param name="zoom">Zoom value as integer</param>       
             <returns name="PrintSetting">PrintSetting</returns>
         </member>
         <member name="M:Orchid.Core.Print.DeleteSetting(System.Object)">
@@ -545,6 +545,13 @@
             <returns name="substring">Substring made from the original string</returns>
             <search>subset,get string,part,smaller string</search>
         </member>
+        <member name="M:Orchid.RevitFamily.Document.LoadFamily(Autodesk.Revit.DB.Document)">
+            <summary>
+            Load family by file name, same core process as File.LoadFamily
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
         <member name="M:Orchid.RevitFamily.Document.AddLookupTable(Autodesk.Revit.DB.Document,System.String)">
             <summary>
             Load lookup file by name
@@ -559,13 +566,6 @@
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="Category">Category as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitFamily.Document.LoadFamily(Autodesk.Revit.DB.Document)">
-            <summary>
-            Load family by file name, same core process as File.LoadFamily
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Document.SetCategory(Autodesk.Revit.DB.Document,System.Object)">
             <summary>
@@ -582,35 +582,18 @@
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="Family">Family as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.FamilyType.All">
-            <summary>
-            Get all family types.
-            Note: If no family types exists, then a default
-            family type will be created named as the familyDocument.
-            </summary>
-            <returns name="FamilyType">FamilyType as Revit type</returns>
-        </member>
-        <member name="M:Orchid.RevitFamily.FamilyType.All(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get all family types in the familyDocument.
-            Note: If no family types exists, then a default
-            family type will be created named as the familyDocument.
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <returns name="FamilyType">FamilyType as Revit type</returns>
-        </member>
         <member name="M:Orchid.RevitFamily.FamilyType.Current">
             <summary>
             Get the current family type.
-            Note: If no current family types exists, then a default
+            Note: If no current family types exists, then a default 
             family type will be created named as the familyDocument.
             </summary>
             <returns name="FamilyType">FamilyType as Revit type</returns>
         </member>
         <member name="M:Orchid.RevitFamily.FamilyType.Current(Autodesk.Revit.DB.Document)">
             <summary>
-            Get the current family type in the familyDocument.
-            Note: If no current family types exists, then a default
+            Get the current family type in the familyDocument. 
+            Note: If no current family types exists, then a default 
             family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
@@ -623,23 +606,32 @@
             <param name="familyType">The name of the family type</param>
             <returns name="string">Name as string</returns>
         </member>
+        <member name="M:Orchid.RevitFamily.FamilyType.All(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all family types in the familyDocument.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <returns name="FamilyType">FamilyType as Revit type</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.FamilyType.All">
+            <summary>
+            Get all family types.
+            Note: If no family types exists, then a default 
+            family type will be created named as the familyDocument.
+            </summary>
+            <returns name="FamilyType">FamilyType as Revit type</returns>
+        </member>
         <member name="M:Orchid.RevitFamily.FamilyType.Create(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
             Create family type by name.
-            Note: If no input to name is provided (default as null), then a default
+            Note: If no input to name is provided (default as null), then a default 
             family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="name">The family type name</param>
             <returns name="FamilyType">FamilyType as Revit type</returns>
-        </member>
-        <member name="M:Orchid.RevitFamily.FamilyType.Delete(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.Object})">
-            <summary>
-            Delete family type by name
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <param name="familyType">FamilyType as string or Revit type</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitFamily.FamilyType.Rename(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
@@ -648,6 +640,14 @@
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="sourceName">The name of the source family type</param>
             <param name="targetName">The name of the target family type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.FamilyType.Delete(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Delete family type by name
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <param name="familyType">FamilyType as string or Revit type</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitFamily.FamilyType.GetNested(Autodesk.Revit.DB.Document)">
@@ -698,13 +698,6 @@
             <returns name="FamilyType">Nested family type in the document</returns>
             <returns name="familyParameter">Nested family parameter in the document</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.Parameter.Name(Autodesk.Revit.DB.FamilyParameter)">
-            <summary>
-            Get family parameter name
-            </summary>
-            <param name="parameter">FamilyParameter as Revit type</param>
-            <returns name="string">Name as string</returns>
-        </member>
         <member name="M:Orchid.RevitFamily.Parameter.Parameters(Autodesk.Revit.DB.Document)">
             <summary>
             Obtain all of the Parameters from the family document, sorted by Name.
@@ -712,12 +705,12 @@
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="Parameter">Parameter</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.Parameter.AddIfcParameters(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitFamily.Parameter.Name(Autodesk.Revit.DB.FamilyParameter)">
             <summary>
-            Add basic IFC parameters in the family (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
+            Get family parameter name
             </summary>
-            <param name="familyDocument">Document as Revit type</param>
-            <returns name="Parameter">Parameter</returns>
+            <param name="parameter">FamilyParameter as Revit type</param>
+            <returns name="string">Name as string</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.AddParameter(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String},System.String,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
@@ -762,7 +755,7 @@
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.CreateSharedParameter(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
-            Create shared parameter by name.
+            Create shared parameter by name. 
             If the parameter not exists in the shared parameter file is it being created.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
@@ -775,12 +768,19 @@
             <param name="reporting">Is reporting parameter. Is only available to Length and Angle parameters!</param>
             <returns name="Parameter">Parameter</returns>
         </member>
+        <member name="M:Orchid.RevitFamily.Parameter.AddIfcParameters(Autodesk.Revit.DB.Document)">
+            <summary>
+            Add basic IFC parameters in the family (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
+            </summary>
+            <param name="familyDocument">Document as Revit type</param>
+            <returns name="Parameter">Parameter</returns>
+        </member>
         <member name="M:Orchid.RevitFamily.Parameter.GetValue(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.Object},System.Collections.Generic.List{System.String})">
             <summary>
             Get family parameter value by parameter name
             Note: If no family type is provided (default as null), then will the
-            default family type in the familyDocument be used. Furthermore,
-            If no family types exists, then a default
+            default family type in the familyDocument be used. Furthermore, 
+            If no family types exists, then a default 
             family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
@@ -793,8 +793,8 @@
             <summary>
             Set family parameter value by parameter name.
             Note: If no family type is provided (default as null), then will the
-            default family type in the familyDocument be used. Furthermore,
-            If no family types exists, then a default
+            default family type in the familyDocument be used. Furthermore, 
+            If no family types exists, then a default 
             family type will be created named as the familyDocument.
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
@@ -802,6 +802,23 @@
             <param name="parameterName">The name of the parameter to set</param>
             <param name="value">The value to set</param>
             <returns name="Parameter">Parameter as Revit type</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.Parameter.Rename(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Rename family parameter by parameter name
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <param name="sourceName">The name of the source parameter</param>
+            <param name="targetName">The name of the target parameter</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.Parameter.Delete(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Delete family parameter by parameter name
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
+            <param name="parameterName">The name of the parameter to delete</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.Convert(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String},System.Boolean)">
             <summary>
@@ -812,22 +829,13 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <returns name="Parameter">Parameter</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.Parameter.Delete(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String})">
+        <member name="M:Orchid.RevitFamily.Parameter.IsReporting(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
-            Delete family parameter by parameter name
+            Verify if parameter is a reporting parameter
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <param name="parameterName">The name of the parameter to delete</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
-        <member name="M:Orchid.RevitFamily.Parameter.Rename(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
-            <summary>
-            Rename family parameter by parameter name
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <param name="sourceName">The name of the source parameter</param>
-            <param name="targetName">The name of the target parameter</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
+            <param name="parameterName">The name of the parameter to verify</param>
+            <returns name="bool">Boolean value</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.Associate(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element},System.Collections.IList,System.Collections.IList)">
             <summary>
@@ -842,14 +850,6 @@
         <member name="M:Orchid.RevitFamily.Parameter.HasAssociated(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
             <summary>
             Verify if parameter has associated elements
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <param name="parameterName">The name of the parameter to verify</param>
-            <returns name="bool">Boolean value</returns>
-        </member>
-        <member name="M:Orchid.RevitFamily.Parameter.IsReporting(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.String})">
-            <summary>
-            Verify if parameter is a reporting parameter
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to verify</param>
@@ -1105,6 +1105,41 @@
             </summary>
             <returns name="View">All sheet views as dynamo type</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.All">
+            <summary>
+            All sheet set in current document.
+            </summary>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            Create sheet set
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="name">Name for the ViewSheetSet</param>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
+            <summary>
+            Change sheet set
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.GetView(System.Object)">
+            <summary>
+            Get View from sheet set
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+            <returns name="View">View as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.SheetSet.Delete(System.Object)">
+            <summary>
+            Delete sheet set
+            </summary>
+            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
+        </member>
         <member name="M:Orchid.RevitProject.Views.ViewTemplate.All(Autodesk.Revit.DB.Document)">
             <summary>
             All view template in document
@@ -1142,12 +1177,19 @@
             <param name="view">View as Dynamo type</param>
             <returns name="ViewTemplate">ViewTemplate</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameters(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameterIds(Revit.Elements.Element)">
             <summary>
-            All view template in document
+            Get all parameter ids in view template
             </summary>
             <param name="viewTemplate">View template as Dynamo type</param>
-            <returns name="Parameters">ViewTemplate parameters</returns>
+            <returns name="int">Parameter ids</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.ViewTemplate.GetParameterNames(Revit.Elements.Element)">
+            <summary>
+            Get all parameter names in view template
+            </summary>
+            <param name="viewTemplate">View template as Dynamo type</param>
+            <returns name="string">Parameter names</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.ViewTemplate.Set(Revit.Elements.Element,Revit.Elements.Element)">
             <summary>
@@ -1191,6 +1233,15 @@
             <param name="accuracy">Accuracy for numeric values</param>
             <returns name="Value">All Values in the schedule as a list</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Views.View.Duplicate(Revit.Elements.Element,System.String,System.String)">
+            <summary>
+            Duplicate view
+            </summary>
+            <param name="view">View as Dynamo type</param>
+            <param name="name">Name for the duplicated view</param>
+            <param name="option">View duplicate option as string</param>
+            <returns name="View">View</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Views.View.All(Autodesk.Revit.DB.Document)">
             <summary>
             All view in document
@@ -1230,15 +1281,6 @@
             All view by viewType in current document
             </summary>
             <param name="viewType">ViewType as Dynamo type</param>
-            <returns name="View">View</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.View.Duplicate(Revit.Elements.Element,System.String,System.String)">
-            <summary>
-            Duplicate view
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="name">Name for the duplicated view</param>
-            <param name="option">View duplicate option as string</param>
             <returns name="View">View</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.View.GetCropBox(Revit.Elements.Element)">
@@ -1289,17 +1331,17 @@
             <param name="vector">Vector as Dynamo type</param>
             <returns name="View">View</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.Viewport.All">
-            <summary>
-            All viewport in current document
-            </summary>
-            <returns name="Viewport">Viewport</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Views.Viewport.All(Autodesk.Revit.DB.Document)">
             <summary>
             All viewport in document
             </summary>
             <param name="document">Document as Revit type</param>
+            <returns name="Viewport">Viewport</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Views.Viewport.All">
+            <summary>
+            All viewport in current document
+            </summary>
             <returns name="Viewport">Viewport</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.Viewport.Move(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
@@ -1310,35 +1352,6 @@
             <param name="viewport">Viewport as Dynamo type</param>
             <param name="vector">Vector as Dynamo type</param>
             <returns name="Viewport">Viewport</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Change(System.Collections.Generic.IList{Revit.Elements.Element},System.Object)">
-            <summary>
-            Change ViewSheetSet
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Create(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
-            <summary>
-            Create ViewSheetSet
-            </summary>
-            <param name="view">View as Dynamo type</param>
-            <param name="name">Name for the ViewSheetSet</param>
-            <returns name="ViewSheetSet">ViewSheetSet as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.Delete(System.Object)">
-            <summary>
-            Delete ViewSheetSet
-            </summary>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-        </member>
-        <member name="M:Orchid.RevitProject.Views.ViewSheetSet.GetView(System.Object)">
-            <summary>
-            Get View from ViewSheetSet
-            </summary>
-            <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-            <returns name="View">View as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element},System.Boolean)">
             <summary>
@@ -1416,12 +1429,6 @@
             </summary>
             <param name="group">Group as Dynamo type</param>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.GroupType.All">
-            <summary>
-            All group type in current document
-            </summary>
-            <returns name="GroupType">GroupType as Dynamo type</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.All(Autodesk.Revit.DB.Document)">
             <summary>
             All group type in document
@@ -1429,17 +1436,30 @@
             <param name="document">Document as Revit type</param>
             <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.GroupType.AllDetail">
+        <member name="M:Orchid.RevitProject.Elements.GroupType.All">
             <summary>
-            All detail group type in current document
+            All group type in current document
             </summary>
-            <returns name="Group">Group as Dynamo type</returns>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.AllModel">
             <summary>
             All model group type in current document
             </summary>
             <returns name="Group">Group as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.AllDetail">
+            <summary>
+            All detail group type in current document
+            </summary>
+            <returns name="Group">Group as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.GetByName(System.String)">
+            <summary>
+            Get group by name
+            </summary>
+            <param name="name">Group name as string</param>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.Delete(System.String)">
             <summary>
@@ -1452,20 +1472,6 @@
             Delete group type
             </summary>
             <param name="groupType">GroupType as Dynamo type</param>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.GroupType.GetByName(System.String)">
-            <summary>
-            Get group by name
-            </summary>
-            <param name="name">Group name as string</param>
-            <returns name="GroupType">GroupType as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetAreaBoundary">
-            <summary>
-            Get area boundary
-            </summary>
-            <returns name="Element">Element as Dynamo type</returns>
-            <returns name="Curve">Curve as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetBoundary">
             <summary>
@@ -1482,9 +1488,23 @@
             <returns name="Element">Element as Dynamo type</returns>
             <returns name="Curve">Curve as Dynamo type</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetSpaceBoundary">
+            <summary>
+            Get space boundary
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetRoomBoundary">
             <summary>
             Get room boundary
+            </summary>
+            <returns name="Element">Element as Dynamo type</returns>
+            <returns name="Curve">Curve as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetAreaBoundary">
+            <summary>
+            Get area boundary
             </summary>
             <returns name="Element">Element as Dynamo type</returns>
             <returns name="Curve">Curve as Dynamo type</returns>
@@ -1501,13 +1521,6 @@
             Get spatial element boundary
             </summary>
             <param name="element">Element as Dynamo type</param>
-            <returns name="Element">Element as Dynamo type</returns>
-            <returns name="Curve">Curve as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.SpatialElement.GetSpaceBoundary">
-            <summary>
-            Get space boundary
-            </summary>
             <returns name="Element">Element as Dynamo type</returns>
             <returns name="Curve">Curve as Dynamo type</returns>
         </member>
@@ -1544,12 +1557,78 @@
             <param name="document">Document as Revit type</param>
             <returns name="Category">Category as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.IsFaceFlipped(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Elements.Element.IsValid(Revit.Elements.Element)">
             <summary>
-            Get the element face flip condition, output as boolean
+            Verify if element is valid, output as boolean
+            If element is deleted during processing is this filter valuable.
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="bool">Valid value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Valid(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Filter list for valid elements.
+            If element is deleted during processing is this filter valuable.
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Autodesk.Revit.DB.Document,System.Collections.IList)">
+            <summary>
+            Delete elements, in a document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Delete(System.Collections.IList)">
+            <summary>
+            Delete elements
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="F:Orchid.RevitProject.Elements.Element.types">
+            Host type elements
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.IsHosting(Revit.Elements.Element)">
+            <summary>
+            Get the element hosting condition, output as boolean
             </summary>
             <param name="element">Element as Dynamo type</param>
             <returns name="bool">Boolean value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.Hosting(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Get the element hosting condition, output as element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="true">Hosting element</returns>
+            <returns name="false">Not hosting element</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.PhaseByName(System.String)">
+            <summary>
+            Get phase by name
+            </summary>
+            <param name="name">Phase name as string</param>
+            <returns name="Phase">Phase as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.GetPhase(Revit.Elements.Element)">
+            <summary>
+            Get the phase of the element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Created">Phase created</returns>
+            <returns name="Demolished">Phase demolished</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.SetPhase(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element)">
+            <summary>
+            Set the phase of the element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <param name="created">Phase created as Dynamo type</param>
+            <param name="demolished">Phase demolished as Dynamo type</param>
+            <returns name="Element">Element as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.IsFlipped(Revit.Elements.Element)">
             <summary>
@@ -1565,13 +1644,12 @@
             <param name="element">Element as Dynamo type</param>
             <returns name="bool">Boolean value</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.FaceFlipped(System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Elements.Element.IsFaceFlipped(Revit.Elements.Element)">
             <summary>
-            Get the element face flip condition, output as element
+            Get the element face flip condition, output as boolean
             </summary>
             <param name="element">Element as Dynamo type</param>
-            <returns name="true">Flipped element</returns>
-            <returns name="false">Not flipped element</returns>
+            <returns name="bool">Boolean value</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.Flipped(System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -1589,12 +1667,13 @@
             <returns name="true">Flipped element</returns>
             <returns name="false">Not flipped element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.HandOrientation(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Elements.Element.FaceFlipped(System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
-            Get the element hand orientation, output as vector
+            Get the element face flip condition, output as element
             </summary>
             <param name="element">Element as Dynamo type</param>
-            <returns name="Vector">Vector</returns>
+            <returns name="true">Flipped element</returns>
+            <returns name="false">Not flipped element</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.Orientation(Revit.Elements.Element)">
             <summary>
@@ -1603,36 +1682,28 @@
             <param name="element">Element as Dynamo type</param>
             <returns name="Vector">Vector</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.Delete(System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Elements.Element.HandOrientation(Revit.Elements.Element)">
             <summary>
-            Delete elements
+            Get the element hand orientation, output as vector
             </summary>
             <param name="element">Element as Dynamo type</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
+            <returns name="Vector">Vector</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Autodesk.Revit.DB.Document,System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Elements.Element.SetType(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
-            Delete elements, in a document
+            Set element by family type
             </summary>
-            <param name="document">Document as Revit type</param>
             <param name="element">Element as Dynamo type</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
+            <param name="familyType">FamilyType as Dynamo type</param>
+            <returns name="Element">Element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.ElementType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Elements.Element.SetAnalyticalLocation(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
             <summary>
-            Returns the ElementType for this Element. Returns null if the Element cannot have a
-            ElementType assigned.
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="element">Element as Dynamo type</param>
-            <returns name="ElementType">Element Type or Null.</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.FamilyName(Revit.Elements.Element)">
-            <summary>
-            Get element family name
+            Set (structural) element analytical location
             </summary>
             <param name="element">Element as Dynamo type</param>
-            <returns name="string">Family name as string</returns>
+            <param name="location">Element analytical location</param>
+            <returns name="Element">Analytical floor element</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.GetAnalytical(Revit.Elements.Element)">
             <summary>
@@ -1647,6 +1718,28 @@
             </summary>
             <returns name="Element">Element</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.FamilyName(Revit.Elements.Element)">
+            <summary>
+            Get element family name
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="string">Family name as string</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.ElementType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            Returns the ElementType for this Element. Returns null if the Element cannot have a ElementType assigned.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="ElementType">Element Type or Null.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.View(Revit.Elements.Element)">
+            <summary>
+            Get the view where the element is located
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="View">View</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Elements.Element.Info(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
             Get element info
@@ -1658,28 +1751,12 @@
             <returns name="LastChangedBy">LastChangedBy</returns>
             <returns name="RequestedBy">RequestedBy</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.SetAnalyticalLocation(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+        <member name="M:Orchid.RevitProject.Elements.ElementType.Name(Revit.Elements.Element)">
             <summary>
-            Set (structural) element analytical location
+            Get element type name
             </summary>
-            <param name="element">Element as Dynamo type</param>
-            <param name="location">Element analytical location</param>
-            <returns name="Element">Analytical floor element</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.SetType(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element})">
-            <summary>
-            Set element by family type
-            </summary>
-            <param name="element">Element as Dynamo type</param>
-            <param name="familyType">FamilyType as Dynamo type</param>
-            <returns name="Element">Element</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.View(Revit.Elements.Element)">
-            <summary>
-            Get the view where the element is located
-            </summary>
-            <param name="element">Element as Dynamo type</param>
-            <returns name="View">View</returns>
+            <param name="elementType">Element as Dynamo type</param>
+            <returns name="string">Name as string</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.ElementType.FamilyName(Revit.Elements.Element)">
             <summary>
@@ -1688,12 +1765,13 @@
             <param name="elementType">Element as Dynamo type</param>
             <returns name="string">Family name as string</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.ElementType.Name(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Elements.ElementType.Duplicate(Revit.Elements.Element,System.String)">
             <summary>
-            Get element type name
+            Get the view where the element is located
             </summary>
-            <param name="elementType">Element as Dynamo type</param>
-            <returns name="string">Name as string</returns>
+            <param name="elementType">ElementType as Dynamo type</param>
+            <param name="name">Name for the duplicated element type</param>
+            <returns name="ElementType">ElementType</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Material.Density(System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -1786,7 +1864,7 @@
         </member>
         <member name="M:Orchid.RevitProject.Elements.Family.FamilyDocument(System.Collections.Generic.List{Revit.Elements.Family})">
             <summary>
-            Open family document by family
+            Open family document by family 
             </summary>
             <param name="family">Family</param>
             <returns name="Document">Document as Revit type</returns>
@@ -1812,19 +1890,19 @@
             <param name="category">Category as string or Dynamo type</param>
             <returns name="FamilyType">Family type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.FamilyType.HasAssociated(Revit.Elements.FamilyType)">
-            <summary>
-            Verify if family type has associated elements
-            </summary>
-            <param name="familyType">FamilyType as Dynamo type</param>
-            <returns name="bool">Boolean value</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Elements.FamilyType.RevitFamily(System.Collections.Generic.List{Revit.Elements.FamilyType})">
             <summary>
             open family document by family type
             </summary>
             <param name="familyType">FamilyType as Dynamo type</param>
             <returns name="Document">Document as Revit type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.FamilyType.HasAssociated(Revit.Elements.FamilyType)">
+            <summary>
+            Verify if family type has associated elements
+            </summary>
+            <param name="familyType">FamilyType as Dynamo type</param>
+            <returns name="bool">Boolean value</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Floor.SetAreaLoad(System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{Revit.Elements.Element},System.Collections.Generic.List{System.Double})">
             <summary>
@@ -1973,14 +2051,6 @@
             <returns name="TopExtent">double</returns>
             <returns name="BottomExtent">double</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Grid.MoveVerticalExtents(Revit.Elements.Element,System.Double)">
-            <summary>
-            Move grid vertical extents
-            </summary>
-            <param name="grid">Grid as Dynamo type</param>
-            <param name="distance">double</param>
-            <returns name="Grid">Grid as Dynamo type</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Grid.SetVerticalExtents(Revit.Elements.Element,System.Double,System.Double)">
             <summary>
             Set grid vertical extents
@@ -1990,12 +2060,77 @@
             <param name="bottomExtent">double</param>
             <returns name="Grid">Grid as Dynamo type</returns>
         </member>
-        <member name="T:Orchid.RevitProject.IFC">
-            IFC methods, retrieved from
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExportConfiguration.cs
-            LOD --> TessellationLevelOfDetail
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/Revit.IFC.Export/Utility/ExportOptionsCache.cs
-            https://github.com/Autodesk/revit-ifc/blob/master/Source/IFCExporterUIOverride/IFCExporterUIWindow.xaml.cs
+        <member name="M:Orchid.RevitProject.Grid.MoveVerticalExtents(Revit.Elements.Element,System.Double)">
+            <summary>
+            Move grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <param name="distance">double</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingByName(System.String)">
+            <summary>
+            Ifc export setting, based on the available in the document
+            </summary>
+            <param name="name">The IFC setting name</param>
+            <returns name="Setting">Ifc export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Set general IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="ifcVersion">IFC version as string</param>
+            <param name="ifcFileType">IFC file type as string</param>
+            <param name="spaceBoundary">Space boundaries as integer</param>
+            <param name="projectOrigin">Project origin as integer</param>
+            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
+            <param name="includeSteel">Include steel elements?</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Set additional content and level of detail IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="Export2Dplan">Export 2D plan view elements?</param>
+            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
+            <param name="VisibleElements">Export only elements visible in view?</param>
+            <param name="RoomsInView">Export rooms in 3D views?</param>
+            <param name="LOD">Level of detail for some element geometry</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+            <summary>
+            Set Property sets IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="revitProperty">Export Revit property sets?</param>
+            <param name="commonProperty">Export IFC common property sets?</param>
+            <param name="baseQuantities">Export base quantities?</param>
+            <param name="exportSchedules">Export schedules as property sets?</param>
+            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
+            <param name="userProperty">Export user defined property sets?</param>
+            <param name="userPropertyFile">Property set file name incl. path</param>
+            <param name="parameterMapping">Export parameter mapping table?</param>
+            <param name="parameterMappingFile">Mapping table file name incl. path</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Set advanced IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="exportParts">Export parts as building elements?</param>
+            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
+            <param name="activeViewGeometry">Use active view when creating geometry?</param>
+            <param name="familyAndType">Use family and type name for reference?</param>
+            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
+            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
+            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
+            <param name="boundingBox">Export bounding box?</param>
+            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
+            <returns name="Setting">IFC export setting</returns>
         </member>
         <member name="M:Orchid.RevitProject.IFC.Export(Autodesk.Revit.DB.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Element,Revit.Elements.Element,System.String,System.Boolean)">
             <summary>
@@ -2011,105 +2146,29 @@
             <param name="overwrite">Overwrite existing file?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Name(System.Int32)">
             <summary>
-            Set additional content and level of detail IFC export setting
+            Get the builtin parameter name
             </summary>
-            <param name="setting">IFC export setting</param>
-            <param name="Export2Dplan">Export 2D plan view elements?</param>
-            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
-            <param name="VisibleElements">Export only elements visible in view?</param>
-            <param name="RoomsInView">Export rooms in 3D views?</param>
-            <param name="LOD">Level of detail for some element geometry</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Set advanced IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param>
-            <param name="exportParts">Export parts as building elements?</param>
-            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
-            <param name="activeViewGeometry">Use active view when creating geometry?</param>
-            <param name="familyAndType">Use family and type name for reference?</param>
-            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
-            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
-            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
-            <param name="boundingBox">Export bounding box?</param>
-            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingByName(System.String)">
-            <summary>
-            Ifc export setting, based on the available in the document
-            </summary>
-            <param name="name">The IFC setting name</param>
-            <returns name="Setting">Ifc export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
-            <summary>
-            Set general IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param>
-            <param name="ifcVersion">IFC version as string</param>
-            <param name="ifcFileType">IFC file type as string</param>
-            <param name="spaceBoundary">Space boundaries as integer</param>
-            <param name="projectOrigin">Project origin as integer</param>
-            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
-            <param name="includeSteel">Include steel elements?</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
-            <summary>
-            Set Property sets IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param>
-            <param name="revitProperty">Export Revit property sets?</param>
-            <param name="commonProperty">Export IFC common property sets?</param>
-            <param name="baseQuantities">Export base quantities?</param>
-            <param name="exportSchedules">Export schedules as property sets?</param>
-            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
-            <param name="userProperty">Export user defined property sets?</param>
-            <param name="userPropertyFile">Property set file name incl. path</param>
-            <param name="parameterMapping">Export parameter mapping table?</param>
-            <param name="parameterMappingFile">Mapping table file name incl. path</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.All">
-            <summary>
-            Get all builtin parameters.
-            </summary>
-            <returns name="Parameter">Builtin parameter</returns>
+            <param name="parameterId">Integer value for the builtin parameter</param>
+            <returns name="string">string</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Label(System.Int32)">
             <summary>
             Get the builtin parameter label
             </summary>
-            <param name="parameter">The parameter</param>
+            <param name="parameterId">Integer value for the builtin parameter</param>
             <returns name="string">string</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Name(System.Int32)">
+        <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.All">
             <summary>
-            Get the builtin parameter name
+            Get all builtin parameters.
             </summary>
-            <param name="parameter">The parameter</param>
-            <returns name="string">string</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AllCategories(Autodesk.Revit.DB.Document)">
-            Get a CategorySet for all categories
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.ToCategorySet(System.Collections.Generic.List{Revit.Elements.Category})">
-            Convert a list of categories to a category set
-        </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
-            <summary>
-            Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
-            </summary>
-            <param name="document">Document as Revit type</param>
+            <returns name="int">parameter ids</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
-            Add (create) project parameter by name.
+            Add (create) project parameter by name. 
             If the parameter exists is the category binding being updated.
             </summary>
             <param name="parameterName">The name of the parameter to add</param>
@@ -2133,7 +2192,7 @@
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
-            Create shared parameter by name in the project.
+            Create shared parameter by name in the project. 
             If the parameter not exists in the shared parameter file is it being created.
             If the parameter exists is the category binding being updated.
             </summary>
@@ -2144,16 +2203,29 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.GlobalParameters(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
-            Get all global parameters in the document
+            Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
             </summary>
             <param name="document">Document as Revit type</param>
-            <returns name="parameter">List of parameters</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.Name(System.Int32)">
+            <summary>
+            Get the parameter name or the builtin parameter label
+            </summary>
+            <param name="parameterId">Integer value for the parameter</param>
+            <returns name="string">string</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.ProjectParameters(Autodesk.Revit.DB.Document)">
             <summary>
             Get all project parameters in the document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="parameter">List of parameters</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.GlobalParameters(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get all global parameters in the document
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="parameter">List of parameters</returns>
@@ -2189,14 +2261,6 @@
             <param name="globalParameter">The name of the global parameter</param>
             <returns name="Element">Element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.GetAssociated(Revit.Elements.Element,System.String)">
-            <summary>
-            Get associated global parameter
-            </summary>
-            <param name="element">Element as string or Dynamo type</param>
-            <param name="parameterName">The name of the parameter</param>
-            <returns name="Parameter">Parameter</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.HasAssociated(Revit.Elements.Element,System.String)">
             <summary>
             Verify if parameter has associated global parameter
@@ -2205,15 +2269,20 @@
             <param name="parameterName">The name of the parameter</param>
             <returns name="bool">Boolean value</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByGroupName(System.String)">
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.GetAssociated(Revit.Elements.Element,System.String)">
             <summary>
-            Get the shared parameter grouped by group name
+            Get associated global parameter
             </summary>
-            <param name="file">The shared parameter file, incl. path</param>
-            <returns name="parameter">List of parameters</returns>
-            <returns name="guid">List of guids</returns>
-            <returns name="groupName">List of group names</returns>
-            <returns name="type">List of types</returns>
+            <param name="element">Element as string or Dynamo type</param>
+            <param name="parameterName">The name of the parameter</param>
+            <returns name="Parameter">Parameter</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.SetFile(System.String)">
+            <summary>
+            Set the shared parameter file
+            </summary>
+            <param name="file">The "new" shared parameter file, incl. path</param>
+            <returns name="file">The previously loaded shared parameter file</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByType(System.String)">
             <summary>
@@ -2225,12 +2294,15 @@
             <returns name="groupName">List of group names</returns>
             <returns name="type">List of types</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.SetFile(System.String)">
+        <member name="M:Orchid.RevitProject.Parameters.SharedParameter.GroupByGroupName(System.String)">
             <summary>
-            Set the shared parameter file
+            Get the shared parameter grouped by group name
             </summary>
-            <param name="file">The "new" shared parameter file, incl. path</param>
-            <returns name="file">The previously loaded shared parameter file</returns>
+            <param name="file">The shared parameter file, incl. path</param>
+            <returns name="parameter">List of parameters</returns>
+            <returns name="guid">List of guids</returns>
+            <returns name="groupName">List of group names</returns>
+            <returns name="type">List of types</returns>
         </member>
         <member name="M:Orchid.RevitProject.PostCommand.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
             The DialogBoxShowing event handler
@@ -2256,6 +2328,12 @@
             </summary>
             <param name="origin">Origin as project location</param>
             <returns name="Origin">Origin as project location</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Project.AllLevels">
+            <summary>
+            Get all levels in the current document.
+            </summary>
+            <returns name="Level">The list of levels.</returns>
         </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.MatchElements(Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId},Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId})">
             Find matching elements
@@ -2675,12 +2753,78 @@
             <returns name="description"></returns>
             <returns name="keywords"></returns>
         </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetGraphics(System.Object,System.Boolean,DSCore.Color,System.Int32,System.Object,DSCore.Color,System.Object,DSCore.Color)">
+            <summary>
+            Set material graphics.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="useRenderAppearance">Use render appearance as boolean</param>
+            <param name="shadingColor">Color as list of integer or object</param>
+            <param name="transparency">Transparency as integer</param>
+            <param name="surfacePattern">Pattern as string or object</param>
+            <param name="surfacePatternColor">Color as list of integer or object</param>
+            <param name="cutPattern">Pattern as string or object</param>
+            <param name="cutPatternColor">Color as list of integer or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfacePattern(System.Object,System.Object)">
+            <summary>
+            Set surface pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfacePatternColor(System.Object,DSCore.Color)">
+            <summary>
+            Set surface pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetCutPattern(System.Object,System.Object)">
+            <summary>
+            Set cut pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetCutPatternColor(System.Object,DSCore.Color)">
+            <summary>
+            Set cut pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
         <member name="M:Orchid.RevitMaterial.Graphics.Set(System.Object,System.Boolean,DSCore.Color,System.Int32,System.Object,DSCore.Color,System.Object,DSCore.Color,System.Object,DSCore.Color,System.Object,DSCore.Color)">
             <summary>
             Set material graphics.
             Valid pattern input is either a Dynamo fill pattern object or as
             a name of a fill pattern in the document.
-            Valid color input is either a Dynamo color object or as a
+            Valid color input is either a Dynamo color object or as a 
             list of integers containing "alpha, red, green, blue" value
             or "red, green, blue" value.
             Note, this node can be used from Revit 2019 and forward!
@@ -2699,9 +2843,9 @@
             <param name="cutBackgroundPatternColor">Color as list of integer or object</param>
             <returns name="Material">Material as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetCutBackgroundPattern(System.Object,System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceForegroundPattern(System.Object,System.Object)">
             <summary>
-            Set cut background pattern.
+            Set surface foreground pattern.
             Valid pattern input is either a Dynamo fill pattern object or as
             a name of a fill pattern in the document.
             Note, this node can be used from Revit 2019 and forward!
@@ -2710,10 +2854,33 @@
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetCutBackgroundPatternColor(System.Object,DSCore.Color)">
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceForegroundPatternColor(System.Object,DSCore.Color)">
             <summary>
-            Set cut background pattern color.
-            Valid color input is either a Dynamo color object or as a
+            Set surface foreground pattern color.
+            Valid color input is either a Dynamo color object or as a 
+            list of integers containing "alpha, red, green, blue" value
+            or "red, green, blue" value.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="color">Color as list of integer or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceBackgroundPattern(System.Object,System.Object)">
+            <summary>
+            Set surface background pattern.
+            Valid pattern input is either a Dynamo fill pattern object or as
+            a name of a fill pattern in the document.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="pattern">Pattern as string or object</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceBackgroundPatternColor(System.Object,DSCore.Color)">
+            <summary>
+            Set surface background pattern color.
+            Valid color input is either a Dynamo color object or as a 
             list of integers containing "alpha, red, green, blue" value
             or "red, green, blue" value.
             Note, this node can be used from Revit 2019 and forward!
@@ -2736,7 +2903,7 @@
         <member name="M:Orchid.RevitMaterial.Graphics.SetCutForegroundPatternColor(System.Object,DSCore.Color)">
             <summary>
             Set cut foreground pattern color.
-            Valid color input is either a Dynamo color object or as a
+            Valid color input is either a Dynamo color object or as a 
             list of integers containing "alpha, red, green, blue" value
             or "red, green, blue" value.
             Note, this node can be used from Revit 2019 and forward!
@@ -2745,47 +2912,27 @@
             <param name="color">Color as list of integer or object</param>
             <returns name="Material">Material as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetCutPattern(System.Object,System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.SetCutBackgroundPattern(System.Object,System.Object)">
             <summary>
-            Set cut pattern.
+            Set cut background pattern.
             Valid pattern input is either a Dynamo fill pattern object or as
             a name of a fill pattern in the document.
-            Note, this node can be used up to and including Revit 2019!
+            Note, this node can be used from Revit 2019 and forward!
             </summary>
             <param name="material">Material as string or object</param>
             <param name="pattern">Pattern as string or object</param>
             <returns name="Material">Material as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetCutPatternColor(System.Object,DSCore.Color)">
+        <member name="M:Orchid.RevitMaterial.Graphics.SetCutBackgroundPatternColor(System.Object,DSCore.Color)">
             <summary>
-            Set cut pattern color.
-            Valid color input is either a Dynamo color object or as a
+            Set cut background pattern color.
+            Valid color input is either a Dynamo color object or as a 
             list of integers containing "alpha, red, green, blue" value
             or "red, green, blue" value.
-            Note, this node can be used up to and including Revit 2019!
+            Note, this node can be used from Revit 2019 and forward!
             </summary>
             <param name="material">Material as string or object</param>
             <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetGraphics(System.Object,System.Boolean,DSCore.Color,System.Int32,System.Object,DSCore.Color,System.Object,DSCore.Color)">
-            <summary>
-            Set material graphics.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            Valid color input is either a Dynamo color object or as a
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            Note, this node can be used up to and including Revit 2019!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="useRenderAppearance">Use render appearance as boolean</param>
-            <param name="shadingColor">Color as list of integer or object</param>
-            <param name="transparency">Transparency as integer</param>
-            <param name="surfacePattern">Pattern as string or object</param>
-            <param name="surfacePatternColor">Color as list of integer or object</param>
-            <param name="cutPattern">Pattern as string or object</param>
-            <param name="cutPatternColor">Color as list of integer or object</param>
             <returns name="Material">Material as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Graphics.SetRenderAppearance(System.Object,System.Boolean)">
@@ -2799,94 +2946,9 @@
         <member name="M:Orchid.RevitMaterial.Graphics.SetShadingColor(System.Object,DSCore.Color)">
             <summary>
             Set shading color.
-            Valid color input is either a Dynamo color object or as a
+            Valid color input is either a Dynamo color object or as a 
             list of integers containing "alpha, red, green, blue" value
             or "red, green, blue" value.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetShininess(System.Object,System.Int32)">
-            <summary>
-            Get shininess.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="shininess">Shininess as integer</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSmoothness(System.Object,System.Int32)">
-            <summary>
-            Get smoothness.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="smoothness">Smoothness as integer</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceBackgroundPattern(System.Object,System.Object)">
-            <summary>
-            Set surface background pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceBackgroundPatternColor(System.Object,DSCore.Color)">
-            <summary>
-            Set surface background pattern color.
-            Valid color input is either a Dynamo color object or as a
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceForegroundPattern(System.Object,System.Object)">
-            <summary>
-            Set surface foreground pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfaceForegroundPatternColor(System.Object,DSCore.Color)">
-            <summary>
-            Set surface foreground pattern color.
-            Valid color input is either a Dynamo color object or as a
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="color">Color as list of integer or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfacePattern(System.Object,System.Object)">
-            <summary>
-            Set surface pattern.
-            Valid pattern input is either a Dynamo fill pattern object or as
-            a name of a fill pattern in the document.
-            Note, this node can be used up to and including Revit 2019!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <param name="pattern">Pattern as string or object</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.SetSurfacePatternColor(System.Object,DSCore.Color)">
-            <summary>
-            Set surface pattern color.
-            Valid color input is either a Dynamo color object or as a
-            list of integers containing "alpha, red, green, blue" value
-            or "red, green, blue" value.
-            Note, this node can be used up to and including Revit 2019!
             </summary>
             <param name="material">Material as string or object</param>
             <param name="color">Color as list of integer or object</param>
@@ -2899,6 +2961,68 @@
             <param name="material">Material as string or object</param>
             <param name="transparency">Transparency as integer</param>
             <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetSmoothness(System.Object,System.Int32)">
+            <summary>
+            Get smoothness.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="smoothness">Smoothness as integer</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.SetShininess(System.Object,System.Int32)">
+            <summary>
+            Get shininess.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <param name="shininess">Shininess as integer</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetGraphics(System.Object)">
+            <summary>
+            Get material graphics.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="UseRenderAppearance">Use render appearance as boolean</returns>
+            <returns name="ShadingColor">Color as Dynamo type</returns>
+            <returns name="Transparency">Transparency as integer</returns>
+            <returns name="SurfacePattern">Pattern as Dynamo type</returns>
+            <returns name="SurfacePatternColor">Color as Dynamo type</returns>
+            <returns name="CutPattern">Pattern as Dynamo type</returns>
+            <returns name="CutPatternColor">Color as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfacePattern(System.Object)">
+            <summary>
+            Get surface pattern.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfacePatternColor(System.Object)">
+            <summary>
+            Get surface pattern color.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetCutPattern(System.Object)">
+            <summary>
+            Get cut pattern.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetCutPatternColor(System.Object)">
+            <summary>
+            Get cut pattern color.
+            Note, this node can be used up to and including Revit 2019!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Graphics.Get(System.Object)">
             <summary>
@@ -2918,17 +3042,33 @@
             <returns name="cutBackgroundPattern">Pattern as Dynamo type</returns>
             <returns name="cutBackgroundPatternColor">Color as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetCutBackgroundPattern(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceForegroundPattern(System.Object)">
             <summary>
-            Get cut background pattern.
+            Get surface foreground pattern.
             Note, this node can be used from Revit 2019 and forward!
             </summary>
             <param name="material">Material as string or object</param>
             <returns name="Pattern">Pattern as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetCutBackgroundPatternColor(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceForegroundPatternColor(System.Object)">
             <summary>
-            Get cut background pattern color.
+            Get surface foreground pattern color.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Color">Color as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceBackgroundPattern(System.Object)">
+            <summary>
+            Get surface background pattern.
+            Note, this node can be used from Revit 2019 and forward!
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Pattern">Pattern as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceBackgroundPatternColor(System.Object)">
+            <summary>
+            Get surface background pattern color.
             Note, this node can be used from Revit 2019 and forward!
             </summary>
             <param name="material">Material as string or object</param>
@@ -2950,35 +3090,21 @@
             <param name="material">Material as string or object</param>
             <returns name="Color">Color as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetCutPattern(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.GetCutBackgroundPattern(System.Object)">
             <summary>
-            Get cut pattern.
-            Note, this node can be used up to and including Revit 2019!
+            Get cut background pattern.
+            Note, this node can be used from Revit 2019 and forward!
             </summary>
             <param name="material">Material as string or object</param>
             <returns name="Pattern">Pattern as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetCutPatternColor(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.GetCutBackgroundPatternColor(System.Object)">
             <summary>
-            Get cut pattern color.
-            Note, this node can be used up to and including Revit 2019!
+            Get cut background pattern color.
+            Note, this node can be used from Revit 2019 and forward!
             </summary>
             <param name="material">Material as string or object</param>
             <returns name="Color">Color as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetGraphics(System.Object)">
-            <summary>
-            Get material graphics.
-            Note, this node can be used up to and including Revit 2019!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="UseRenderAppearance">Use render appearance as boolean</returns>
-            <returns name="ShadingColor">Color as Dynamo type</returns>
-            <returns name="Transparency">Transparency as integer</returns>
-            <returns name="SurfacePattern">Pattern as Dynamo type</returns>
-            <returns name="SurfacePatternColor">Color as Dynamo type</returns>
-            <returns name="CutPattern">Pattern as Dynamo type</returns>
-            <returns name="CutPatternColor">Color as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Graphics.GetRenderAppearance(System.Object)">
             <summary>
@@ -2994,12 +3120,12 @@
             <param name="material">Material as string or object</param>
             <returns name="Color">Color as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetShininess(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.GetTransparency(System.Object)">
             <summary>
-            Get shininess.
+            Get transparency.
             </summary>
             <param name="material">Material as string or object</param>
-            <returns name="int">Shininess as integer</returns>
+            <returns name="int">Transparency as integer</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Graphics.GetSmoothness(System.Object)">
             <summary>
@@ -3008,101 +3134,15 @@
             <param name="material">Material as string or object</param>
             <returns name="int">Smoothness as integer</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceBackgroundPattern(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Graphics.GetShininess(System.Object)">
             <summary>
-            Get surface background pattern.
-            Note, this node can be used from Revit 2019 and forward!
+            Get shininess.
             </summary>
             <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceBackgroundPatternColor(System.Object)">
-            <summary>
-            Get surface background pattern color.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceForegroundPattern(System.Object)">
-            <summary>
-            Get surface foreground pattern.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfaceForegroundPatternColor(System.Object)">
-            <summary>
-            Get surface foreground pattern color.
-            Note, this node can be used from Revit 2019 and forward!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfacePattern(System.Object)">
-            <summary>
-            Get surface pattern.
-            Note, this node can be used up to and including Revit 2019!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Pattern">Pattern as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetSurfacePatternColor(System.Object)">
-            <summary>
-            Get surface pattern color.
-            Note, this node can be used up to and including Revit 2019!
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Color">Color as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Graphics.GetTransparency(System.Object)">
-            <summary>
-            Get transparency.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="int">Transparency as integer</returns>
+            <returns name="int">Shininess as integer</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.MatInternals.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
             The DialogBoxShowing event handler
-        </member>
-        <member name="M:Orchid.RevitMaterial.Material.All">
-            <summary>
-            Get all materials in document.
-            </summary>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Material.All(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get all materials in document.
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Material.AppearanceAsset(System.Object)">
-            <summary>
-            Get material appearance assets.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Asset">Asset as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Material.Asset(System.Object)">
-            <summary>
-            Get material assets.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Appearance">Appearance asset as Dynamo type</returns>
-            <returns name="Physical">Physical asset as Dynamo type</returns>
-            <returns name="Thermal">Thermal asset as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Material.AssetParameter(System.Object)">
-            <summary>
-            Get material asset parameters.
-            </summary>
-            <param name="material">Material as string or object</param>
-            <returns name="Appearance">Appearance asset parameter as Dynamo type</returns>
-            <returns name="Physical">Physical asset parameter as Dynamo type</returns>
-            <returns name="Thermal">Thermal asset parameter as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Material.Create(System.String)">
             <summary>
@@ -3110,14 +3150,6 @@
             </summary>
             <param name="name">The material name</param>
             <returns name="Material">Material as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.Material.Density(System.Object)">
-            <summary>
-            Get material asset as physical and thermal density in SI unit (kg/m3)
-            </summary>
-            <param name="material">List of material</param>
-            <returns name="Physical">List of physical density</returns>
-            <returns name="Thermal">List of thermal density</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Material.Duplicate(System.Object,System.String)">
             <summary>
@@ -3174,12 +3206,34 @@
             <param name="material">Material as string or object</param>
             <returns name="string">The material class name</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.Material.Parameter(System.Object)">
+        <member name="M:Orchid.RevitMaterial.Material.All(Autodesk.Revit.DB.Document)">
             <summary>
-            Get material parameters.
+            Get all materials in document.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Material.All">
+            <summary>
+            Get all materials in document.
+            </summary>
+            <returns name="Material">Material as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Material.Asset(System.Object)">
+            <summary>
+            Get material assets.
             </summary>
             <param name="material">Material as string or object</param>
-            <returns name="Parameter">Parameter as Dynamo type</returns>
+            <returns name="Appearance">Appearance asset as Dynamo type</returns>
+            <returns name="Physical">Physical asset as Dynamo type</returns>
+            <returns name="Thermal">Thermal asset as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Material.AppearanceAsset(System.Object)">
+            <summary>
+            Get material appearance assets.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Asset">Asset as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.Material.PhysicalAsset(System.Object)">
             <summary>
@@ -3195,10 +3249,42 @@
             <param name="material">Material as string or object</param>
             <returns name="Asset">Asset as Dynamo type</returns>
         </member>
+        <member name="M:Orchid.RevitMaterial.Material.AssetParameter(System.Object)">
+            <summary>
+            Get material asset parameters.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Appearance">Appearance asset parameter as Dynamo type</returns>
+            <returns name="Physical">Physical asset parameter as Dynamo type</returns>
+            <returns name="Thermal">Thermal asset parameter as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Material.Parameter(System.Object)">
+            <summary>
+            Get material parameters.
+            </summary>
+            <param name="material">Material as string or object</param>
+            <returns name="Parameter">Parameter as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.Material.Density(System.Object)">
+            <summary>
+            Get material asset as physical and thermal density in SI unit (kg/m3)
+            </summary>
+            <param name="material">List of material</param>
+            <returns name="Physical">List of physical density</returns>
+            <returns name="Thermal">List of thermal density</returns>
+        </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.All">
             <summary>
             Get all physical property set (asset).
             </summary>
+            <returns name="PropertySet">Physical property set as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.Duplicate(System.Object,System.String)">
+            <summary>
+            Duplicate physical property set (asset).
+            </summary>
+            <param name="propertySet">Physical property set as Dynamo type</param>
+            <param name="name">Name for the duplicated physical property set</param>
             <returns name="PropertySet">Physical property set as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.Create(System.String,System.String,System.Boolean)">
@@ -3210,12 +3296,24 @@
             <param name="uniqueName"></param>
             <returns name="PropertySet">Thermal property set as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.Duplicate(System.Object,System.String)">
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetInformation(System.Object,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Duplicate physical property set (asset).
+            Set information.
             </summary>
             <param name="propertySet">Physical property set as Dynamo type</param>
-            <param name="name">Name for the duplicated physical property set</param>
+            <param name="description"></param>
+            <param name="keywords"></param>
+            <param name="subclass"></param>
+            <param name="source"></param>
+            <param name="sourceUrl"></param>
+            <returns name="PropertySet">Physical property set as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetBehavior(System.Object,System.String)">
+            <summary>
+            Set behavior.
+            </summary>
+            <param name="propertySet">Physical property set as Dynamo type</param>
+            <param name="behavior"></param>
             <returns name="PropertySet">Physical property set as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetBasicThermal(System.Object,System.Double)">
@@ -3232,36 +3330,6 @@
             </summary>
             <param name="propertySet">Physical property set as Dynamo type</param>
             <param name="expansionCoefficient"></param>
-            <returns name="PropertySet">Physical property set as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetBehavior(System.Object,System.String)">
-            <summary>
-            Set behavior.
-            </summary>
-            <param name="propertySet">Physical property set as Dynamo type</param>
-            <param name="behavior"></param>
-            <returns name="PropertySet">Physical property set as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetConcrete(System.Object,System.Double,System.Double,System.Boolean)">
-            <summary>
-            Set concrete.
-            </summary>
-            <param name="propertySet">Physical property set as Dynamo type</param>
-            <param name="compression"></param>
-            <param name="shearStrengthReduction"></param>
-            <param name="lightweight"></param>
-            <returns name="PropertySet">Physical property set as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetInformation(System.Object,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Set information.
-            </summary>
-            <param name="propertySet">Physical property set as Dynamo type</param>
-            <param name="description"></param>
-            <param name="keywords"></param>
-            <param name="subclass"></param>
-            <param name="source"></param>
-            <param name="sourceUrl"></param>
             <returns name="PropertySet">Physical property set as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetMechanical(System.Object,System.Double)">
@@ -3321,28 +3389,33 @@
             <param name="construction"></param>
             <returns name="PropertySet">Physical property set as Dynamo type</returns>
         </member>
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.SetConcrete(System.Object,System.Double,System.Double,System.Boolean)">
+            <summary>
+            Set concrete.
+            </summary>
+            <param name="propertySet">Physical property set as Dynamo type</param>
+            <param name="compression"></param>
+            <param name="shearStrengthReduction"></param>
+            <param name="lightweight"></param>
+            <returns name="PropertySet">Physical property set as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetInformation(System.Object)">
+            <summary>
+            Get information.
+            </summary>
+            <param name="propertySet">Physical property set as Dynamo type</param>
+            <returns name="Description"></returns>
+            <returns name="Keywords"></returns>
+            <returns name="Subclass"></returns>
+            <returns name="Source"></returns>
+            <returns name="SourceUrl"></returns>
+        </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetBehavior(System.Object)">
             <summary>
             Get behavior.
             </summary>
             <param name="propertySet">Physical property set as Dynamo type</param>
             <returns name="Behavior"></returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetConcrete(System.Object)">
-            <summary>
-            Get concrete.
-            </summary>
-            <param name="propertySet">Physical property set as Dynamo type</param>
-            <returns name="Compression"></returns>
-            <returns name="ShearStrengthReduction"></returns>
-            <returns name="Lightweight"></returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetDensity(System.Object)">
-            <summary>
-            Get density (mechanical).
-            </summary>
-            <param name="propertySet">Physical property set as Dynamo type</param>
-            <returns name="Density"></returns>
         </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetExpansionCoefficient(System.Object)">
             <summary>
@@ -3356,16 +3429,24 @@
             <returns name="ExpansionCoefficient1"></returns>
             <returns name="ExpansionCoefficient2"></returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetInformation(System.Object)">
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetDensity(System.Object)">
             <summary>
-            Get information.
+            Get density (mechanical).
             </summary>
             <param name="propertySet">Physical property set as Dynamo type</param>
-            <returns name="Description"></returns>
-            <returns name="Keywords"></returns>
-            <returns name="Subclass"></returns>
-            <returns name="Source"></returns>
-            <returns name="SourceUrl"></returns>
+            <returns name="Density"></returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetYoungModulus(System.Object)">
+            <summary>
+            Get young modulus (mechanical).
+            </summary>
+            <param name="propertySet">Physical property set as Dynamo type</param>
+            <returns name="YoungModulus"></returns>
+            <returns name="YoungModulusX"></returns>
+            <returns name="YoungModulusY"></returns>
+            <returns name="YoungModulusZ"></returns>
+            <returns name="YoungModulus1"></returns>
+            <returns name="YoungModulus2"></returns>
         </member>
         <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetPoissonRatio(System.Object)">
             <summary>
@@ -3415,31 +3496,19 @@
             <returns name="AverageModulus"></returns>
             <returns name="Construction"></returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetYoungModulus(System.Object)">
+        <member name="M:Orchid.RevitMaterial.PhysicalAsset.GetConcrete(System.Object)">
             <summary>
-            Get young modulus (mechanical).
+            Get concrete.
             </summary>
             <param name="propertySet">Physical property set as Dynamo type</param>
-            <returns name="YoungModulus"></returns>
-            <returns name="YoungModulusX"></returns>
-            <returns name="YoungModulusY"></returns>
-            <returns name="YoungModulusZ"></returns>
-            <returns name="YoungModulus1"></returns>
-            <returns name="YoungModulus2"></returns>
+            <returns name="Compression"></returns>
+            <returns name="ShearStrengthReduction"></returns>
+            <returns name="Lightweight"></returns>
         </member>
         <member name="M:Orchid.RevitMaterial.ThermalAsset.All">
             <summary>
             Get all thermal property set (asset).
             </summary>
-            <returns name="PropertySet">Thermal property set as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitMaterial.ThermalAsset.Create(System.String,System.String,System.Boolean)">
-            <summary>
-            Create thermal asset and property set.
-            </summary>
-            <param name="name"></param>
-            <param name="type"></param>
-            <param name="uniqueName"></param>
             <returns name="PropertySet">Thermal property set as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.ThermalAsset.Duplicate(System.Object,System.String)">
@@ -3450,17 +3519,13 @@
             <param name="name">Name for the duplicated thermal property set</param>
             <returns name="PropertySet">Thermal property set as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.ThermalAsset.SetBasicThermal(System.Object,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:Orchid.RevitMaterial.ThermalAsset.Create(System.String,System.String,System.Boolean)">
             <summary>
-            Set basic thermal. Note can only be used for the thermal type Gas or Liquid!
+            Create thermal asset and property set.
             </summary>
-            <param name="propertySet">Thermal property set as Dynamo type</param>
-            <param name="thermalConductivity"></param>
-            <param name="specificHeat"></param>
-            <param name="density"></param>
-            <param name="emissivity"></param>
-            <param name="gasViscosity"></param>
-            <param name="compressibility"></param>
+            <param name="name"></param>
+            <param name="type"></param>
+            <param name="uniqueName"></param>
             <returns name="PropertySet">Thermal property set as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.ThermalAsset.SetInformation(System.Object,System.String,System.String,System.String,System.String,System.String)">
@@ -3492,17 +3557,18 @@
             <param name="electricalResistivity"></param>
             <returns name="PropertySet">Thermal property set as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitMaterial.ThermalAsset.GetBasicThermal(System.Object)">
+        <member name="M:Orchid.RevitMaterial.ThermalAsset.SetBasicThermal(System.Object,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Get basic thermal.
+            Set basic thermal. Note can only be used for the thermal type Gas or Liquid!
             </summary>
             <param name="propertySet">Thermal property set as Dynamo type</param>
-            <returns name="ThermalConductivity"></returns>
-            <returns name="SpecificHeat"></returns>
-            <returns name="Density"></returns>
-            <returns name="Emissivity"></returns>
-            <returns name="GasViscosity"></returns>
-            <returns name="Compressibility"></returns>
+            <param name="thermalConductivity"></param>
+            <param name="specificHeat"></param>
+            <param name="density"></param>
+            <param name="emissivity"></param>
+            <param name="gasViscosity"></param>
+            <param name="compressibility"></param>
+            <returns name="PropertySet">Thermal property set as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitMaterial.ThermalAsset.GetInformation(System.Object)">
             <summary>
@@ -3530,6 +3596,18 @@
             <returns name="Porosity"></returns>
             <returns name="Reflectivity"></returns>
             <returns name="ElectricalResistivity"></returns>
+        </member>
+        <member name="M:Orchid.RevitMaterial.ThermalAsset.GetBasicThermal(System.Object)">
+            <summary>
+            Get basic thermal.
+            </summary>
+            <param name="propertySet">Thermal property set as Dynamo type</param>
+            <returns name="ThermalConductivity"></returns>
+            <returns name="SpecificHeat"></returns>
+            <returns name="Density"></returns>
+            <returns name="Emissivity"></returns>
+            <returns name="GasViscosity"></returns>
+            <returns name="Compressibility"></returns>
         </member>
     </members>
 </doc>
