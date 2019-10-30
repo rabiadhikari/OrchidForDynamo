@@ -483,12 +483,28 @@
             </summary>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the current document name
             </summary>
-            <param name="document">The name of the document</param>
-            <returns name="string">string</returns>
+            <param name="document">Document as Revit type</param>
+             <param name="withExtension">Include extension? default is set to false</param>
+            <returns name="string">The name of the document</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.Directory(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get the directory of the Document.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="string">The directory of the document</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.Path(Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            Get the full path of the Document.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="withExtension">Include extension? default is set to true</param>
+            <returns name="string">The full path of the document</returns>
         </member>
         <member name="M:Orchid.RevitProject.Document.BackgroundOpen(System.String)">
             <summary>
@@ -658,8 +674,8 @@
             <summary>
             Get the active view in document
             </summary>
-            <param name="document">The name of the document</param>
-            <returns name="View">ActiveView</returns>
+            <param name="document">Document as Revit type</param>
+            <returns name="View">The active view as dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Document.OpenView(Revit.Elements.Element)">
             <summary>
@@ -805,9 +821,16 @@
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.GetByName(System.String)">
             <summary>
-            Get group by name
+            Get group type by name
             </summary>
             <param name="name">Group name as string</param>
+            <returns name="GroupType">GroupType as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.GroupType.GetByGroup(Revit.Elements.Element)">
+            <summary>
+            Get group type by group
+            </summary>
+            <param name="group">Group as Dynamo type</param>
             <returns name="GroupType">GroupType as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.GroupType.Delete(System.String)">
@@ -872,6 +895,13 @@
             Get group by name
             </summary>
             <param name="name">Group name as string</param>
+            <returns name="Group">Group as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Group.GetByGroupType(Revit.Elements.Element)">
+            <summary>
+            Get group by group type
+            </summary>
+            <param name="groupType">GroupType as Dynamo type</param>
             <returns name="Group">Group as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.UnGroup(System.String)">
@@ -1702,6 +1732,18 @@
             Get all levels in the current document.
             </summary>
             <returns name="Level">The list of levels.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Project.AllRevisions">
+            <summary>
+            Get all revisions in the current document.
+            </summary>
+            <returns name="Revision">The list of revisions.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Project.AllRevisionClouds">
+            <summary>
+            Get all revision clouds in the current document.
+            </summary>
+            <returns name="RevisionCloud">The list of revision clouds.</returns>
         </member>
         <member name="P:Orchid.RevitProject.Views.Sheet.All">
             <summary>
