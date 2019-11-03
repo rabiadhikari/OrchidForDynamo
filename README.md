@@ -1,7 +1,7 @@
 ﻿# Orchid  
 Orchid is a solution designed for use in the [Dynamo](http://dynamobim.org) environment. The solution is designed to support practical, technical, logical, and mathematical issues. In particular, is the solution designed to handle nD-list issues. In addition, are solutions for applications included in the BIM wheel supported, which not necessarily are Autodesk products.  
   
-**Software environment:** Built for Dynamo +1.3.4 (Revit +2017), +2.0.3 (Revit +2018) and Dynamo +2.1.0 (Revit+2019)  
+**Software environment:** Built for Dynamo +1.3.4 (Revit +2017), +2.0.3 (Revit +2018), Dynamo +2.1.0 (Revit+2020) and Dynamo +2.1.0 (Revit+2020)  
   
 **Orchid Blog:**  
 At the <a href="https://erfajo.blogspot.com" target="_blank">blog</a> is information, updates, tips and tricks for Orchid published.  
@@ -16,6 +16,7 @@ In the [samples](Samples) folder are examples in using the Orchid package placed
 <a href="Orchid_130.md">Orchid 1.3.x</a>  
 <a href="Orchid_200.md">Orchid 2.0.x</a>  
 <a href="Orchid_210.md">Orchid 2.1.x</a>  
+<a href="Orchid_220.md">Orchid 2.2.x</a>  
 
 ---
 ### Install or Update in Dynamo  
@@ -31,7 +32,8 @@ Select the content according to your dynamo version!
 OrchidForDynamo
 ├── Orchid_130    (for the dynamo 1.3.x branch)  
 ├── Orchid_200    (for the dynamo 2.0.x branch)  
-└── Orchid_210    (for the dynamo 2.1.x branch)  
+├── Orchid_210    (for the dynamo 2.1.x branch)  
+└── Orchid_220    (for the dynamo 2.2.x branch)  
 </pre>
 
 ---
