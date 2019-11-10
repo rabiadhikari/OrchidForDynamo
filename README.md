@@ -31,16 +31,16 @@ The Orchid package may also be installed by manually copying files from the repo
 Select the content according to your dynamo version!  
 <pre>
 OrchidForDynamo
-├─┬── **Orchid_130    (for the dynamo 1.3.x branch)** 
+├─┬── <b>Orchid_130    (for the dynamo 1.3.x branch)</b>  
 │ ├── Dynamo Core   (root for the Sandbox version)  
 │ └── Dynamo Revit  (root for the Revit version)  
-├─┬── **Orchid_200    (for the dynamo 2.0.x branch)**  
+├─┬── <b>Orchid_200    (for the dynamo 2.0.x branch)</b>  
 │ ├── Dynamo Core   (root for the Sandbox version)  
 │ └── Dynamo Revit  (root for the Revit version)  
-├─┬── **Orchid_210    (for the dynamo 2.1.x branch)**  
+├─┬── <b>Orchid_210    (for the dynamo 2.1.x branch)</b>  
 │ ├── Dynamo Core   (root for the Sandbox version)  
 │ └── Dynamo Revit  (root for the Revit version)  
-└─┬── **Orchid_220    (for the dynamo 2.2.x branch)**  
+└─┬── <b>Orchid_220    (for the dynamo 2.2.x branch)</b>  
   ├── Dynamo Core   (root for the Sandbox version)  
   └── Dynamo Revit  (root for the Revit version)  
 </pre>
