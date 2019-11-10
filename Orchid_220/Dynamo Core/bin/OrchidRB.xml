@@ -187,6 +187,38 @@
             <param name="overwrite">Overwrite existing families?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
+        <member name="M:Orchid.Core.List.AllTrue(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if all items in the given list has a true value.
+            </summary>
+            <param name="list">List to be checked on whether all items are true</param>
+            <returns name="bool">Whether all items are true</returns>
+            <search>test,all,true,istrue</search>
+        </member>
+        <member name="M:Orchid.Core.List.AnyTrue(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if any items in the given list has a true value.
+            </summary>
+            <param name="list">List to be checked on whether any items are true</param>
+            <returns name="bool">Whether any items are true</returns>
+            <search>test,any,true,istrue</search>
+        </member>
+        <member name="M:Orchid.Core.List.AllFalse(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if all items in the given list has a false value.
+            </summary>
+            <param name="list">List to be checked on whether all items are false</param>
+            <returns name="bool">Whether all items are false</returns>
+            <search>test,all,false,isfalse</search>
+        </member>
+        <member name="M:Orchid.Core.List.AnyFalse(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if any items in the given list has a false value.
+            </summary>
+            <param name="list">List to be checked on whether any items are false</param>
+            <returns name="bool">Whether all items are false</returns>
+            <search>test,any,false,isfalse</search>
+        </member>
         <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
             Search values, send default if values not exist
         </member>
@@ -455,6 +487,16 @@
             <param name="refresh">Toggle true/false for refreshing</param>
             <returns name="script">Script</returns>
         </member>
+        <member name="M:Orchid.Core.String.Contains(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Determines if the given string contains any of the given substrings.
+            </summary>
+            <param name="str">String to search in</param>
+            <param name="searchFor">List of substring to search for</param>
+            <param name="ignoreCase">Whether or not comparison takes case into account</param>
+            <returns name="bool">Whether the string contains any of the given substrings</returns>
+            <search>search,in,within,part of</search>
+        </member>
         <member name="M:Orchid.Core.String.Replace(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
             Replaces all occurrences of text in a string with other text
@@ -477,25 +519,84 @@
             <returns name="substring">Substring made from the original string</returns>
             <search>subset,get string,part,smaller string</search>
         </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.ByElement(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a element at the element center point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="element">Element to tag</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag room, tag space, tag area,annotate,documentation</search>
+        </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.ByElementAndLocation(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a element at a specified location point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="element">Element to tag</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="location">Location point, default set to null -> element center</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag element,annotate,documentation</search>
+        </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.BySpatialElement(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a spatial element (Room, Space, Area) at the element center point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="spatialElement">SpatialElement to tag (Room, Space, Area)</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag room, tag space, tag area,annotate,documentation</search>
+        </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.BySpatialElementAndLocation(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a spatial element (Room, Space, Area) at a specified location point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="spatialElement">SpatialElement to tag (Room, Space, Area)</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="location">Location point, default set to null -> element center</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag room, tag space, tag area,annotate,documentation</search>
+        </member>
         <member name="P:Orchid.RevitProject.Document.Current">
             <summary>
             Get current document
             </summary>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the current document name
             </summary>
             <param name="document">Document as Revit type</param>
+             <param name="withExtension">Include extension? default is set to false</param>
             <returns name="string">The name of the document</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.FilePath(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Document.Directory(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get the directory of the Document.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="string">The directory of the document</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.Path(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the full path of the Document.
             </summary>
             <param name="document">Document as Revit type</param>
-            <returns name="string">The path of the document</returns>
+            <param name="withExtension">Include extension? default is set to true</param>
+            <returns name="string">The full path of the document</returns>
         </member>
         <member name="M:Orchid.RevitProject.Document.BackgroundOpen(System.String)">
             <summary>
@@ -1450,12 +1551,6 @@
             <param name="material">Material as Dynamo type</param>
             <returns name="physical">Physical density</returns>
             <returns name="thermal">Thermal density</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Selection.ElementCategoryList(Autodesk.Revit.DB.Document,System.Collections.IList)">
-            Internal element and category list builder.
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Selection.CategoryList(Autodesk.Revit.DB.Document)">
-            Internal category list builder.
         </member>
         <member name="M:Orchid.RevitProject.Elements.Selection.ElementHasMaterial(System.Collections.Generic.List{Autodesk.Revit.DB.Document})">
             <summary>
@@ -2449,6 +2544,11 @@
               Looks up a localized string similar to Looks up a localized string similar to Number of items does not match the number of keys..
             </summary>
         </member>
+        <member name="P:Orchid.Internals.Notifications.InvalidType">
+            <summary>
+              Looks up a localized string similar to Type is not valid..
+            </summary>
+        </member>
         <member name="P:Orchid.Internals.Notifications.MaterialNotFound">
             <summary>
               Looks up a localized string similar to A Material with the given name does not exist in the current Document..
@@ -2567,6 +2667,11 @@
         <member name="P:Orchid.Internals.Notifications.VersionNotSupported">
             <summary>
               Looks up a localized string similar to This function is not supported by your Revit version!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Internals.Notifications.ViewDoesNotSupportAnnotations">
+            <summary>
+              Looks up a localized string similar to View does not support annotations..
             </summary>
         </member>
         <member name="M:Orchid.Internals.UnitConverter.InDynamoUnits``1(``0)">

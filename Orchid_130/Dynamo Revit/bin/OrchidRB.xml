@@ -255,14 +255,46 @@
             <param name="overwrite">Overwrite existing families?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
+        <member name="M:Orchid.Core.List.AllTrue(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if all items in the given list has a true value.
+            </summary>
+            <param name="list">List to be checked on whether all items are true</param>
+            <returns name="bool">Whether all items are true</returns>
+            <search>test,all,true,istrue</search>
+        </member>
+        <member name="M:Orchid.Core.List.AnyTrue(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if any items in the given list has a true value.
+            </summary>
+            <param name="list">List to be checked on whether any items are true</param>
+            <returns name="bool">Whether any items are true</returns>
+            <search>test,any,true,istrue</search>
+        </member>
+        <member name="M:Orchid.Core.List.AllFalse(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if all items in the given list has a false value.
+            </summary>
+            <param name="list">List to be checked on whether all items are false</param>
+            <returns name="bool">Whether all items are false</returns>
+            <search>test,all,false,isfalse</search>
+        </member>
+        <member name="M:Orchid.Core.List.AnyFalse(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if any items in the given list has a false value.
+            </summary>
+            <param name="list">List to be checked on whether any items are false</param>
+            <returns name="bool">Whether all items are false</returns>
+            <search>test,any,false,isfalse</search>
+        </member>
+        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
+            Search values, send default if values not exist
+        </member>
         <member name="M:Orchid.Core.List.CleanUtil(System.Collections.IList,System.Collections.IList)">
             Cleaning nD list
         </member>
         <member name="M:Orchid.Core.List.ReplaceUtil(System.Collections.IList,System.Collections.IList,System.Object)">
             Replacing nD list
-        </member>
-        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
-            Search values, send default if values not exist
         </member>
         <member name="M:Orchid.Core.List.Clean(System.Collections.IList,System.Collections.IList)">
             <summary>
@@ -290,17 +322,6 @@
             <param name="descending">Return the list in descending order?</param>
             <returns name="list">List</returns>
         </member>
-        <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Sort and group items into sub-lists based on their like key values
-            </summary>
-            <param name="list">List of items to group as sublists</param>
-            <param name="keys">Key values, one per item in the input list, used for grouping the items</param>
-            <param name="sortedKeys">Sorted unique keys, used for grouping the items by their key</param>
-            <returns name="groups">list of sublists, with items grouped by like key values</returns>
-            <returns name="unique keys">key value corresponding to each group</returns>
-            <search>list;sort;group;sortbykey;groupbykey;</search>
-        </member>
         <member name="M:Orchid.Core.List.SortNatural(System.Collections.IList,System.Boolean)">
             <summary>
             Sort elements using the PC 'locale'. Sort elements recursively
@@ -312,13 +333,16 @@
             <param name="descending">Return the list in descending order?</param>
             <returns name="list">List</returns>
         </member>
-        <member name="M:Orchid.Core.List.GetItemAtIndex(System.Collections.IList,System.Collections.IList)">
+        <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
             <summary>
-            Get an item from the given list that's located at the specified index (the full path) in nD list
+            Sort and group items into sub-lists based on their like key values
             </summary>
-            <param name="list">list to fetch an item from</param>
-            <param name="index">index of the item to be fetched</param>
-            <returns name="item">item in the list at the given index</returns>
+            <param name="list">List of items to group as sublists</param>
+            <param name="keys">Key values, one per item in the input list, used for grouping the items</param>
+            <param name="sortedKeys">Sorted unique keys, used for grouping the items by their key</param>
+            <returns name="groups">list of sublists, with items grouped by like key values</returns>
+            <returns name="unique keys">key value corresponding to each group</returns>
+            <search>list;sort;group;sortbykey;groupbykey;</search>
         </member>
         <member name="M:Orchid.Core.List.IndexOf(System.Collections.IList,System.Object)">
             <summary>
@@ -327,6 +351,14 @@
             <param name="list">list of values</param>
             <param name="element">Element</param>
             <returns name="int">List of indicies</returns>
+        </member>
+        <member name="M:Orchid.Core.List.GetItemAtIndex(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Get an item from the given list that's located at the specified index (the full path) in nD list
+            </summary>
+            <param name="list">list to fetch an item from</param>
+            <param name="index">index of the item to be fetched</param>
+            <returns name="item">item in the list at the given index</returns>
         </member>
         <member name="M:Orchid.Core.List.ReplaceItemAtIndex(System.Collections.IList,System.Collections.IList,System.Object)">
             <summary>
@@ -523,6 +555,16 @@
             <param name="refresh">Toggle true/false for refreshing</param>
             <returns name="script">Script</returns>
         </member>
+        <member name="M:Orchid.Core.String.Contains(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Determines if the given string contains any of the given substrings.
+            </summary>
+            <param name="str">String to search in</param>
+            <param name="searchFor">List of substring to search for</param>
+            <param name="ignoreCase">Whether or not comparison takes case into account</param>
+            <returns name="bool">Whether the string contains any of the given substrings</returns>
+            <search>search,in,within,part of</search>
+        </member>
         <member name="M:Orchid.Core.String.Replace(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
             Replaces all occurrences of text in a string with other text
@@ -530,7 +572,7 @@
             <param name="string">String to replace substrings in</param>
             <param name="searchFor">List of strings to be replaced</param>
             <param name="replaceWith">List of strings to replace with</param>
-            <returns name="string">String with replacements made</returns>
+            <returns name="str">String with replacements made</returns>
             <search>replace,overwrite,override,find and replace</search>
         </member>
         <member name="M:Orchid.Core.String.Substring(System.String,System.String,System.String,System.Boolean)">
@@ -856,25 +898,84 @@
             <param name="parameterName">The name of the parameter to verify</param>
             <returns name="bool">Boolean value</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.ByElement(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a element at the element center point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="element">Element to tag</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag room, tag space, tag area,annotate,documentation</search>
+        </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.ByElementAndLocation(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a element at a specified location point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="element">Element to tag</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="location">Location point, default set to null -> element center</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag element,annotate,documentation</search>
+        </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.BySpatialElement(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a spatial element (Room, Space, Area) at the element center point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="spatialElement">SpatialElement to tag (Room, Space, Area)</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag room, tag space, tag area,annotate,documentation</search>
+        </member>
+        <member name="M:Orchid.RevitProject.Annotations.Tag.BySpatialElementAndLocation(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,System.Boolean,System.Boolean)">
+            <summary>
+            Create a Tag for a spatial element (Room, Space, Area) at a specified location point
+            </summary>
+            <param name="view">View to tag in</param>
+            <param name="spatialElement">SpatialElement to tag (Room, Space, Area)</param>
+            <param name="tagType">Tag type to use</param>
+            <param name="location">Location point, default set to null -> element center</param>
+            <param name="horizontal">Optional: Place tag horizontal, defaults to true</param>
+            <param name="addLeader">Optional: Add a leader, defaults to false</param>
+            <returns name="Tag">Tag as dynamo type</returns>
+            <search>tag room, tag space, tag area,annotate,documentation</search>
+        </member>
         <member name="P:Orchid.RevitProject.Document.Current">
             <summary>
             Get current document
             </summary>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the current document name
             </summary>
             <param name="document">Document as Revit type</param>
+             <param name="withExtension">Include extension? default is set to false</param>
             <returns name="string">The name of the document</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.FilePath(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Document.Directory(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get the directory of the Document.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="string">The directory of the document</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Document.Path(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the full path of the Document.
             </summary>
             <param name="document">Document as Revit type</param>
-            <returns name="string">The path of the document</returns>
+            <param name="withExtension">Include extension? default is set to true</param>
+            <returns name="string">The full path of the document</returns>
         </member>
         <member name="M:Orchid.RevitProject.Document.BackgroundOpen(System.String)">
             <summary>
@@ -1830,12 +1931,6 @@
             <returns name="area">Area as double</returns>
             <returns name="volumne">Volumne as double</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Selection.CategoryList(Autodesk.Revit.DB.Document)">
-            Internal category list builder.
-        </member>
-        <member name="M:Orchid.RevitProject.Elements.Selection.ElementCategoryList(Autodesk.Revit.DB.Document,System.Collections.IList)">
-            Internal element and category list builder.
-        </member>
         <member name="M:Orchid.RevitProject.Elements.Selection.ElementHasMaterial(System.Collections.Generic.List{Autodesk.Revit.DB.Document})">
             <summary>
             Get elements that has material quantities in document, return element grouped by category.
@@ -2566,6 +2661,11 @@
               Looks up a localized string similar to Looks up a localized string similar to Number of items does not match the number of keys..
             </summary>
         </member>
+        <member name="P:Orchid.Internals.Notifications.InvalidType">
+            <summary>
+              Looks up a localized string similar to Type is not valid..
+            </summary>
+        </member>
         <member name="P:Orchid.Internals.Notifications.MaterialNotFound">
             <summary>
               Looks up a localized string similar to A Material with the given name does not exist in the current Document..
@@ -2684,6 +2784,11 @@
         <member name="P:Orchid.Internals.Notifications.VersionNotSupported">
             <summary>
               Looks up a localized string similar to This function is not supported by your Revit version!.
+            </summary>
+        </member>
+        <member name="P:Orchid.Internals.Notifications.ViewDoesNotSupportAnnotations">
+            <summary>
+              Looks up a localized string similar to View does not support annotations..
             </summary>
         </member>
         <member name="M:Orchid.Internals.UnitConverter.ConvertToDynamoUnits``1(``0@)">

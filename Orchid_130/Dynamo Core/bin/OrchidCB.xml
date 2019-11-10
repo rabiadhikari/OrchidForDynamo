@@ -151,14 +151,46 @@
             <param name="targetName">The name of the target file</param>
             <returns name="file">File</returns>
         </member>
+        <member name="M:Orchid.Core.List.AllTrue(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if all items in the given list has a true value.
+            </summary>
+            <param name="list">List to be checked on whether all items are true</param>
+            <returns name="bool">Whether all items are true</returns>
+            <search>test,all,true,istrue</search>
+        </member>
+        <member name="M:Orchid.Core.List.AnyTrue(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if any items in the given list has a true value.
+            </summary>
+            <param name="list">List to be checked on whether any items are true</param>
+            <returns name="bool">Whether any items are true</returns>
+            <search>test,any,true,istrue</search>
+        </member>
+        <member name="M:Orchid.Core.List.AllFalse(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if all items in the given list has a false value.
+            </summary>
+            <param name="list">List to be checked on whether all items are false</param>
+            <returns name="bool">Whether all items are false</returns>
+            <search>test,all,false,isfalse</search>
+        </member>
+        <member name="M:Orchid.Core.List.AnyFalse(System.Collections.Generic.List{System.Boolean})">
+            <summary>
+            Determines if any items in the given list has a false value.
+            </summary>
+            <param name="list">List to be checked on whether any items are false</param>
+            <returns name="bool">Whether all items are false</returns>
+            <search>test,any,false,isfalse</search>
+        </member>
+        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
+            Search values, send default if values not exist
+        </member>
         <member name="M:Orchid.Core.List.CleanUtil(System.Collections.IList,System.Collections.IList)">
             Cleaning nD list
         </member>
         <member name="M:Orchid.Core.List.ReplaceUtil(System.Collections.IList,System.Collections.IList,System.Object)">
             Replacing nD list
-        </member>
-        <member name="M:Orchid.Core.List.Search(System.Collections.IEnumerable)">
-            Search values, send default if values not exist
         </member>
         <member name="M:Orchid.Core.List.Clean(System.Collections.IList,System.Collections.IList)">
             <summary>
@@ -186,17 +218,6 @@
             <param name="descending">Return the list in descending order?</param>
             <returns name="list">List</returns>
         </member>
-        <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Sort and group items into sub-lists based on their like key values
-            </summary>
-            <param name="list">List of items to group as sublists</param>
-            <param name="keys">Key values, one per item in the input list, used for grouping the items</param>
-            <param name="sortedKeys">Sorted unique keys, used for grouping the items by their key</param>
-            <returns name="groups">list of sublists, with items grouped by like key values</returns>
-            <returns name="unique keys">key value corresponding to each group</returns>
-            <search>list;sort;group;sortbykey;groupbykey;</search>
-        </member>
         <member name="M:Orchid.Core.List.SortNatural(System.Collections.IList,System.Boolean)">
             <summary>
             Sort elements using the PC 'locale'. Sort elements recursively
@@ -208,13 +229,16 @@
             <param name="descending">Return the list in descending order?</param>
             <returns name="list">List</returns>
         </member>
-        <member name="M:Orchid.Core.List.GetItemAtIndex(System.Collections.IList,System.Collections.IList)">
+        <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
             <summary>
-            Get an item from the given list that's located at the specified index (the full path) in nD list
+            Sort and group items into sub-lists based on their like key values
             </summary>
-            <param name="list">list to fetch an item from</param>
-            <param name="index">index of the item to be fetched</param>
-            <returns name="item">item in the list at the given index</returns>
+            <param name="list">List of items to group as sublists</param>
+            <param name="keys">Key values, one per item in the input list, used for grouping the items</param>
+            <param name="sortedKeys">Sorted unique keys, used for grouping the items by their key</param>
+            <returns name="groups">list of sublists, with items grouped by like key values</returns>
+            <returns name="unique keys">key value corresponding to each group</returns>
+            <search>list;sort;group;sortbykey;groupbykey;</search>
         </member>
         <member name="M:Orchid.Core.List.IndexOf(System.Collections.IList,System.Object)">
             <summary>
@@ -223,6 +247,14 @@
             <param name="list">list of values</param>
             <param name="element">Element</param>
             <returns name="int">List of indicies</returns>
+        </member>
+        <member name="M:Orchid.Core.List.GetItemAtIndex(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Get an item from the given list that's located at the specified index (the full path) in nD list
+            </summary>
+            <param name="list">list to fetch an item from</param>
+            <param name="index">index of the item to be fetched</param>
+            <returns name="item">item in the list at the given index</returns>
         </member>
         <member name="M:Orchid.Core.List.ReplaceItemAtIndex(System.Collections.IList,System.Collections.IList,System.Object)">
             <summary>
@@ -332,6 +364,16 @@
             <param name="refresh">Toggle true/false for refreshing</param>
             <returns name="script">Script</returns>
         </member>
+        <member name="M:Orchid.Core.String.Contains(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Determines if the given string contains any of the given substrings.
+            </summary>
+            <param name="str">String to search in</param>
+            <param name="searchFor">List of substring to search for</param>
+            <param name="ignoreCase">Whether or not comparison takes case into account</param>
+            <returns name="bool">Whether the string contains any of the given substrings</returns>
+            <search>search,in,within,part of</search>
+        </member>
         <member name="M:Orchid.Core.String.Replace(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
             Replaces all occurrences of text in a string with other text
@@ -339,7 +381,7 @@
             <param name="string">String to replace substrings in</param>
             <param name="searchFor">List of strings to be replaced</param>
             <param name="replaceWith">List of strings to replace with</param>
-            <returns name="string">String with replacements made</returns>
+            <returns name="str">String with replacements made</returns>
             <search>replace,overwrite,override,find and replace</search>
         </member>
         <member name="M:Orchid.Core.String.Substring(System.String,System.String,System.String,System.Boolean)">

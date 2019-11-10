@@ -1,7 +1,8 @@
 ﻿# Orchid  
-Orchid is a solution designed for use in the [Dynamo](http://dynamobim.org) environment. The solution is designed to support practical, technical, logical, and mathematical issues. In particular, is the solution designed to handle nD-list issues. In addition, are solutions for applications included in the BIM wheel supported, which not necessarily are Autodesk products.  
+Orchid is a solution designed for use in the [Dynamo](http://dynamobim.org) environment. The solution is designed to support practical, technical, logical, and mathematical issues. In particular, is some solutions designed to handle nD-list issues. In addition, are solutions for applications included that not necessarily are Autodesk products.  
   
-**Software environment:** Built for Dynamo +1.3.4 (Revit +2017), +2.0.3 (Revit +2018), Dynamo +2.1.0 (Revit+2020) and Dynamo +2.1.0 (Revit+2020)  
+**Software environment:**  
+Built for Dynamo +1.3.4 (Revit +2017), +2.0.3 (Revit +2018), +2.1.0 (Revit+2020), and +2.2.0 (Revit+2020).  
   
 **Orchid Blog:**  
 At the <a href="https://erfajo.blogspot.com" target="_blank">blog</a> is information, updates, tips and tricks for Orchid published.  
@@ -25,15 +26,23 @@ Select the installer according to your dynamo version!
 
 <span style="color:red">**REVIT AND DYNAMO MUST BE CLOSED DURING INSTALLATION!**</span>  
 
-The Orchid package may also be installed by manually copying files from the repository. This is only recommendable for experienced users! To install/update this way, please copy the content of the chosen version into your package folder path into the 'Orchid' folder! Download is handled by either cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
+The Orchid package may also be installed by manually copying files from the repository. This is only recommendable for experienced users! To install/update this way, please copy the content of the chosen root version into your package folder path into the 'Orchid' folder! Download is handled by either cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
 
 Select the content according to your dynamo version!  
 <pre>
 OrchidForDynamo
-├── Orchid_130    (for the dynamo 1.3.x branch)  
-├── Orchid_200    (for the dynamo 2.0.x branch)  
-├── Orchid_210    (for the dynamo 2.1.x branch)  
-└── Orchid_220    (for the dynamo 2.2.x branch)  
+├─┬── **Orchid_130    (for the dynamo 1.3.x branch)** 
+│ ├── Dynamo Core   (root for the Sandbox version)  
+│ └── Dynamo Revit  (root for the Revit version)  
+├─┬── **Orchid_200    (for the dynamo 2.0.x branch)**  
+│ ├── Dynamo Core   (root for the Sandbox version)  
+│ └── Dynamo Revit  (root for the Revit version)  
+├─┬── **Orchid_210    (for the dynamo 2.1.x branch)**  
+│ ├── Dynamo Core   (root for the Sandbox version)  
+│ └── Dynamo Revit  (root for the Revit version)  
+└─┬── **Orchid_220    (for the dynamo 2.2.x branch)**  
+  ├── Dynamo Core   (root for the Sandbox version)  
+  └── Dynamo Revit  (root for the Revit version)  
 </pre>
 
 ---
