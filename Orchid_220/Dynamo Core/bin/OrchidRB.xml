@@ -265,6 +265,28 @@
             <param name="descending">Return the list in descending order?</param>
             <returns name="list">List</returns>
         </member>
+        <member name="M:Orchid.Core.List.GroupBySortedKey(System.Collections.IList,System.Collections.IList,System.Boolean)">
+            <summary>
+            Group items into sublists based on their like sorted key values
+            </summary>
+            <param name="list">List of items to group as sublists</param>
+            <param name="keys">Key values, one per item in the input list, used for sorting and grouping the items</param>
+            <param name="descending">Return the list in descending order?</param>
+            <returns name="groups">list of sublists, with items grouped by like sorted key values</returns>
+            <returns name="unique keys">sorted key value corresponding to each group</returns>
+            <search>list;key;sort;group;sortbykey;groupbykey;order</search>
+        </member>
+        <member name="M:Orchid.Core.List.GroupBySortedKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Group items and keys into sublists based on their sorted unique key values
+            </summary>
+            <param name="items">List of items to group as sublists</param>
+            <param name="keys">List of keys to group as sublists, one key per item in the input list</param>
+            <param name="sortedKeys">Sorted unique keys, used for grouping the items</param>
+            <returns name="grouped items">list of sublists, with items grouped by the sorted key values</returns>
+            <returns name="grouped keys">list of sublists, with keys grouped by the sorted key values</returns>
+            <search>list;group;sort;key;sorted;groupby;order</search>
+        </member>
         <member name="M:Orchid.Core.List.SortGroupByKey(System.Collections.IList,System.Collections.IList,System.Collections.IList)">
             <summary>
             Sort and group items into sub-lists based on their like key values
@@ -936,6 +958,13 @@
             <param name="view">View as Dynamo type</param>
             <returns name="view">View</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Views.ViewType.ByName(System.String)">
+            <summary>
+            Get view by name
+            </summary>
+            <param name="name">View name as string</param>
+            <returns name="ViewType">View type as Dynamo type</returns>
+        </member>
         <member name="P:Orchid.RevitProject.Views.Schedule.All">
             <summary>
             Get all schedules
@@ -998,7 +1027,7 @@
             </summary>
             <returns name="View">View</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.View.AllByType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Views.View.ByType(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
             All view by viewType in document
             </summary>
@@ -1006,7 +1035,7 @@
             <param name="viewType">ViewType as Dynamo type</param>
             <returns name="View">View</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Views.View.AllByType(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Views.View.ByType(Revit.Elements.Element)">
             <summary>
             All view by viewType in current document
             </summary>
@@ -1082,6 +1111,57 @@
             <param name="viewport">Viewport as Dynamo type</param>
             <param name="vector">Vector as Dynamo type</param>
             <returns name="Viewport">Viewport</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Workset.SetByName(System.String)">
+            <summary>
+            Create Workset by name.
+            </summary>
+            <param name="name">The name of the workset</param>
+            <returns name="Workset">Workset as Orchid type</returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Workset.Name">
+            <summary>
+            Get workset name
+            </summary>
+            <returns name="string">Name as string</returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Workset.Id">
+            <summary>
+            Workset Id as integer
+            </summary>
+            <returns name="int">Id as integer value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Workset.ToString">
+            <summary>
+            Workset string override
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Workset.Guid">
+            <summary>
+            Workset Guid
+            </summary>
+            <returns name="string">Guid as string</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Workset.All">
+            <summary>
+            Get all workset in the current document.
+            </summary>
+            <returns name="Workset">The list of workset.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Workset.GetByName(System.String)">
+            <summary>
+            Get Workset by name.
+            </summary>
+            <param name="name">The name of the workset</param>
+            <returns name="Workset">Workset as Orchid type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Workset.ById(System.Int32)">
+            <summary>
+            Get Workset by Id.
+            </summary>
+            <param name="id">Id as integer value</param>
+            <returns name="Workset">Workset as Orchid type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Group.Create(System.String,System.Collections.Generic.List{Revit.Elements.Element},System.Boolean)">
             <summary>
@@ -1349,6 +1429,21 @@
             <param name="element">Element as Dynamo type</param>
             <returns name="true">Hosting element</returns>
             <returns name="false">Not hosting element</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.SetWorkset(Revit.Elements.Element,Orchid.RevitProject.Workset)">
+            <summary>
+            Set the workset of the element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <param name="workset">Workset as Orchid type</param>
+            <returns name="Element">Element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.GetWorkset(Revit.Elements.Element)">
+            <summary>
+            Get the workset of the element
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <returns name="Workset">Workset as Orchid type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.PhaseByName(System.String)">
             <summary>
@@ -2612,6 +2707,11 @@
         <member name="P:Orchid.Internals.Notifications.NoViewSheetSet">
             <summary>
               Looks up a localized string similar to No ViewSheetSet could be found.
+            </summary>
+        </member>
+        <member name="P:Orchid.Internals.Notifications.NoWorksetFound">
+            <summary>
+              Looks up a localized string similar to The document is not including worksets.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NumberOfDivisionsMustBeGreaterThan2">
