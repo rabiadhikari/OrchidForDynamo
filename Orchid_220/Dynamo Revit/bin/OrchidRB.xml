@@ -1999,7 +1999,7 @@
             </summary>
             <returns name="int">parameter ids</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddProjectParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
             Add (create) project parameter by name. 
             If the parameter exists is the category binding being updated.
@@ -2007,23 +2007,27 @@
             <param name="parameterName">The name of the parameter to add</param>
             <param name="type">Parameter Type</param>
             <param name="group">Parameter Group</param>
+            <param name="tooltip">Tooltip for the parameter</param>
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="vary">Vary parameter between groups</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
             Add shared parameter by name in the project.
             If the parameter not exists in the shared parameter file is an error thrown!
             If the parameter exists is the category binding being updated.
+            Note. tooltip is being added if it exsist in the shared parameter file!
             </summary>
             <param name="parameterName">The name of the parameter to add</param>
             <param name="groupName">Group of the parameter for shared parameters</param>
             <param name="type">Parameter Type</param>
             <param name="group">Parameter Group</param>
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="vary">Vary parameter between groups</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
         </member>
-        <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
+        <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
             Create shared parameter by name in the project. 
             If the parameter not exists in the shared parameter file is it being created.
@@ -2033,7 +2037,9 @@
             <param name="groupName">Group of the parameter for shared parameters</param>
             <param name="type">Parameter Type</param>
             <param name="group">Parameter Group</param>
+            <param name="tooltip">Tooltip for the parameter</param>
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
+            <param name="vary">Vary parameter between groups</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
@@ -2333,13 +2339,6 @@
             <returns name="FamilyType">Nested family type in the document</returns>
             <returns name="familyParameter">Nested family parameter in the document</returns>
         </member>
-        <member name="M:Orchid.RevitFamily.Parameter.Parameters(Autodesk.Revit.DB.Document)">
-            <summary>
-            Obtain all of the Parameters from the family document, sorted by Name.
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <returns name="Parameter">Parameter</returns>
-        </member>
         <member name="M:Orchid.RevitFamily.Parameter.Name(Autodesk.Revit.DB.FamilyParameter)">
             <summary>
             Get family parameter name
@@ -2408,6 +2407,13 @@
             Add basic IFC parameters in the family (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
             </summary>
             <param name="familyDocument">Document as Revit type</param>
+            <returns name="Parameter">Parameter</returns>
+        </member>
+        <member name="M:Orchid.RevitFamily.Parameter.Parameters(Autodesk.Revit.DB.Document)">
+            <summary>
+            Obtain all of the Parameters from the family document, sorted by Name.
+            </summary>
+            <param name="familyDocument">Family document as Revit document (rfa)</param>
             <returns name="Parameter">Parameter</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.GetValue(Autodesk.Revit.DB.Document,System.Collections.Generic.List{System.Object},System.Collections.Generic.List{System.String})">
