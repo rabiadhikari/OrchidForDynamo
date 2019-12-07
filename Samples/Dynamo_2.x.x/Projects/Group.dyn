@@ -2,7 +2,7 @@
   "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "group 2020",
+  "Name": "Group",
   "ElementResolver": {
     "ResolutionMap": {
       "List": {
@@ -238,8 +238,7 @@
     },
     {
       "ConcreteType": "Orchid.E.RevitProject.Elements.Group.Groups, OrchidRE",
-      "SelectedIndex": 1,
-      "SelectedString": "test",
+      "SelectedIndex": 0,
       "NodeType": "ExtensionNode",
       "Id": "6d8157f7d41d49d493f469abc0001e01",
       "Inputs": [],
@@ -286,27 +285,6 @@
       ],
       "Replication": "Auto",
       "Description": "Delete group type\n\nGroupType.Delete (groupType: Element): void"
-    },
-    {
-      "ConcreteType": "Orchid.E.RevitProject.Elements.Group.GroupTypes, OrchidRE",
-      "SelectedIndex": 1,
-      "SelectedString": "test",
-      "NodeType": "ExtensionNode",
-      "Id": "475473515b9b4f8ba50f3d4481f55bc8",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "e5e86a011f164c03b2264e72c6886403",
-          "Name": "GroupType",
-          "Description": "The selected GroupType",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "All Group Types available in the document."
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -440,8 +418,7 @@
     },
     {
       "ConcreteType": "Orchid.E.RevitProject.Elements.Group.Groups, OrchidRE",
-      "SelectedIndex": 1,
-      "SelectedString": "test",
+      "SelectedIndex": 0,
       "NodeType": "ExtensionNode",
       "Id": "c7b5474212034c7db8b6b3f4121f4131",
       "Inputs": [],
@@ -572,7 +549,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.Group.Create@string,Revit.Elements.Element[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.Group.Create@string,Revit.Elements.Element[],bool",
       "Id": "0cc3f1220c1f4604a4dfc55f26dba950",
       "Inputs": [
         {
@@ -592,6 +569,15 @@
           "Level": 2,
           "UseLevels": false,
           "KeepListStructure": false
+        },
+        {
+          "Id": "676f63de4bfb468c82361b2ef2682a14",
+          "Name": "assort",
+          "Description": "True value does NOT include elements placed on legend or drafting view!\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
         }
       ],
       "Outputs": [
@@ -606,7 +592,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create group by name\n\nGroup.Create (name: string, element: Element[]): var[]..[]"
+      "Description": "Create group by name. Please note the boolean value \"assort\", default value (true) is set NOT to include elements placed on legend or drafting view!\n\nGroup.Create (name: string, element: Element[], assort: bool = true): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -696,6 +682,26 @@
       ],
       "Replication": "Auto",
       "Description": "Delete group\n\nGroup.Delete (group: Element): void"
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Elements.GroupType.GroupTypes, OrchidRE",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "e8c5ef79f334459a8ea546cd85c8904e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "182e561faffa4aaf969e454eed9033d5",
+          "Name": "GroupType",
+          "Description": "The selected GroupType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All Group Types available in the document."
     }
   ],
   "Connectors": [
@@ -718,11 +724,6 @@
       "Start": "8c817ea4f3bc4fb189015b2a7215ce2c",
       "End": "d7b373b6d8d341d5ba1d425d6405ec40",
       "Id": "c4e58bce95b640b7bd10ccec06022860"
-    },
-    {
-      "Start": "e5e86a011f164c03b2264e72c6886403",
-      "End": "b3b4aa52d06d4b2c8c85b3198818a051",
-      "Id": "cf9d301838b34395a2603fe64c3c60e0"
     },
     {
       "Start": "7f329d361b2449a1b3a36a7901fc9f34",
@@ -773,6 +774,11 @@
       "Start": "949cef014d974c8c99d725dd1a2f8561",
       "End": "1e78b1e2a9924eca98eac924215bb9a5",
       "Id": "89df15fa336444259747678296681766"
+    },
+    {
+      "Start": "182e561faffa4aaf969e454eed9033d5",
+      "End": "b3b4aa52d06d4b2c8c85b3198818a051",
+      "Id": "ece48cfef53a43b793cd16c636a8e06b"
     }
   ],
   "Dependencies": [],
@@ -807,7 +813,7 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "X": -417.88692392034574,
-        "Y": 1020.1117075856254
+        "Y": 1047.1049054220903
       },
       {
         "ShowGeometry": true,
@@ -825,7 +831,7 @@
         "Id": "c56690e2945949a0a3d506ffc370ea23",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Excluded": true,
+        "Excluded": false,
         "X": -1086.8869239203457,
         "Y": 988.11170758562537
       },
@@ -868,16 +874,6 @@
         "Excluded": true,
         "X": 178.22965614767,
         "Y": 692.985962743846
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "GroupTypes",
-        "Id": "475473515b9b4f8ba50f3d4481f55bc8",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -89.76488876018874,
-        "Y": 692.98596274384579
       },
       {
         "ShowGeometry": true,
@@ -1018,6 +1014,16 @@
         "Excluded": true,
         "X": 390.98601682386561,
         "Y": 1052.680855421087
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "GroupTypes",
+        "Id": "e8c5ef79f334459a8ea546cd85c8904e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -89.288669234488538,
+        "Y": 694.15131702743417
       }
     ],
     "Annotations": [
@@ -1035,10 +1041,10 @@
         "Left": -1374.8869239203457,
         "Top": 800.32504091895873,
         "Width": 1175.0,
-        "Height": 442.99999999999977,
+        "Height": 442.99999999999989,
         "FontSize": 30.0,
         "InitialTop": 846.32504091895873,
-        "InitialHeight": 318.78666666666663,
+        "InitialHeight": 345.77986450313153,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -1047,17 +1053,17 @@
         "Title": "GroupType delete",
         "Nodes": [
           "ae5f4a3c826a40dc8ae4a14ce886552a",
-          "475473515b9b4f8ba50f3d4481f55bc8",
           "f3d69df7050e42ceaf13d1575ea55ab5",
-          "680df0a4a18b4876b3812afad9875884"
+          "680df0a4a18b4876b3812afad9875884",
+          "e8c5ef79f334459a8ea546cd85c8904e"
         ],
         "Left": -99.76488876018874,
-        "Top": 639.98596274384579,
+        "Top": 639.985962743846,
         "Width": 497.99454490785877,
-        "Height": 260.04685502044231,
+        "Height": 260.04685502044208,
         "FontSize": 36.0,
-        "InitialTop": 692.98596274384579,
-        "InitialHeight": 259.04685502044231,
+        "InitialTop": 692.985962743846,
+        "InitialHeight": 259.04685502044208,
         "TextblockHeight": 43.0,
         "Background": "#FFFF7BAC"
       },
@@ -1104,8 +1110,8 @@
         "Background": "#FFA4E1FF"
       }
     ],
-    "X": 1137.7322390017284,
-    "Y": -516.95118560809328,
-    "Zoom": 0.81159268184649647
+    "X": 511.99036353510314,
+    "Y": 38.269331452967009,
+    "Zoom": 0.35313574706297934
   }
 }

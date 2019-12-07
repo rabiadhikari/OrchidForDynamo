@@ -1,0 +1,143 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "MergePDF",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Core.Print.MergePDF@string[],string",
+      "Id": "f23235f2d9d84fa38c09de4fc8d75a51",
+      "Inputs": [
+        {
+          "Id": "3109d4f1861948bc93d355d83ac03d45",
+          "Name": "documents",
+          "Description": "List of PDF documents to be merged\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "897fd594b6a54ef18d3ca8a1d0708aca",
+          "Name": "filePath",
+          "Description": "Give a valid path for the merged PDF output.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ee57b6f4565547d79f52dc0e9c034313",
+          "Name": "watch",
+          "Description": "Add a watch node to verify the output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Merge list of PDF Common.\n\nPrint.MergePDF (documents: string[], filePath: string): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "//input documents\n[\"%userprofile%\\\\Downloads\\\\PDF\\\\pdf1.pdf\",\n\"%userprofile%\\\\Downloads\\\\PDF\\\\pdf2.pdf\"];\n\n//output file path\n\"%userprofile%\\\\Downloads\\\\PDF\\\\result.pdf\";",
+      "Id": "59e7e0a0952e4695867a1a67068c777a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "103856f1a0554ae79111d1e685158b82",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "16b5fe0d903f4f71a0c23c85b341a855",
+          "Name": "",
+          "Description": "Value of expression at line 6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "103856f1a0554ae79111d1e685158b82",
+      "End": "3109d4f1861948bc93d355d83ac03d45",
+      "Id": "b96d57680bf2443a90e15a1ba77baa3a"
+    },
+    {
+      "Start": "16b5fe0d903f4f71a0c23c85b341a855",
+      "End": "897fd594b6a54ef18d3ca8a1d0708aca",
+      "Id": "87ed42f241e541c3b207bd93405e4a2b"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.3.8810",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Print.MergePDF",
+        "Id": "f23235f2d9d84fa38c09de4fc8d75a51",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 387.414146868251,
+        "Y": 431.642735781138
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "59e7e0a0952e4695867a1a67068c777a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -105.58585313175,
+        "Y": 396.136069114471
+      }
+    ],
+    "Annotations": [],
+    "X": 126.000545235711,
+    "Y": 67.9524008470389,
+    "Zoom": 0.909217877094971
+  }
+}

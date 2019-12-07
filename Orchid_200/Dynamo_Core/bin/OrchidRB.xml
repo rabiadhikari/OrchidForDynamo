@@ -153,17 +153,18 @@
             <param name="file">File incl. path</param>
             <returns name="info">File info</returns>
         </member>
-        <member name="M:Orchid.Core.File.LoadFamily(System.Collections.Generic.List{System.String})">
+        <member name="M:Orchid.Core.File.LoadFamily(System.String)">
             <summary>
-            Load family by file name, same core process as RevitFamily.LoadFamily
+            Load family by file name, existing family will be overwritten.
+            Same core process as RevitFamily.LoadFamily.
             </summary>
             <param name="family">Path to the family file(s)</param>
             <returns name="Family">Family</returns>
         </member>
-        <member name="M:Orchid.Core.File.LoadFamily(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+        <member name="M:Orchid.Core.File.LoadFamily(Autodesk.Revit.DB.Document,System.String)">
             <summary>
-            Open document and load family by path, existing families will be overwritten,
-            and families is upgraded if needed. Documents will be saved and closed.
+            Load family by file name into document, existing family will be overwritten.
+            Same core process as RevitFamily.LoadFamily.
             </summary>
             <param name="document">Path to the documents file(s)</param>
             <param name="family">Path to the family file(s)</param>
@@ -404,7 +405,7 @@
         </member>
         <member name="M:Orchid.Core.Print.MergePDF(System.Collections.Generic.List{System.String},System.String)">
             <summary>
-            Merge list of PDF documents.
+            Merge list of PDF Common.
             </summary>
             <param name="documents">List of PDF documents to be merged</param>
             <param name="filePath">Give a valid path for the merged PDF output.</param>
@@ -414,6 +415,9 @@
             <summary>
             Print by view. --> Please note: If combined into one file is changed
             in this session, then the dynamo graph needs to be reloaded!
+            Furthermore, if print to file is selected, then please check windows
+            printer settings to verify if print to file is supported!
+            Adobe PDF is NOT preset to do this!
             </summary>
             <param name="printer">Printer name as string. If value is not set is default printer selected</param>
             <param name="combine">Combine into one file (Print to file must be set to true).</param>
@@ -427,6 +431,9 @@
             <summary>
             Print by view sheet set. --> Please note: If combined into one file is changed
             in this session, then the dynamo graph needs to be reloaded!
+            Furthermore, if print to file is selected, then please check windows
+            printer settings to verify if print to file is supported!
+            Adobe PDF is NOT preset to do this!
             </summary>
             <param name="printer">Printer name as string. If value is not set is default printer selected</param>
             <param name="combine">Combine into one file (Print to file must be set to true).</param>
@@ -541,13 +548,13 @@
             <returns name="substring">Substring made from the original string</returns>
             <search>subset,get string,part,smaller string</search>
         </member>
-        <member name="P:Orchid.RevitProject.Document.Current">
+        <member name="P:Orchid.RevitProject.Common.Document.Current">
             <summary>
             Get current document
             </summary>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Name(Autodesk.Revit.DB.Document,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.Name(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the current document name
             </summary>
@@ -555,14 +562,14 @@
              <param name="withExtension">Include extension? default is set to false</param>
             <returns name="string">The name of the document</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Directory(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Common.Document.Directory(Autodesk.Revit.DB.Document)">
             <summary>
             Get the directory of the Document.
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="string">The directory of the document</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Path(Autodesk.Revit.DB.Document,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.Path(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Get the full path of the Document.
             </summary>
@@ -570,14 +577,14 @@
             <param name="withExtension">Include extension? default is set to true</param>
             <returns name="string">The full path of the document</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.BackgroundOpen(System.String)">
+        <member name="M:Orchid.RevitProject.Common.Document.BackgroundOpen(System.String)">
             <summary>
             Open documents in background
             </summary>
             <param name="file">File (path) to open in the background</param>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.BackgroundOpen(System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.BackgroundOpen(System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Open documents in background.
             </summary>
@@ -587,7 +594,7 @@
             <param name="audit">Audit the document?</param>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Close(Autodesk.Revit.DB.Document,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.Close(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Close document
             </summary>
@@ -595,7 +602,7 @@
             <param name="save">Save opened document?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Save(Autodesk.Revit.DB.Document,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.Save(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Save document
             </summary>
@@ -603,7 +610,7 @@
             <param name="compact">Save using compact mode?</param>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.SaveAs(Autodesk.Revit.DB.Document,System.String,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.SaveAs(Autodesk.Revit.DB.Document,System.String,System.Boolean)">
             <summary>
             SaveAs document
             </summary>
@@ -612,7 +619,7 @@
             <param name="overwrite">Overwrite existing document?</param>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.SaveAs(Autodesk.Revit.DB.Document,System.String,System.Boolean,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.SaveAs(Autodesk.Revit.DB.Document,System.String,System.Boolean,System.Boolean)">
             <summary>
             SaveAs document
             </summary>
@@ -622,7 +629,7 @@
             <param name="saveAsCentral">SaveAs central document?</param>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.CopyDraftingView(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Common.Document.CopyDraftingView(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Copy drafting view from source document to target document
             </summary>
@@ -631,7 +638,7 @@
             <param name="draftingView">Drafting view to copy</param>
             <returns name="DraftingView">Copied drafting view</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.CopyElement(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Common.Document.CopyElement(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Copy element from source document to target document
             </summary>
@@ -640,7 +647,7 @@
             <param name="element">Element to copy</param>
             <returns name="Element">Copied element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.CopySchedule(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Common.Document.CopySchedule(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Copy schedule from source document to target document
             </summary>
@@ -649,7 +656,7 @@
             <param name="schedule">Schedule to copy</param>
             <returns name="Schedule">Copied schedule</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.TransferByCategory(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.TransferByCategory(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
             <summary>
             Transfer project standards by category from source document to target document.
             </summary>
@@ -659,7 +666,7 @@
             <param name="overwrite">Copy only new or overwrite existing?</param>
             <returns name="Element">Transfered element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.TransferByFamily(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.TransferByFamily(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
             <summary>
             Transfer types from source document to target document.
             </summary>
@@ -669,7 +676,7 @@
             <param name="overwrite">Copy only new or overwrite existing?</param>
             <returns name="Element">Transfered element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.TransferByType(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.TransferByType(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Object,System.Boolean)">
             <summary>
             Transfer types from source document to target document.
             </summary>
@@ -679,7 +686,7 @@
             <param name="overwrite">Copy only new or overwrite existing?</param>
             <returns name="Element">Transfered element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.ConvertToLink(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Common.Document.ConvertToLink(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
             Convert link instance to link type
             </summary>
@@ -687,14 +694,14 @@
             <param name="instance">Link instance as Dynamo type</param>
             <returns name="Link">Revit link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkedCadFile(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Common.Document.LinkedCadFile(Autodesk.Revit.DB.Document)">
             <summary>
             Get external linked CAD file in document
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="Link">CAD link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkedFile(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Common.Document.LinkedFile(Autodesk.Revit.DB.Document)">
             <summary>
             Get external linked file in document
             </summary>
@@ -702,14 +709,14 @@
             <returns name="Link">External link element as Dynamo type</returns>
             <returns name="Type">External link type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkedRevitFile(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Common.Document.LinkedRevitFile(Autodesk.Revit.DB.Document)">
             <summary>
             Get external linked Revit file in document
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="Link">Revit link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkReload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Common.Document.LinkReload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Reload external linked file in document
             </summary>
@@ -717,7 +724,7 @@
             <param name="link">External link element as Dynamo type</param>
             <returns name="Link">External link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkRepath(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+        <member name="M:Orchid.RevitProject.Common.Document.LinkRepath(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element},System.String)">
             <summary>
             Repath external linked file in document
             </summary>
@@ -726,7 +733,7 @@
             <param name="file">File (path) to set (repath)</param>
             <returns name="Link">External link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+        <member name="M:Orchid.RevitProject.Common.Document.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
             Unload external linked file in document
             </summary>
@@ -734,35 +741,49 @@
             <param name="link">External link element as Dynamo type</param>
             <returns name="Link">External link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.ActiveView(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Common.Document.ActiveView(Autodesk.Revit.DB.Document)">
             <summary>
             Get the active view in document
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="View">The active view as dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.OpenView(Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Common.Document.OpenView(Revit.Elements.Element)">
             <summary>
             Open view in the active document
             </summary>
             <param name="view">View to open</param>
             <returns name="View">New active view</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.ContainCategory(System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Common.Document.ContainCategory(System.Collections.IList)">
             <summary>
             Does document contain category?
             </summary>
             <param name="category">Category to validate is contained in the document</param>
             <returns name="bool">List of boolean value</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.ContainType(System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Common.Document.ContainType(System.Collections.IList)">
             <summary>
             Does document contain type?
             </summary>
             <param name="type">Type to validate is contained in the document</param>
             <returns name="bool">List of boolean value</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.ImportImage(System.String,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.AllLevels">
+            <summary>
+            Get all levels in the current document.
+            </summary>
+            <returns name="Level">The list of levels.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.LoadFamily(Autodesk.Revit.DB.Document)">
+            <summary>
+            Load family as document, existing family will be overwritten.
+            Same core process as File.LoadFamily.
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Revit document</param>
+            <returns name="Family">Family</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.ImportImage(System.String,System.Boolean)">
             <summary>
             Import Image into document
             </summary>
@@ -770,20 +791,20 @@
             <param name="overwrite">Overwrite existing images?</param>
             <returns name="ImageType">ImageType</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Info(Autodesk.Revit.DB.Document)">
+        <member name="M:Orchid.RevitProject.Common.Document.Info(Autodesk.Revit.DB.Document)">
             <summary>
             Get document info
             </summary>
             <param name="document">Document as Revit type</param>
             <returns name="info">Document info</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Opened">
+        <member name="M:Orchid.RevitProject.Common.Document.Opened">
             <summary>
             Get background opened documents
             </summary>
             <returns name="Document">Document as Revit type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Document.Purge(Autodesk.Revit.DB.Document,System.Boolean)">
+        <member name="M:Orchid.RevitProject.Common.Document.Purge(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Purge document. Set "completely" to true for including materials and assets!
             Please note "completely" purges also materials and materials assets that are
@@ -793,13 +814,301 @@
             <param name="document">Document as Revit type</param>
             <param name="completely">Includes purging materials and assets</param>
         </member>
-        <member name="M:Orchid.RevitProject.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Common.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
             Set the starting view in the document
             </summary>
             <param name="document">Document as Revit type</param>
             <param name="view">The view to set</param>
             <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.RevisionCloud.All">
+            <summary>
+            Get all revision clouds in the current document.
+            </summary>
+            <returns name="RevisionCloud">The list of revision clouds.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.RevisionCloud.Delete(Revit.Elements.RevisionCloud)">
+            <summary>
+            Delete revision cloud.
+            </summary>
+            <param name="revisionCloud">RevisionCloud as Dynamo type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.RevisionCloud.DeleteAll">
+            <summary>
+            Delete all revision clouds.
+            </summary>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.All">
+            <summary>
+            Get all revisions.
+            </summary>
+            <returns name="Revision">The list of revisions.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.DeleteAll">
+            <summary>
+            Delete all revisions
+            </summary>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.GetNumbering">
+            <summary>
+            Get revision numbering method
+            </summary>
+            <returns name="Numbering">Revision numbering</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.SetNumbering(System.String)">
+            <summary>
+            Set revision numbering method
+            </summary>
+            <param name="numbering">Revision numbering to set</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.Get(Revit.Elements.Revision)">
+            <summary>
+            Get revision data.
+            </summary>
+            <param name="revision">Revision as Dynamo type</param>
+            <returns name="Sequence">Revision sequence</returns>
+            <returns name="RevNumber">Revision number --> NaN if Revision Numbering is Per Sheet</returns>
+            <returns name="RevDate">Revision date</returns>
+            <returns name="Description">Revision description</returns>
+            <returns name="Issued">Issuing status</returns>
+            <returns name="IssuedTo">Issued to</returns>
+            <returns name="IssuedBy">Issued by</returns>
+            <returns name="Visibility">Revision visibility (show)</returns>
+            <returns name="Numbering">Revision numbering type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.Set(Revit.Elements.Revision,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            Set revision data.
+            </summary>
+            <param name="revision">Revision as Dynamo type</param>
+            <param name="revDate">Revision date</param>
+            <param name="description">Revision description</param>
+            <param name="issued">Issuing status</param>
+            <param name="issuedTo">Issued to</param>
+            <param name="issuedBy">Issued by</param>
+            <param name="visibility">Revision visibility (show)</param>
+            <param name="numberType">Revision numbering type</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.Create(System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String)">
+            <summary>
+            Create a new revision by name.
+            </summary>
+            <param name="revDate">Revision date</param>
+            <param name="description">Revision description</param>
+            <param name="issued">Issuing status</param>
+            <param name="issuedTo">Issued to</param>
+            <param name="issuedBy">Issued by</param>
+            <param name="visibility">Revision visibility (show)</param>
+            <param name="numberType">Revision numbering type</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.Delete(Revit.Elements.Revision)">
+            <summary>
+            Delete revisions, in a document.
+            Please note, at least one revison must be present in the document!
+            </summary>
+            <param name="revision">Revision as Dynamo type</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.AddToSheet(Revit.Elements.Views.Sheet,Revit.Elements.Revision)">
+            <summary>
+            Add revision to sheet
+            </summary>
+            <param name="sheet">Sheet as Dynamo type</param>
+            <param name="revision">Revision as Dynamo type</param>
+            <returns name="Sheet">Sheet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Revision.RemoveFromSheet(Revit.Elements.Views.Sheet,Revit.Elements.Revision)">
+            <summary>
+            Remove revision from sheet
+            </summary>
+            <param name="sheet">Sheet as Dynamo type</param>
+            <param name="revision">Revision as Dynamo type</param>
+            <returns name="Sheet">Sheet as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Workset.SetByName(System.String)">
+            <summary>
+            Create Workset by name.
+            </summary>
+            <param name="name">The name of the workset</param>
+            <returns name="Workset">Workset as Orchid type</returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Common.Workset.Name">
+            <summary>
+            Get workset name
+            </summary>
+            <returns name="string">Name as string</returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Common.Workset.Id">
+            <summary>
+            Workset Id as integer
+            </summary>
+            <returns name="int">Id as integer value</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Workset.ToString">
+            <summary>
+            Workset string override
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Orchid.RevitProject.Common.Workset.Guid">
+            <summary>
+            Workset Guid
+            </summary>
+            <returns name="string">Guid as string</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Workset.All">
+            <summary>
+            Get all workset in the current document.
+            </summary>
+            <returns name="Workset">The list of workset.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Workset.GetByName(System.String)">
+            <summary>
+            Get Workset by name.
+            </summary>
+            <param name="name">The name of the workset</param>
+            <returns name="Workset">Workset as Orchid type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Workset.ById(System.Int32)">
+            <summary>
+            Get Workset by Id.
+            </summary>
+            <param name="id">Id as integer value</param>
+            <returns name="Workset">Workset as Orchid type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Grid.GetVerticalExtents(Revit.Elements.Element)">
+            <summary>
+            Get grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+            <returns name="TopExtent">double</returns>
+            <returns name="BottomExtent">double</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Grid.SetVerticalExtents(Revit.Elements.Element,System.Double,System.Double)">
+            <summary>
+            Set grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <param name="topExtent">double</param>
+            <param name="bottomExtent">double</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Grid.MoveVerticalExtents(Revit.Elements.Element,System.Double)">
+            <summary>
+            Move grid vertical extents
+            </summary>
+            <param name="grid">Grid as Dynamo type</param>
+            <param name="distance">double</param>
+            <returns name="Grid">Grid as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.IFC.SettingByName(System.String)">
+            <summary>
+            Ifc export setting, based on the available in the document
+            </summary>
+            <param name="name">The IFC setting name</param>
+            <returns name="Setting">Ifc export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Set general IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="ifcVersion">IFC version as string</param>
+            <param name="ifcFileType">IFC file type as string</param>
+            <param name="spaceBoundary">Space boundaries as integer</param>
+            <param name="projectOrigin">Project origin as integer</param>
+            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
+            <param name="includeSteel">Include steel elements?</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Set additional content and level of detail IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="Export2Dplan">Export 2D plan view elements?</param>
+            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
+            <param name="VisibleElements">Export only elements visible in view?</param>
+            <param name="RoomsInView">Export rooms in 3D views?</param>
+            <param name="LOD">Level of detail for some element geometry</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
+            <summary>
+            Set Property sets IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="revitProperty">Export Revit property sets?</param>
+            <param name="commonProperty">Export IFC common property sets?</param>
+            <param name="baseQuantities">Export base quantities?</param>
+            <param name="exportSchedules">Export schedules as property sets?</param>
+            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
+            <param name="userProperty">Export user defined property sets?</param>
+            <param name="userPropertyFile">Property set file name incl. path</param>
+            <param name="parameterMapping">Export parameter mapping table?</param>
+            <param name="parameterMappingFile">Mapping table file name incl. path</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Set advanced IFC export setting
+            </summary>
+            <param name="setting">IFC export setting</param> 
+            <param name="exportParts">Export parts as building elements?</param>
+            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
+            <param name="activeViewGeometry">Use active view when creating geometry?</param>
+            <param name="familyAndType">Use family and type name for reference?</param>
+            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
+            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
+            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
+            <param name="boundingBox">Export bounding box?</param>
+            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
+            <returns name="Setting">IFC export setting</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.IFC.Export(Autodesk.Revit.DB.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Element,Revit.Elements.Element,System.String,System.Boolean)">
+            <summary>
+            Export to IFC. Require IFC exporter 19.1.0 or higher
+            https://sourceforge.net/projects/ifcexporter
+            . the export function includes a default IFC export setting!
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="setting">IFC export setting</param>
+            <param name="view">View as Dynamo type</param>
+            <param name="phase">Phase to export as Dynamo type</param>
+            <param name="file">The export file name incl. path</param>
+            <param name="overwrite">Overwrite existing file?</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.PostCommand.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
+            The DialogBoxShowing event handler
+        </member>
+        <member name="M:Orchid.RevitProject.Common.PostCommand.Purge(System.Boolean)">
+            <summary>
+            Purge document by Post Command.
+            Post commands can only take the current document to be run once. Re-run the
+            graph to re-activate the post command. To get back the "Purge" window inside
+            Revit, set the "activate" value to "false" and re-run the graph once more!
+            </summary>
+            <param name="activate">Set to true to activate (and false to deactivate)</param>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Location.Get">
+            <summary>
+            Get project location
+            </summary>
+            <returns name="Origin">Origin as project location</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Location.Set(Revit.Elements.Element)">
+            <summary>
+            Set project location
+            </summary>
+            <param name="origin">Origin as project location</param>
+            <returns name="Origin">Origin as project location</returns>
         </member>
         <member name="M:Orchid.RevitProject.Views.ViewType.ByName(System.String)">
             <summary>
@@ -1061,57 +1370,6 @@
             Delete sheet set
             </summary>
             <param name="viewSheetSet">ViewSheetSet as string or Dynamo type</param>
-        </member>
-        <member name="M:Orchid.RevitProject.Workset.SetByName(System.String)">
-            <summary>
-            Create Workset by name.
-            </summary>
-            <param name="name">The name of the workset</param>
-            <returns name="Workset">Workset as Orchid type</returns>
-        </member>
-        <member name="P:Orchid.RevitProject.Workset.Name">
-            <summary>
-            Get workset name
-            </summary>
-            <returns name="string">Name as string</returns>
-        </member>
-        <member name="P:Orchid.RevitProject.Workset.Id">
-            <summary>
-            Workset Id as integer
-            </summary>
-            <returns name="int">Id as integer value</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Workset.ToString">
-            <summary>
-            Workset string override
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Orchid.RevitProject.Workset.Guid">
-            <summary>
-            Workset Guid
-            </summary>
-            <returns name="string">Guid as string</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Workset.All">
-            <summary>
-            Get all workset in the current document.
-            </summary>
-            <returns name="Workset">The list of workset.</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Workset.GetByName(System.String)">
-            <summary>
-            Get Workset by name.
-            </summary>
-            <param name="name">The name of the workset</param>
-            <returns name="Workset">Workset as Orchid type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Workset.ById(System.Int32)">
-            <summary>
-            Get Workset by Id.
-            </summary>
-            <param name="id">Id as integer value</param>
-            <returns name="Workset">Workset as Orchid type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Annotations.Tag.ByElement(Revit.Elements.Element,Revit.Elements.Element,Revit.Elements.Element,System.Boolean,System.Boolean)">
             <summary>
@@ -1397,7 +1655,7 @@
             <param name="element">Element as Dynamo type</param>
             <returns name="Element">Element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Autodesk.Revit.DB.Document,System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
             Delete elements, in a document
             </summary>
@@ -1405,7 +1663,7 @@
             <param name="element">Element as Dynamo type</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.Delete(System.Collections.IList)">
+        <member name="M:Orchid.RevitProject.Elements.Element.Delete(Revit.Elements.Element)">
             <summary>
             Delete elements
             </summary>
@@ -1430,7 +1688,7 @@
             <returns name="true">Hosting element</returns>
             <returns name="false">Not hosting element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Elements.Element.SetWorkset(Revit.Elements.Element,Orchid.RevitProject.Workset)">
+        <member name="M:Orchid.RevitProject.Elements.Element.SetWorkset(Revit.Elements.Element,Orchid.RevitProject.Common.Workset)">
             <summary>
             Set the workset of the element
             </summary>
@@ -1578,6 +1836,13 @@
             </summary>
             <param name="element">Element as Dynamo type</param>
             <returns name="View">View</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Elements.Element.MoveByVector(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            Move Revit Element by Vector. This function includes the transaction manager.
+            </summary>
+            <param name="element">Element as Dynamo type</param>
+            <param name="vector">Translation Vector</param>
         </member>
         <member name="M:Orchid.RevitProject.Elements.Element.Info(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
@@ -1875,110 +2140,6 @@
             <param name="index">The index to set</param>
             <returns name="ElementType">FamilyType</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Grid.GetVerticalExtents(Revit.Elements.Element)">
-            <summary>
-            Get grid vertical extents
-            </summary>
-            <param name="grid">Grid as Dynamo type</param>
-            <returns name="Grid">Grid as Dynamo type</returns>
-            <returns name="TopExtent">double</returns>
-            <returns name="BottomExtent">double</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Grid.SetVerticalExtents(Revit.Elements.Element,System.Double,System.Double)">
-            <summary>
-            Set grid vertical extents
-            </summary>
-            <param name="grid">Grid as Dynamo type</param>
-            <param name="topExtent">double</param>
-            <param name="bottomExtent">double</param>
-            <returns name="Grid">Grid as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Grid.MoveVerticalExtents(Revit.Elements.Element,System.Double)">
-            <summary>
-            Move grid vertical extents
-            </summary>
-            <param name="grid">Grid as Dynamo type</param>
-            <param name="distance">double</param>
-            <returns name="Grid">Grid as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingByName(System.String)">
-            <summary>
-            Ifc export setting, based on the available in the document
-            </summary>
-            <param name="name">The IFC setting name</param>
-            <returns name="Setting">Ifc export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingGeneral(BIM.IFC.Export.UI.IFCExportConfiguration,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Boolean)">
-            <summary>
-            Set general IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="ifcVersion">IFC version as string</param>
-            <param name="ifcFileType">IFC file type as string</param>
-            <param name="spaceBoundary">Space boundaries as integer</param>
-            <param name="projectOrigin">Project origin as integer</param>
-            <param name="splitByLevel">Split walls, columns, ducts by level?</param>
-            <param name="includeSteel">Include steel elements?</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingAdditional(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Set additional content and level of detail IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="Export2Dplan">Export 2D plan view elements?</param>
-            <param name="LinkedFiles">Export linked files as separate IFCs?</param>
-            <param name="VisibleElements">Export only elements visible in view?</param>
-            <param name="RoomsInView">Export rooms in 3D views?</param>
-            <param name="LOD">Level of detail for some element geometry</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingProperty(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean,System.String)">
-            <summary>
-            Set Property sets IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="revitProperty">Export Revit property sets?</param>
-            <param name="commonProperty">Export IFC common property sets?</param>
-            <param name="baseQuantities">Export base quantities?</param>
-            <param name="exportSchedules">Export schedules as property sets?</param>
-            <param name="specificSchedules">Export only schedules containing IFC, Pset, or Common in the title?</param>
-            <param name="userProperty">Export user defined property sets?</param>
-            <param name="userPropertyFile">Property set file name incl. path</param>
-            <param name="parameterMapping">Export parameter mapping table?</param>
-            <param name="parameterMappingFile">Mapping table file name incl. path</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.SettingAdvanced(BIM.IFC.Export.UI.IFCExportConfiguration,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Set advanced IFC export setting
-            </summary>
-            <param name="setting">IFC export setting</param> 
-            <param name="exportParts">Export parts as building elements?</param>
-            <param name="exportSolid">Allow use of mixed "Solid Model" representation?</param>
-            <param name="activeViewGeometry">Use active view when creating geometry?</param>
-            <param name="familyAndType">Use family and type name for reference?</param>
-            <param name="roomBoundary">Use 2D room boundaries for room volume?</param>
-            <param name="siteElevation">Include IFCSITE elevation in the site local placement origin?</param>
-            <param name="storeGuid">Store the IFC GUID in an element parameter after export?</param>
-            <param name="boundingBox">Export bounding box?</param>
-            <param name="triangulation">Keep tessellated geometry as triangulation?</param>
-            <returns name="Setting">IFC export setting</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.IFC.Export(Autodesk.Revit.DB.Document,BIM.IFC.Export.UI.IFCExportConfiguration,Revit.Elements.Element,Revit.Elements.Element,System.String,System.Boolean)">
-            <summary>
-            Export to IFC. Require IFC exporter 19.1.0 or higher
-            https://sourceforge.net/projects/ifcexporter
-            . the export function includes a default IFC export setting!
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="setting">IFC export setting</param>
-            <param name="view">View as Dynamo type</param>
-            <param name="phase">Phase to export as Dynamo type</param>
-            <param name="file">The export file name incl. path</param>
-            <param name="overwrite">Overwrite existing file?</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Parameters.BuiltInParameter.Name(System.Int32)">
             <summary>
             Get the builtin parameter name
@@ -2143,49 +2304,6 @@
             <returns name="groupName">List of group names</returns>
             <returns name="type">List of types</returns>
         </member>
-        <member name="M:Orchid.RevitProject.PostCommand.AppDialogShowing(System.Object,Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs)">
-            The DialogBoxShowing event handler
-        </member>
-        <member name="M:Orchid.RevitProject.PostCommand.Purge(System.Boolean)">
-            <summary>
-            Purge document by Post Command.
-            Post commands can only take the current document to be run once. Re-run the
-            graph to re-activate the post command. To get back the "Purge" window inside
-            Revit, set the "activate" value to "false" and re-run the graph once more!
-            </summary>
-            <param name="activate">Set to true to activate (and false to deactivate)</param>
-        </member>
-        <member name="M:Orchid.RevitProject.Project.GetProjectLocation">
-            <summary>
-            Get project location
-            </summary>
-            <returns name="Origin">Origin as project location</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Project.SetProjectLocation(Revit.Elements.Element)">
-            <summary>
-            Set project location
-            </summary>
-            <param name="origin">Origin as project location</param>
-            <returns name="Origin">Origin as project location</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Project.AllLevels">
-            <summary>
-            Get all levels in the current document.
-            </summary>
-            <returns name="Level">The list of levels.</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Project.AllRevisions">
-            <summary>
-            Get all revisions in the current document.
-            </summary>
-            <returns name="Revision">The list of revisions.</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Project.AllRevisionClouds">
-            <summary>
-            Get all revision clouds in the current document.
-            </summary>
-            <returns name="RevisionCloud">The list of revision clouds.</returns>
-        </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.SeparateElements(Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId},Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId})">
             Find separate elements
         </member>
@@ -2193,23 +2311,16 @@
             Find matching elements
         </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.TransferElements(Autodesk.Revit.DB.Document,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId},Autodesk.Revit.DB.Document)">
-            Transfer a set of elements across documents.
+            Transfer a set of elements across Common.
         </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.TransferLinkedElements(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.RevitLinkInstance,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId},Autodesk.Revit.DB.Document)">
-            Transfer a set of elements across linked documents.
+            Transfer a set of elements across linked Common.
         </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.xTransferLinkedElements(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.RevitLinkInstance,System.Collections.Generic.ICollection{Autodesk.Revit.DB.ElementId},Autodesk.Revit.DB.Document)">
-            Transfer a set of elements across linked documents.
+            Transfer a set of elements across linked Common.
         </member>
         <member name="M:Orchid.RevitProject.DuplicateUtils.TransferDetalingElements(Autodesk.Revit.DB.View,Autodesk.Revit.DB.View)">
             Transfer all view-specific elements from source view to target view.
-        </member>
-        <member name="M:Orchid.RevitFamily.Document.LoadFamily(Autodesk.Revit.DB.Document)">
-            <summary>
-            Load family by file name, same core process as File.LoadFamily
-            </summary>
-            <param name="familyDocument">Family document as Revit document (rfa)</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Document.AddLookupTable(Autodesk.Revit.DB.Document,System.String)">
             <summary>
@@ -2478,7 +2589,7 @@
             </summary>
             <param name="familyDocument">Family document as Revit document (rfa)</param>
             <param name="parameterName">The name of the parameter to delete</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
+            <returns name="bool">bool value if parameter is deleted (if parameter existed)</returns>
         </member>
         <member name="M:Orchid.RevitFamily.Parameter.Convert(Autodesk.Revit.DB.Document,System.Collections.Generic.IList{System.String},System.Boolean)">
             <summary>
@@ -2605,52 +2716,52 @@
         </member>
         <member name="P:Orchid.Internals.Notifications.Array_Count_Mismatch">
             <summary>
-              Looks up a localized string similar to The number of sample locations and samples is not equal..
+              Looks up a localized string similar to The number of sample locations and samples is not equal.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.CannotGetBaseOrSurveyPoint">
             <summary>
-              Looks up a localized string similar to Cannot get base or survey point from document..
+              Looks up a localized string similar to Cannot get base or survey point from document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.CategoryArgumentException">
             <summary>
-              Looks up a localized string similar to You must supply a Category..
+              Looks up a localized string similar to You must supply a Category.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.CategoryNotFound">
             <summary>
-              Looks up a localized string similar to Invalid category..
+              Looks up a localized string similar to Invalid category.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.CategoryVisibilityOverrideError">
             <summary>
-              Looks up a localized string similar to Specified View Template is not valid for this View..
+              Looks up a localized string similar to Specified View Template is not valid for this View.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.DocumentDoesNotSupportGlobalParams">
             <summary>
-              Looks up a localized string similar to Document does not support global parameters..
+              Looks up a localized string similar to Document does not support global parameters.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.FamilyNotFound">
             <summary>
-              Looks up a localized string similar to A family with the specified name, {0}, could not be found in the document..
+              Looks up a localized string similar to A family with the specified name, {0}, could not be found in the document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.FamilySymbolNotFound1">
             <summary>
-              Looks up a localized string similar to A FamilySymbol with the specified name does not exist in the document..
+              Looks up a localized string similar to A FamilySymbol with the specified name does not exist in the document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.FamilySymbolNotFound2">
             <summary>
-              Looks up a localized string similar to A FamilySymbol with the specified name, {0}, does not exist in the Family..
+              Looks up a localized string similar to A FamilySymbol with the specified name, {0}, does not exist in the Family.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.FamilySymbolNotFound3">
             <summary>
-              Looks up a localized string similar to A FamilySymbol with the specified name, {0}, does not exist in the document..
+              Looks up a localized string similar to A FamilySymbol with the specified name, {0}, does not exist in the document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.FileNotFound">
@@ -2660,57 +2771,62 @@
         </member>
         <member name="P:Orchid.Internals.Notifications.InvalidCategory">
             <summary>
-              Looks up a localized string similar to The selected category is not valid in this document..
+              Looks up a localized string similar to The selected category is not valid in this document.
+            </summary>
+        </member>
+        <member name="P:Orchid.Internals.Notifications.InvalidElementLocation">
+            <summary>
+              Looks up a localized string similar to The location of the structural element is not a valid curve.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.InvalidFilterType">
             <summary>
-              Looks up a localized string similar to FilterType is not valid..
+              Looks up a localized string similar to FilterType is not valid.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.InvalidKeysErrorMessage">
             <summary>
-              Looks up a localized string similar to Looks up a localized string similar to One or more input types are not matching. Lists as keys are not supported..
+              Looks up a localized string similar to Looks up a localized string similar to One or more input types are not matching. Lists as keys are not supported.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.InvalidKeysLenghtErrorMessage">
             <summary>
-              Looks up a localized string similar to Looks up a localized string similar to Number of items does not match the number of keys..
+              Looks up a localized string similar to Looks up a localized string similar to Number of items does not match the number of keys.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.InvalidType">
             <summary>
-              Looks up a localized string similar to Type is not valid..
+              Looks up a localized string similar to Type is not valid.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.MaterialNotFound">
             <summary>
-              Looks up a localized string similar to A Material with the given name does not exist in the current Document..
+              Looks up a localized string similar to A Material with the given name does not exist in the current Document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NameAlreadyInUse">
             <summary>
-              Looks up a localized string similar to Name already in use..
+              Looks up a localized string similar to Name already in use.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NameArgumentException">
             <summary>
-              Looks up a localized string similar to You must supply a Name..
+              Looks up a localized string similar to You must supply a Name.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NoSharedParameterFileFound">
             <summary>
-              Looks up a localized string similar to No shared parameter file found..
+              Looks up a localized string similar to No shared parameter file found.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NoSharedParameterFound">
             <summary>
-              Looks up a localized string similar to shared parameter not found..
+              Looks up a localized string similar to shared parameter not found.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NoSharedParameterGroupFound">
             <summary>
-              Looks up a localized string similar to shared parameter group not found..
+              Looks up a localized string similar to shared parameter group not found.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NoSigmaBranch">
@@ -2725,12 +2841,12 @@
         </member>
         <member name="P:Orchid.Internals.Notifications.NotAdaptiveComponentError">
             <summary>
-              Looks up a localized string similar to The FamilyInstance is not an adaptive component..
+              Looks up a localized string similar to The FamilyInstance is not an adaptive component.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NotEnoughDataError">
             <summary>
-              Looks up a localized string similar to You need at least two elements for a dimension..
+              Looks up a localized string similar to You need at least two elements for a dimension.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NotPositiveIntegerError">
@@ -2740,7 +2856,7 @@
         </member>
         <member name="P:Orchid.Internals.Notifications.NotRevitFamily">
             <summary>
-              Looks up a localized string similar to Please run this command in a family document..
+              Looks up a localized string similar to Please run this command in a family document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.NoViewSheetSet">
@@ -2760,47 +2876,47 @@
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterGroupNotFound">
             <summary>
-              Looks up a localized string similar to Invalid parameter group..
+              Looks up a localized string similar to Invalid parameter group.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterNotFound">
             <summary>
-              Looks up a localized string similar to No parameter found by that name..
+              Looks up a localized string similar to No parameter found by that name.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterStorageNotElement">
             <summary>
-              Looks up a localized string similar to The parameter&apos;s storage type is not an Element..
+              Looks up a localized string similar to The parameter&apos;s storage type is not an Element.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterStorageNotInteger">
             <summary>
-              Looks up a localized string similar to The parameter&apos;s storage type is not an integer..
+              Looks up a localized string similar to The parameter&apos;s storage type is not an integer.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterStorageNotNumber">
             <summary>
-              Looks up a localized string similar to The parameter&apos;s storage type is not a number..
+              Looks up a localized string similar to The parameter&apos;s storage type is not a number.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterStorageNotString">
             <summary>
-              Looks up a localized string similar to The parameter&apos;s storage type is not a string..
+              Looks up a localized string similar to The parameter&apos;s storage type is not a string.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterTypeNotFound">
             <summary>
-              Looks up a localized string similar to Invalid parameter type..
+              Looks up a localized string similar to Invalid parameter type.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.ParameterWithoutStorageType">
             <summary>
-              Looks up a localized string similar to Parameter {0} has no storage type..
+              Looks up a localized string similar to Parameter {0} has no storage type.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.TypeNotFound">
             <summary>
-              Looks up a localized string similar to Type not found in document..
+              Looks up a localized string similar to Type not found in document.
             </summary>
         </member>
         <member name="P:Orchid.Internals.Notifications.VersionNotSupported">
@@ -2810,7 +2926,7 @@
         </member>
         <member name="P:Orchid.Internals.Notifications.ViewDoesNotSupportAnnotations">
             <summary>
-              Looks up a localized string similar to View does not support annotations..
+              Looks up a localized string similar to View does not support annotations.
             </summary>
         </member>
         <member name="M:Orchid.Internals.UnitConverter.InDynamoUnits``1(``0)">
