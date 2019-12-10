@@ -602,6 +602,12 @@
             <param name="save">Save opened document?</param>
             <returns name="watch">Add a watch node to verify the output</returns>
         </member>
+        <member name="M:Orchid.RevitProject.Common.Document.Opened">
+            <summary>
+            Get background opened documents
+            </summary>
+            <returns name="Document">Document as Revit type</returns>
+        </member>
         <member name="M:Orchid.RevitProject.Common.Document.Save(Autodesk.Revit.DB.Document,System.Boolean)">
             <summary>
             Save document
@@ -628,6 +634,45 @@
             <param name="overwrite">Overwrite existing document?</param>
             <param name="saveAsCentral">SaveAs central document?</param>
             <returns name="Document">Document as Revit type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.AllLevels">
+            <summary>
+            Get all levels in the current document.
+            </summary>
+            <returns name="Level">The list of levels.</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.LoadFamily(Autodesk.Revit.DB.Document)">
+            <summary>
+            Load family as document, existing family will be overwritten.
+            Same core process as File.LoadFamily.
+            </summary>
+            <param name="familyDocument">Family document (rfa) as Revit document</param>
+            <returns name="Family">Family</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.ImportImage(System.String,System.Boolean)">
+            <summary>
+            Import Image into document
+            </summary>
+            <param name="path">Image path including file name and extension</param>
+            <param name="overwrite">Overwrite existing images?</param>
+            <returns name="ImageType">ImageType</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.Info(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get document info
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="info">Document info</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.Purge(Autodesk.Revit.DB.Document,System.Boolean)">
+            <summary>
+            Purge document. Set "completely" to true for including materials and assets!
+            Please note "completely" purges also materials and materials assets that are
+            used in "peripheral" elements and settings. Among this is included materials/assets
+            bound to imported model elements, and materials/assets in settings like "Site" etc.
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="completely">Includes purging materials and assets</param>
         </member>
         <member name="M:Orchid.RevitProject.Common.Document.CopyDraftingView(Autodesk.Revit.DB.Document,Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
@@ -686,61 +731,6 @@
             <param name="overwrite">Copy only new or overwrite existing?</param>
             <returns name="Element">Transfered element</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Common.Document.ConvertToLink(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
-            <summary>
-            Convert link instance to link type
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="instance">Link instance as Dynamo type</param>
-            <returns name="Link">Revit link element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LinkedCadFile(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get external linked CAD file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="Link">CAD link element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LinkedFile(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get external linked file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="Link">External link element as Dynamo type</returns>
-            <returns name="Type">External link type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LinkedRevitFile(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get external linked Revit file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <returns name="Link">Revit link element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LinkReload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
-            <summary>
-            Reload external linked file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="link">External link element as Dynamo type</param>
-            <returns name="Link">External link element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LinkRepath(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element},System.String)">
-            <summary>
-            Repath external linked file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="link">External link element as Dynamo type</param>
-            <param name="file">File (path) to set (repath)</param>
-            <returns name="Link">External link element as Dynamo type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
-            <summary>
-            Unload external linked file in document
-            </summary>
-            <param name="document">Document as Revit type</param>
-            <param name="link">External link element as Dynamo type</param>
-            <returns name="Link">External link element as Dynamo type</returns>
-        </member>
         <member name="M:Orchid.RevitProject.Common.Document.ActiveView(Autodesk.Revit.DB.Document)">
             <summary>
             Get the active view in document
@@ -754,6 +744,14 @@
             </summary>
             <param name="view">View to open</param>
             <returns name="View">New active view</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+            <summary>
+            Set the starting view in the document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="view">The view to set</param>
+            <returns name="watch">Add a watch node to verify the output</returns>
         </member>
         <member name="M:Orchid.RevitProject.Common.Document.ContainCategory(System.Collections.IList)">
             <summary>
@@ -769,58 +767,86 @@
             <param name="type">Type to validate is contained in the document</param>
             <returns name="bool">List of boolean value</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Common.Document.AllLevels">
+        <member name="M:Orchid.RevitProject.Common.Link.ConvertToLink(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
             <summary>
-            Get all levels in the current document.
-            </summary>
-            <returns name="Level">The list of levels.</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.LoadFamily(Autodesk.Revit.DB.Document)">
-            <summary>
-            Load family as document, existing family will be overwritten.
-            Same core process as File.LoadFamily.
-            </summary>
-            <param name="familyDocument">Family document (rfa) as Revit document</param>
-            <returns name="Family">Family</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.ImportImage(System.String,System.Boolean)">
-            <summary>
-            Import Image into document
-            </summary>
-            <param name="path">Image path including file name and extension</param>
-            <param name="overwrite">Overwrite existing images?</param>
-            <returns name="ImageType">ImageType</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.Info(Autodesk.Revit.DB.Document)">
-            <summary>
-            Get document info
+            Convert link instance to link type
             </summary>
             <param name="document">Document as Revit type</param>
-            <returns name="info">Document info</returns>
+            <param name="instance">Link instance as Dynamo type</param>
+            <returns name="Link">Revit link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Common.Document.Opened">
+        <member name="M:Orchid.RevitProject.Common.Link.LinkReload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
             <summary>
-            Get background opened documents
-            </summary>
-            <returns name="Document">Document as Revit type</returns>
-        </member>
-        <member name="M:Orchid.RevitProject.Common.Document.Purge(Autodesk.Revit.DB.Document,System.Boolean)">
-            <summary>
-            Purge document. Set "completely" to true for including materials and assets!
-            Please note "completely" purges also materials and materials assets that are
-            used in "peripheral" elements and settings. Among this is included materials/assets
-            bound to imported model elements, and materials/assets in settings like "Site" etc.
+            Reload external linked file in document
             </summary>
             <param name="document">Document as Revit type</param>
-            <param name="completely">Includes purging materials and assets</param>
+            <param name="link">External link element as Dynamo type</param>
+            <returns name="Link">External link element as Dynamo type</returns>
         </member>
-        <member name="M:Orchid.RevitProject.Common.Document.SetStartingView(Autodesk.Revit.DB.Document,Revit.Elements.Element)">
+        <member name="M:Orchid.RevitProject.Common.Link.LinkRepath(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element},System.String)">
             <summary>
-            Set the starting view in the document
+            Repath external linked file in document
             </summary>
             <param name="document">Document as Revit type</param>
-            <param name="view">The view to set</param>
-            <returns name="watch">Add a watch node to verify the output</returns>
+            <param name="link">External link element as Dynamo type</param>
+            <param name="file">File (path) to set (repath)</param>
+            <returns name="Link">External link element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Link.LinkUnload(Autodesk.Revit.DB.Document,System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Unload external linked file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="link">External link element as Dynamo type</param>
+            <returns name="Link">External link element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Link.LinkRevitFile(Autodesk.Revit.DB.Document,System.String,Autodesk.DesignScript.Geometry.Vector,System.Boolean)">
+            <summary>
+            Link external revit file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="file">File (path) to link</param>
+            <param name="location">Origin as project location</param>
+            <param name="relative">Link revit file relative?</param>
+            <returns name="Instance">Link instance as Dynamo type</returns>
+             <returns name="Link">CAD link element as Dynamo type</returns>
+            <returns></returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Link.LinkCadFile(Autodesk.Revit.DB.Document,System.String,Revit.Elements.Element,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Link external cad file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <param name="file">File (path) to link</param>
+            <param name="view">View to attach the link</param>
+            <param name="orientToView">Orient the link to view?</param>
+            <param name="thisViewOnly">Link to this view only?</param>
+            <param name="visibleLayersOnly">Link to the visible layers only?</param>
+            <returns name="Instance">Link instance as Dynamo type</returns>
+             <returns name="Link">CAD link element as Dynamo type</returns>
+            <returns></returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Link.LinkedFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="Link">External link element as Dynamo type</returns>
+            <returns name="Type">External link type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Link.LinkedRevitFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked revit file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="Link">Revit link element as Dynamo type</returns>
+        </member>
+        <member name="M:Orchid.RevitProject.Common.Link.LinkedCadFile(Autodesk.Revit.DB.Document)">
+            <summary>
+            Get external linked cad file in document
+            </summary>
+            <param name="document">Document as Revit type</param>
+            <returns name="Link">CAD link element as Dynamo type</returns>
         </member>
         <member name="M:Orchid.RevitProject.Common.RevisionCloud.All">
             <summary>
@@ -2172,6 +2198,7 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <param name="vary">Vary parameter between groups</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+            <returns name="Parameter">Parameter</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AddSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
@@ -2187,6 +2214,7 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <param name="vary">Vary parameter between groups</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+            <returns name="Parameter">Parameter</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.CreateSharedParameter(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Revit.Elements.Category})">
             <summary>
@@ -2202,12 +2230,14 @@
             <param name="instance">Is instance parameter, otherwise it's a type parameter</param>
             <param name="vary">Vary parameter between groups</param>
             <param name="category">Category(ies) the parameter applies to, If no category is supplied, all possible categories are selected</param>
+            <returns name="Parameter">Parameter</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.AddIfcParameters(System.Collections.Generic.IList{Autodesk.Revit.DB.Document})">
             <summary>
             Add basic IFC parameters in the project (IfcExportAs, IfcExportType, IfcDescription, IFC CAD Layer)
             </summary>
             <param name="document">Document as Revit type</param>
+            <returns name="Parameter">Parameter</returns>
         </member>
         <member name="M:Orchid.RevitProject.Parameters.Parameter.Name(System.Int32)">
             <summary>
