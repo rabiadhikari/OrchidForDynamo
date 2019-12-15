@@ -888,45 +888,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.Element.Delete@var,Revit.Elements.Element[]",
-      "Id": "0d7d9db10f1745c78e08fef61d5c05e8",
-      "Inputs": [
-        {
-          "Id": "eaf10e7d5f0d4074a29fe217e1bb8a7d",
-          "Name": "document",
-          "Description": "Document as Revit type\n\nvar\nDefault value : null",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "4b7b14e0673841d1990e80dafa5c5454",
-          "Name": "element",
-          "Description": "Element as Dynamo type\n\nElement[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "c3c821dd9b0b456cb14da1b23d34a88d",
-          "Name": "watch",
-          "Description": "Add a watch node to verify the output",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Delete elements, in a document\n\nElement.Delete (document: var = null, element: Element[]): bool"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
       "Id": "ad534d0ed6bb420f950bc2c1800466e8",
       "Inputs": [
@@ -1098,8 +1059,8 @@
       "Outputs": [
         {
           "Id": "fe48cf26ee6242149107310111c8e225",
-          "Name": "value",
-          "Description": "Load value as double",
+          "Name": "Element",
+          "Description": "Element as Dynamo type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1245,6 +1206,56 @@
       ],
       "Replication": "Auto",
       "Description": "Obtain the value at a specified key\n\nDictionary.ValueAtKey (key: string): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "false;",
+      "Id": "8a2bbdbe4065468094c9e44414d538df",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ddfff654bbcb4e2089296a09716c26a4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Elements.Element.Delete@Revit.Elements.Element",
+      "Id": "0278435e30834405a19f0915a4a890dc",
+      "Inputs": [
+        {
+          "Id": "2f8adc4243224d76bc8436c56997eb1f",
+          "Name": "element",
+          "Description": "Element as Dynamo type\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "be81166d0f574982a1cc1ee6b0f6a1e6",
+          "Name": "bool",
+          "Description": "bool value if element is deleted (if element existed)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Delete elements\n\nElement.Delete (element: Element): bool"
     }
   ],
   "Connectors": [
@@ -1335,8 +1346,8 @@
     },
     {
       "Start": "9adb156b410145a5bf3f5e08c4a0896d",
-      "End": "eaf10e7d5f0d4074a29fe217e1bb8a7d",
-      "Id": "22f6bbb7be3a4ef2942a2e46c821fb22"
+      "End": "2f8adc4243224d76bc8436c56997eb1f",
+      "Id": "39dc3970a5cf4de1b33e35e5f4c00c4c"
     },
     {
       "Start": "7406dd22b4e44a42abf98301b7d26c99",
@@ -1414,11 +1425,6 @@
       "Id": "7cb930116c5b4d23abf0d1728482011a"
     },
     {
-      "Start": "c3c821dd9b0b456cb14da1b23d34a88d",
-      "End": "b3951310493f491d98bfbacd4ca97954",
-      "Id": "ecb5f2c0a25748f4ab42ba19a0a91c70"
-    },
-    {
       "Start": "423ba0b2c5a0470ea9002624374bec55",
       "End": "611d525333ad431d8885dbb046d9d54f",
       "Id": "641d08cd1a1243b98bdabc779da2a097"
@@ -1467,6 +1473,16 @@
       "Start": "e0fa7e79adea4d229cd5c2df0e7d3b41",
       "End": "35b3d031b6354d7da4a5d05520366dd0",
       "Id": "43101381377848f1a05f9e7c52fc871c"
+    },
+    {
+      "Start": "ddfff654bbcb4e2089296a09716c26a4",
+      "End": "77b354c70d9445398a67132d942febb5",
+      "Id": "4fb099cdfff94e828bad827fed85d697"
+    },
+    {
+      "Start": "be81166d0f574982a1cc1ee6b0f6a1e6",
+      "End": "b3951310493f491d98bfbacd4ca97954",
+      "Id": "05f9bee61e134bb3b93ce5e0e8a52e8c"
     }
   ],
   "Dependencies": [],
@@ -1510,8 +1526,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 812.854980341943,
-        "Y": 146.657202545132
+        "X": 814.87401691897708,
+        "Y": 148.96467291888513
       },
       {
         "ShowGeometry": true,
@@ -1520,8 +1536,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 577.854980341943,
-        "Y": 264.657202545132
+        "X": 579.87401691897708,
+        "Y": 266.96467291888513
       },
       {
         "ShowGeometry": true,
@@ -1540,8 +1556,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1142.85498034194,
-        "Y": 211.657202545132
+        "X": 1144.8740169189741,
+        "Y": 213.96467291888513
       },
       {
         "ShowGeometry": true,
@@ -1550,8 +1566,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 812.854980341943,
-        "Y": 306.870535878465
+        "X": 814.87401691897708,
+        "Y": 348.89644797492377
       },
       {
         "ShowGeometry": true,
@@ -1560,8 +1576,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 1420.85498034194,
-        "Y": 211.657202545132
+        "X": 1422.8740169189741,
+        "Y": 213.96467291888513
       },
       {
         "ShowGeometry": true,
@@ -1750,8 +1766,8 @@
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 326.854980341943,
-        "Y": 72.6572025451314
+        "X": 328.87401691897708,
+        "Y": 74.9646729188845
       },
       {
         "ShowGeometry": true,
@@ -1760,8 +1776,8 @@
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 577.854980341943,
-        "Y": 180.657202545131
+        "X": 579.87401691897708,
+        "Y": 182.96467291888413
       },
       {
         "ShowGeometry": true,
@@ -1772,16 +1788,6 @@
         "Excluded": false,
         "X": 3706.43328700856,
         "Y": 908.009482508157
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Element.Delete",
-        "Id": "0d7d9db10f1745c78e08fef61d5c05e8",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 3387.08322306139,
-        "Y": 1131.6915222196
       },
       {
         "ShowGeometry": true,
@@ -1850,8 +1856,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 579.259168836826,
-        "Y": 72.0727147321892
+        "X": 581.27820541386006,
+        "Y": 74.3801851059423
       },
       {
         "ShowGeometry": true,
@@ -1872,6 +1878,26 @@
         "Excluded": false,
         "X": 2349.70741008745,
         "Y": 265.686753984184
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "8a2bbdbe4065468094c9e44414d538df",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 579.87401691897708,
+        "Y": 348.89644797492377
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Delete",
+        "Id": "0278435e30834405a19f0915a4a890dc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3387.08322306139,
+        "Y": 1131.6915222196
       }
     ],
     "Annotations": [
@@ -1940,12 +1966,12 @@
         "Nodes": [
           "cf0ffd6ced694467a8d096b517ab4705",
           "609a38a67fba4eefbbad1d87e8a4e863",
-          "0d7d9db10f1745c78e08fef61d5c05e8"
+          "0278435e30834405a19f0915a4a890dc"
         ],
         "Left": 2745.08322306139,
         "Top": 1085.6915222196,
-        "Width": 869.0,
-        "Height": 165.0,
+        "Width": 848.0,
+        "Height": 139.0,
         "FontSize": 30.0,
         "InitialTop": 1131.6915222196,
         "InitialHeight": 145.0,
@@ -1963,15 +1989,16 @@
           "2675f68541f644c2b19f131e1ca5c049",
           "c15a3a899ad54acb90f5728e55273c14",
           "a385be7e9d8c4e1e91d9b73f2ff71ff8",
-          "0b90b02f5ad44ce48a487afe6d79c49d"
+          "0b90b02f5ad44ce48a487afe6d79c49d",
+          "8a2bbdbe4065468094c9e44414d538df"
         ],
-        "Left": 316.854980341943,
-        "Top": 26.072714732189198,
+        "Left": 318.87401691897708,
+        "Top": 28.380185105942303,
         "Width": 1280.999999999997,
-        "Height": 373.79782114627579,
+        "Height": 413.51626286898147,
         "FontSize": 30.0,
-        "InitialTop": 72.0727147321892,
-        "InitialHeight": 379.79782114627579,
+        "InitialTop": 74.3801851059423,
+        "InitialHeight": 419.51626286898147,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -2019,8 +2046,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 148.98220886192757,
-    "Y": 270.39580237377862,
-    "Zoom": 0.26549769862321337
+    "X": 149.79361884176714,
+    "Y": 269.99924011565736,
+    "Zoom": 0.2673082842926835
   }
 }

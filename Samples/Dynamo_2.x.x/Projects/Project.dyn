@@ -4,7 +4,24 @@
   "Description": "",
   "Name": "Project",
   "ElementResolver": {
-    "ResolutionMap": {}
+    "ResolutionMap": {
+      "Autodesk.Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
   },
   "Inputs": [],
   "Outputs": [],
@@ -144,8 +161,8 @@
       "Inputs": [
         {
           "Id": "8f75176e872a436d8606b8bfa26d083b",
-          "Name": "origin",
-          "Description": "Origin as project location\n\nElement",
+          "Name": "location",
+          "Description": "Project location\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -155,8 +172,8 @@
       "Outputs": [
         {
           "Id": "45b6117676f34f3fb4bd17e9b7a0384a",
-          "Name": "Origin",
-          "Description": "Origin as project location",
+          "Name": "Location",
+          "Description": "Project location",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -164,7 +181,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set project location\n\nLocation.Set (origin: Element): var[]..[]"
+      "Description": "Set project location\n\nLocation.Set (location: Element): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -175,8 +192,8 @@
       "Outputs": [
         {
           "Id": "a5fb0b2f4b9741b388d27d6ff46a9ef9",
-          "Name": "Origin",
-          "Description": "Origin as project location",
+          "Name": "Location",
+          "Description": "Project location",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -184,7 +201,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get project location\n\nLocation.Get ( ): var[]..[]"
+      "Description": "Get current project location\n\nLocation.Get ( ): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -244,6 +261,124 @@
       ],
       "Replication": "Auto",
       "Description": "Get the Name of the Element\n\nElement.Name: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Location.GetVector@Revit.Elements.Element",
+      "Id": "c870d53ab7334ee39e0d216ab83b2457",
+      "Inputs": [
+        {
+          "Id": "c0d2d35da21943d8b4f542768bc8e255",
+          "Name": "location",
+          "Description": "Project location\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8bc6d15c19f144538fa7e9dcb00fd672",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the vector from a project location\n\nLocation.GetVector (location: Element): Vector"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "069f2cbc082a40ad99e8eef7d6f9e99c",
+      "Inputs": [
+        {
+          "Id": "38bc150b32e64b8ea46a365a2fd1cd43",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ef9cd77869bb4efa84979fb4ef594d42",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Location.GetPoint@Revit.Elements.Element",
+      "Id": "a9aaef77ebe6437ea9af1703c70ca1cb",
+      "Inputs": [
+        {
+          "Id": "964869c3373a4ae181591251321fa2f2",
+          "Name": "location",
+          "Description": "Project location\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1699c55e481f4cc989239b006d244613",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the point from a project location\n\nLocation.GetPoint (location: Element): Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "148ddef6d5914e2c9fe94f31a7a47670",
+      "Inputs": [
+        {
+          "Id": "dec09adc9cb7475d870fd559324abc00",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "40dc1e07169f4203bded19d6e7e64cf5",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
     }
   ],
   "Connectors": [
@@ -251,6 +386,16 @@
       "Start": "95c97a91c5f74dec927db7340d12fb9a",
       "End": "8f75176e872a436d8606b8bfa26d083b",
       "Id": "61528cf743cd418b8d8169fea754e0b4"
+    },
+    {
+      "Start": "95c97a91c5f74dec927db7340d12fb9a",
+      "End": "c0d2d35da21943d8b4f542768bc8e255",
+      "Id": "ed648260e395448681135927b1c63192"
+    },
+    {
+      "Start": "95c97a91c5f74dec927db7340d12fb9a",
+      "End": "964869c3373a4ae181591251321fa2f2",
+      "Id": "8637bc7fc7854a2586c67f4d5b500a81"
     },
     {
       "Start": "1c5898dd49574a478efd9da76ce5ea4e",
@@ -276,6 +421,16 @@
       "Start": "c234e1ceebb14c30a81559490c09a726",
       "End": "4441b038b9ea4fd2900b2d560d3fd64e",
       "Id": "45a349012d66475b9373de452fdbbcc5"
+    },
+    {
+      "Start": "8bc6d15c19f144538fa7e9dcb00fd672",
+      "End": "38bc150b32e64b8ea46a365a2fd1cd43",
+      "Id": "e1627cbf5c7846f782b6d1878800071a"
+    },
+    {
+      "Start": "1699c55e481f4cc989239b006d244613",
+      "End": "dec09adc9cb7475d870fd559324abc00",
+      "Id": "f767527f3a5d4ede80bf8114ddaff6d6"
     }
   ],
   "Dependencies": [],
@@ -309,8 +464,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 287.322889516099,
-        "Y": 384.664716465782
+        "X": 286.65332484952529,
+        "Y": 85.13656459621096
       },
       {
         "ShowGeometry": true,
@@ -319,8 +474,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 550.38528630929954,
-        "Y": 645.67770280914624
+        "X": 578.36914180306792,
+        "Y": 594.1087662128748
       },
       {
         "ShowGeometry": true,
@@ -329,8 +484,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 502.99000096261614,
-        "Y": 776.8869310464695
+        "X": 578.36914180306792,
+        "Y": 781.77260785906651
       },
       {
         "ShowGeometry": true,
@@ -339,8 +494,8 @@
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 10.385286309299545,
-        "Y": 645.67770280914624
+        "X": 10.369141803067947,
+        "Y": 470.10876621287485
       },
       {
         "ShowGeometry": true,
@@ -349,8 +504,8 @@
         "IsSetAsInput": true,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 10.322889516099394,
-        "Y": 384.664716465782
+        "X": 9.6533248495257169,
+        "Y": 85.13656459621096
       },
       {
         "ShowGeometry": true,
@@ -359,8 +514,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 259.38528630929954,
-        "Y": 645.67770280914624
+        "X": 259.36914180306792,
+        "Y": 594.1087662128748
       },
       {
         "ShowGeometry": true,
@@ -369,8 +524,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 9.9900009626161363,
-        "Y": 841.8869310464695
+        "X": 16.561325442052436,
+        "Y": 846.77260785906651
       },
       {
         "ShowGeometry": true,
@@ -379,8 +534,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 502.99000096261614,
-        "Y": 906.8869310464695
+        "X": 578.36914180306792,
+        "Y": 911.77260785906651
       },
       {
         "ShowGeometry": true,
@@ -389,8 +544,48 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 199.99000096261614,
-        "Y": 906.8869310464695
+        "X": 259.36914180306792,
+        "Y": 911.77260785906651
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Location.GetVector",
+        "Id": "c870d53ab7334ee39e0d216ab83b2457",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 259.36914180306792,
+        "Y": 346.10876621287485
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "069f2cbc082a40ad99e8eef7d6f9e99c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 578.36914180306792,
+        "Y": 346.10876621287485
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Location.GetPoint",
+        "Id": "a9aaef77ebe6437ea9af1703c70ca1cb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 259.36914180306792,
+        "Y": 470.10876621287485
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "148ddef6d5914e2c9fe94f31a7a47670",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 578.36914180306792,
+        "Y": 470.10876621287485
       }
     ],
     "Annotations": [
@@ -401,13 +596,13 @@
           "a6aeae73e5db4367b9d97ff961733d3b",
           "05ba698f7656482c97fa855152f92c51"
         ],
-        "Left": 0.32288951609939431,
-        "Top": 338.664716465782,
-        "Width": 398.9999999999996,
+        "Left": -0.3466751504742831,
+        "Top": 39.13656459621096,
+        "Width": 398.99999999999955,
         "Height": 161.0,
         "FontSize": 30.0,
-        "InitialTop": 384.664716465782,
-        "InitialHeight": 345.960914955391,
+        "InitialTop": 85.13656459621096,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -421,21 +616,25 @@
           "ecd30666e5684d68b699da173f30d7bc",
           "86aa5b881871442abf45d24b4aac8613",
           "2b9acbad9b094e878651108e71114743",
-          "60f0c673924d40aab9e0e6e3b39e2272"
+          "60f0c673924d40aab9e0e6e3b39e2272",
+          "069f2cbc082a40ad99e8eef7d6f9e99c",
+          "c870d53ab7334ee39e0d216ab83b2457",
+          "a9aaef77ebe6437ea9af1703c70ca1cb",
+          "148ddef6d5914e2c9fe94f31a7a47670"
         ],
-        "Left": -0.0099990373838636515,
-        "Top": 599.67770280914624,
-        "Width": 748.39528534668341,
-        "Height": 416.20922823732326,
+        "Left": 0.36914180306794719,
+        "Top": 300.10876621287485,
+        "Width": 878.0,
+        "Height": 720.66384164619171,
         "FontSize": 30.0,
-        "InitialTop": 645.67770280914624,
-        "InitialHeight": 231.544719924841,
+        "InitialTop": 346.10876621287485,
+        "InitialHeight": 710.66384164619171,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       }
     ],
-    "X": 20.618884009968351,
-    "Y": -168.05152467613044,
-    "Zoom": 0.93905055916781055
+    "X": 47.320038813170534,
+    "Y": -51.193761924147253,
+    "Zoom": 0.95368849223874852
   }
 }

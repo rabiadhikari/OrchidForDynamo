@@ -2,7 +2,7 @@
   "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
   "IsCustomNode": false,
   "Description": "",
-  "Name": "Workset_beta",
+  "Name": "Workset",
   "ElementResolver": {
     "ResolutionMap": {}
   },
@@ -106,36 +106,6 @@
       ],
       "Replication": "Auto",
       "Description": "Get all workset in the current document.\n\nWorkset.All ( ): var[]..[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Common.Workset.Guid",
-      "Id": "c5ee865d9b7648048af72283ab6c1852",
-      "Inputs": [
-        {
-          "Id": "d785e0262dbc43259641175fc1797368",
-          "Name": "workset",
-          "Description": "Orchid.RevitProject.Common.Workset",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "4c1890b5121a4cb4acb07ecf28e22214",
-          "Name": "string",
-          "Description": "Guid as string",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Workset Guid\n\nWorkset.Guid: string"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1252,6 +1222,36 @@
       ],
       "Replication": "Disabled",
       "Description": "Dropdown for user Worksets in document"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Workset.UniqueId",
+      "Id": "f5bee1091b114f29b7326de697845917",
+      "Inputs": [
+        {
+          "Id": "d57863aad94541b792abffb5f23d1063",
+          "Name": "workset",
+          "Description": "Orchid.RevitProject.Common.Workset",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a3f5e3e88ee040829001766879633a46",
+          "Name": "string",
+          "Description": "UniqueId as string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Workset UniqueId\n\nWorkset.UniqueId: string"
     }
   ],
   "Connectors": [
@@ -1272,11 +1272,6 @@
     },
     {
       "Start": "591c2910e1e44c54ab86c3aab22c8430",
-      "End": "d785e0262dbc43259641175fc1797368",
-      "Id": "a674cc2ed3e744e0beda901e930a53ce"
-    },
-    {
-      "Start": "591c2910e1e44c54ab86c3aab22c8430",
       "End": "c096813ef27841f4a74c206c2560ec39",
       "Id": "c8dd06277ee440fa8be42e7f0060e438"
     },
@@ -1291,9 +1286,9 @@
       "Id": "55d4eae678b840ea8f72ef98230a1767"
     },
     {
-      "Start": "4c1890b5121a4cb4acb07ecf28e22214",
-      "End": "d6924b04e4974ef3bf86264abe2604c1",
-      "Id": "4e3bcf2da2e1429eab4a3345d19b69ad"
+      "Start": "591c2910e1e44c54ab86c3aab22c8430",
+      "End": "d57863aad94541b792abffb5f23d1063",
+      "Id": "6dd4507d245c4b68a3a5e00e636b9aaa"
     },
     {
       "Start": "4c0223f0536f4344824317aec351c3f4",
@@ -1434,6 +1429,11 @@
       "Start": "3f0b72618aa24f77a79e32aab5d52754",
       "End": "16bc2561f46943309d8c83564e316553",
       "Id": "24e7886a4ae54584a9ae3515e004bbbc"
+    },
+    {
+      "Start": "a3f5e3e88ee040829001766879633a46",
+      "End": "d6924b04e4974ef3bf86264abe2604c1",
+      "Id": "a50e2516ab754493855a82809a39b388"
     }
   ],
   "Dependencies": [],
@@ -1502,16 +1502,6 @@
       },
       {
         "ShowGeometry": true,
-        "Name": "Workset.Guid",
-        "Id": "c5ee865d9b7648048af72283ab6c1852",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 5012.9963115640921,
-        "Y": 853.38573070369341
-      },
-      {
-        "ShowGeometry": true,
         "Name": "Workset.Id",
         "Id": "bb2bffd893ec40f89e250d938d1d0b1f",
         "IsSetAsInput": false,
@@ -1577,8 +1567,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4180.2659821415655,
-        "Y": 552.7454690570147
+        "X": 4110.7146921613894,
+        "Y": 553.28236105177916
       },
       {
         "ShowGeometry": true,
@@ -1616,7 +1606,7 @@
         "Id": "94a456243c084862a8c3c53d2e7768ba",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Excluded": true,
+        "Excluded": false,
         "X": 5048.9167126604862,
         "Y": 61.584547224178777
       },
@@ -1857,8 +1847,18 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3910.0833735022884,
-        "Y": 553.47960726134863
+        "X": 3840.5320835221123,
+        "Y": 554.01649925611309
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Workset.UniqueId",
+        "Id": "f5bee1091b114f29b7326de697845917",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 5012.9963115640921,
+        "Y": 853.38573070369341
       }
     ],
     "Annotations": [
@@ -1877,7 +1877,7 @@
         ],
         "Left": 4500.0301793056378,
         "Top": 8.5845472241787775,
-        "Width": 1061.5949390874139,
+        "Width": 1095.105632943455,
         "Height": 690.91967161947514,
         "FontSize": 36.0,
         "InitialTop": 61.584547224178777,
@@ -1956,14 +1956,14 @@
           "d2c6c0a1358849de80dbc25bfe08f3d4",
           "37e674bdd5d24507a155813d33138a2a",
           "e1ea441bb8454733ad8ba7bf2556f31e",
-          "c5ee865d9b7648048af72283ab6c1852",
           "bb2bffd893ec40f89e250d938d1d0b1f",
           "da1c8aaefca1440e9708d8a32b144328",
           "73996ea6a3cb4cc3a7d6b83ae77e2805",
           "c97af2eafd84409d818f231bbbbb7c22",
           "51ed103391a845c394307acc78998f48",
           "abcd8f78ecdb44bc94aa23ffd9c39dbf",
-          "0871de2899d044be9f5ec6da76a5420d"
+          "0871de2899d044be9f5ec6da76a5420d",
+          "f5bee1091b114f29b7326de697845917"
         ],
         "Left": 4499.9963115640921,
         "Top": 800.38573070369341,
@@ -1982,19 +1982,19 @@
           "d9628b7df7ca4a13be65511feea208da",
           "537fed91ea1049b999b2bd2b647a2b47"
         ],
-        "Left": 3900.0833735022884,
-        "Top": 499.7454690570147,
-        "Width": 405.18260863927708,
+        "Left": 3830.5320835221123,
+        "Top": 500.28236105177916,
+        "Width": 569.18260863927708,
         "Height": 162.0,
         "FontSize": 36.0,
-        "InitialTop": 552.7454690570147,
+        "InitialTop": 553.28236105177916,
         "InitialHeight": 145.73413820433393,
         "TextblockHeight": 43.0,
         "Background": "#FFA4E1FF"
       }
     ],
-    "X": -515.37557236489829,
-    "Y": 270.88300189226629,
-    "Zoom": 0.21729559012765393
+    "X": -1127.5745334885723,
+    "Y": 13.50898273070554,
+    "Zoom": 0.48530640145422976
   }
 }

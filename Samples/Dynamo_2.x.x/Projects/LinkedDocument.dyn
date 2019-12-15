@@ -12,6 +12,14 @@
       "Autodesk.DesignScript.Geometry.Vector": {
         "Key": "Autodesk.DesignScript.Geometry.Vector",
         "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
       }
     }
   },
@@ -1053,90 +1061,6 @@
       "Replication": "Disabled"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkCadFile@var,string,Revit.Elements.Element,bool,bool,bool",
-      "Id": "75b45938d53646c2b18fe2b10643a085",
-      "Inputs": [
-        {
-          "Id": "e0ce074d6ae64600aa2654b60608e3d7",
-          "Name": "document",
-          "Description": "Document as Revit type\n\nvar\nDefault value : null",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "1fdc236b7a0e49dd83644022a232ec47",
-          "Name": "file",
-          "Description": "File (path) to link\n\nstring",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "c823ce3e63a2448f9c667a3778eeed3a",
-          "Name": "view",
-          "Description": "View to attach the link\n\nElement",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "16ac3d8146a843f1a8ea1b5e0174216d",
-          "Name": "orientToView",
-          "Description": "Orient the link to view?\n\nbool\nDefault value : true",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "25e5bfd228d34b019be3b0abc9086ae4",
-          "Name": "thisViewOnly",
-          "Description": "Link to this view only?\n\nbool\nDefault value : true",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "c129619be241455faa842c0ced8ee6d6",
-          "Name": "visibleLayersOnly",
-          "Description": "Link to the visible layers only?\n\nbool\nDefault value : true",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "ad370065ff4e492689cc07d6a0040a09",
-          "Name": "Instance",
-          "Description": "Link instance as Dynamo type",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "aab6122cfaf747338a269bf16e14fe62",
-          "Name": "Link",
-          "Description": "CAD link element as Dynamo type",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Link external cad file in document\n\nLink.LinkCadFile (document: var = null, file: string, view: Element, orientToView: bool = true, thisViewOnly: bool = true, visibleLayersOnly: bool = true): var[]..[]"
-    },
-    {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
       "InputValue": ".\\Drawing1.dwg",
@@ -1242,7 +1166,7 @@
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "c9a6afd985894e9fb4d30849b3597962",
+          "Id": "556163d354e64085af8b699fbfa14b1f",
           "Name": "",
           "Description": "Value of expression at line 1",
           "UsingDefaultValue": false,
@@ -1257,55 +1181,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ByCoordinates@double,double,double",
-      "Id": "01c1571191c543fc87318c950693d413",
-      "Inputs": [
-        {
-          "Id": "eb3e2e7a52274dec837f6cbd7fca7e50",
-          "Name": "x",
-          "Description": "X coordinate\n\ndouble\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "f02045ef59a247658411bc62829d0bfe",
-          "Name": "y",
-          "Description": "Y coordinate\n\ndouble\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "32c0f987759d4a618711326c9cff04a2",
-          "Name": "z",
-          "Description": "Z coordinate\n\ndouble\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "d6d709db0e16466e8623a8a7da9b7b7f",
-          "Name": "Vector",
-          "Description": "Vector",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Form a Vector by 3 Euclidean coordinates\n\nVector.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Vector"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkRevitFile@var,string,Autodesk.DesignScript.Geometry.Vector,bool",
+      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkRevitFile@var,string,string,bool,Autodesk.DesignScript.Geometry.Point,string,bool",
       "Id": "e1fcbf1b363e4beabda94caabe7ca224",
       "Inputs": [
         {
@@ -1328,8 +1204,8 @@
         },
         {
           "Id": "42fc6669ae2c4823bb5a1ab77e780b65",
-          "Name": "location",
-          "Description": "Origin as project location\n\nVector\nDefault value : Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 0)",
+          "Name": "positioning",
+          "Description": "Link positioning\n\nstring\nDefault value : \"Origin\"",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1337,6 +1213,33 @@
         },
         {
           "Id": "4fbe26d74e9b4adba604a4d19cca24f4",
+          "Name": "atBasePoint",
+          "Description": "Link revit file at base point?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "edb22abdcace485dabbda97097bf9a24",
+          "Name": "referencePoint",
+          "Description": "Reference point for the file\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3ba01ac987d94c64a2f9ae8141e081e4",
+          "Name": "attachmentType",
+          "Description": "Link attachment type\n\nstring\nDefault value : Overlay",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "298acb2fdacf4a169e66351489cfcca0",
           "Name": "relative",
           "Description": "Link revit file relative?\n\nbool\nDefault value : true",
           "UsingDefaultValue": true,
@@ -1366,7 +1269,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Link external revit file in document\n\nLink.LinkRevitFile (document: var = null, file: string, location: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 0), relative: bool = true): var[]..[]"
+      "Description": "Link external revit file in document\n\nLink.LinkRevitFile (document: var = null, file: string, positioning: string = \"Origin\", atBasePoint: bool = false, referencePoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), attachmentType: string = Overlay, relative: bool = true): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -1449,7 +1352,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
       "NodeType": "BooleanInputNode",
-      "InputValue": false,
+      "InputValue": true,
       "Id": "db7bcb7740fc49cca4b42f61f3ed0d96",
       "Inputs": [],
       "Outputs": [
@@ -1485,6 +1388,1188 @@
       ],
       "Replication": "Disabled",
       "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "-1000;",
+      "Id": "fcae4a0bbb644a7cbed74de50e731a89",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d57c9956703d492b96b44b98e0d3132d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Common.Location.Unit, OrchidRE",
+      "SelectedIndex": 1,
+      "NodeType": "ExtensionNode",
+      "Id": "d8648b7081644b35b23c67f81d6d886b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "05a84587eedd4c4c8efd77c4036c4423",
+          "Name": "Unit",
+          "Description": "The selected Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for import unit"
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Common.Location.Positioning, OrchidRE",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "a757f58f36a34879adbfc184873e7aff",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6c6a83c1dcce4d51a8d6c02140f444cd",
+          "Name": "Placement",
+          "Description": "The selected Placement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for project positioning"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "004fa29eb4484484b63b0b6331fb1745",
+      "Inputs": [
+        {
+          "Id": "1da238d8fb894666b26ed5f685dc8aa3",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "de2f9e68ee4f4fe9a2cee96cf06ef98e",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3c679f3c7c4441cab89d01d08274c01c",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2e0402a119ac45e58632fe4f8d5b4e41",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkCadFile@var,string,Autodesk.DesignScript.Geometry.Point,bool,Revit.Elements.Element,bool,bool",
+      "Id": "39f033634cf248ee8cfd22dad74a797c",
+      "Inputs": [
+        {
+          "Id": "6ebec163851041279ed51fc2e562d381",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f8e913deef874de29d4473cd49e2e95c",
+          "Name": "file",
+          "Description": "File (path) to link\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d7610d331f944d729cfaec30edf32c8f",
+          "Name": "referencePoint",
+          "Description": "Reference point for the file\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "375b6e8a5e52464fa7bf01b9492da59c",
+          "Name": "visibleLayersOnly",
+          "Description": "Link to the visible layers only?\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "99746974464b455a9ad738a8253b43b4",
+          "Name": "view",
+          "Description": "Place the link at view (if orient to view is set to true)\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "89bfa51eda734cc89f14e92294ced7d3",
+          "Name": "orientToView",
+          "Description": "Orient the link to view?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c8a0fb6037be45cbbd243e60d89ec665",
+          "Name": "thisViewOnly",
+          "Description": "Link to this view only?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a8bcc35d7cac42948ba9673d3d3e45d3",
+          "Name": "Instance",
+          "Description": "Link instance as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "615ff4a46e61478ca5db533bc91b7731",
+          "Name": "Link",
+          "Description": "CAD link element as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link external cad file in document\n\nLink.LinkCadFile (document: var = null, file: string, referencePoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), visibleLayersOnly: bool = true, view: Element, orientToView: bool = false, thisViewOnly: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkCadFile@var,string,string,string,string,Autodesk.DesignScript.Geometry.Point,bool,Revit.Elements.Element,bool,bool",
+      "Id": "ce1182a2ba5f439589c99e7b048ac514",
+      "Inputs": [
+        {
+          "Id": "282443ce063a4cda8a5679c3c6140f51",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "07598f3a2b424279b881c6c2dd30888d",
+          "Name": "file",
+          "Description": "File (path) to link\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a041faa00a274ed39531096eef21e334",
+          "Name": "positioning",
+          "Description": "Link positioning\n\nstring\nDefault value : \"Origin\" (disabled)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ccd6fd729d0847779f413cec63a7c74e",
+          "Name": "unit",
+          "Description": "Link unit\n\nstring\nDefault value : \"Default\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "27b50e461b714e8c8cf5ae8df9d766c8",
+          "Name": "colorMode",
+          "Description": "Link color mode\n\nstring\nDefault value : \"Preserved\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c429136cf7524c028a603ac4c59eb72d",
+          "Name": "referencePoint",
+          "Description": "Reference point for the file\n\nPoint\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b16f1c9ac22e4f019d616b072015fd39",
+          "Name": "visibleLayersOnly",
+          "Description": "Link to the visible layers only?\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "be21328e29e64a3487aa8b12847ffa71",
+          "Name": "view",
+          "Description": "Place the link at view (if orient to view is set to true)\n\nElement",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bf2beffbe5da40bd95d277c907de5497",
+          "Name": "orientToView",
+          "Description": "Orient the link to view?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "193b389a55c94cdcb738d1d87d38ba14",
+          "Name": "thisViewOnly",
+          "Description": "Link to this view only?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c9a71672e3a749beae60ac238325a371",
+          "Name": "Instance",
+          "Description": "Link instance as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "991bca1348ee4540a40ff431429de283",
+          "Name": "Link",
+          "Description": "CAD link element as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link external cad file in document\n\nLink.LinkCadFile (document: var = null, file: string, positioning: string = \"Origin\", unit: string = \"Default\", colorMode: string = \"Preserved\", referencePoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), visibleLayersOnly: bool = true, view: Element, orientToView: bool = false, thisViewOnly: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": ".\\Drawing1.dwg",
+      "Id": "0263bd18509f4f1c8b845f56534ba8e9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "74714621a46f43aebbbfd4a225bbfb02",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Views.View.ModelView, OrchidRE",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "032bd53bd9d1436dad3819bc074f5fad",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cd4a933591884e14a99e24fc9a257ecd",
+          "Name": "View",
+          "Description": "The selected View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for model views"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "6e3bfaa7b4c64b4e86419f52ee6a9987",
+      "Inputs": [
+        {
+          "Id": "14a11665722f4b6aa0a9f529c960e008",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "910ba8cced76497689ca2b24cd087753",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "afb99da750d747d59787b7f39ed47f4c",
+      "Inputs": [
+        {
+          "Id": "e44f3b12f0eb45729d799483c37f4eb9",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e9fb301a11984b5496f7ac92da1c9656",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "0a7b4748040245dfb8bac0f9b2f54460",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0c96281fc35f44eaa596b579fe32a934",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "2387d155c6ef4ecfa8456203f8c0333f",
+      "Inputs": [
+        {
+          "Id": "7437db9907b5447683e3c9ec23e1a671",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4b2f8fd7f6fa46309e19211968e5783b",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7bd37af4f1f54d3bbe0378f1054e5ceb",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ba49cb685f4a49b7b30b764b86879394",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "-1000;",
+      "Id": "91e3f44ececd4a54bcb33759653f7f08",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "14a2541ff30641fcb1c0afc9371a67dd",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "0504d4953b6c405c8ad9852a76320118",
+      "Inputs": [
+        {
+          "Id": "27c213d3e1b34e719fae9ce517fd8eeb",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "10f24861e55e4f97970b91cc8886bd94",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f6d44aa08c654faeb4f2687b5e23986a",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8ac2bcd00516493d9b2c1457e059b317",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "bac76904-e269-40b2-865f-94cd5aa8b161",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "2a2b12e74da842a9b6243409811fb97a",
+      "Inputs": [
+        {
+          "Id": "527e79af892c451e929aeaae09acba4d",
+          "Name": "Filepaths",
+          "Description": "Input the filepaths of selected models here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "97511b28540444ecbdc577b7c0a7cc53",
+          "Name": "Worksets_optional",
+          "Description": "Input the worksets the links will be placed on.\nIf no workset is placed here, the links will be placed on current workset.\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a554a958e3154e61a196d4b19c9e9d58",
+          "Name": "PinLinks_optional",
+          "Description": "Input 'true' if you want to pin the links in place.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6f070af5d6d24b1f87a3fecdadbc5ef6",
+          "Name": "ClosedWorksetNamesContain_optional",
+          "Description": "Input a string of character (or a list of strings) contained in the name of the worksets to keep closed in links\n\nvar[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "22e49afd6c1141719a4371281da5e38f",
+          "Name": "LinkInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link models origin to origin. Optionally, the node can place the models on the selected worksets and pin them in place."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "1b309318-9682-43cf-ac59-051781da28c7",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "19d58bc4d22645348ce8639bfa6cbba1",
+      "Inputs": [
+        {
+          "Id": "3d8b2b6a5c3d4891a78c012921a5181d",
+          "Name": "Filepaths",
+          "Description": "Input the filepaths of selected models here\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3b5da293165748f4b2941352bd5d63d5",
+          "Name": "Worksets_optional",
+          "Description": "Input the worksets the links will be placed on.\nIf no workset is placed here, the links will be placed on current workset.\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "279780fb1b844bc38dfb16171e7ef4e1",
+          "Name": "PinLinks_optional",
+          "Description": "Input 'true' if you want to pin the links in place.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1793af3ab1904871a4ae491ee583123b",
+          "Name": "ClosedWorksetNamesContain_optional",
+          "Description": "Input a string of character (or a list of strings) contained in the name of the worksets to keep closed in links\n\nvar[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "87cc543d70c446e182f26df8e234b171",
+          "Name": "LinkInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link models project base point to project base point. Optionally, the node can place the models on the selected worksets and pin them in place."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "f4fbf28e-ab67-4436-a732-575a7685949c",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "6c42766cccab4fccab78317d26a57581",
+      "Inputs": [
+        {
+          "Id": "98959ba30ce74e7d8dda39fbe7e515af",
+          "Name": "Filepaths",
+          "Description": "Input the filepaths of selected models here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "14b0a301f2e546bdb41dcab3c56d8f1d",
+          "Name": "Worksets_optional",
+          "Description": "Input the worksets the links will be placed on.\nIf no workset is placed here, the links will be placed on current workset.\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "30810ce0f05c442796733ed35c1d264e",
+          "Name": "PinLinks_optional",
+          "Description": "Input 'true' if you want to pin the links in place.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "864c5663e6634b7e822df71405fbcbff",
+          "Name": "ClosedWorksetNamesContain_optional",
+          "Description": "Input a string of character (or a list of strings) contained in the name of the worksets to keep closed in links\n\nvar[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b900302828344feb8a3e74944f72959c",
+          "Name": "LinkInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link models with shared coordinates. Optionally, the node can place the models on the selected worksets and pin them in place."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "93f71c8e-b874-4133-9017-ad327f82a9ba",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "0bfe83185ab34cd1b78704b3b37e11bd",
+      "Inputs": [
+        {
+          "Id": "3f143e4405e24609aec4af61015cee00",
+          "Name": "Filepaths",
+          "Description": "Input the filepaths of selected .dwg files here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3f5695abf05544c7923b64f0d9bc47d0",
+          "Name": "SelectedViews",
+          "Description": "Input the views to put the .dwg files on here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fafe015b44334947918dd29bbdb9ec59",
+          "Name": "PinDwg_optional",
+          "Description": "Input 'true' if you want to pin the links in place.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "de8e1501928943dea7bbf6c8597198e3",
+          "Name": "Workset_optional",
+          "Description": "Input the workset the links will be placed on.\nIf no workset is placed here, the links will be placed on current workset.\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4d2b85b695b84bb69226775f5c2cf230",
+          "Name": "VisibleInAllViews_optional",
+          "Description": "Set to true to have the .dwg file be visible in all views.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d55fdb97890443a1afc3e90c758ea6fa",
+          "Name": "BlackAndWhite_optional",
+          "Description": "Set to true to have the .dwg file come in black and white colors\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "010aa03c70d548faa56e64c89144c8a7",
+          "Name": "ImportUnit_optional",
+          "Description": "Feed in the string of the name of a length unit to import the dwg as if it was drawn in that unit.\nYou can feed in : \"meter\", \"centimeter\", \"millimeter\", \"foot\" or \"inch\".\n\nstring\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3c170acae58948c9b3fc85054a06146e",
+          "Name": "ImportInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link multiple Dwg files by feeding filepaths and views. Multiple additional options are available."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "c8d1b7ef-2898-4eab-badf-b2fc7faf8722",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "ecdbad63d9954b068f99a0e0963d40f7",
+      "Inputs": [
+        {
+          "Id": "14860cc4ad384abca56091e1feb11c7c",
+          "Name": "Filepaths",
+          "Description": "Input the filepaths of selected .dwg files here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "935eecee1fe34ad1852f5f1fa5637af6",
+          "Name": "SelectedViews",
+          "Description": "Input the views to put the .dwg files on here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "26e01dc259a94dc2b5f9687013d4380f",
+          "Name": "PinDwg_optional",
+          "Description": "Input 'true' if you want to pin the links in place.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e08d7f275515403fa5410f08d57c2c08",
+          "Name": "Workset_optional",
+          "Description": "Input the workset the links will be placed on.\nIf no workset is placed here, the links will be placed on current workset.\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "41057e2b06b344a197f04ccd28606170",
+          "Name": "VisibleInAllViews_optional",
+          "Description": "Set to true to have the .dwg file be visible in all views.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a957dfa5b8d843efacc311aace3476cd",
+          "Name": "BlackAndWhite_optional",
+          "Description": "Set to true to have the .dwg file come in black and white colors\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2ee182ba413b4a1b89d3da3e886aaef2",
+          "Name": "ImportUnit_optional",
+          "Description": "Feed in the string of the name of a length unit to import the dwg as if it was drawn in that unit.\nYou can feed in : \"meter\", \"centimeter\", \"millimeter\", \"foot\" or \"inch\".\n\nstring\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1ffccdb5e97a4c888ff85ee20976b085",
+          "Name": "ImportInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link multiple Dwg files by feeding filepaths and views. Multiple additional options are available."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "2fa9762a-cd67-4321-ab39-8b8c854c3cb4",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "44cb0b600e074531ac6be67a43eb05e2",
+      "Inputs": [
+        {
+          "Id": "b3fcf57a5817489ba1bb03b58efef862",
+          "Name": "Filepaths",
+          "Description": "Input the filepaths of selected .dwg files here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ae36d34e00234a0c838364ff02b86204",
+          "Name": "SelectedViews",
+          "Description": "Input the views to put the .dwg files on here\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f47a5b108503433c82ad5fdb446aa68c",
+          "Name": "PinDwg_optional",
+          "Description": "Input 'true' if you want to pin the links in place.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2987fbe65cbe48cd88d3f542b69ba23c",
+          "Name": "Worksets_optional",
+          "Description": "Input the worksets the links will be placed on.\nIf no workset is placed here, the links will be placed on current workset.\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0a71b10270154e14813c189d3bcb79d8",
+          "Name": "VisibleInAllViews_optional",
+          "Description": "Set to true to have the .dwg file be visible in all views.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "daa62f6886914df9b6b949e531305d9c",
+          "Name": "BlackAndWhite_optional",
+          "Description": "Set to true to have the .dwg file come in black and white colors\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6cec1fde7ed84febbcef689785b9b296",
+          "Name": "ImportUnit_optional",
+          "Description": "Feed in the string of the name of a length unit to import the dwg as if it was drawn in that unit.\nYou can feed in : \"meter\", \"centimeter\", \"millimeter\", \"foot\" or \"inch\".\n\nvar[]..[]\nDefault value : None",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "81ba44158fd548d584a5fa09becf28ea",
+          "Name": "ImportInstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Link multiple Dwg files by feeding filepaths and views. Multiple additional options are available."
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Common.Location.Positioning, OrchidRE",
+      "SelectedIndex": 1,
+      "NodeType": "ExtensionNode",
+      "Id": "8aac17808ee84743ab0b8244710bfaa2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "54f6994493534b9bbf733dedfb1dc883",
+          "Name": "Placement",
+          "Description": "The selected Placement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for Link positioning, Note: only Origin and Shared is applicable when positioning revit files!"
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Common.Location.Origin, OrchidRE",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "4065cf1757594f249f3587f0d613ad1e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3fa3a986486f4bd989d32ea1fd1233b9",
+          "Name": "Origin",
+          "Description": "The selected Origin",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for project origin"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "b000e9804c4e4d948ce3589a79fbbe9e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "124a099751da4bd4a7d9d6be4ae85970",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Common.Location.ColorMode, OrchidRE",
+      "SelectedIndex": 1,
+      "NodeType": "ExtensionNode",
+      "Id": "258902c4304a4bf5bd7e0786c074ac4d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d1ea28430a1f4e748bcbeac9bc17fd66",
+          "Name": "ColorMode",
+          "Description": "The selected ColorMode",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for import color mode"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "C:\\Users\\erfajo\\Programming\\Source\\Testing\\Data\\defaultBuilding_2019.rvt",
+      "Id": "0f2e5427417d4c19b72de6a8afc42b26",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6f57671b4a004f1ea3c47e7f8ce8330d",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Orchid.E.RevitProject.Common.Location.AttachmentType, OrchidRE",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "29052e2f9d654218ba7f88813bc6fdd4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "102e90f31f234181b6828d2850d1b187",
+          "Name": "AttachmentType",
+          "Description": "The selected AttachmentType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Dropdown for attachment type"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkReload@var,Revit.Elements.Element[]",
+      "Id": "24540d7798f8462f8b131eb33819a5b5",
+      "Inputs": [
+        {
+          "Id": "406aa08291bf407aa6716153c745ef4b",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0c648cfc39494304a1e34dabbf1e751f",
+          "Name": "link",
+          "Description": "External link element as Dynamo type\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0617db4ee6ba4dc6829e20675d65c62e",
+          "Name": "Link",
+          "Description": "External link element as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Reload external linked file in document\n\nLink.LinkReload (document: var = null, link: Element[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Link.LinkUnload@var,Revit.Elements.Element[]",
+      "Id": "7e69c801e3fe4355a689dcc5f12361de",
+      "Inputs": [
+        {
+          "Id": "8a54e3ec551d47268f45f8af90e2fe84",
+          "Name": "document",
+          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4c1998a385eb4087bdf7c174c7c1d662",
+          "Name": "link",
+          "Description": "External link element as Dynamo type\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7ca7cbeb1f884f7a979ee92fe3723142",
+          "Name": "Link",
+          "Description": "External link element as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Unload external linked file in document\n\nLink.LinkUnload (document: var = null, link: Element[]): var[]..[]"
     }
   ],
   "Connectors": [
@@ -1506,7 +2591,7 @@
     {
       "Start": "216d9c49479e4632bbac75ca091a80da",
       "End": "bd4e1ef3ffae4e7791bbcd191bdc2cc8",
-      "Id": "f672316d38184171ac9e54f7bb934504"
+      "Id": "34e355c30f114c2ca7e0a3968780f2a3"
     },
     {
       "Start": "88432c4b9d4f4ac9aa62674911a6150d",
@@ -1619,39 +2704,19 @@
       "Id": "53720e46c9d94523bd894a20ed5234e8"
     },
     {
-      "Start": "ad370065ff4e492689cc07d6a0040a09",
-      "End": "9108a63e5f004f3da80db0ce155290e2",
-      "Id": "2758c525136445c1af8ebd9c155d20f1"
-    },
-    {
-      "Start": "aab6122cfaf747338a269bf16e14fe62",
-      "End": "0c15abb8c178458f952f790adad34625",
-      "Id": "bd5c6ce697b44585b1a763c20b847b84"
-    },
-    {
       "Start": "2eaf6e708a6747a9a3a2d02d3340b41b",
-      "End": "1fdc236b7a0e49dd83644022a232ec47",
-      "Id": "75070e12d84644fea983374075f6550f"
+      "End": "f8e913deef874de29d4473cd49e2e95c",
+      "Id": "4a07f4b84f1549d3875cc3714484e74d"
     },
     {
       "Start": "4edc88cbb3f2469a975260929c670c4d",
-      "End": "c823ce3e63a2448f9c667a3778eeed3a",
-      "Id": "67fadbb6f6884078b4bb346019e31b91"
+      "End": "99746974464b455a9ad738a8253b43b4",
+      "Id": "fc8a88bc2f0b450596961c1bf53a37a9"
     },
     {
-      "Start": "c9a6afd985894e9fb4d30849b3597962",
-      "End": "f02045ef59a247658411bc62829d0bfe",
-      "Id": "8a03d302a796416387b4dd05918ea6fb"
-    },
-    {
-      "Start": "c9a6afd985894e9fb4d30849b3597962",
-      "End": "eb3e2e7a52274dec837f6cbd7fca7e50",
-      "Id": "4c69235ba6704db0a749b448cf71db77"
-    },
-    {
-      "Start": "d6d709db0e16466e8623a8a7da9b7b7f",
-      "End": "42fc6669ae2c4823bb5a1ab77e780b65",
-      "Id": "cffec644a76240759ce41d4483263aa0"
+      "Start": "556163d354e64085af8b699fbfa14b1f",
+      "End": "10f24861e55e4f97970b91cc8886bd94",
+      "Id": "8c96258509a74488a49e3bfe198d04b6"
     },
     {
       "Start": "98201ef192844b86b4909f057d245da5",
@@ -1666,10 +2731,127 @@
     {
       "Start": "f9aebaa93259471dbfac5a1de0986a81",
       "End": "24373cbf632549138a22a379d58e71b4",
-      "Id": "906911e5b35c448eadc846efe5241ae0"
+      "Id": "4226418d7d9e40e69531a56332d95653"
+    },
+    {
+      "Start": "7a0113d6de284f61929bbb4a9edbde34",
+      "End": "298acb2fdacf4a169e66351489cfcca0",
+      "Id": "859ad5b09a2e4f7687351724071ba29b"
+    },
+    {
+      "Start": "0ed36d05ad1742a4894c8dafaeaccbdf",
+      "End": "89bfa51eda734cc89f14e92294ced7d3",
+      "Id": "cbdfbacdb7fb4389904692468218b33c"
+    },
+    {
+      "Start": "d57c9956703d492b96b44b98e0d3132d",
+      "End": "1da238d8fb894666b26ed5f685dc8aa3",
+      "Id": "6d96c55fa0d04891bfe6b93c6307c26e"
+    },
+    {
+      "Start": "d57c9956703d492b96b44b98e0d3132d",
+      "End": "de2f9e68ee4f4fe9a2cee96cf06ef98e",
+      "Id": "b61e5b35f1c7407ea460a016f6036883"
+    },
+    {
+      "Start": "05a84587eedd4c4c8efd77c4036c4423",
+      "End": "ccd6fd729d0847779f413cec63a7c74e",
+      "Id": "57d22061594844c18897361409b421ad"
+    },
+    {
+      "Start": "6c6a83c1dcce4d51a8d6c02140f444cd",
+      "End": "a041faa00a274ed39531096eef21e334",
+      "Id": "a1424f74b244431cb3ebda83656e872c"
+    },
+    {
+      "Start": "2e0402a119ac45e58632fe4f8d5b4e41",
+      "End": "d7610d331f944d729cfaec30edf32c8f",
+      "Id": "8c4b6fac93b746a2bd6ad9ea5ab1602c"
+    },
+    {
+      "Start": "a8bcc35d7cac42948ba9673d3d3e45d3",
+      "End": "9108a63e5f004f3da80db0ce155290e2",
+      "Id": "2e8a69c519e7443d8e4b8596c97e8772"
+    },
+    {
+      "Start": "615ff4a46e61478ca5db533bc91b7731",
+      "End": "0c15abb8c178458f952f790adad34625",
+      "Id": "ba1b3a1b6d7c4dd8ba43519fc8633cb7"
+    },
+    {
+      "Start": "c9a71672e3a749beae60ac238325a371",
+      "End": "14a11665722f4b6aa0a9f529c960e008",
+      "Id": "395aea5ce9fb47cf8443ba4019336980"
+    },
+    {
+      "Start": "991bca1348ee4540a40ff431429de283",
+      "End": "e44f3b12f0eb45729d799483c37f4eb9",
+      "Id": "e1b1f74de03540f28e9132b7311a4c7c"
+    },
+    {
+      "Start": "74714621a46f43aebbbfd4a225bbfb02",
+      "End": "07598f3a2b424279b881c6c2dd30888d",
+      "Id": "0c89540a26c44e339be3847b795ac3c1"
+    },
+    {
+      "Start": "cd4a933591884e14a99e24fc9a257ecd",
+      "End": "be21328e29e64a3487aa8b12847ffa71",
+      "Id": "d83387d662f14b8d811606ae8d476c74"
+    },
+    {
+      "Start": "0c96281fc35f44eaa596b579fe32a934",
+      "End": "bf2beffbe5da40bd95d277c907de5497",
+      "Id": "7240e4df030847f9a3b7793af5ef4522"
+    },
+    {
+      "Start": "ba49cb685f4a49b7b30b764b86879394",
+      "End": "c429136cf7524c028a603ac4c59eb72d",
+      "Id": "e08f7e4b41d247dbb07814f729d40ba7"
+    },
+    {
+      "Start": "14a2541ff30641fcb1c0afc9371a67dd",
+      "End": "7437db9907b5447683e3c9ec23e1a671",
+      "Id": "ba329c116fd94e0b8933a8d0ce4e97ed"
+    },
+    {
+      "Start": "14a2541ff30641fcb1c0afc9371a67dd",
+      "End": "4b2f8fd7f6fa46309e19211968e5783b",
+      "Id": "b5f1c72f712c437d8312240d3d25cd71"
+    },
+    {
+      "Start": "8ac2bcd00516493d9b2c1457e059b317",
+      "End": "edb22abdcace485dabbda97097bf9a24",
+      "Id": "7d36d4aa467c414daffffc5c8492053c"
+    },
+    {
+      "Start": "54f6994493534b9bbf733dedfb1dc883",
+      "End": "42fc6669ae2c4823bb5a1ab77e780b65",
+      "Id": "c658daa43af94e07aa6b863f8c38c65c"
+    },
+    {
+      "Start": "d1ea28430a1f4e748bcbeac9bc17fd66",
+      "End": "27b50e461b714e8c8cf5ae8df9d766c8",
+      "Id": "8a211a10aa2e45f7aae0291014c94b68"
+    },
+    {
+      "Start": "102e90f31f234181b6828d2850d1b187",
+      "End": "3ba01ac987d94c64a2f9ae8141e081e4",
+      "Id": "eaafd7b4ffe04257ac77cf96f3726956"
+    },
+    {
+      "Start": "7ca7cbeb1f884f7a979ee92fe3723142",
+      "End": "0c648cfc39494304a1e34dabbf1e751f",
+      "Id": "868f227e27ba473aaef945c2c0e4bf62"
     }
   ],
-  "Dependencies": [],
+  "Dependencies": [
+    "bac76904-e269-40b2-865f-94cd5aa8b161",
+    "1b309318-9682-43cf-ac59-051781da28c7",
+    "f4fbf28e-ab67-4436-a732-575a7685949c",
+    "93f71c8e-b874-4133-9017-ad327f82a9ba",
+    "c8d1b7ef-2898-4eab-badf-b2fc7faf8722",
+    "2fa9762a-cd67-4321-ab39-8b8c854c3cb4"
+  ],
   "Bindings": [],
   "View": {
     "Dynamo": {
@@ -1759,7 +2941,7 @@
         "Id": "0664f2b4d5534dc2bd5754350fe7ae7c",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Excluded": true,
+        "Excluded": false,
         "X": 619.461978744536,
         "Y": 453.088723988086
       },
@@ -2035,23 +3217,13 @@
       },
       {
         "ShowGeometry": true,
-        "Name": "Link.LinkCadFile",
-        "Id": "75b45938d53646c2b18fe2b10643a085",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -1545.983403778552,
-        "Y": 1405.106398946697
-      },
-      {
-        "ShowGeometry": true,
         "Name": "String",
         "Id": "cc88dbcd663449199054d4c83ed31ed0",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1789.983403778552,
-        "Y": 1402.106398946697
+        "X": -1610.5775860887577,
+        "Y": 1352.7623796027783
       },
       {
         "ShowGeometry": true,
@@ -2060,8 +3232,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1789.983403778552,
-        "Y": 1486.106398946697
+        "X": -1610.5775860887577,
+        "Y": 1596.7623796027783
       },
       {
         "ShowGeometry": true,
@@ -2070,8 +3242,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1170.983403778552,
-        "Y": 1353.106398946697
+        "X": -977.5775860887577,
+        "Y": 1402.7623796027783
       },
       {
         "ShowGeometry": true,
@@ -2080,8 +3252,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1170.983403778552,
-        "Y": 1483.106398946697
+        "X": -977.5775860887577,
+        "Y": 1512.7623796027783
       },
       {
         "ShowGeometry": true,
@@ -2090,18 +3262,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1789.9406856352293,
-        "Y": 988.84122479184794
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Vector.ByCoordinates",
-        "Id": "01c1571191c543fc87318c950693d413",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -1610.9406856352293,
-        "Y": 971.62789145851457
+        "X": -1792.853433769397,
+        "Y": -9.5547015194731841
       },
       {
         "ShowGeometry": true,
@@ -2110,8 +3272,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1335.9406856352293,
-        "Y": 890.62789145851457
+        "X": -1301.853433769397,
+        "Y": -107.76803485280652
       },
       {
         "ShowGeometry": true,
@@ -2120,8 +3282,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1003.9406856352293,
-        "Y": 968.62789145851445
+        "X": -932.853433769397,
+        "Y": -29.768034852806522
       },
       {
         "ShowGeometry": true,
@@ -2130,8 +3292,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1003.9406856352293,
-        "Y": 838.62789145851445
+        "X": -932.853433769397,
+        "Y": -159.76803485280652
       },
       {
         "ShowGeometry": true,
@@ -2140,8 +3302,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1610.9406856352293,
-        "Y": 887.62789145851457
+        "X": -1613.853433769397,
+        "Y": -231.76803485280652
       },
       {
         "ShowGeometry": true,
@@ -2150,8 +3312,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1610.9406856352293,
-        "Y": 1131.6278914585146
+        "X": -1613.853433769397,
+        "Y": 228.23196514719348
       },
       {
         "ShowGeometry": true,
@@ -2160,8 +3322,288 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": -1789.983403778552,
-        "Y": 1602.106398946697
+        "X": -1610.5775860887577,
+        "Y": 1704.7623796027783
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "fcae4a0bbb644a7cbed74de50e731a89",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1789.5775860887577,
+        "Y": 1453.9757129361117
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Import Unit",
+        "Id": "d8648b7081644b35b23c67f81d6d886b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 647.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Link Positioning",
+        "Id": "a757f58f36a34879adbfc184873e7aff",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 538.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "004fa29eb4484484b63b0b6331fb1745",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1610.5775860887577,
+        "Y": 1436.7623796027783
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Link.LinkCadFile",
+        "Id": "39f033634cf248ee8cfd22dad74a797c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": -1352.5775860887597,
+        "Y": 1444.76237960278
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Link.LinkCadFile",
+        "Id": "ce1182a2ba5f439589c99e7b048ac514",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": -1315.148521883568,
+        "Y": 662.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "0263bd18509f4f1c8b845f56534ba8e9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 455.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Model Views",
+        "Id": "032bd53bd9d1436dad3819bc074f5fad",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 1024.9585384811803
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "6e3bfaa7b4c64b4e86419f52ee6a9987",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -940.148521883568,
+        "Y": 610.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "afb99da750d747d59787b7f39ed47f4c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -940.148521883568,
+        "Y": 740.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "0a7b4748040245dfb8bac0f9b2f54460",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 1132.9585384811803
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "2387d155c6ef4ecfa8456203f8c0333f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 863.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "91e3f44ececd4a54bcb33759653f7f08",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1785.148521883568,
+        "Y": 881.17187181451368
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "0504d4953b6c405c8ad9852a76320118",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1613.853433769397,
+        "Y": -39.768034852806522
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "LinkModel.OriginToOrigin",
+        "Id": "2a2b12e74da842a9b6243409811fb97a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -694.43840100716159,
+        "Y": -1127.4128389205603
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "LinkModel.ProjectBasePoint",
+        "Id": "19d58bc4d22645348ce8639bfa6cbba1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -706.88491947603086,
+        "Y": -935.73645449997628
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "LinkModel.SharedCoordinates",
+        "Id": "6c42766cccab4fccab78317d26a57581",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -709.37422316980474,
+        "Y": -744.06007007939218
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "LinkDwg.AtOrigin",
+        "Id": "0bfe83185ab34cd1b78704b3b37e11bd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1205.1312676804555,
+        "Y": -1271.6436926271788
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "LinkDwg.Centered",
+        "Id": "ecdbad63d9954b068f99a0e0963d40f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1182.7275344364912,
+        "Y": -1007.7775010871538
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "LinkDwg.SharedCoordinates",
+        "Id": "44cb0b600e074531ac6be67a43eb05e2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1165.3024085800746,
+        "Y": -733.9540947720335
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Link Positioning",
+        "Id": "8aac17808ee84743ab0b8244710bfaa2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1613.853433769397,
+        "Y": -147.76803485280652
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Project Origin",
+        "Id": "4065cf1757594f249f3587f0d613ad1e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1390.5636744226842,
+        "Y": -481.24210505712546
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "b000e9804c4e4d948ce3589a79fbbe9e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1579.6593959813626,
+        "Y": -497.6677538332458
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Import Color Mode",
+        "Id": "258902c4304a4bf5bd7e0786c074ac4d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1606.148521883568,
+        "Y": 755.95853848118031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "0f2e5427417d4c19b72de6a8afc42b26",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1814.33971455886,
+        "Y": -446.0567735767338
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Attachment Type",
+        "Id": "29052e2f9d654218ba7f88813bc6fdd4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1613.853433769397,
+        "Y": 120.23196514719348
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Link.LinkReload",
+        "Id": "24540d7798f8462f8b131eb33819a5b5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -958.37704767576315,
+        "Y": 261.32333189129383
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Link.LinkUnload",
+        "Id": "7e69c801e3fe4355a689dcc5f12361de",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": -1217.5857059044297,
+        "Y": 262.88299235737406
       }
     ],
     "Annotations": [
@@ -2219,8 +3661,8 @@
         ],
         "Left": -0.016327449563730667,
         "Top": 1300.01908459489,
-        "Width": 844.99999999999977,
-        "Height": 496.0,
+        "Width": 739.99999999999977,
+        "Height": 460.0,
         "FontSize": 30.0,
         "InitialTop": 1346.01908459489,
         "InitialHeight": 446.0,
@@ -2238,7 +3680,7 @@
         "Left": -682.280985267919,
         "Top": 725.80538551274,
         "Width": 582.0,
-        "Height": 474.0,
+        "Height": 459.0,
         "FontSize": 30.0,
         "InitialTop": 771.80538551274,
         "InitialHeight": 379.0,
@@ -2258,8 +3700,8 @@
         ],
         "Left": -609.739274183926,
         "Top": 1299.657060528,
-        "Width": 483.902503396094,
-        "Height": 427.7681156607398,
+        "Width": 469.902503396094,
+        "Height": 421.7681156607398,
         "FontSize": 30.0,
         "InitialTop": 1345.657060528,
         "InitialHeight": 411.7681156607398,
@@ -2308,20 +3750,22 @@
         "Id": "ade0fd75d8ec435a9d21e815e3fb52cd",
         "Title": "Link cad file",
         "Nodes": [
-          "75b45938d53646c2b18fe2b10643a085",
           "cc88dbcd663449199054d4c83ed31ed0",
           "760c24c6eaac481684fd8d4e026ff8ff",
           "d5f9e513e89941899d93976184f60494",
           "6243510e5b8443f19415598c365f86db",
-          "1212729a26074d8984f0d4fd3ba4d40f"
+          "1212729a26074d8984f0d4fd3ba4d40f",
+          "39f033634cf248ee8cfd22dad74a797c",
+          "004fa29eb4484484b63b0b6331fb1745",
+          "fcae4a0bbb644a7cbed74de50e731a89"
         ],
-        "Left": -1799.983403778552,
-        "Top": 1300.106398946697,
-        "Width": 834.0,
-        "Height": 370.0,
+        "Left": -1799.5775860887577,
+        "Top": 1299.7623796027783,
+        "Width": 910.0,
+        "Height": 473.0,
         "FontSize": 36.0,
-        "InitialTop": 1353.106398946697,
-        "InitialHeight": 339.0,
+        "InitialTop": 1352.7623796027783,
+        "InitialHeight": 497.0,
         "TextblockHeight": 43.0,
         "Background": "#FFFF7BAC"
       },
@@ -2333,23 +3777,51 @@
           "b637ebd45dfa415f9942f6ed4e16638a",
           "34aeae62117d4149bcd72575983b91e6",
           "e1fcbf1b363e4beabda94caabe7ca224",
-          "01c1571191c543fc87318c950693d413",
           "896bc8c464af4c09b061a2c8dce47093",
-          "db7bcb7740fc49cca4b42f61f3ed0d96"
+          "db7bcb7740fc49cca4b42f61f3ed0d96",
+          "0504d4953b6c405c8ad9852a76320118",
+          "29052e2f9d654218ba7f88813bc6fdd4",
+          "8aac17808ee84743ab0b8244710bfaa2"
         ],
-        "Left": -1799.9406856352293,
-        "Top": 785.62789145851445,
-        "Width": 1021.0,
-        "Height": 414.00000000000011,
+        "Left": -1802.853433769397,
+        "Top": -284.76803485280652,
+        "Width": 1095.0,
+        "Height": 581.0,
         "FontSize": 36.0,
-        "InitialTop": 838.62789145851445,
-        "InitialHeight": 389.0,
+        "InitialTop": -231.76803485280652,
+        "InitialHeight": 605.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFF7BAC"
+      },
+      {
+        "Id": "ab2ffdddd45b425f9f71a697d2d71984",
+        "Title": "Link cad file",
+        "Nodes": [
+          "0263bd18509f4f1c8b845f56534ba8e9",
+          "032bd53bd9d1436dad3819bc074f5fad",
+          "6e3bfaa7b4c64b4e86419f52ee6a9987",
+          "afb99da750d747d59787b7f39ed47f4c",
+          "0a7b4748040245dfb8bac0f9b2f54460",
+          "2387d155c6ef4ecfa8456203f8c0333f",
+          "91e3f44ececd4a54bcb33759653f7f08",
+          "ce1182a2ba5f439589c99e7b048ac514",
+          "a757f58f36a34879adbfc184873e7aff",
+          "d8648b7081644b35b23c67f81d6d886b",
+          "258902c4304a4bf5bd7e0786c074ac4d"
+        ],
+        "Left": -1795.148521883568,
+        "Top": 402.95853848118031,
+        "Width": 943.0,
+        "Height": 798.0,
+        "FontSize": 36.0,
+        "InitialTop": 455.95853848118031,
+        "InitialHeight": 822.0,
         "TextblockHeight": 43.0,
         "Background": "#FFFF7BAC"
       }
     ],
-    "X": 881.66785132696873,
-    "Y": 43.1046757255812,
-    "Zoom": 0.475796507123556
+    "X": 1078.7513340019937,
+    "Y": 376.08622806747513,
+    "Zoom": 0.57931998625941261
   }
 }
