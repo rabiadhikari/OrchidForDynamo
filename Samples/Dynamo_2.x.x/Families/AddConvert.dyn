@@ -105,7 +105,7 @@
         {
           "Id": "398baaa3209e443db0265341003dec86",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -179,7 +179,7 @@
         {
           "Id": "9f33c12d9e564c8285c0a7d355decdf3",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -192,13 +192,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Parameter.Convert@var,string[],bool",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.Convert@var,string,bool",
       "Id": "13b36ae7d4904ca69d5a0ee25cd2c370",
       "Inputs": [
         {
           "Id": "0972c3b5ae2b4359837a2c92b009606d",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null (disabled)",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -207,7 +207,7 @@
         {
           "Id": "4cdc26b16b79453d97128938c8e9ee99",
           "Name": "parameterName",
-          "Description": "The name of the parameter to delete\n\nstring[]",
+          "Description": "The name of the parameter to delete\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -227,7 +227,7 @@
         {
           "Id": "98398114c87a4901b814b7bfb8884d91",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -235,7 +235,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Convert shared parameter to family parameter\n\nParameter.Convert (familyDocument: var, parameterName: string[], instance: bool): var[]..[]"
+      "Description": "Convert shared parameter to family parameter\n\nParameter.Convert (familyDocument: var = null, parameterName: string, instance: bool): Parameter"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -247,7 +247,7 @@
         {
           "Id": "3b6dfa30a9634e9dbb16a169155825ab",
           "Name": "Document",
-          "Description": "Document as Revit type",
+          "Description": "Document as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -315,7 +315,7 @@
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "27c9f9822caf48308beea76bd47cb344",
+          "Id": "01b2aae20ba34f97b03be5b04b49d3dc",
           "Name": "",
           "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
@@ -330,13 +330,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Formula.Set@var,string[],string[]",
+      "FunctionSignature": "Orchid.RevitFamily.Formula.Set@var,string,string",
       "Id": "8ba183c09f1d445291288cf52d8d75cc",
       "Inputs": [
         {
           "Id": "daa510ce6c5d4b93aa410547c564c5f3",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -345,7 +345,7 @@
         {
           "Id": "5daa11f5d4cb4c1bacc9398a5b7abbe8",
           "Name": "parameterName",
-          "Description": "The name of the parameter to set\n\nstring[]",
+          "Description": "The name of the parameter to set\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -354,7 +354,7 @@
         {
           "Id": "effa395bdddd4d6bbd25d5e225728241",
           "Name": "value",
-          "Description": "The value\n\nstring[]",
+          "Description": "The value\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -373,7 +373,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set family formula by parameter name. Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Set (familyDocument: var = null, parameterName: string[], value: string[]): var[]..[]"
+      "Description": "Set family formula by parameter name. Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Set (familyDocument: var = null, parameterName: string, value: string): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -383,7 +383,7 @@
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "0fbad601e49d4831ba0f2895be3beccf",
+          "Id": "52d83531eaf84eeca5eac8b48e145761",
           "Name": "",
           "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
@@ -392,7 +392,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "549acb870004449194c61b760eae74d3",
+          "Id": "c991e91298574ca19ac34b2b28828109",
           "Name": "",
           "Description": "Value of expression at line 6",
           "UsingDefaultValue": false,
@@ -407,13 +407,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Formula.Get@var,string[]",
+      "FunctionSignature": "Orchid.RevitFamily.Formula.Get@var,string",
       "Id": "a67653416d294fd09ba47018ad5f9f61",
       "Inputs": [
         {
           "Id": "5977a6d8d54f4cbda8fc37eac2942896",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -422,7 +422,7 @@
         {
           "Id": "b0fbee2a81ce485ca8a213872c5e7633",
           "Name": "parameterName",
-          "Description": "The name of the parameter to get\n\nstring[]",
+          "Description": "The name of the parameter to get\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -441,7 +441,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get family formula by parameter name. Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Get (familyDocument: var = null, parameterName: string[]): var[]..[]"
+      "Description": "Get family formula by parameter name. Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Get (familyDocument: var = null, parameterName: string): string"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -524,13 +524,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.FamilyType.Create@var,string[]",
+      "FunctionSignature": "Orchid.RevitFamily.FamilyType.Create@var,string",
       "Id": "9de265cc4967462ea578315184b388c5",
       "Inputs": [
         {
           "Id": "aefdbbfb9c1048d383a781df82f6461f",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -539,7 +539,7 @@
         {
           "Id": "e7179add3ccb4aa48f7d76c2d7763430",
           "Name": "name",
-          "Description": "The family type name\n\nstring[]\nDefault value : null",
+          "Description": "The family type name\n\nstring\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -558,7 +558,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string[] = null): var[]..[]"
+      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string = null): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -710,13 +710,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Formula.Remove@var,string[]",
+      "FunctionSignature": "Orchid.RevitFamily.Formula.Remove@var,string",
       "Id": "1830d40324b3410b8fe34e5a47d6ff3a",
       "Inputs": [
         {
           "Id": "da9939e987f9485baf51c2424cce8e5d",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -725,7 +725,7 @@
         {
           "Id": "26136c6b594542efa178cafe35a691c1",
           "Name": "parameterName",
-          "Description": "The name of the parameter to remove formula\n\nstring[]",
+          "Description": "The name of the parameter to remove formula\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -744,7 +744,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Remove family formula value by name Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Remove (familyDocument: var = null, parameterName: string[]): var[]..[]"
+      "Description": "Remove family formula value by name Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Remove (familyDocument: var = null, parameterName: string): bool"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -793,7 +793,7 @@
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "5f1569f826a84fd08907ec1de9fbad4d",
+          "Id": "663eea4cef4a443591f1464d8014471a",
           "Name": "",
           "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
@@ -802,7 +802,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "da9cb62b65184cfbbf07c2b1b5b3b62d",
+          "Id": "e1c934fa2169423ebc77dfe5f4fed7c9",
           "Name": "",
           "Description": "Value of expression at line 6",
           "UsingDefaultValue": false,
@@ -823,7 +823,7 @@
         {
           "Id": "e35cf683a48648baab9660e6037d4635",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -861,7 +861,7 @@
         {
           "Id": "80603ef1edc34b878b7831a889285df3",
           "Name": "Parameter",
-          "Description": "Parameter as Revit type",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1005,7 +1005,7 @@
         {
           "Id": "4ad528f7be6243b8854286bc560cbcec",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1079,7 +1079,7 @@
         {
           "Id": "aaeaa28a91a447b886b4b5e2d66d35d3",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1145,7 +1145,7 @@
         {
           "Id": "84eefe50eeb6403ebd42897d9de19b9e",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1219,7 +1219,7 @@
         {
           "Id": "d6b0108e5f94461b9c868d205799f705",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1381,9 +1381,9 @@
       "Id": "9faa3caf89d74e05bd07c6675dcbc25b"
     },
     {
-      "Start": "27c9f9822caf48308beea76bd47cb344",
+      "Start": "01b2aae20ba34f97b03be5b04b49d3dc",
       "End": "b0fbee2a81ce485ca8a213872c5e7633",
-      "Id": "a04e1beb531a4453928e95495a8704d0"
+      "Id": "26be00f42be746c4bd3744247fecaf78"
     },
     {
       "Start": "3335f26f30814f4c9d0ae894b3e4bc26",
@@ -1391,14 +1391,14 @@
       "Id": "93785b0ffe5b43c3ba725215466cefc2"
     },
     {
-      "Start": "0fbad601e49d4831ba0f2895be3beccf",
+      "Start": "52d83531eaf84eeca5eac8b48e145761",
       "End": "5daa11f5d4cb4c1bacc9398a5b7abbe8",
-      "Id": "1b7f8a22ee814b6c881183ac2800698b"
+      "Id": "af57a343420c41e58363ad6c7fa266f2"
     },
     {
-      "Start": "549acb870004449194c61b760eae74d3",
+      "Start": "c991e91298574ca19ac34b2b28828109",
       "End": "effa395bdddd4d6bbd25d5e225728241",
-      "Id": "35ee054af09645a0904dfebbb21ca676"
+      "Id": "0afa553fd95a42219971bbf7e6dcc623"
     },
     {
       "Start": "6bceaf6ad42945de95dc5aaaefae7f3d",
@@ -1468,7 +1468,7 @@
     {
       "Start": "d55683fe1b1845eca5bd83f7472cd237",
       "End": "26136c6b594542efa178cafe35a691c1",
-      "Id": "40d89c4c0076401192e6879a1aeeda0a"
+      "Id": "a16f90956c314723872612d5baf19ffd"
     },
     {
       "Start": "0c3e5541380d48c4a86845771b0b3513",
@@ -1486,14 +1486,14 @@
       "Id": "3cc4d9399e1b44b489ac4e2e3cc3209c"
     },
     {
-      "Start": "5f1569f826a84fd08907ec1de9fbad4d",
+      "Start": "663eea4cef4a443591f1464d8014471a",
       "End": "691800990f844802a749f7b3ea2baabd",
-      "Id": "65a8e20a8aa44de3900831958a0bf4a3"
+      "Id": "dc045759ac5442c095ea55ddfd7d3444"
     },
     {
-      "Start": "da9cb62b65184cfbbf07c2b1b5b3b62d",
+      "Start": "e1c934fa2169423ebc77dfe5f4fed7c9",
       "End": "09684ef2d4c54df5b0d52548983727ff",
-      "Id": "de835964e2ea4d048220e48ff646f153"
+      "Id": "1470761880f54d3ab40ae66fc6c47bae"
     },
     {
       "Start": "00c2944d16bd4ae8bab53688f66c78b8",
@@ -2017,7 +2017,7 @@
         "Height": 388.92000000000041,
         "FontSize": 30.0,
         "InitialTop": -182.167525501953,
-        "InitialHeight": 290.63698954593639,
+        "InitialHeight": 279.92000000000041,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -2035,13 +2035,13 @@
         "Height": 388.92000000000007,
         "FontSize": 30.0,
         "InitialTop": -670.31449549739227,
-        "InitialHeight": 282.697494481539,
+        "InitialHeight": 279.92000000000007,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       }
     ],
-    "X": 299.28800558545254,
-    "Y": 795.44261029807046,
-    "Zoom": 0.42896748421262726
+    "X": 116.27977266505916,
+    "Y": 640.66906703387042,
+    "Zoom": 0.178412563297452
   }
 }

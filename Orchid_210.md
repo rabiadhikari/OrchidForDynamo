@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 210.x.x is usable in Dynamo +2.1.0.
 
 ### History of Orchid for Dynamo 2.1.x ###  
   
+210.1.2  
+- Rebuild of classes so types not provided by the dynamo team now are wrapped into Orchid types.  
+
 210.1.1  
 - Element: nodes for views, and viewtemplates.  
   

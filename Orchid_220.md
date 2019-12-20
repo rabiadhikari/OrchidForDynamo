@@ -4,5 +4,8 @@ The major number follows the Dynamo version, 220.x.x is usable in Dynamo +2.2.0.
 
 ### History of Orchid for Dynamo 2.2.x ###  
   
+220.0.1  
+- Rebuild of classes so types not provided by the dynamo team now are wrapped into Orchid types.  
+  
 220.0.0  	
 - 1st version of Orchid for the Dynamo 2.2.x series.  

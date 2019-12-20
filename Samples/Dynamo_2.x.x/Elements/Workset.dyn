@@ -644,7 +644,7 @@
         {
           "Id": "e377bac225ab4e29ab2a2ac3fff4c3be",
           "Name": "document",
-          "Description": "Document as Revit type\n\nvar[]\nDefault value : null",
+          "Description": "Document (rvt) as Orchid document\n\nvar[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -683,7 +683,7 @@
         {
           "Id": "dc29993638c24202b6855177c4d9a93a",
           "Name": "document",
-          "Description": "Document as Revit type\n\nvar[]\nDefault value : null",
+          "Description": "Document (rvt) as Orchid document\n\nvar[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -908,7 +908,7 @@
         {
           "Id": "b2b5edfd68cd4650978b95d5a03351d9",
           "Name": "document",
-          "Description": "Document as Revit type\n\nvar[]\nDefault value : null",
+          "Description": "Document (rvt) as Orchid document\n\nvar[]\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1205,7 +1205,7 @@
     },
     {
       "ConcreteType": "Orchid.E.RevitProject.Common.Workset.Worksets, OrchidRE",
-      "SelectedIndex": 0,
+      "SelectedIndex": 1,
       "NodeType": "ExtensionNode",
       "Id": "537fed91ea1049b999b2bd2b647a2b47",
       "Inputs": [],
@@ -1252,6 +1252,36 @@
       ],
       "Replication": "Auto",
       "Description": "Workset UniqueId\n\nWorkset.UniqueId: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Category.ByName@string",
+      "Id": "db7a37589a514a81a77e8e49076f4c77",
+      "Inputs": [
+        {
+          "Id": "99c606df20fc4efb9f3870b1dfd03254",
+          "Name": "name",
+          "Description": "The built in category name.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "24d7fb2c8c6d43249c33892b178a69b9",
+          "Name": "Category",
+          "Description": "Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets a Revit category by the built-in category name.\n\nCategory.ByName (name: string): Category"
     }
   ],
   "Connectors": [
@@ -1367,8 +1397,8 @@
     },
     {
       "Start": "63fc5bf0f6ec4dffa21c29b73bde3336",
-      "End": "10f45e8a04624c0daf78858492ceaf42",
-      "Id": "3d169d22097b496b8599b0fbc330112c"
+      "End": "99c606df20fc4efb9f3870b1dfd03254",
+      "Id": "6234d3c8858c47938fda93fe78c5633f"
     },
     {
       "Start": "70168837cdb34fb7bea70ef230bebf09",
@@ -1434,6 +1464,11 @@
       "Start": "a3f5e3e88ee040829001766879633a46",
       "End": "d6924b04e4974ef3bf86264abe2604c1",
       "Id": "a50e2516ab754493855a82809a39b388"
+    },
+    {
+      "Start": "24d7fb2c8c6d43249c33892b178a69b9",
+      "End": "10f45e8a04624c0daf78858492ceaf42",
+      "Id": "47cc19bf9db943f38f4e0a122f3056b8"
     }
   ],
   "Dependencies": [],
@@ -1667,8 +1702,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 2510.3397946225596,
-        "Y": 126.71751462800188
+        "X": 2250.4588308503971,
+        "Y": 126.96751462800188
       },
       {
         "ShowGeometry": true,
@@ -1677,8 +1712,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": true,
-        "X": 2510.0165873964852,
-        "Y": 558.6863622145753
+        "X": 2249.84705512433,
+        "Y": 558.42052443419072
       },
       {
         "ShowGeometry": true,
@@ -1687,8 +1722,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 2748.1828932666576,
-        "Y": 95.767296676653757
+        "X": 2488.3019294944952,
+        "Y": 96.017296676653757
       },
       {
         "ShowGeometry": true,
@@ -1697,8 +1732,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 2509.8326755941448,
-        "Y": 935.15816534879878
+        "X": 2249.5040565061195,
+        "Y": 935.19341831697909
       },
       {
         "ShowGeometry": true,
@@ -1707,8 +1742,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 2829.0185718373718,
-        "Y": 937.5422364472588
+        "X": 2568.6899527493465,
+        "Y": 937.57748941543912
       },
       {
         "ShowGeometry": true,
@@ -1717,8 +1752,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3131.1828932666576,
-        "Y": 143.76729667665376
+        "X": 2871.3019294944952,
+        "Y": 144.01729667665376
       },
       {
         "ShowGeometry": true,
@@ -1727,8 +1762,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3751.1828932666576,
-        "Y": 47.767296676653757
+        "X": 3491.3019294944952,
+        "Y": 48.017296676653757
       },
       {
         "ShowGeometry": true,
@@ -1737,8 +1772,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3450.1828932666576,
-        "Y": 33.980630009987124
+        "X": 3190.3019294944952,
+        "Y": 34.230630009987124
       },
       {
         "ShowGeometry": true,
@@ -1747,8 +1782,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3450.1828932666576,
-        "Y": 143.76729667665376
+        "X": 3190.3019294944952,
+        "Y": 144.01729667665376
       },
       {
         "ShowGeometry": true,
@@ -1756,7 +1791,7 @@
         "Id": "a3f86ae678e941de966006e736de8b0d",
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
-        "Excluded": true,
+        "Excluded": false,
         "X": 3158.7716691305823,
         "Y": 907.77954808288928
       },
@@ -1807,8 +1842,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 2845.0165873964852,
-        "Y": 606.6863622145753
+        "X": 2584.84705512433,
+        "Y": 606.42052443419072
       },
       {
         "ShowGeometry": true,
@@ -1817,8 +1852,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3164.0165873964852,
-        "Y": 496.89969554790866
+        "X": 2903.84705512433,
+        "Y": 496.63385776752403
       },
       {
         "ShowGeometry": true,
@@ -1827,8 +1862,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3164.0165873964852,
-        "Y": 606.6863622145753
+        "X": 2903.84705512433,
+        "Y": 606.42052443419072
       },
       {
         "ShowGeometry": true,
@@ -1837,8 +1872,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3465.0165873964852,
-        "Y": 510.6863622145753
+        "X": 3204.84705512433,
+        "Y": 510.42052443419067
       },
       {
         "ShowGeometry": true,
@@ -1859,6 +1894,16 @@
         "Excluded": false,
         "X": 5012.9963115640921,
         "Y": 853.38573070369341
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Category.ByName",
+        "Id": "db7a37589a514a81a77e8e49076f4c77",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 2881.3197335588961,
+        "Y": 933.78855752468291
       }
     ],
     "Annotations": [
@@ -1896,12 +1941,12 @@
           "9c0f4f5e6e9c41eab1ac134df370b036",
           "4b675804f8e74c10856af29d74052467"
         ],
-        "Left": 2500.3397946225596,
-        "Top": -12.019369990012876,
+        "Left": 2240.4588308503971,
+        "Top": -11.769369990012876,
         "Width": 1530.8430986440981,
         "Height": 363.73688461801476,
         "FontSize": 30.0,
-        "InitialTop": 33.980630009987124,
+        "InitialTop": 34.230630009987124,
         "InitialHeight": 254.78666666666663,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
@@ -1916,12 +1961,12 @@
           "1b4cd45a2c55460ebec57745a1de23b6",
           "47877296cd284e5cab30ed7ec9340825"
         ],
-        "Left": 2500.0165873964852,
-        "Top": 450.89969554790866,
+        "Left": 2239.84705512433,
+        "Top": 450.63385776752403,
         "Width": 1245.0,
-        "Height": 248.78666666666663,
+        "Height": 248.78666666666669,
         "FontSize": 30.0,
-        "InitialTop": 496.89969554790866,
+        "InitialTop": 496.63385776752403,
         "InitialHeight": 254.78666666666663,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
@@ -1938,10 +1983,10 @@
           "d3f99614f2334dae8c493d7acb2cbfb9",
           "6002e8eb115f4e8a9f0cad6329e433be"
         ],
-        "Left": 2499.8326755941448,
+        "Left": 2239.5040565061195,
         "Top": 799.99288141622264,
-        "Width": 1893.9389935364366,
-        "Height": 661.54935503103616,
+        "Width": 2154.2676126244619,
+        "Height": 661.58460799921659,
         "FontSize": 30.0,
         "InitialTop": 845.99288141622264,
         "InitialHeight": 254.78666666666663,
@@ -1984,7 +2029,7 @@
         ],
         "Left": 3830.5320835221123,
         "Top": 500.28236105177916,
-        "Width": 569.18260863927708,
+        "Width": 497.18260863927708,
         "Height": 162.0,
         "FontSize": 36.0,
         "InitialTop": 553.28236105177916,
@@ -1993,8 +2038,8 @@
         "Background": "#FFA4E1FF"
       }
     ],
-    "X": -1127.5745334885723,
-    "Y": 13.50898273070554,
-    "Zoom": 0.48530640145422976
+    "X": -1058.0723796942486,
+    "Y": 15.077804445697971,
+    "Zoom": 0.48369433989117538
   }
 }

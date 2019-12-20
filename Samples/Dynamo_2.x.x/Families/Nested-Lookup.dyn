@@ -34,13 +34,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.FamilyType.Create@var,string[]",
+      "FunctionSignature": "Orchid.RevitFamily.FamilyType.Create@var,string",
       "Id": "cc50b4f891634c068d056d325faa7627",
       "Inputs": [
         {
           "Id": "9a05ffef56644e8bb76e7c7bcdc2ae5e",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -49,7 +49,7 @@
         {
           "Id": "41cbbfaf3c1a4657a4ca1ee592cf7a58",
           "Name": "name",
-          "Description": "The family type name\n\nstring[]\nDefault value : null",
+          "Description": "The family type name\n\nstring\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -68,7 +68,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string[] = null): var[]..[]"
+      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string = null): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -117,7 +117,7 @@
         {
           "Id": "a1f0dd5c654e45a6973a532d6e956132",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -182,7 +182,7 @@
         {
           "Id": "d2955abc96c24e7595d479dd7f2ba2ca",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -250,7 +250,7 @@
         {
           "Id": "51fe584490ee445587a7a72219c8f873",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -288,7 +288,7 @@
         {
           "Id": "c457f055bb454a07aa05f6247077a401",
           "Name": "Parameter",
-          "Description": "Parameter as Revit type",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -336,7 +336,7 @@
         {
           "Id": "fdb5f9625a27465dad36b8837be5025f",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -344,8 +344,8 @@
         },
         {
           "Id": "930b8e72938c4b968b2d5d4168f9ed42",
-          "Name": "familyType",
-          "Description": "Nested family type in the familyDocument\n\nElement[]",
+          "Name": "element",
+          "Description": "Element to associate in the familyDocument\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -362,7 +362,7 @@
         },
         {
           "Id": "6312bf9faac8447d9d2c42f0930ef9e7",
-          "Name": "familyParameter",
+          "Name": "elementParameter",
           "Description": "The name of the family parameter to be associated\n\nstring[]",
           "UsingDefaultValue": false,
           "Level": 2,
@@ -374,7 +374,7 @@
         {
           "Id": "b37994b94ad645539543882c3cd83133",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -382,7 +382,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Associate document parameter with element parameter (e.g. nested family)\n\nParameter.Associate (familyDocument: var = null, familyType: Element[], documentParameter: string[], familyParameter: string[]): var[]..[]"
+      "Description": "Associate document parameter with element parameter (e.g. nested family)\n\nParameter.Associate (familyDocument: var = null, element: Element[], documentParameter: string[], elementParameter: string[]): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -393,7 +393,7 @@
         {
           "Id": "2074dfbf44f04da5b8863465a0f4f57c",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -423,7 +423,7 @@
         {
           "Id": "a3d3b43c52df4dce852d01603d308b36",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -434,7 +434,7 @@
         {
           "Id": "4fb4338b01584c50962c41f886ff4b33",
           "Name": "FamilyType",
-          "Description": "FamilyType as Dynamo type",
+          "Description": "Nested family type in the familyDocument",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -442,7 +442,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get nested family in the familyDocument\n\nFamilyType.GetNested (familyDocument: var = null): var[]..[]"
+      "Description": "Get nested family type in the familyDocument\n\nFamilyType.GetNested (familyDocument: var = null): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -491,7 +491,7 @@
         {
           "Id": "6ca7b872af3f41afb58e84afce5c4e4e",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -556,7 +556,7 @@
         {
           "Id": "bee083baa2b74d40b0fe94876b9e9d41",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -594,7 +594,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Open documents in background\n\nDocument.BackgroundOpen (file: string): var"
+      "Description": "Open documents in background\n\nDocument.BackgroundOpen (file: string): Document"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
@@ -625,7 +625,7 @@
         {
           "Id": "cf5166268bfa4d83ac6f9a878f5db20c",
           "Name": "document",
-          "Description": "Document as Revit type\n\nvar",
+          "Description": "Document (rvt) as Orchid document\n\nvar",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -693,7 +693,7 @@
         {
           "Id": "93fd317cea814990addc311cb1b29e44",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -731,7 +731,7 @@
         {
           "Id": "2f2a4417ec9b4598a6baff4d3af8e541",
           "Name": "Parameter",
-          "Description": "Parameter as Revit type",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -784,13 +784,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Formula.Set@var,string[],string[]",
+      "FunctionSignature": "Orchid.RevitFamily.Formula.Set@var,string,string",
       "Id": "e9fe7357b1e64a4e83c8fcc513a9c9f0",
       "Inputs": [
         {
           "Id": "98aa926863a24ea68f0f422baa6f2057",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -799,7 +799,7 @@
         {
           "Id": "ca99b06a9b984d2a85615ef9efa1e772",
           "Name": "parameterName",
-          "Description": "The name of the parameter to set\n\nstring[]",
+          "Description": "The name of the parameter to set\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -808,7 +808,7 @@
         {
           "Id": "5d7bf0760a464cfa81fd6981884231f0",
           "Name": "value",
-          "Description": "The value\n\nstring[]",
+          "Description": "The value\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -827,7 +827,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set family formula by parameter name. Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Set (familyDocument: var = null, parameterName: string[], value: string[]): var[]..[]"
+      "Description": "Set family formula by parameter name. Note: If no family types exists, then a default family type will be created named as the familyDocument.\n\nFormula.Set (familyDocument: var = null, parameterName: string, value: string): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -838,7 +838,7 @@
         {
           "Id": "990e15ed71c44824b9ab432639da93ce",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1316,7 +1316,7 @@
         {
           "Id": "62f111dac2434f25bea4d07ebd27edf8",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1381,7 +1381,7 @@
         {
           "Id": "4aa8c4daea8446e9b4b4d1b4f5c1300c",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1421,7 +1421,7 @@
         {
           "Id": "bf35abb098b342d188f79b9b4830e395",
           "Name": "Document",
-          "Description": "Document as Revit type",
+          "Description": "Document as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1863,13 +1863,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Parameter.HasAssociated@var,string[]",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.HasAssociated@var,string",
       "Id": "fbcef60c6a614a728a3ff20fb64dad22",
       "Inputs": [
         {
           "Id": "133477943e9649979f0d2e5ab4300963",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1878,7 +1878,7 @@
         {
           "Id": "408cb0ea100b4df692f18a7564c859f1",
           "Name": "parameterName",
-          "Description": "The name of the parameter to verify\n\nstring[]",
+          "Description": "The name of the parameter to verify\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1889,7 +1889,7 @@
         {
           "Id": "e63e45d50138451daac6a25e4ee0755e",
           "Name": "bool",
-          "Description": "Boolean value",
+          "Description": "Bool value if parameter has associated elements",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1897,7 +1897,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Verify if parameter has associated elements\n\nParameter.HasAssociated (familyDocument: var = null, parameterName: string[]): var[]..[]"
+      "Description": "Verify if parameter has associated elements\n\nParameter.HasAssociated (familyDocument: var = null, parameterName: string): bool"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -2026,7 +2026,7 @@
         {
           "Id": "c6de3671fd904dfcb3202ed856fbb1ca",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2037,7 +2037,7 @@
         {
           "Id": "6a22091dc66640c8b03044cbc36a7bfb",
           "Name": "Parameter",
-          "Description": "Parameter",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2201,7 +2201,7 @@
         {
           "Id": "87e91163ccdf4f589d99f165a8936444",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -2288,7 +2288,7 @@
         {
           "Id": "8e4ce45c3ae547ca8bbd0f14697c25a0",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar",
+          "Description": "Family document (rfa) as Orchid document\n\nvar",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -3705,7 +3705,7 @@
         ],
         "Left": 1791.86220588024,
         "Top": -1345.16733516142,
-        "Width": 848.0559371622,
+        "Width": 842.0559371622,
         "Height": 405.0,
         "FontSize": 30.0,
         "InitialTop": -1299.16733516142,
@@ -3714,8 +3714,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 360.46948320650216,
-    "Y": 555.78650141917547,
-    "Zoom": 0.31614720145219077
+    "X": 156.97842211875451,
+    "Y": 537.452448821161,
+    "Zoom": 0.12147527937571863
   }
 }
