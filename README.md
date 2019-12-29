@@ -3,7 +3,7 @@ Orchid is a solution designed for use in the [Dynamo](http://dynamobim.org) envi
   
 **Software environment:**  
 Built for Dynamo +2.1.0, +2.2.0, +2.3.0 (Revit+2020), and +2.0.3 (Revit +2018).  
-Version +1.3.4 (Revit +2017) is no longer being developed and will be phased out!  
+Version +1.3.4 (Revit +2017) Note: the version is obsolete!  
   
 **Orchid Blog:**  
 At the <a href="https://erfajo.blogspot.com" target="_blank">blog</a> is information, updates, tips and tricks for Orchid published.  
@@ -19,47 +19,35 @@ In the [samples](Samples) folder are examples in using the Orchid package placed
 <a href="Orchid_220.md">Orchid 2.2.x</a>  
 <a href="Orchid_210.md">Orchid 2.1.x</a>  
 <a href="Orchid_200.md">Orchid 2.0.x</a>  
-<a href="Orchid_130.md">Orchid 1.3.x</a> Is no longer being developed and will be phased out!  
+<a href="Orchid_130.md">Orchid 1.3.x</a> &nbsp;&nbsp;&nbsp; Note: the version is <b>obsolete</b>  
 
 ---
 ### Install or Update in Dynamo  
 Use the executable installer in the **[Builds](Builds)** folder to install the Orchid package.  
-Select the installer according to your dynamo version!  
-
+  
+Select the executable according to your dynamo version!  
+OrchidforDynamo_230 &nbsp;&nbsp;&nbsp; (for the dynamo 2.3.x branch)  
+OrchidforDynamo_220 &nbsp;&nbsp;&nbsp; (for the dynamo 2.2.x branch)  
+OrchidforDynamo_210 &nbsp;&nbsp;&nbsp; (for the dynamo 2.1.x branch)  
+OrchidforDynamo_200 &nbsp;&nbsp;&nbsp; (for the dynamo 2.0.x branch)  
+OrchidforDynamo_130 &nbsp;&nbsp;&nbsp; (for the dynamo 1.3.x branch. Note: the version is obsolete)  
+  
+&nbsp;  
 <span style="color:red">**REVIT AND DYNAMO MUST BE CLOSED DURING INSTALLATION!**</span>  
+&nbsp;  
+  
+The Orchid package may also be installed by manually copying files from the **[Zipped](Zipped)** folder. This is only recommendable for experienced users! To install/update this way, please copy the zip-file of the chosen version into your dynamo package folder, into a folder named <b>Orchid</b>. Download may be handled either by downloading a single file, or by cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
 
-The Orchid package may also be installed by manually copying files from the repository. This is only recommendable for experienced users! To install/update this way, please copy the content of the chosen root version into your package folder path into the 'Orchid' folder! Download is handled by either cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
+Select the zip-file according to your dynamo version!  
+Orchid_230_? &nbsp;&nbsp;&nbsp; (for the dynamo 2.3.x branch)  
+Orchid_220_? &nbsp;&nbsp;&nbsp; (for the dynamo 2.2.x branch)  
+Orchid_210_? &nbsp;&nbsp;&nbsp; (for the dynamo 2.1.x branch)  
+Orchid_200_? &nbsp;&nbsp;&nbsp; (for the dynamo 2.0.x branch)  
+Orchid_130_? &nbsp;&nbsp;&nbsp; (for the dynamo 1.3.x branch. Note: the version is obsolete)  
 
-Select the content according to your dynamo version!  
-<pre>
-OrchidForDynamo
-│  
-├─┬── <b>Orchid_230    (for the dynamo 2.3.x branch)</b>  
-│ │  
-│ ├── Dynamo_Core   (root for the Sandbox version)  
-│ └── Dynamo_Revit  (root for the Revit version)  
-│  
-├─┬── <b>Orchid_220    (for the dynamo 2.2.x branch)</b>  
-│ │  
-│ ├── Dynamo_Core   (root for the Sandbox version)  
-│ └── Dynamo_Revit  (root for the Revit version)  
-│  
-├─┬── <b>Orchid_210    (for the dynamo 2.1.x branch)</b>  
-│ │  
-│ ├── Dynamo_Core   (root for the Sandbox version)  
-│ └── Dynamo_Revit  (root for the Revit version)  
-│  
-├─┬── <b>Orchid_200    (for the dynamo 2.0.x branch)</b>  
-│ │  
-│ ├── Dynamo_Core   (root for the Sandbox version)  
-│ └── Dynamo_Revit  (root for the Revit version)  
-│  
-└─┬── <b>Orchid_130    (for the dynamo 1.3.x branch)</b>  
-  │   <i>Is no longer being developed and will be phased out!</i>  
-  │  
-  ├── Dynamo_Core   (root for the Sandbox version)  
-  └── Dynamo_Revit  (root for the Revit version)  
-</pre>
+The individual version is avalible both for the sandbox version and for the version used Inside revit.  
+?_Revit &nbsp;&nbsp;&nbsp; (the Revit version)  
+?_Core &nbsp;&nbsp;&nbsp; (the Sandbox version)  
 
 ---
 ### License  
