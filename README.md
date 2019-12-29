@@ -36,7 +36,7 @@ OrchidforDynamo_130 &nbsp;&nbsp;&nbsp; (for the dynamo 1.3.x branch. Note: the v
 <span style="color:red">**REVIT AND DYNAMO MUST BE CLOSED DURING INSTALLATION!**</span>  
 &nbsp;  
   
-The Orchid package may also be installed by manually copying files from the **[Zipped](Zipped)** folder. This is only recommendable for experienced users! To install/update this way, please copy the zip-file of the chosen version into your dynamo package folder, into a folder named <b>Orchid</b>. Download may be handled either by downloading a single file, or by cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
+The Orchid package may also be installed by manually copying files from the **[Zipped](Zipped)** folder. This is only recommendable for experienced users! To install/update this way, please unzip the zip-file of the chosen version into your dynamo package folder, into a folder named <b>Orchid</b>. Download may be handled either by downloading a single file, or by cloning or zipping the repository. The package folder path can be found in Dynamo via the menu item 'Settings' -> 'Manage Node and Package Paths'.  
 
 Select the zip-file according to your dynamo version!  
 Orchid_230_? &nbsp;&nbsp;&nbsp; (for the dynamo 2.3.x branch)  
