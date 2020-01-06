@@ -50,6 +50,15 @@ The individual version is avalible both for the sandbox version and for the vers
 ?_Core &nbsp;&nbsp;&nbsp; (the Sandbox version)  
 
 ---
+### Description  
+Nodes are generally seen arranged in four node assemblies depending on the version. Two assemblies cover the Revit version and two assemblies cover the Core (Sandbox) version. Each of the two sets of assemblies has an assembly for base/standard nodes and an assembly for extensible nodes, mainly dropdown nodes. Besides these four, are assemblies covering icons for the nodes present. The nodes may also be used as textual functions as code in code blocks, using design script as the Dynamo functions.  
+  
+Inside Dynamo is the Orchid package nodes arranged into different main branches: Core, RevitFamily, RevitMaterial, RevitProject, About, and Applications. The last branch covers functions for external applications outside Revit. The first four branches covers functions to be used inside Revit. the About branch cover nodes for information about the Orchid package.  
+  
+Nodes the four Revit driven branches can be recognized by their icon border-color:  
+Core -> yellow, RevirFamily -> blue, RevitMaterial -> green, and RevitProject -> white.  
+  
+---
 ### License  
 Copyright(c) 2014  
 Erik Falck Jørgensen  
