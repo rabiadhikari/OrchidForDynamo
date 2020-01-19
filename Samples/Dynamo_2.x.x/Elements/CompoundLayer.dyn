@@ -577,13 +577,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer@var[]..[],string[],Revit.Elements.Element[],double[],bool[],bool[],bool[],string[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer@Revit.Elements.Element,string[],Revit.Elements.Element[],double[],bool[],bool[],bool[],string[],int[]",
       "Id": "97c46226a5d144b99ef6cbcfb3038d37",
       "Inputs": [
         {
           "Id": "46537ff31c0e41b7bec6b2c4c4c74146",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -601,7 +601,7 @@
         {
           "Id": "a8e6b25f5dbc4d648c5842fead90ee5e",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -666,7 +666,7 @@
         {
           "Id": "4cf3a338a6ff488b9a46036999c6ab78",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -674,18 +674,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.CreateCompoundLayer (elementType: var[]..[], function: string[] = null, material: Element[], thickness: double[], wrapping: bool[] = false, variable: bool[] = false, structural: bool[] = false, placement: string[] = \"Core\", index: int[]): var[]..[]"
+      "Description": "Create a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.CreateCompoundLayer (elementType: Element, function: string[] = null, material: Element[], thickness: double[], wrapping: bool[] = false, variable: bool[] = false, structural: bool[] = false, placement: string[] = \"Core\", index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.DeleteCompoundLayer@var[]..[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.DeleteCompoundLayer@Revit.Elements.Element,int[]",
       "Id": "dafd1bd3484b466fa5357e76107d4799",
       "Inputs": [
         {
           "Id": "0de6796d3b664c21920efe9f3f958e8c",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -705,7 +705,7 @@
         {
           "Id": "2c289bd4b34a4abf8ba701da96594f70",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -713,18 +713,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Delete a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.DeleteCompoundLayer (elementType: var[]..[], index: int[]): var[]..[]"
+      "Description": "Delete a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.DeleteCompoundLayer (elementType: Element, index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@var[]..[],Revit.Elements.Element[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@Revit.Elements.Element,Revit.Elements.Element[],int[]",
       "Id": "c3f2ce1e74cb4b36a6dfb45cf1b66cd8",
       "Inputs": [
         {
           "Id": "be8c6c333d51460eb15b8a58eb2f37ef",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -733,7 +733,7 @@
         {
           "Id": "b168db8d22dd47d5b699d0b40cd9cd1a",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -753,7 +753,7 @@
         {
           "Id": "16825cce465f4ed6896135b95b29e493",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -761,18 +761,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: var[]..[], material: Element[], index: int[]): var[]..[]"
+      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: Element, material: Element[], index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerWidth@var[]..[],double[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerWidth@Revit.Elements.Element,double[],int[]",
       "Id": "006cf13d5cdc4e6ca3da8edfb7002e47",
       "Inputs": [
         {
           "Id": "944d04201be8442e8edcec703ae565e9",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -801,7 +801,7 @@
         {
           "Id": "d7570b274eef40dc888bcba1e439fba9",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -809,18 +809,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the width by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerWidth (elementType: var[]..[], thickness: double[], index: int[]): var[]..[]"
+      "Description": "Set the width by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerWidth (elementType: Element, thickness: double[], index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@var[]..[],Revit.Elements.Element[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@Revit.Elements.Element,Revit.Elements.Element[],int[]",
       "Id": "a3b46d9167f54c6e8c11da9885040657",
       "Inputs": [
         {
           "Id": "c8a2708db7064567abfd7cb9cc54347e",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -829,7 +829,7 @@
         {
           "Id": "b87aea90bffa478db3b9bbb4c4ba3fb2",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -849,7 +849,7 @@
         {
           "Id": "04f3a4ad6b334b8fb60f4ddb7bffe940",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -857,18 +857,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: var[]..[], material: Element[], index: int[]): var[]..[]"
+      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: Element, material: Element[], index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer@var[]..[],string[],Revit.Elements.Element[],double[],bool[],bool[],bool[],string[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer@Revit.Elements.Element,string[],Revit.Elements.Element[],double[],bool[],bool[],bool[],string[],int[]",
       "Id": "097abc103eb0467889942eda6a73c41d",
       "Inputs": [
         {
           "Id": "3f7fbf28c1f841cb90208792af5b0d39",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -886,7 +886,7 @@
         {
           "Id": "f1ac434aab034368a5ea446631ef841a",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -951,7 +951,7 @@
         {
           "Id": "8243e844ef9a47359d7ccc2800c7af53",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -959,7 +959,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.CreateCompoundLayer (elementType: var[]..[], function: string[] = null, material: Element[], thickness: double[], wrapping: bool[] = false, variable: bool[] = false, structural: bool[] = false, placement: string[] = \"Core\", index: int[]): var[]..[]"
+      "Description": "Create a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.CreateCompoundLayer (elementType: Element, function: string[] = null, material: Element[], thickness: double[], wrapping: bool[] = false, variable: bool[] = false, structural: bool[] = false, placement: string[] = \"Core\", index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -1112,16 +1112,16 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.GetCompoundLayerMaterial@var[]..[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.GetCompoundLayerMaterial@Revit.Elements.Element",
       "Id": "50fae7ecf6924c68875fe4c8679cbc8e",
       "Inputs": [
         {
           "Id": "b01638a176d04b25b1f2015154c5dfbc",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 1,
-          "UseLevels": true,
+          "UseLevels": false,
           "KeepListStructure": false
         }
       ],
@@ -1137,21 +1137,21 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get the compound layer material in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.GetCompoundLayerMaterial (elementType: var[]..[]): var[]..[]"
+      "Description": "Get the compound layer material in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.GetCompoundLayerMaterial (elementType: Element): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.GetCompoundLayerWidth@var[]..[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.GetCompoundLayerWidth@Revit.Elements.Element",
       "Id": "0ec09d47896c449ca2f18cf2ad188c06",
       "Inputs": [
         {
           "Id": "f3ab128da7f24846b13c3a63583e4840",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 1,
-          "UseLevels": true,
+          "UseLevels": false,
           "KeepListStructure": false
         }
       ],
@@ -1167,7 +1167,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get the compound layer width in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.GetCompoundLayerWidth (elementType: var[]..[]): var[]..[]"
+      "Description": "Get the compound layer width in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.GetCompoundLayerWidth (elementType: Element): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -1477,13 +1477,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@var[]..[],Revit.Elements.Element[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@Revit.Elements.Element,Revit.Elements.Element[],int[]",
       "Id": "e672c17292d74203a857467c3ed338b1",
       "Inputs": [
         {
           "Id": "2164f8986211438fbe5d342ccce38f91",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1492,7 +1492,7 @@
         {
           "Id": "c929d5af216a4a6eac43ba27e8a5de81",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1512,7 +1512,7 @@
         {
           "Id": "e99b8266215b486a9264c8cc78dfe953",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1520,7 +1520,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: var[]..[], material: Element[], index: int[]): var[]..[]"
+      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: Element, material: Element[], index: int[]): Element"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -1742,13 +1742,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@var[]..[],Revit.Elements.Element[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@Revit.Elements.Element,Revit.Elements.Element[],int[]",
       "Id": "efb32fd3ef1f402bbd0e2eb0f981979d",
       "Inputs": [
         {
           "Id": "16519320a3dd40479068009722e965b4",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1757,7 +1757,7 @@
         {
           "Id": "29bc497fc67548e599ebb441808e3247",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1777,7 +1777,7 @@
         {
           "Id": "8139956a132b4da1a4b7a4a7813a9d48",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1785,7 +1785,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: var[]..[], material: Element[], index: int[]): var[]..[]"
+      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: Element, material: Element[], index: int[]): Element"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -2007,13 +2007,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@var[]..[],Revit.Elements.Element[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@Revit.Elements.Element,Revit.Elements.Element[],int[]",
       "Id": "479ac8b5eef34ee09a847746ec14a68a",
       "Inputs": [
         {
           "Id": "915404ba9a464717b6c08b17d5e9a75b",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2022,7 +2022,7 @@
         {
           "Id": "7f54c3e4d2784eefb52851d2db719ef0",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2042,7 +2042,7 @@
         {
           "Id": "acf080501a0f4696bcf9da3aab512f2a",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2050,7 +2050,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: var[]..[], material: Element[], index: int[]): var[]..[]"
+      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: Element, material: Element[], index: int[]): Element"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -2134,13 +2134,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@var[]..[],Revit.Elements.Element[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerMaterial@Revit.Elements.Element,Revit.Elements.Element[],int[]",
       "Id": "cd83c91b57fb4da8bca84dcb20be6aec",
       "Inputs": [
         {
           "Id": "236cec36018e4ec6b4c4c796ca88342c",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2149,7 +2149,7 @@
         {
           "Id": "ce9176d455f9406198133aa9a649306d",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2169,7 +2169,7 @@
         {
           "Id": "689cbbf080704db4bb3a6e4b6c98c44f",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2177,7 +2177,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: var[]..[], material: Element[], index: int[]): var[]..[]"
+      "Description": "Set the material by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerMaterial (elementType: Element, material: Element[], index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
@@ -2330,13 +2330,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer@var[]..[],string[],Revit.Elements.Element[],double[],bool[],bool[],bool[],string[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.CreateCompoundLayer@Revit.Elements.Element,string[],Revit.Elements.Element[],double[],bool[],bool[],bool[],string[],int[]",
       "Id": "437df04562814fb78d994f97accbed78",
       "Inputs": [
         {
           "Id": "b0f240c4cb154822b61f1c2fde4061f3",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2354,7 +2354,7 @@
         {
           "Id": "ad75d109472b4c4b8c5ad7cab1d5db64",
           "Name": "material",
-          "Description": "The material (dynamo type)\n\nElement[]",
+          "Description": "The material as Dynamo type\n\nElement[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2419,7 +2419,7 @@
         {
           "Id": "75e288ef54c24c97862f09b4e0c20689",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2427,7 +2427,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.CreateCompoundLayer (elementType: var[]..[], function: string[] = null, material: Element[], thickness: double[], wrapping: bool[] = false, variable: bool[] = false, structural: bool[] = false, placement: string[] = \"Core\", index: int[]): var[]..[]"
+      "Description": "Create a layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.CreateCompoundLayer (elementType: Element, function: string[] = null, material: Element[], thickness: double[], wrapping: bool[] = false, variable: bool[] = false, structural: bool[] = false, placement: string[] = \"Core\", index: int[]): Element"
     },
     {
       "ConcreteType": "Orchid.E.RevitProject.Elements.SystemFamily.LayerPlacement, OrchidRE",
@@ -2612,13 +2612,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerWrapping@var[]..[],bool[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerWrapping@Revit.Elements.Element,bool[],int[]",
       "Id": "fd7b9dfbfbc7472cb25918db7d24cebd",
       "Inputs": [
         {
           "Id": "eefd1770dc35456ba3bc7306075ece6a",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2647,7 +2647,7 @@
         {
           "Id": "2be3b697712a42a798404fce1879b512",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2655,18 +2655,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Wrapping of the layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerWrapping (elementType: var[]..[], wrapping: bool[] = false, index: int[]): var[]..[]"
+      "Description": "Wrapping of the layer by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerWrapping (elementType: Element, wrapping: bool[] = false, index: int[]): Element"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerStructural@var[]..[],bool[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerStructural@Revit.Elements.Element,bool[],int[]",
       "Id": "c07c13478ed548eeb29250658e488937",
       "Inputs": [
         {
           "Id": "5029db1f23ca40de90244dceedf26e90",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2695,7 +2695,7 @@
         {
           "Id": "7ea0b2cecab54c0a999fab0a78f1df4f",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2703,7 +2703,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the layer structural by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerStructural (elementType: var[]..[], structural: bool[] = false, index: int[]): var[]..[]"
+      "Description": "Set the layer structural by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerStructural (elementType: Element, structural: bool[] = false, index: int[]): Element"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -2768,13 +2768,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerVariable@var[]..[],bool[],int[]",
+      "FunctionSignature": "Orchid.RevitProject.Elements.SystemFamily.SetCompoundLayerVariable@Revit.Elements.Element,bool[],int[]",
       "Id": "8e4130df5eb243828229a0def8589253",
       "Inputs": [
         {
           "Id": "68403fbfbe644118bd9a4260dca28e1a",
           "Name": "elementType",
-          "Description": "The system family type\n\nvar[]..[]",
+          "Description": "The system family type as Dynamo type\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2803,7 +2803,7 @@
         {
           "Id": "4163f4fa14ce4067b1ffb0255580e89d",
           "Name": "ElementType",
-          "Description": "FamilyType",
+          "Description": "The system family type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -2811,7 +2811,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set the layer variable by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerVariable (elementType: var[]..[], variable: bool[] = false, index: int[]): var[]..[]"
+      "Description": "Set the layer variable by index at a specified compound layer in a system family type that have a compound structure (walls, floors, roofs etc.).\n\nSystemFamily.SetCompoundLayerVariable (elementType: Element, variable: bool[] = false, index: int[]): Element"
     }
   ],
   "Connectors": [
@@ -3023,7 +3023,7 @@
     {
       "Start": "84fcf3ce0a3c492689917e91ea6d5a5f",
       "End": "c929d5af216a4a6eac43ba27e8a5de81",
-      "Id": "3b53064f26c94d1db778ffcf64a0be66"
+      "Id": "f6cec70edf164c35bb04910b18d51709"
     },
     {
       "Start": "e99b8266215b486a9264c8cc78dfe953",
@@ -3221,7 +3221,7 @@
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
-      "HasRunWithoutCrash": false,
+      "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.0.3.8810",
       "RunType": "Manual",
@@ -4146,7 +4146,7 @@
         "Height": 247.2133333333301,
         "FontSize": 30.0,
         "InitialTop": 45.7219242307749,
-        "InitialHeight": 231.213333333336,
+        "InitialHeight": 253.2133333333301,
         "TextblockHeight": 36.0,
         "Background": "#FFFFB8D8"
       },
@@ -4166,7 +4166,7 @@
         "Height": 504.111056661082,
         "FontSize": 30.0,
         "InitialTop": -1005.17574236733,
-        "InitialHeight": 361.15236754689,
+        "InitialHeight": 360.111056661082,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4184,7 +4184,7 @@
         "Height": 257.42666666666992,
         "FontSize": 30.0,
         "InitialTop": -1961.10906211883,
-        "InitialHeight": 241.426666666667,
+        "InitialHeight": 253.42666666666992,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4204,7 +4204,7 @@
         "Height": 349.15236754688908,
         "FontSize": 30.0,
         "InitialTop": -1155.12865075756,
-        "InitialHeight": 333.152367546888,
+        "InitialHeight": 355.15236754688908,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4226,7 +4226,7 @@
         "Height": 654.121685531122,
         "FontSize": 30.0,
         "InitialTop": -406.853829636129,
-        "InitialHeight": 397.15236754689,
+        "InitialHeight": 660.121685531122,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4249,7 +4249,7 @@
         "Height": 363.213333333333,
         "FontSize": 30.0,
         "InitialTop": -415.13647033836,
-        "InitialHeight": 347.38067523407,
+        "InitialHeight": 369.213333333333,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -4267,7 +4267,7 @@
         "Height": 251.69360000024602,
         "FontSize": 30.0,
         "InitialTop": 43.432176637659,
-        "InitialHeight": 248.498008020951,
+        "InitialHeight": 257.693600000246,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -4290,7 +4290,7 @@
         "Height": 363.21333333333291,
         "FontSize": 30.0,
         "InitialTop": -875.639719644017,
-        "InitialHeight": 347.213333333333,
+        "InitialHeight": 369.21333333333291,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -4313,7 +4313,7 @@
         "Height": 363.21333333332996,
         "FontSize": 30.0,
         "InitialTop": -1335.28005596501,
-        "InitialHeight": 347.213333333333,
+        "InitialHeight": 369.21333333332996,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -4336,7 +4336,7 @@
         "Height": 363.21333333332996,
         "FontSize": 30.0,
         "InitialTop": -1795.76091171602,
-        "InitialHeight": 347.213333333333,
+        "InitialHeight": 369.21333333332996,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -4356,7 +4356,7 @@
         "Height": 351.25380512693982,
         "FontSize": 30.0,
         "InitialTop": -1603.91576611837,
-        "InitialHeight": 333.152367546889,
+        "InitialHeight": 357.25380512693982,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4378,7 +4378,7 @@
         "Height": 652.34111420103,
         "FontSize": 30.0,
         "InitialTop": -1755.14214587434,
-        "InitialHeight": 638.121685531122,
+        "InitialHeight": 658.34111420103,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4397,7 +4397,7 @@
         "Height": 331.21333333333405,
         "FontSize": 30.0,
         "InitialTop": 153.573826356794,
-        "InitialHeight": 231.21333333333,
+        "InitialHeight": 337.21333333333405,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4416,7 +4416,7 @@
         "Height": 331.21333333333331,
         "FontSize": 30.0,
         "InitialTop": -276.488804220326,
-        "InitialHeight": 335.253805126942,
+        "InitialHeight": 337.21333333333331,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -4435,13 +4435,13 @@
         "Height": 331.213333333333,
         "FontSize": 30.0,
         "InitialTop": -706.836440838508,
-        "InitialHeight": 231.21333333333,
+        "InitialHeight": 337.213333333333,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       }
     ],
-    "X": -337.83331363980739,
-    "Y": 555.53249439576621,
-    "Zoom": 0.16656562843929709
+    "X": -357.62628910587432,
+    "Y": 412.80693256723555,
+    "Zoom": 0.17552846370988753
   }
 }

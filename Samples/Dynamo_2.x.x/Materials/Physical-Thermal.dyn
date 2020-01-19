@@ -24,6 +24,14 @@
       "Orchid.Core.Object": {
         "Key": "Orchid.Core.Object",
         "Value": "OrchidRB.dll"
+      },
+      "Autodesk.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Autodesk.DesignScript.Geometry.Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
       }
     }
   },
@@ -5645,12 +5653,12 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "Orchid.Core.Object.XYZ(10000,11000,12000);\nOrchid.Core.Object.XYZ(0.3,0.35,0.4);\nOrchid.Core.Object.XYZ(650,700,750);\n420;",
+      "Code": "Autodesk.Point.ByCoordinates(10000,11000,12000);\nAutodesk.Point.ByCoordinates(0.3,0.35,0.4);\nAutodesk.Point.ByCoordinates(650,700,750);\n420;",
       "Id": "c399e796e4334aea8d009ba83e8fd9ce",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "2b71a3a65e954eba871cfcb2b5d744ce",
+          "Id": "8e56063543484c98bfa5b6f4beae5355",
           "Name": "",
           "Description": "Value of expression at line 1",
           "UsingDefaultValue": false,
@@ -5659,7 +5667,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "1ae0165c67a042dfb7a7960ba742d330",
+          "Id": "e88f803232db4f79bc6ca927c41cc9cf",
           "Name": "",
           "Description": "Value of expression at line 2",
           "UsingDefaultValue": false,
@@ -5668,7 +5676,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "0a2052ff948048baa99f22212f2c1d25",
+          "Id": "b57db35bb616431e8eb488748d29bf95",
           "Name": "",
           "Description": "Value of expression at line 3",
           "UsingDefaultValue": false,
@@ -5677,7 +5685,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "feb3de5e437c4891a8ddaea47830dd11",
+          "Id": "b438badacd7f4e89910491762734df95",
           "Name": "",
           "Description": "Value of expression at line 4",
           "UsingDefaultValue": false,
@@ -11383,7 +11391,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitMaterial.PhysicalAsset.SetMechanicalByXYZ@var,var,var,var,double",
+      "FunctionSignature": "Orchid.RevitMaterial.PhysicalAsset.SetMechanicalByXYZ@var,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,double",
       "Id": "4244fdc7572f4cf7beba071c019899a0",
       "Inputs": [
         {
@@ -11398,7 +11406,7 @@
         {
           "Id": "2a5e6777c8c146a7950c13561acd6eeb",
           "Name": "youngModulus",
-          "Description": "var\nDefault value : null",
+          "Description": "XYZ as Dynamo point\n\nPoint\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -11407,7 +11415,7 @@
         {
           "Id": "8a44b88f7c0a417b8072a3e0ce3fb032",
           "Name": "poissonRatio",
-          "Description": "var\nDefault value : null",
+          "Description": "XYZ as Dynamo point\n\nPoint\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -11416,7 +11424,7 @@
         {
           "Id": "6808e84637a84f599534a6faf2d04fa1",
           "Name": "shearModulus",
-          "Description": "var\nDefault value : null",
+          "Description": "XYZ as Dynamo point\n\nPoint\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -11444,12 +11452,12 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set mechanical.\n\nPhysicalAsset.SetMechanicalByXYZ (propertySet: var, youngModulus: var = null, poissonRatio: var = null, shearModulus: var = null, density: double = -1): var[]..[]"
+      "Description": "Set mechanical.\n\nPhysicalAsset.SetMechanicalByXYZ (propertySet: var, youngModulus: Point = null, poissonRatio: Point = null, shearModulus: Point = null, density: double = -1): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitMaterial.PhysicalAsset.SetBasicThermalByXYZ@var,var",
+      "FunctionSignature": "Orchid.RevitMaterial.PhysicalAsset.SetBasicThermalByXYZ@var,Autodesk.DesignScript.Geometry.Point",
       "Id": "c578f872178d445f833a344a35b6fee6",
       "Inputs": [
         {
@@ -11464,7 +11472,7 @@
         {
           "Id": "fead253c7fa54a3ea006c7c76ffb95e8",
           "Name": "expansionCoefficient",
-          "Description": "var",
+          "Description": "XYZ as Dynamo point\n\nPoint",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -11483,55 +11491,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set basic thermal.\n\nPhysicalAsset.SetBasicThermalByXYZ (propertySet: var, expansionCoefficient: var): var[]..[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.Object.XYZ@double,double,double",
-      "Id": "cec2c1dcb13c468ca9e53c59958ef178",
-      "Inputs": [
-        {
-          "Id": "87bcccb052b443a0b604c9dccffdbfef",
-          "Name": "x",
-          "Description": "X value\n\ndouble\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "53c7f8a10e814aeba7d2e7fb9c54dbab",
-          "Name": "y",
-          "Description": "Y value\n\ndouble\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "101a13b8ac194832833e4eb42a04b1bd",
-          "Name": "z",
-          "Description": "Z value\n\ndouble\nDefault value : 0",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "1da37e5a79414785a60ff21e3d5c5941",
-          "Name": "XYZ",
-          "Description": "XYZ as Revit type",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Create basic XYZ as Revit type\n\nObject.XYZ (x: double = 0, y: double = 0, z: double = 0): var"
+      "Description": "Set basic thermal.\n\nPhysicalAsset.SetBasicThermalByXYZ (propertySet: var, expansionCoefficient: Point): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -14279,6 +14239,54 @@
       ],
       "Replication": "Auto",
       "Description": "Set strength (extended).\n\nPhysicalAsset.SetStrengthExtended (propertySet: var, species: string = null, grade: string = null, bending: double = -1, parallelCompression: double = -1, perpendicularCompression: double = -1, parallelShear: double = -1, tensionParallel: double = -1, tensionPerpendicular: double = -1, averageModulus: double = -1, construction: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "c6534c6804334cfaa2d749e1c5253d9e",
+      "Inputs": [
+        {
+          "Id": "9ceb44a8028543f488d23991d18f5fcc",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "81165e2d046c4bc6bce9cfe2205f026a",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0249193cb5f24c398b555ad6b534d32e",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8369fc9207cd43a7b53c9e18782bdd7e",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
     }
   ],
   "Connectors": [
@@ -15558,24 +15566,24 @@
       "Id": "fcf97b4c2aad42829b2ce92c006f8c50"
     },
     {
-      "Start": "2b71a3a65e954eba871cfcb2b5d744ce",
+      "Start": "8e56063543484c98bfa5b6f4beae5355",
       "End": "2a5e6777c8c146a7950c13561acd6eeb",
-      "Id": "cb937863681b4f30a4b00bfd20e4247a"
+      "Id": "bee831f7a720425eae8e4f15c5c2f039"
     },
     {
-      "Start": "1ae0165c67a042dfb7a7960ba742d330",
+      "Start": "e88f803232db4f79bc6ca927c41cc9cf",
       "End": "8a44b88f7c0a417b8072a3e0ce3fb032",
-      "Id": "765a65cfd5b84ea6921d61f1d6b70be5"
+      "Id": "7512e9eb860647988103eca84410a20f"
     },
     {
-      "Start": "0a2052ff948048baa99f22212f2c1d25",
+      "Start": "b57db35bb616431e8eb488748d29bf95",
       "End": "6808e84637a84f599534a6faf2d04fa1",
-      "Id": "635c3695ffe44bf1948ffe9c78f17f2b"
+      "Id": "e6468ff46c154f4da491f796a6fb0895"
     },
     {
-      "Start": "feb3de5e437c4891a8ddaea47830dd11",
+      "Start": "b438badacd7f4e89910491762734df95",
       "End": "dcad35e7e93649f6b32dfd4aaab39530",
-      "Id": "22f57060c96a4f49a4908f44f6122e1d"
+      "Id": "d5f9626baddd414bb1486f32f31cbe24"
     },
     {
       "Start": "fd1237cb2ae643d18dec24e65605ee50",
@@ -15624,18 +15632,18 @@
     },
     {
       "Start": "2ea07f9825074139ad978cacaf915321",
-      "End": "87bcccb052b443a0b604c9dccffdbfef",
-      "Id": "e7fb98aca0ce4244941faa471c03cf44"
+      "End": "9ceb44a8028543f488d23991d18f5fcc",
+      "Id": "e9a9be9a74ef49368e8acff74771942a"
     },
     {
       "Start": "0a1d9931154e423f9d04c8557b669ed2",
-      "End": "53c7f8a10e814aeba7d2e7fb9c54dbab",
-      "Id": "a5add759b6c64a69ad93fc9b48b2cbab"
+      "End": "81165e2d046c4bc6bce9cfe2205f026a",
+      "Id": "2350e75a5bdb4799b3496da1e5821485"
     },
     {
       "Start": "57f77cbf9fe24870b07ef32039f00bc2",
-      "End": "101a13b8ac194832833e4eb42a04b1bd",
-      "Id": "f20e2b79933642debecb99d6be3740e6"
+      "End": "0249193cb5f24c398b555ad6b534d32e",
+      "Id": "04a01175c0e5453484f11b3f2be1b70e"
     },
     {
       "Start": "f283a38e69004dfc9da66a958c958dee",
@@ -16393,11 +16401,6 @@
       "Id": "abebcc71860444bdbf332ec9b291d11c"
     },
     {
-      "Start": "1da37e5a79414785a60ff21e3d5c5941",
-      "End": "fead253c7fa54a3ea006c7c76ffb95e8",
-      "Id": "33c8c9f1ba06426f8f916b70cc0a86e5"
-    },
-    {
       "Start": "ae1d11cea70b4a16b6fc261b5c3b278d",
       "End": "ad259725a808408194fccb746b999aaf",
       "Id": "eca2a06ffc424d3db86af0db23798f4d"
@@ -16751,13 +16754,18 @@
       "Start": "e4ccdcd15ecc42a7b8a212c35d066eeb",
       "End": "eecd4f4f25f54e4dbb0772fe7f1d1e51",
       "Id": "53f1f6e021384d0782b517cfa7cde026"
+    },
+    {
+      "Start": "8369fc9207cd43a7b53c9e18782bdd7e",
+      "End": "fead253c7fa54a3ea006c7c76ffb95e8",
+      "Id": "400ff936a724477ebcfa1c6036d1da76"
     }
   ],
   "Dependencies": [],
   "Bindings": [],
   "View": {
     "Dynamo": {
-      "ScaleFactor": 1.0,
+      "ScaleFactor": 100.0,
       "HasRunWithoutCrash": true,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.0.3.8810",
@@ -19839,16 +19847,6 @@
       },
       {
         "ShowGeometry": true,
-        "Name": "Object.XYZ",
-        "Id": "cec2c1dcb13c468ca9e53c59958ef178",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -1306.28667543354,
-        "Y": -2079.84076547597
-      },
-      {
-        "ShowGeometry": true,
         "Name": "Watch",
         "Id": "0996ccf952084f52b29a3909db94d92b",
         "IsSetAsInput": false,
@@ -20556,6 +20554,16 @@
         "Excluded": false,
         "X": -194.092145223021,
         "Y": -4597.40763664549
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "c6534c6804334cfaa2d749e1c5253d9e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1306.28667543354,
+        "Y": -2077.505039777212
       }
     ],
     "Annotations": [
@@ -20599,11 +20607,11 @@
         ],
         "Left": 1500.22167495305,
         "Top": -1799.82362986386,
-        "Width": 3517.00000000001,
+        "Width": 3503.00000000001,
         "Height": 1304.706666666661,
         "FontSize": 30.0,
         "InitialTop": -1753.82362986386,
-        "InitialHeight": 272.463338111164,
+        "InitialHeight": 1192.706666666661,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20640,11 +20648,11 @@
         ],
         "Left": 1500.06005735735,
         "Top": -7772.66033242911,
-        "Width": 2764.00000000001,
+        "Width": 2750.00000000001,
         "Height": 873.27999999999975,
         "FontSize": 30.0,
         "InitialTop": -7726.66033242911,
-        "InitialHeight": 1215.70666666667,
+        "InitialHeight": 797.27999999999975,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20688,11 +20696,11 @@
         ],
         "Left": 1499.77832228073,
         "Top": -5000.18066287776,
-        "Width": 3497.0,
+        "Width": 3483.0,
         "Height": 1304.7066666666706,
         "FontSize": 30.0,
         "InitialTop": -4954.18066287776,
-        "InitialHeight": 1215.70666666667,
+        "InitialHeight": 1192.7066666666706,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20736,11 +20744,11 @@
         ],
         "Left": -2500.09214522302,
         "Top": -5000.40763664549,
-        "Width": 3571.9999999999991,
+        "Width": 3557.9999999999991,
         "Height": 1457.7066666666701,
         "FontSize": 30.0,
         "InitialTop": -4954.40763664549,
-        "InitialHeight": 1217.70666666667,
+        "InitialHeight": 1345.7066666666701,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20779,9 +20787,9 @@
           "7c6a539321d548bb97bf940c4d0ab25f",
           "4244fdc7572f4cf7beba071c019899a0",
           "c578f872178d445f833a344a35b6fee6",
-          "cec2c1dcb13c468ca9e53c59958ef178",
           "abce6e7d28eb4656a75f8a1d76567263",
-          "1d1119832512422c915efc19fbd93d5b"
+          "1d1119832512422c915efc19fbd93d5b",
+          "c6534c6804334cfaa2d749e1c5253d9e"
         ],
         "Left": -2500.28667543354,
         "Top": -2399.84076547597,
@@ -20789,7 +20797,7 @@
         "Height": 1491.7066666666599,
         "FontSize": 30.0,
         "InitialTop": -2353.84076547597,
-        "InitialHeight": 1440.70666666666,
+        "InitialHeight": 1379.7066666666599,
         "TextblockHeight": 36.0,
         "Background": "#FF48B9FF"
       },
@@ -20804,11 +20812,11 @@
         ],
         "Left": -2499.7703265151,
         "Top": -5979.55564219095,
-        "Width": 873.45956145090986,
-        "Height": 527.72454781473971,
+        "Width": 848.45956145090986,
+        "Height": 531.72454781473971,
         "FontSize": 30.0,
         "InitialTop": -5933.55564219095,
-        "InitialHeight": 231.72454781474,
+        "InitialHeight": 252.72454781473971,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20823,11 +20831,11 @@
         ],
         "Left": -2499.60912500146,
         "Top": -5346.98612281349,
-        "Width": 950.00000000000023,
+        "Width": 806.00000000000023,
         "Height": 247.21333333333951,
         "FontSize": 30.0,
         "InitialTop": -5300.98612281349,
-        "InitialHeight": 231.21333333334,
+        "InitialHeight": 253.21333333333951,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20842,11 +20850,11 @@
         ],
         "Left": -1400.22420953971,
         "Top": -5979.59155752243,
-        "Width": 874.45956145091407,
-        "Height": 532.04419465721,
+        "Width": 841.45956145091407,
+        "Height": 456.04419465721,
         "FontSize": 30.0,
         "InitialTop": -5933.59155752243,
-        "InitialHeight": 232.04419465721,
+        "InitialHeight": 253.04419465721003,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20861,11 +20869,11 @@
         ],
         "Left": -1399.52685850849,
         "Top": -5346.79730272946,
-        "Width": 906.999999999989,
+        "Width": 762.999999999989,
         "Height": 247.21333333334042,
         "FontSize": 30.0,
         "InitialTop": -5300.79730272946,
-        "InitialHeight": 231.21333333334,
+        "InitialHeight": 253.21333333334042,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -20886,7 +20894,7 @@
         "Height": 651.00000000001,
         "FontSize": 30.0,
         "InitialTop": -6746.13201310543,
-        "InitialHeight": 614.945699220447,
+        "InitialHeight": 641.00000000001,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -20908,7 +20916,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -6745.76326671038,
-        "InitialHeight": 727.829006278053,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -20925,7 +20933,7 @@
         "Height": 155.0,
         "FontSize": 30.0,
         "InitialTop": -7961.003055449,
-        "InitialHeight": 124.89871216475,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -20947,7 +20955,7 @@
         "Height": 774.99999999999909,
         "FontSize": 30.0,
         "InitialTop": -8600.83181191984,
-        "InitialHeight": 727.829006278052,
+        "InitialHeight": 764.99999999999909,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -20968,7 +20976,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -8677.20583263096,
-        "InitialHeight": 490.94569922045,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -20989,7 +20997,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -353.866643531779,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -21010,7 +21018,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -2705.06106149894,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21029,7 +21037,7 @@
         "Height": 403.0,
         "FontSize": 30.0,
         "InitialTop": -353.640105536425,
-        "InitialHeight": 342.0,
+        "InitialHeight": 393.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21050,7 +21058,7 @@
         "Height": 651.00000000000023,
         "FontSize": 30.0,
         "InitialTop": -2504.95597952904,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.00000000000023,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21072,7 +21080,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -2629.13505506898,
-        "InitialHeight": 655.26913377021,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21094,7 +21102,7 @@
         "Height": 775.00000000000023,
         "FontSize": 30.0,
         "InitialTop": -2629.15700506692,
-        "InitialHeight": 655.269133770209,
+        "InitialHeight": 765.00000000000023,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21116,7 +21124,7 @@
         "Height": 774.99999999998977,
         "FontSize": 30.0,
         "InitialTop": -2629.0009293676,
-        "InitialHeight": 670.0,
+        "InitialHeight": 764.99999999998977,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21133,7 +21141,7 @@
         "Height": 154.99999999999977,
         "FontSize": 30.0,
         "InitialTop": -2009.10356256609,
-        "InitialHeight": 131.284629631538,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21154,7 +21162,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -3305.28692369481,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21175,7 +21183,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -3104.83715516971,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21197,7 +21205,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -3228.79638459276,
-        "InitialHeight": 670.0,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21219,7 +21227,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -3228.66061833626,
-        "InitialHeight": 670.0,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21241,7 +21249,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -3229.21900898465,
-        "InitialHeight": 670.0,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21258,7 +21266,7 @@
         "Height": 155.0,
         "FontSize": 30.0,
         "InitialTop": -2608.46187139993,
-        "InitialHeight": 124.0,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21279,7 +21287,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -753.598382362988,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -21305,7 +21313,7 @@
         "Height": 651.40219548924006,
         "FontSize": 30.0,
         "InitialTop": -753.869077291768,
-        "InitialHeight": 1106.0,
+        "InitialHeight": 641.40219548924006,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -21331,7 +21339,7 @@
         "Height": 653.29939503559308,
         "FontSize": 30.0,
         "InitialTop": -754.320584821015,
-        "InitialHeight": 1106.0,
+        "InitialHeight": 643.29939503559308,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21350,7 +21358,7 @@
         "Height": 403.0,
         "FontSize": 30.0,
         "InitialTop": -3544.94440057594,
-        "InitialHeight": 1432.0,
+        "InitialHeight": 393.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21371,7 +21379,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -5704.86587664718,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21393,7 +21401,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -5828.82051955996,
-        "InitialHeight": 670.0,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21415,7 +21423,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -5828.72346731071,
-        "InitialHeight": 670.0,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21437,7 +21445,7 @@
         "Height": 775.0,
         "FontSize": 30.0,
         "InitialTop": -5828.7682882749,
-        "InitialHeight": 670.0,
+        "InitialHeight": 765.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21458,7 +21466,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -5904.78861908011,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21475,7 +21483,7 @@
         "Height": 155.0,
         "FontSize": 30.0,
         "InitialTop": -5208.70892175778,
-        "InitialHeight": 124.0,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -21496,7 +21504,7 @@
         "Height": 651.0,
         "FontSize": 30.0,
         "InitialTop": -3516.44613618359,
-        "InitialHeight": 560.0,
+        "InitialHeight": 641.0,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -21522,7 +21530,7 @@
         "Height": 651.40219548924006,
         "FontSize": 30.0,
         "InitialTop": -3509.37058400561,
-        "InitialHeight": 620.40219548924,
+        "InitialHeight": 641.40219548924006,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -21548,13 +21556,13 @@
         "Height": 651.40219548923892,
         "FontSize": 30.0,
         "InitialTop": -354.200287674319,
-        "InitialHeight": 620.40219548924,
+        "InitialHeight": 641.40219548923892,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       }
     ],
-    "X": 256.69305642498273,
-    "Y": 866.69612446400242,
-    "Zoom": 0.0910309076707071
+    "X": 695.78028632853784,
+    "Y": 952.878361326109,
+    "Zoom": 0.10635662898021736
   }
 }

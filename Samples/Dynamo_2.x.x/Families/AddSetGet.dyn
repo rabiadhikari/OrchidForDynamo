@@ -1847,6 +1847,126 @@
       ],
       "Replication": "Auto",
       "Description": "Get family type by name in current document\n\nFamilyType.ByName (name: string): FamilyType"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Elements.Element.ById@int",
+      "Id": "5dd9875457b744bca13c868c9351d4e6",
+      "Inputs": [
+        {
+          "Id": "7888bcc6d4444c9b9f466d3d11d5a99d",
+          "Name": "id",
+          "Description": "Id as integer value\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5fe15dad104a4ad59426ee1626137ee2",
+          "Name": "Element",
+          "Description": "Element as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get element by id.\n\nElement.ById (id: int): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Id",
+      "Id": "b660f1fc04ec47b595dbb0400c1f7624",
+      "Inputs": [
+        {
+          "Id": "bae219e7cc064864880866747137afa2",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "66d298e157bc4dbdb9c14cc46e1a47fb",
+          "Name": "int",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the Element Id for this element\n\nElement.Id: int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.Id",
+      "Id": "f52678844d774cfb93932e69197ca1e9",
+      "Inputs": [
+        {
+          "Id": "3006ab155e6340678c5e7c6847449409",
+          "Name": "parameter",
+          "Description": "Orchid.RevitFamily.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ca6732e6a27f4e44bb83e7a5826ef079",
+          "Name": "int",
+          "Description": "Id as integer value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Parameter Id as integer\n\nParameter.Id: int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.ById@int",
+      "Id": "bdfa81c9304942f882f7a1041c52c862",
+      "Inputs": [
+        {
+          "Id": "157474fad46a4db0beb69dc0cf44518f",
+          "Name": "id",
+          "Description": "Id as integer value\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0b39969a6cc44199a82cf9ee10d26dcd",
+          "Name": "Parameter",
+          "Description": "Parameter as Orchid type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Parameter by Id.\n\nParameter.ById (id: int): Parameter"
     }
   ],
   "Connectors": [
@@ -2066,6 +2186,11 @@
       "Id": "3e0931e0eb2447d4b433e462cada5956"
     },
     {
+      "Start": "78bf0e9cacd8466faf852fbf31d584ce",
+      "End": "3006ab155e6340678c5e7c6847449409",
+      "Id": "f3984c63b4764f29989dcf542cb70d54"
+    },
+    {
       "Start": "3ea62611764248519bbfaf4585293b38",
       "End": "29e544c5ccca439b9c3e0e0688158874",
       "Id": "1160016be4c8465491e7e5b32a7694d3"
@@ -2214,6 +2339,21 @@
       "Start": "0ab0735fd109406980c767cbecfe82d4",
       "End": "70757dc34a5645ad8636d5025e872339",
       "Id": "2038295458e14805a1a2614e5d2ccfd2"
+    },
+    {
+      "Start": "5fe15dad104a4ad59426ee1626137ee2",
+      "End": "bae219e7cc064864880866747137afa2",
+      "Id": "cc423400387247969dac1d6c5f648f5a"
+    },
+    {
+      "Start": "ca6732e6a27f4e44bb83e7a5826ef079",
+      "End": "157474fad46a4db0beb69dc0cf44518f",
+      "Id": "4a8bca907e0948f48c09f2d839eac6c2"
+    },
+    {
+      "Start": "ca6732e6a27f4e44bb83e7a5826ef079",
+      "End": "7888bcc6d4444c9b9f466d3d11d5a99d",
+      "Id": "afe5c8a068fb4e4886372131a6f110d2"
     }
   ],
   "Dependencies": [],
@@ -2679,6 +2819,46 @@
         "Excluded": false,
         "X": 3842.1310240357839,
         "Y": 60.715325084025125
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.ById",
+        "Id": "5dd9875457b744bca13c868c9351d4e6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3907.656890494145,
+        "Y": 772.44549986959646
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Id",
+        "Id": "b660f1fc04ec47b595dbb0400c1f7624",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 4187.656890494145,
+        "Y": 772.44549986959646
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.Id",
+        "Id": "f52678844d774cfb93932e69197ca1e9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3608.656890494145,
+        "Y": 826.44549986959635
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.ById",
+        "Id": "bdfa81c9304942f882f7a1041c52c862",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3907.656890494145,
+        "Y": 906.03235432969041
       }
     ],
     "Annotations": [
@@ -2881,17 +3061,36 @@
         ],
         "Left": 3600.16731497807,
         "Top": -674.454646516744,
-        "Width": 1223.0,
-        "Height": 420.0,
+        "Width": 1183.0,
+        "Height": 375.0,
         "FontSize": 30.0,
         "InitialTop": -628.454646516744,
         "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
+      },
+      {
+        "Id": "2bf29601cea545cf824f5032c1995c1c",
+        "Title": "Id and ById",
+        "Nodes": [
+          "5dd9875457b744bca13c868c9351d4e6",
+          "b660f1fc04ec47b595dbb0400c1f7624",
+          "f52678844d774cfb93932e69197ca1e9",
+          "bdfa81c9304942f882f7a1041c52c862"
+        ],
+        "Left": 3598.656890494145,
+        "Top": 719.44549986959646,
+        "Width": 784.0,
+        "Height": 279.58685446009395,
+        "FontSize": 36.0,
+        "InitialTop": 772.44549986959646,
+        "InitialHeight": 397.63223787167431,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
       }
     ],
-    "X": -49.104438554566272,
-    "Y": 484.37347638881238,
-    "Zoom": 0.13281219546536197
+    "X": -172.95866366323816,
+    "Y": 418.01832643988558,
+    "Zoom": 0.34075693099366106
   }
 }
