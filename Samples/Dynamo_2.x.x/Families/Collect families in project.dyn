@@ -282,36 +282,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Elements.Family.FamilyDocument@Revit.Elements.Family[]",
-      "Id": "ae7833a60406479c8cfec49e630c09a7",
-      "Inputs": [
-        {
-          "Id": "43de35d77cb841929507b4b02036ea3d",
-          "Name": "family",
-          "Description": "List of families as Dynamo type\n\nFamily[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "3fe0fb2ddbd84ed8929dcd26427aa04f",
-          "Name": "Document",
-          "Description": "Document as Revit type",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Open family document by family\n\nFamily.FamilyDocument (family: Family[]): var[]..[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "Revit.Elements.FamilyType.Family",
       "Id": "9d43f9d36f6848369692c6e022883a0c",
       "Inputs": [
@@ -780,6 +750,36 @@
       ],
       "Replication": "Auto",
       "Description": "Load family as document, existing family will be overwritten. Same core process as File.LoadFamily.\n\nDocument.LoadFamily (familyDocument: var): Family"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Elements.Family.EditFamily@Revit.Elements.Family[]",
+      "Id": "af5105d17eb84b5a8c7946e59fbc95f7",
+      "Inputs": [
+        {
+          "Id": "c3201b354cfb44458445211383c36fb5",
+          "Name": "family",
+          "Description": "List of families as Dynamo type\n\nFamily[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "176657c3988c4cf2930ec552e5068346",
+          "Name": "Document",
+          "Description": "Document as Revit type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Edit family document by family\n\nFamily.EditFamily (family: Family[]): var[]..[]"
     }
   ],
   "Connectors": [
@@ -805,18 +805,8 @@
     },
     {
       "Start": "9d6ae9ea777141c4b0c9069ed5ea6e68",
-      "End": "43de35d77cb841929507b4b02036ea3d",
-      "Id": "822f2874c218412c8bc8b0d782ff95eb"
-    },
-    {
-      "Start": "3fe0fb2ddbd84ed8929dcd26427aa04f",
-      "End": "244c9d09cfc649da9a6c4d32e0a089f8",
-      "Id": "5baa1c658135460cad57eb3da54de9be"
-    },
-    {
-      "Start": "3fe0fb2ddbd84ed8929dcd26427aa04f",
-      "End": "acdda7ef39e343ee9a5373cbf5825ec9",
-      "Id": "121aaef345804757a8d7c3c930710d36"
+      "End": "c3201b354cfb44458445211383c36fb5",
+      "Id": "e382bc470ec345ec9a21f0a2580b4ef6"
     },
     {
       "Start": "89ad3beeeaa84b81be534992cd0715bc",
@@ -897,6 +887,16 @@
       "Start": "a503476cbfa744a8b48785b509139742",
       "End": "cc39fd64d2944491a61a5c06a08d7ecb",
       "Id": "d00a7218ceb34ebda4d6f93d33371be5"
+    },
+    {
+      "Start": "176657c3988c4cf2930ec552e5068346",
+      "End": "acdda7ef39e343ee9a5373cbf5825ec9",
+      "Id": "009261a0fe1e4cf19d81b9e7ecd72946"
+    },
+    {
+      "Start": "176657c3988c4cf2930ec552e5068346",
+      "End": "244c9d09cfc649da9a6c4d32e0a089f8",
+      "Id": "a87eeedf04eb43329ada9979502968ab"
     }
   ],
   "Dependencies": [],
@@ -1001,16 +1001,6 @@
         "IsSetAsOutput": false,
         "Excluded": false,
         "X": 4118.57378174935,
-        "Y": 344.520851980248
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Family.FamilyDocument",
-        "Id": "ae7833a60406479c8cfec49e630c09a7",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 4371.57378174935,
         "Y": 344.520851980248
       },
       {
@@ -1122,6 +1112,16 @@
         "Excluded": false,
         "X": 5682.6918824066006,
         "Y": 427.76618545619948
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family.EditFamily",
+        "Id": "af5105d17eb84b5a8c7946e59fbc95f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 4370.8924133170012,
+        "Y": 345.27001428416668
       }
     ],
     "Annotations": [
@@ -1187,15 +1187,15 @@
         "Nodes": [
           "f5f2d327126d4fce88ac824bfa413eb6",
           "9d43f9d36f6848369692c6e022883a0c",
-          "ae7833a60406479c8cfec49e630c09a7",
           "9c2963faebde4578a74e097145923a13",
           "d1c1aa0f74a2460ea093d7480ee84003",
           "c85a8baf18ba4a3c9f2b2104656d3a05",
-          "ce6da8e1428445e3ad4870d52153795e"
+          "ce6da8e1428445e3ad4870d52153795e",
+          "af5105d17eb84b5a8c7946e59fbc95f7"
         ],
         "Left": 2556.57378174935,
         "Top": 298.520851980248,
-        "Width": 2044.0,
+        "Width": 2043.3186315676512,
         "Height": 169.213333333334,
         "FontSize": 30.0,
         "InitialTop": 344.520851980248,
@@ -1221,8 +1221,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": -381.59171540618337,
-    "Y": 398.22836999822408,
-    "Zoom": 0.1603662120812466
+    "X": -1023.3845665122994,
+    "Y": 197.61251103712161,
+    "Zoom": 0.41042442418870323
   }
 }
