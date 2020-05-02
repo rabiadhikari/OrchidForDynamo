@@ -54,7 +54,7 @@ The nodes may also be used as textual scripted functions in code blocks and cust
 Inside Dynamo is the Orchid package nodes arranged into different main branches: Core, RevitFamily, RevitMaterial, RevitProject, About, and Applications. The last branch covers functions for external applications outside Revit. The first four branches covers functions to be used inside Revit. the About branch cover nodes for information about the Orchid package.  
   
 Nodes in the four Revit driven branches can be recognized by their icon ribbon color:  
-Core -> yellow, RevitFamily -> blue, RevitMaterial -> green, and RevitProject -> red.  
+Core -> yellow &nbsp;|&nbsp; RevitFamily -> blue &nbsp;|&nbsp; RevitMaterial -> green &nbsp;|&nbsp; RevitProject -> red  
   
 ---
 ### License  
