@@ -38,7 +38,7 @@
         {
           "Id": "4faa1f3eb6ab4f609f6aa392313f3d9b",
           "Name": "document",
-          "Description": "Document as Revit type\n\nvar\nDefault value : null",
+          "Description": "Document (rvt) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -96,6 +96,65 @@
       ],
       "Replication": "Disabled",
       "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitProject.Common.Document.GetStartingView@var",
+      "Id": "c6330873a13647979dfd7faee57fa24a",
+      "Inputs": [
+        {
+          "Id": "bae66f1330834de4b039a69c69bf2eb2",
+          "Name": "document",
+          "Description": "Document (rvt) as Orchid document\n\nvar\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "08ef77495b384100806b0b9d8188bd81",
+          "Name": "View",
+          "Description": "View as Dynamo type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the starting view in the document\n\nDocument.GetStartingView (document: var = null): Element"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "297f14ae4b864f64b8b39c2c637861d7",
+      "Inputs": [
+        {
+          "Id": "c215d349331b438d9a0a790b1f8a2189",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "29a3d0a2226f4b27a8871981d38c9c2d",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
     }
   ],
   "Connectors": [
@@ -108,6 +167,11 @@
       "Start": "94b92ca55a2a4c09a6380de465a71f99",
       "End": "4acde892ad6142768b14142d3d56e53c",
       "Id": "7c398aea63624515bce816bbf40ab52e"
+    },
+    {
+      "Start": "08ef77495b384100806b0b9d8188bd81",
+      "End": "c215d349331b438d9a0a790b1f8a2189",
+      "Id": "c828e5eaec9b4fb9b982f6c6c5ad2142"
     }
   ],
   "Dependencies": [],
@@ -163,11 +227,31 @@
         "Excluded": false,
         "X": 584.630404448012,
         "Y": 102.632613240549
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Document.GetStartingView",
+        "Id": "c6330873a13647979dfd7faee57fa24a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 267.630404448012,
+        "Y": 249.93769129876642
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "297f14ae4b864f64b8b39c2c637861d7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 584.630404448012,
+        "Y": 249.93769129876642
       }
     ],
     "Annotations": [],
-    "X": 13.0209945693354,
-    "Y": 372.235990872823,
-    "Zoom": 0.823008849557522
+    "X": -7.4439424993190215,
+    "Y": 93.295098339614242,
+    "Zoom": 1.8149882903981263
   }
 }

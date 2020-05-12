@@ -20,7 +20,7 @@
       "Id": "d0ccc0ba827b476b88c21dfb44fed1c2",
       "Name": "Directory Path",
       "Type": "string",
-      "Value": ".\\testSet",
+      "Value": "..\\testSet",
       "Description": "Creates a string."
     },
     {
@@ -64,7 +64,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
-      "InputValue": ".\\testSet",
+      "InputValue": "..\\testSet",
       "Id": "d0ccc0ba827b476b88c21dfb44fed1c2",
       "Inputs": [],
       "Outputs": [
@@ -177,7 +177,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Open documents in background\n\nDocument.BackgroundOpen (file: string): var"
+      "Description": "Open documents in background\n\nDocument.BackgroundOpen (file: string): Document"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -188,7 +188,7 @@
         {
           "Id": "8a13094469e34c86837f1847fa841a0d",
           "Name": "document",
-          "Description": "Document as Revit type\n\nvar",
+          "Description": "Document (rvt) as Orchid document\n\nvar",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -221,13 +221,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.FamilyType.Create@var,string[]",
+      "FunctionSignature": "Orchid.RevitFamily.FamilyType.Create@var,string",
       "Id": "1de73b2a7fe2480798b729d2f2b9843b",
       "Inputs": [
         {
           "Id": "b4d911a73a324e8d9af7f26b1f53ebeb",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -236,7 +236,7 @@
         {
           "Id": "8f2f6bfe9fe0413fb1d9adad067fd059",
           "Name": "name",
-          "Description": "The family type name\n\nstring[]\nDefault value : null",
+          "Description": "The family type name\n\nstring\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -255,7 +255,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string[] = null): var[]..[]"
+      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string = null): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -418,13 +418,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var[]..[],var[]..[]",
       "Id": "27de10a76c9d47de8d0d39cb4421e910",
       "Inputs": [
         {
           "Id": "dc5fa62f0de74c3fbc7ac237e18385af",
           "Name": "pass",
-          "Description": "Data to pass\n\nvar",
+          "Description": "Data to pass\n\nvar[]..[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -452,7 +452,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var[]..[], waitFor: var[]..[]): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -463,7 +463,7 @@
         {
           "Id": "eefdc6f0496b439f8149540a658cc255",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -520,7 +520,7 @@
         {
           "Id": "3d1d379fad4644599370f400cf3903cf",
           "Name": "familyDocument",
-          "Description": "Family document (rfa) as Revit document\n\nvar\nDefault value : null",
+          "Description": "Family document (rfa) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -558,7 +558,7 @@
         {
           "Id": "8fd5605fb06042e4b356d59c60e7c267",
           "Name": "Parameter",
-          "Description": "Parameter as Revit type",
+          "Description": "Parameter as Orchid type",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -669,13 +669,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var[]..[],var[]..[]",
       "Id": "355f9a28f50a494bb8784cabadbea9f8",
       "Inputs": [
         {
           "Id": "8ea01ef7552b4676be8eb366d571265b",
           "Name": "pass",
-          "Description": "Data to pass\n\nvar",
+          "Description": "Data to pass\n\nvar[]..[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -703,18 +703,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var[]..[], waitFor: var[]..[]): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var[]..[],var[]..[]",
       "Id": "1cbf9a2003294810a0c359bc20b76e74",
       "Inputs": [
         {
           "Id": "84d4eaf21b074c73ba016f36d2fd1b6c",
           "Name": "pass",
-          "Description": "Data to pass\n\nvar",
+          "Description": "Data to pass\n\nvar[]..[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -742,18 +742,18 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var[]..[], waitFor: var[]..[]): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var[]..[],var[]..[]",
       "Id": "3ba0a8c88cf348c9b334939f9412bf26",
       "Inputs": [
         {
           "Id": "896bde67dbd34aa9b157e08dfee5ddf3",
           "Name": "pass",
-          "Description": "Data to pass\n\nvar",
+          "Description": "Data to pass\n\nvar[]..[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -781,7 +781,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var[]..[], waitFor: var[]..[]): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1484,8 +1484,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 211.55352067353172,
-    "Y": 164.82607542159889,
-    "Zoom": 0.37927175986453043
+    "X": 203.28076172658507,
+    "Y": 237.54705474352104,
+    "Zoom": 0.36198967228449641
   }
 }

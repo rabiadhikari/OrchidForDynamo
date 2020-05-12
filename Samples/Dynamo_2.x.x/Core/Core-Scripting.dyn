@@ -59,7 +59,7 @@
       "Id": "d95c346626654c249b4a91300787c6a9",
       "Name": "String",
       "Type": "string",
-      "Value": ".\\test.csv",
+      "Value": "..\\test.csv",
       "Description": "Creates a string."
     },
     {
@@ -73,7 +73,7 @@
       "Id": "fe5b037e58b64787814f8f97a5ce326d",
       "Name": "String",
       "Type": "string",
-      "Value": ".\\",
+      "Value": "..\\",
       "Description": "Creates a string."
     },
     {
@@ -87,7 +87,7 @@
       "Id": "59cfa03eedc64157a0b244117cd11df2",
       "Name": "String",
       "Type": "string",
-      "Value": ".\\",
+      "Value": "..\\",
       "Description": "Creates a string."
     },
     {
@@ -167,7 +167,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
-      "InputValue": ".\\test.csv",
+      "InputValue": "..\\test.csv",
       "Id": "d95c346626654c249b4a91300787c6a9",
       "Inputs": [],
       "Outputs": [
@@ -394,7 +394,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
-      "InputValue": ".\\",
+      "InputValue": "..\\",
       "Id": "fe5b037e58b64787814f8f97a5ce326d",
       "Inputs": [],
       "Outputs": [
@@ -567,7 +567,7 @@
         {
           "Id": "b0f8e99ae5244f27b4c7bc40b38503fd",
           "Name": "path",
-          "Description": "Path to file. Note: do not send a list of files as input!\n\nstring\nDefault value : null",
+          "Description": "Path to file\n\nstring",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -604,7 +604,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Read 'script' file content, with refreshing option.\n\nScripting.ScriptFileReader (path: string = null, file: string, refresh: bool = false): string"
+      "Description": "Read 'script' file content, with refreshing option. Note: do not send a list of paths and/or files as input!\n\nScripting.ScriptFileReader (path: string, file: string, refresh: bool = false): string"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -882,12 +882,12 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
-      "Code": "t1 = Orchid.Core.Directory.Current;\nt2 = \"ScriptTest.py\";\nt3 = false;\n\nOrchid.Core.Scripting.ScriptFileReader(t1, t2, t3);",
+      "Code": "t1 = Orchid.Core.Directory.Current;\nt2 = \"..\\\\ScriptTest.py\";\nt3 = false;\n\nOrchid.Core.Scripting.ScriptFileReader(t1, t2, t3);",
       "Id": "d457cf4ef1ac4803be674565574f23d3",
       "Inputs": [],
       "Outputs": [
         {
-          "Id": "522fc025a96b43ef99af341be1a749b3",
+          "Id": "f18736b4289d4d62a501c66ba0fae2b4",
           "Name": "",
           "Description": "t1",
           "UsingDefaultValue": false,
@@ -896,7 +896,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "1e29f6f2f7634dd18539513a520eb3c0",
+          "Id": "01245d7b15a34c4aa96d1a23021dd157",
           "Name": "",
           "Description": "t2",
           "UsingDefaultValue": false,
@@ -905,7 +905,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "64452615d13b4cdeb6d5f4b59c6a0473",
+          "Id": "7be1f087899742b78a680ba53ae3ca0c",
           "Name": "",
           "Description": "t3",
           "UsingDefaultValue": false,
@@ -914,7 +914,7 @@
           "KeepListStructure": false
         },
         {
-          "Id": "daf735eb01b44084b844299e90e26b5e",
+          "Id": "0be51acb60e3451cbf33385c4815d12a",
           "Name": "",
           "Description": "Value of expression at line 5",
           "UsingDefaultValue": false,
@@ -997,7 +997,7 @@
     {
       "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
       "NodeType": "StringInputNode",
-      "InputValue": ".\\",
+      "InputValue": "..\\",
       "Id": "59cfa03eedc64157a0b244117cd11df2",
       "Inputs": [],
       "Outputs": [
@@ -1400,13 +1400,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
+      "FunctionSignature": "Orchid.Core.DataStream.Await@var[]..[],var[]..[]",
       "Id": "751936dfe5d147f8991425bbed7ebd4a",
       "Inputs": [
         {
           "Id": "4f8ec1e7671848afa4408a9ecaba23b4",
           "Name": "pass",
-          "Description": "Data to pass\n\nvar",
+          "Description": "Data to pass\n\nvar[]..[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1434,7 +1434,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var[]..[], waitFor: var[]..[]): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
@@ -1517,13 +1517,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Circut@var,bool",
+      "FunctionSignature": "Orchid.Core.DataStream.Circut@var[]..[],bool",
       "Id": "05b5c57b11b749e1bf8e317009968dcf",
       "Inputs": [
         {
           "Id": "e92de254d8f9489d91dee24d89384d06",
           "Name": "pass",
-          "Description": "Data to pass\n\nvar",
+          "Description": "Data to pass\n\nvar[]..[]",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -1551,7 +1551,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Set a state (true/false) to pass a data stream in a circut\n\nDataStream.Circut (pass: var, state: bool = false): var[]..[]"
+      "Description": "Set a state (true/false) to pass a data stream in a circut\n\nDataStream.Circut (pass: var[]..[], state: bool = false): var[]..[]"
     },
     {
       "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
@@ -1769,14 +1769,14 @@
       "Id": "a114c7c0d2ba4790ab0b5ee39a1faaea"
     },
     {
-      "Start": "daf735eb01b44084b844299e90e26b5e",
+      "Start": "0be51acb60e3451cbf33385c4815d12a",
       "End": "d6c82bf2cc564695852c0b3c4509a984",
-      "Id": "320aaa30d3654e9cb82061c63cc87f45"
+      "Id": "9dc07ba544784ef7901bfe1e7c2701f9"
     },
     {
-      "Start": "daf735eb01b44084b844299e90e26b5e",
+      "Start": "0be51acb60e3451cbf33385c4815d12a",
       "End": "d6dbf72d162543e1b276962a3a84dbd2",
-      "Id": "076f5418792d458893bf61693895fafb"
+      "Id": "544f5afdd03b4d87b73e542cc07b766b"
     },
     {
       "Start": "1f4c52f407e64324bd4d9e2d4e679275",
@@ -2472,7 +2472,7 @@
         "Height": 285.00000000001,
         "FontSize": 30.0,
         "InitialTop": 405.103124423772,
-        "InitialHeight": 446.36016967933,
+        "InitialHeight": 291.00000000001,
         "TextblockHeight": 36.0,
         "Background": "#FFB5B5B5"
       },
@@ -2494,7 +2494,7 @@
         "Height": 321.00000000000006,
         "FontSize": 30.0,
         "InitialTop": 404.879492633843,
-        "InitialHeight": 425.353657145048,
+        "InitialHeight": 311.00000000000006,
         "TextblockHeight": 36.0,
         "Background": "#FFB5B5B5"
       },
@@ -2516,7 +2516,7 @@
         "Height": 285.00000000000091,
         "FontSize": 30.0,
         "InitialTop": 862.414452674499,
-        "InitialHeight": 456.185489942356,
+        "InitialHeight": 316.00000000000091,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2538,7 +2538,7 @@
         "Height": 511.73408628754009,
         "FontSize": 30.0,
         "InitialTop": 1835.23998961467,
-        "InitialHeight": 139.0,
+        "InitialHeight": 446.73408628754009,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -2557,7 +2557,7 @@
         "Height": 283.07999999999993,
         "FontSize": 30.0,
         "InitialTop": 1245.20587164396,
-        "InitialHeight": 279.0,
+        "InitialHeight": 273.07999999999993,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2577,7 +2577,7 @@
         "Height": 301.91522270192013,
         "FontSize": 30.0,
         "InitialTop": 1245.15899246037,
-        "InitialHeight": 227.75697025413,
+        "InitialHeight": 291.91522270192013,
         "TextblockHeight": 36.0,
         "Background": "#FFFFB8D8"
       },
@@ -2597,7 +2597,7 @@
         "Height": 348.59016693359797,
         "FontSize": 30.0,
         "InitialTop": 797.653901312377,
-        "InitialHeight": 398.422248813989,
+        "InitialHeight": 338.59016693359797,
         "TextblockHeight": 36.0,
         "Background": "#FFFFB8D8"
       },
@@ -2614,7 +2614,7 @@
         "Height": 155.0,
         "FontSize": 30.0,
         "InitialTop": 1604.06712470489,
-        "InitialHeight": 139.0,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFFFB8D8"
       },
@@ -2633,7 +2633,7 @@
         "Height": 460.78666666667004,
         "FontSize": 30.0,
         "InitialTop": 1844.17954131654,
-        "InitialHeight": 249.0,
+        "InitialHeight": 253.0,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -2652,7 +2652,7 @@
         "Height": 463.78666666665981,
         "FontSize": 30.0,
         "InitialTop": 1844.11296293984,
-        "InitialHeight": 231.0,
+        "InitialHeight": 254.78666666666004,
         "TextblockHeight": 36.0,
         "Background": "#FFFFAA45"
       },
@@ -2669,7 +2669,7 @@
         "Height": 324.0,
         "FontSize": 30.0,
         "InitialTop": 1245.77943309989,
-        "InitialHeight": 315.531242225766,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFD4B6DB"
       },
@@ -2686,13 +2686,13 @@
         "Height": 183.0,
         "FontSize": 30.0,
         "InitialTop": 965.047253719363,
-        "InitialHeight": 143.896967954334,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFD4B6DB"
       }
     ],
-    "X": 1319.4262185715579,
-    "Y": -148.21550435722816,
-    "Zoom": 0.44016925430797066
+    "X": 1357.9155256109141,
+    "Y": -174.04383832204391,
+    "Zoom": 0.50396189985985052
   }
 }
