@@ -565,45 +565,6 @@
       "Description": "Allows for DesignScript code to be authored directly"
     },
     {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.Core.DataStream.Await@var,var[]..[]",
-      "Id": "ffd506b822dc48ceb112181a1d10d33c",
-      "Inputs": [
-        {
-          "Id": "ed63be5c7c9d4a0f9877916065e8000c",
-          "Name": "pass",
-          "Description": "Data to pass\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "e2e603e346334b0bba713b638c797314",
-          "Name": "waitFor",
-          "Description": "Data object to wait for\n\nvar[]..[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "5cbd632577fb4294b6e5f58ebccb8d7c",
-          "Name": "pass",
-          "Description": "Passed data",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var, waitFor: var[]..[]): var[]..[]"
-    },
-    {
       "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
       "NodeType": "CodeBlockNode",
       "Code": "\"a\";",
@@ -719,6 +680,45 @@
       ],
       "Replication": "Disabled",
       "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Common.DataStream.Await@var[]..[],var[]..[]",
+      "Id": "44f642c4b471433d8723be916dd83d7f",
+      "Inputs": [
+        {
+          "Id": "7a4738a2a4b04591a61e4d62738c0729",
+          "Name": "pass",
+          "Description": "Data to pass\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "998785dc49a64ab29ca499afcb09bf8f",
+          "Name": "waitFor",
+          "Description": "Data object to wait for\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "049090d4b2564492a74cd70552e4faa1",
+          "Name": "pass",
+          "Description": "Passed data",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Await a data stream before passing another data stream\n\nDataStream.Await (pass: var[]..[], waitFor: var[]..[]): var[]..[]"
     }
   ],
   "Connectors": [
@@ -744,8 +744,8 @@
     },
     {
       "Start": "82b17c814ca3414882d29f5d2fd4ba41",
-      "End": "ed63be5c7c9d4a0f9877916065e8000c",
-      "Id": "b85bea991c0f4598a3ee46c8a8aff9a7"
+      "End": "7a4738a2a4b04591a61e4d62738c0729",
+      "Id": "246bb9e774994fab81d10f81d9fd5e1d"
     },
     {
       "Start": "5289f6581fb9425aa5b9cb6d245b8fb6",
@@ -779,8 +779,8 @@
     },
     {
       "Start": "2bc7dd17d2024d8abef460c5598707d1",
-      "End": "e2e603e346334b0bba713b638c797314",
-      "Id": "678dbdea9896402aa7e7e8f69252426a"
+      "End": "998785dc49a64ab29ca499afcb09bf8f",
+      "Id": "2fb836a67cc74569b470aa6015800175"
     },
     {
       "Start": "8d071916618e4eebbc6fee8c51250973",
@@ -823,11 +823,6 @@
       "Id": "98e32cba22ae459b9a52d8e861bf844e"
     },
     {
-      "Start": "5cbd632577fb4294b6e5f58ebccb8d7c",
-      "End": "0cdefbd1d31a494dad8e10dfb44d0c35",
-      "Id": "fbf7c6725a7842ec8d0a5dbe7241d445"
-    },
-    {
       "Start": "d2a7e4e3740245a0afdaf1b8427e99a9",
       "End": "b4d96d83f97248f29dab99fcd2f56a5b",
       "Id": "07a60e97c59e4da68e1a4095033a62ab"
@@ -841,6 +836,11 @@
       "Start": "86d8182e871541fcbb4221a47556dbd9",
       "End": "fd1f5ef099114224a07826921df066d3",
       "Id": "616f9db3b87e4c18851e6aa0d9135971"
+    },
+    {
+      "Start": "049090d4b2564492a74cd70552e4faa1",
+      "End": "0cdefbd1d31a494dad8e10dfb44d0c35",
+      "Id": "cdcfacc22a214c5f885f0de37e0b346a"
     }
   ],
   "Dependencies": [],
@@ -1039,16 +1039,6 @@
       },
       {
         "ShowGeometry": true,
-        "Name": "DataStream.Await",
-        "Id": "ffd506b822dc48ceb112181a1d10d33c",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1128.13947240883,
-        "Y": -851.366573454632
-      },
-      {
-        "ShowGeometry": true,
         "Name": "Code Block",
         "Id": "60f6f4861dce415bb1d4156e0ab50bbc",
         "IsSetAsInput": false,
@@ -1086,6 +1076,16 @@
         "Excluded": false,
         "X": 2635.40702197697,
         "Y": -737.137456874043
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataStream.Await",
+        "Id": "44f642c4b471433d8723be916dd83d7f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1128.13947240883,
+        "Y": -851.366573454632
       }
     ],
     "Annotations": [
@@ -1109,7 +1109,7 @@
         "Height": 842.14703818548151,
         "FontSize": 30.0,
         "InitialTop": -653.876014240811,
-        "InitialHeight": 693.854353561106,
+        "InitialHeight": 832.14703818548151,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -1126,7 +1126,7 @@
         "Height": 157.42666666666605,
         "FontSize": 30.0,
         "InitialTop": -754.919535563945,
-        "InitialHeight": 141.426666666667,
+        "InitialHeight": 153.42666666666605,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -1151,13 +1151,13 @@
         "Height": 565.10449313221716,
         "FontSize": 30.0,
         "InitialTop": -1017.24195000626,
-        "InitialHeight": 557.971378260284,
+        "InitialHeight": 468.48669241412711,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       }
     ],
-    "X": 81.2919412990325,
-    "Y": 754.066381620484,
-    "Zoom": 0.561965282904485
+    "X": 49.84972223251701,
+    "Y": 533.77442672560392,
+    "Zoom": 0.21747772627553624
   }
 }

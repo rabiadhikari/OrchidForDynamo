@@ -4,6 +4,12 @@ The major number follows the Dynamo version, 130.x.x is usable in Dynamo +1.3.0.
 
 ### History of Orchid for Dynamo 1.3.x ###  
   
+134.6.3  
+- Refactoring of Core nodes, nodes are moved into Common. Several other functions are also refactored into other namespaces.  
+  
+134.6.2  
+- Rebuild of classes so types not provided by the dynamo team now wrapped into Orchid types.  
+  
 134.6.1	 
 - Element: nodes for views, and viewtemplates.  
   
