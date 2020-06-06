@@ -154,7 +154,7 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitFamily.Parameter.Associate@var,Revit.Elements.Element[],string[],string[]",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.Associate@var,string,Revit.Elements.Element,string",
       "Id": "fe2b705614fe494bb9d72d676d774cba",
       "Inputs": [
         {
@@ -168,8 +168,8 @@
         },
         {
           "Id": "e3dc0e6eb93a41a1b8101ca594d14179",
-          "Name": "element",
-          "Description": "Element to associate in the familyDocument\n\nElement[]",
+          "Name": "parameterName",
+          "Description": "The family document parameter name to associate\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -177,8 +177,8 @@
         },
         {
           "Id": "cf951d36c066432fa4c1152598278891",
-          "Name": "documentParameter",
-          "Description": "The name of the familyDocument parameter to be associated\n\nstring[]",
+          "Name": "element",
+          "Description": "Element as Dynamo type to associate\n\nElement",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -187,7 +187,7 @@
         {
           "Id": "add7478204d24796b702f124683e832f",
           "Name": "elementParameter",
-          "Description": "The name of the family parameter to be associated\n\nstring[]",
+          "Description": "The element parameter name to associate\n\nstring",
           "UsingDefaultValue": false,
           "Level": 2,
           "UseLevels": false,
@@ -206,7 +206,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Associate document parameter with element parameter (e.g. nested family) NOTE: An element to associate may be an internal geometry element in the family or a loaded nested family. The latter is denoted FamilySymbol and is the same as a FamilyType in a project document.\n\nParameter.Associate (familyDocument: var = null, element: Element[], documentParameter: string[], elementParameter: string[]): var[]..[]"
+      "Description": "Associate document parameter with element parameter (e.g. nested family) Note: An element to associate may be an internal geometry element in the family or a loaded nested family. The latter is denoted FamilySymbol and is the same as a FamilyType in a project document.\n\nParameter.Associate (familyDocument: var = null, parameterName: string, element: Element, elementParameter: string): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -476,13 +476,13 @@
     },
     {
       "Start": "707a88d6cd9246cdbacdc42bc17a0080",
-      "End": "cf951d36c066432fa4c1152598278891",
-      "Id": "6b3ee33312574589a9955123134a3a35"
+      "End": "add7478204d24796b702f124683e832f",
+      "Id": "7d80a88e71624709ba7db847fa022cde"
     },
     {
       "Start": "707a88d6cd9246cdbacdc42bc17a0080",
-      "End": "add7478204d24796b702f124683e832f",
-      "Id": "7d80a88e71624709ba7db847fa022cde"
+      "End": "e3dc0e6eb93a41a1b8101ca594d14179",
+      "Id": "e408969634be42fb92472c16b0b174e1"
     },
     {
       "Start": "e749aa0f57154b40814491d8c9554162",
@@ -531,8 +531,8 @@
     },
     {
       "Start": "8487a6958d80453ba10a020a18e0e12f",
-      "End": "e3dc0e6eb93a41a1b8101ca594d14179",
-      "Id": "6faec0fd68fa4b179e5575c980856eed"
+      "End": "cf951d36c066432fa4c1152598278891",
+      "Id": "b444c21876b04631bc59ad853c674bc8"
     }
   ],
   "Dependencies": [],
@@ -695,7 +695,7 @@
         "Height": 354.0,
         "FontSize": 30.0,
         "InitialTop": -570.53152930795,
-        "InitialHeight": 293.493333333334,
+        "InitialHeight": 253.493333333333,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -709,11 +709,11 @@
         ],
         "Left": 1300.03565283147,
         "Top": -616.478882167272,
-        "Width": 621.0,
+        "Width": 609.0,
         "Height": 283.64,
         "FontSize": 30.0,
         "InitialTop": -570.478882167272,
-        "InitialHeight": 201.066666666667,
+        "InitialHeight": 280.64,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -732,7 +732,7 @@
         "Height": 392.0,
         "FontSize": 30.0,
         "InitialTop": -570.919379981809,
-        "InitialHeight": 202.08,
+        "InitialHeight": 398.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -749,13 +749,13 @@
         "Height": 139.0,
         "FontSize": 30.0,
         "InitialTop": -792.644833538887,
-        "InitialHeight": 123.0,
+        "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       }
     ],
-    "X": 46.000089757906494,
-    "Y": 614.76412460153438,
-    "Zoom": 0.34431587357733145
+    "X": 69.07656233277018,
+    "Y": 935.64824545528518,
+    "Zoom": 0.84091282608949991
   }
 }

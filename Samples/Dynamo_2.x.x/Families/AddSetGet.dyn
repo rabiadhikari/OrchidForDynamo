@@ -193,7 +193,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument.\n\nFamilyType.Create (familyDocument: var = null, name: string = null): var[]..[]"
+      "Description": "Create family type by name. Note: If no input to name is provided (default as null), then a default family type will be created named as the familyDocument. Note: FamilyType in a family document and a project document is NOT the same! FamilyType in a project document is denoted FamilySymbol in the Autodesk Revit API!\n\nFamilyType.Create (familyDocument: var = null, name: string = null): var[]..[]"
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
@@ -1966,7 +1966,127 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get family type by name in current document\n\nFamilyType.ByName (name: string): FamilyType"
+      "Description": "Get family type by name in current document. Note: FamilyType in a family document and a project document is NOT the same! FamilyType in a project document is denoted FamilySymbol in the Autodesk Revit API!\n\nFamilyType.ByName (name: string): FamilyType"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "21e967959a0f42f4914568c4568e717a",
+      "Inputs": [
+        {
+          "Id": "b17d332406b94af299f9e4bdf0d97598",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c49b8bfd01e64cb7ab72bf92934c3cb0",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.Name",
+      "Id": "dd74ff453e92413eac55409dc91985d4",
+      "Inputs": [
+        {
+          "Id": "c8d58a1168b34496b1bfff4632e41162",
+          "Name": "parameter",
+          "Description": "Orchid.RevitFamily.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "070f99f7eced4e8b91cb4f064eadcbf7",
+          "Name": "string",
+          "Description": "Name as string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get family parameter name\n\nParameter.Name: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.RevitFamily.Parameter.ToOrchidType@var",
+      "Id": "9143be4190f54360b356b5d72778bf57",
+      "Inputs": [
+        {
+          "Id": "d2f829844a39420a81529b222749b6cc",
+          "Name": "parameter",
+          "Description": "Parameter as Revit type\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1087b4e79ce548138ed84d08c53a7812",
+          "Name": "Parameter",
+          "Description": "Parameter as Orchid type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Convert Autodesk Revit parameter to Orchid parameter\n\nParameter.ToOrchidType (parameter: var): Parameter"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Common Language Runtime modules\r\nimport clr\r\nclr.AddReference('RevitAPI')\r\nclr.AddReference('RevitServices')\r\n\r\n# Revit and Dynamo modules\r\nfrom Autodesk.Revit.DB import Family\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\ndummy = IN[0]\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nOUT = doc.FamilyManager.Parameters",
+      "VariableInputPorts": true,
+      "Id": "8ffe802ec8b14531bf925079aa44d7e3",
+      "Inputs": [
+        {
+          "Id": "0cfc1e5b28a24135919439edf1d43c27",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f2bf39c3e82d4eb785a394d90b677f52",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
     }
   ],
   "Connectors": [
@@ -2331,6 +2451,11 @@
       "Id": "1a23297b074746528af6065620288224"
     },
     {
+      "Start": "b261019ae93740df96ea9b8cb3ceadc9",
+      "End": "0cfc1e5b28a24135919439edf1d43c27",
+      "Id": "e0a03dc78372457a98ede9a7d0393fac"
+    },
+    {
       "Start": "60abafaa32fe4dfd9985920b17395f8b",
       "End": "153fdbcf54554bee93d7fbb1f04b63d8",
       "Id": "548d8e39654e466ca83c11733ed59a63"
@@ -2354,6 +2479,21 @@
       "Start": "fc470a4a74454b2897ccca379756589f",
       "End": "4538fa3e7e6b41c5a8dc10a2b9b5445a",
       "Id": "85a3fc0990174e1792eae51c30849c46"
+    },
+    {
+      "Start": "070f99f7eced4e8b91cb4f064eadcbf7",
+      "End": "b17d332406b94af299f9e4bdf0d97598",
+      "Id": "094947654cc244d6a1be88544a1b7846"
+    },
+    {
+      "Start": "1087b4e79ce548138ed84d08c53a7812",
+      "End": "c8d58a1168b34496b1bfff4632e41162",
+      "Id": "8fea280d9fe442af9f631619a80a0b1a"
+    },
+    {
+      "Start": "f2bf39c3e82d4eb785a394d90b677f52",
+      "End": "d2f829844a39420a81529b222749b6cc",
+      "Id": "82987b913ec54d2bb89e893f00c3ae25"
     }
   ],
   "Dependencies": [],
@@ -2407,8 +2547,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3609.58808209892,
-        "Y": 41.7513103651114
+        "X": 3610.3677182882134,
+        "Y": 382.74574550662527
       },
       {
         "ShowGeometry": true,
@@ -2447,8 +2587,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3902.16731497807,
-        "Y": -628.454646516744
+        "X": 3902.2668149758847,
+        "Y": -385.85607179489966
       },
       {
         "ShowGeometry": true,
@@ -2467,8 +2607,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4148.14260515322,
-        "Y": 30.6455830055398
+        "X": 4145.5012858094342,
+        "Y": 267.53113587875544
       },
       {
         "ShowGeometry": true,
@@ -2617,8 +2757,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4602.16731497807,
-        "Y": -628.454646516744
+        "X": 4602.2668149758847,
+        "Y": -385.85607179489966
       },
       {
         "ShowGeometry": true,
@@ -2627,8 +2767,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 5072.14260515323,
-        "Y": -158.354416994461
+        "X": 5069.5012858094433,
+        "Y": 78.53113587875464
       },
       {
         "ShowGeometry": true,
@@ -2637,8 +2777,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4769.14260515323,
-        "Y": 56.6455830055398
+        "X": 4766.5012858094433,
+        "Y": 293.53113587875544
       },
       {
         "ShowGeometry": true,
@@ -2647,8 +2787,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 5072.14260515323,
-        "Y": 56.6455830055398
+        "X": 5069.5012858094433,
+        "Y": 293.53113587875544
       },
       {
         "ShowGeometry": true,
@@ -2657,8 +2797,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 5072.14260515323,
-        "Y": 265.645583005539
+        "X": 5069.5012858094433,
+        "Y": 502.53113587875464
       },
       {
         "ShowGeometry": true,
@@ -2667,8 +2807,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4579.14260515323,
-        "Y": 269.858916338873
+        "X": 4576.5012858094433,
+        "Y": 506.74446921208869
       },
       {
         "ShowGeometry": true,
@@ -2677,8 +2817,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4769.14260515323,
-        "Y": 265.645583005539
+        "X": 4766.5012858094433,
+        "Y": 502.53113587875464
       },
       {
         "ShowGeometry": true,
@@ -2777,8 +2917,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3610.16731497807,
-        "Y": -628.454646516744
+        "X": 3610.2668149758847,
+        "Y": -385.85607179489966
       },
       {
         "ShowGeometry": true,
@@ -2787,8 +2927,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3613.009037632,
-        "Y": -91.2389090862165
+        "X": 3610.3677182882134,
+        "Y": 145.64664378699916
       },
       {
         "ShowGeometry": true,
@@ -2797,8 +2937,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3299.0820291974,
-        "Y": -5.42763224711439
+        "X": 3199.1103977413673,
+        "Y": -258.87563038992164
       },
       {
         "ShowGeometry": true,
@@ -2807,8 +2947,8 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 4285.16731497807,
-        "Y": -628.454646516744
+        "X": 4285.2668149758847,
+        "Y": -385.85607179489966
       },
       {
         "ShowGeometry": true,
@@ -2857,8 +2997,48 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 3845.50135922423,
-        "Y": 54.8099955276925
+        "X": 3816.1831165025224,
+        "Y": 293.98044863301851
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "21e967959a0f42f4914568c4568e717a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 4497.5116277757315,
+        "Y": -909.079057734424
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.Name",
+        "Id": "dd74ff453e92413eac55409dc91985d4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 4180.5116277757315,
+        "Y": -909.079057734424
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.ToOrchidType",
+        "Id": "9143be4190f54360b356b5d72778bf57",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3833.5116277757311,
+        "Y": -909.07905773442451
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "8ffe802ec8b14531bf925079aa44d7e3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3609.5116277757311,
+        "Y": -909.07905773442451
       }
     ],
     "Annotations": [
@@ -2910,15 +3090,16 @@
           "d16700e6f161437ab1dd8befe9b14c40",
           "99dd299edcf148508e09ae6fbac43a6c",
           "5b24db5860514478bc02397de2770f91",
-          "53deff5de3df4b1a82adcf688533c399"
+          "53deff5de3df4b1a82adcf688533c399",
+          "345d67c6bb8b4db1b0d893eb4a708977"
         ],
-        "Left": 3599.58808209892,
-        "Top": -204.354416994461,
-        "Width": 1713.5545230543098,
-        "Height": 567.21333333333394,
+        "Left": 3600.3677182882134,
+        "Top": 32.53113587875464,
+        "Width": 1710.13356752123,
+        "Height": 567.213333333334,
         "FontSize": 30.0,
-        "InitialTop": -158.354416994461,
-        "InitialHeight": 573.21333333333394,
+        "InitialTop": 78.53113587875464,
+        "InitialHeight": 573.213333333334,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -3058,12 +3239,12 @@
           "b021ab24571f4eba89c35420f0b246c3",
           "a43c1ad0d7d6425182fba225dd64eb2f"
         ],
-        "Left": 3600.16731497807,
-        "Top": -674.454646516744,
+        "Left": 3600.2668149758847,
+        "Top": -431.85607179489966,
         "Width": 1183.0,
         "Height": 375.0,
         "FontSize": 30.0,
-        "InitialTop": -628.454646516744,
+        "InitialTop": -385.85607179489966,
         "InitialHeight": 145.0,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
@@ -3086,10 +3267,29 @@
         "InitialHeight": 269.409209258602,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
+      },
+      {
+        "Id": "57adf15d9f2747fca352c22e4cd3bdf5",
+        "Title": "Convert to Orchid type",
+        "Nodes": [
+          "21e967959a0f42f4914568c4568e717a",
+          "dd74ff453e92413eac55409dc91985d4",
+          "9143be4190f54360b356b5d72778bf57",
+          "8ffe802ec8b14531bf925079aa44d7e3"
+        ],
+        "Left": 3599.5116277757311,
+        "Top": -955.07905773442451,
+        "Width": 1073.0000000000005,
+        "Height": 375.00000000000045,
+        "FontSize": 30.0,
+        "InitialTop": -909.07905773442451,
+        "InitialHeight": 145.00000000000045,
+        "TextblockHeight": 36.0,
+        "Background": "#FFFFAA45"
       }
     ],
-    "X": -73.695286230269176,
-    "Y": 355.601695061789,
-    "Zoom": 0.1486906850698298
+    "X": -177.1079257242167,
+    "Y": 480.620200230494,
+    "Zoom": 0.34772332395402
   }
 }
