@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 130.x.x is usable in Dynamo +1.3.0.
 
 ### History of Orchid for Dynamo 1.3.x ###  
   
+134.6.4  
+- Filters, Schedules and parameter Definitions (project and family parameters) added.  
+  
 134.6.3  
 - Refactoring of Core nodes, nodes are moved into Common. Several other functions are also refactored into other namespaces.  
   

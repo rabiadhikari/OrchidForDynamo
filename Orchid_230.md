@@ -4,6 +4,9 @@ The major number follows the Dynamo version, 230.x.x is usable in Dynamo +2.3.0.
 
 ### History of Orchid for Dynamo 2.3.x ###  
   
+230.0.3  
+- Filters, Schedules and parameter Definitions (project and family parameters) added.  
+  
 230.0.2  
 - Refactoring of Core nodes, nodes are moved into Common. Several other functions are also refactored into other namespaces.  
   
