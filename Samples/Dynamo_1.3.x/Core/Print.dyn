@@ -1,4 +1,4 @@
-<Workspace Version="1.3.4.6666" X="242.097896882281" Y="367.753037850156" zoom="0.478567809913512" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="False">
+<Workspace Version="1.3.4.6666" X="508.973435108674" Y="332.921462878123" zoom="0.316306563985715" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
   <NamespaceResolutionMap>
     <ClassMap partialName="FilePath" resolvedName="DSCore.IO.FilePath" assemblyName="DSCoreNodes.dll" />
     <ClassMap partialName="Directory" resolvedName="DSCore.IO.Directory" assemblyName="DSCoreNodes.dll" />
@@ -64,7 +64,7 @@
     <Orchid.E.Common.Print.Setting guid="de8a339f-5a70-4a81-8e5c-e06b46ae1c85" type="Orchid.E.Common.Print.Setting" nickname="Print Setting" x="376.411085582356" y="523.37130850283" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="0:Default" />
     <Orchid.E.Common.Print.ZoomType guid="166ad221-0851-4126-b5ba-03a140c1d9cb" type="Orchid.E.Common.Print.ZoomType" nickname="Print ZoomType" x="-84.595225841989" y="498.282036812566" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="1:Zoom" />
     <Orchid.E.Common.Print.PaperPlacement guid="526ae8dd-679e-4753-bc56-de96be4ac3bb" type="Orchid.E.Common.Print.PaperPlacement" nickname="Print PaperPlacement" x="-119.595225841989" y="163.182731961656" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="1:Offset from corner" />
-    <Orchid.E.Common.Print.PaperSize guid="4824b2ac-7a93-4f99-80c0-4337cb7580d5" type="Orchid.E.Common.Print.PaperSize" nickname="Print PaperSizes" x="-86.595225841989" y="-59.8382024436272" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" index="-1" input="">
+    <Orchid.E.Common.Print.PaperSize guid="4824b2ac-7a93-4f99-80c0-4337cb7580d5" type="Orchid.E.Common.Print.PaperSize" nickname="Print PaperSizes" x="-86.595225841989" y="-59.8382024436272" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" index="0:A3" input="Microsoft Print to PDF">
       <PortInfo index="0" default="False" />
     </Orchid.E.Common.Print.PaperSize>
     <Orchid.E.Common.Print.PageOrientation guid="b7c68557-7f4f-4e75-ad16-ce32a4e3c562" type="Orchid.E.Common.Print.PageOrientation" nickname="Print PageOrientation" x="-119.595225841989" y="50.9883706908896" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="0:Portrait" />
@@ -101,7 +101,7 @@
       <System.String>testSetting</System.String>
       <System.String value="testSetting" />
     </CoreNodeModels.Input.StringInput>
-    <Orchid.E.Common.Print.PaperSize guid="ad044143-95f6-483d-9d28-a6b53442e180" type="Orchid.E.Common.Print.PaperSize" nickname="Print PaperSizes" x="9.45328492753515" y="1137.02351833566" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" index="-1" input="">
+    <Orchid.E.Common.Print.PaperSize guid="ad044143-95f6-483d-9d28-a6b53442e180" type="Orchid.E.Common.Print.PaperSize" nickname="Print PaperSizes" x="9.45328492753515" y="1137.02351833566" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" index="0:A3" input="Microsoft Print to PDF">
       <PortInfo index="0" default="False" />
     </Orchid.E.Common.Print.PaperSize>
     <Orchid.E.Common.Print.PaperPlacement guid="40e4b721-8c26-400f-9b82-d4b1070509ca" type="Orchid.E.Common.Print.PaperPlacement" nickname="Print PaperPlacement" x="9.45328492753515" y="1247.41107805264" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="0:Center" />
@@ -187,6 +187,12 @@
       <PortInfo index="0" default="False" />
       <PortInfo index="1" default="False" />
     </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="bf4397ee-8a4f-486d-8f66-6b5de025f2fb" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Print.PaperSize" x="309.781307122833" y="-573.943717510318" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="..\..\..\..\..\AppData\Roaming\Dynamo\Dynamo Revit\1.3\packages\Orchid\bin\OrchidRB.dll" function="Orchid.Common.Print.PaperSize@string">
+      <PortInfo index="0" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <CoreNodeModels.Watch guid="43a3d23c-e416-43ae-94a3-24ce5b403a58" type="CoreNodeModels.Watch" nickname="Watch" x="629.781307122833" y="-573.943717510318" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </CoreNodeModels.Watch>
   </Elements>
   <Connectors>
     <Dynamo.Graph.Connectors.ConnectorModel start="ba632a67-d5df-4eaf-a143-8da8cc4bbe60" start_index="0" end="edf81940-7f91-44b0-8deb-5930cf98d5d0" end_index="1" portType="0" />
@@ -204,6 +210,7 @@
     <Dynamo.Graph.Connectors.ConnectorModel start="56498ea8-d1e3-4292-93b0-ceb49878258d" start_index="0" end="f0b4ccfb-6274-4bbf-9723-bdecb3c7cfdf" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="56498ea8-d1e3-4292-93b0-ceb49878258d" start_index="0" end="be8f291b-0168-472e-8d1a-37def8e86a08" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="56498ea8-d1e3-4292-93b0-ceb49878258d" start_index="0" end="4824b2ac-7a93-4f99-80c0-4337cb7580d5" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="56498ea8-d1e3-4292-93b0-ceb49878258d" start_index="0" end="bf4397ee-8a4f-486d-8f66-6b5de025f2fb" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="52e4d2ca-9012-4d3b-ac55-fe21aa6d5790" start_index="0" end="52f5fb01-801e-4f24-ad8f-eb7405317109" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="4824b2ac-7a93-4f99-80c0-4337cb7580d5" start_index="0" end="f0b4ccfb-6274-4bbf-9723-bdecb3c7cfdf" end_index="2" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="b7c68557-7f4f-4e75-ad16-ce32a4e3c562" start_index="0" end="f0b4ccfb-6274-4bbf-9723-bdecb3c7cfdf" end_index="3" portType="0" />
@@ -247,6 +254,7 @@
     <Dynamo.Graph.Connectors.ConnectorModel start="91651251-378d-4281-9a8c-927948066997" start_index="0" end="2af5007a-aeec-4c4c-80c9-f281a2eaa88f" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="9255e31d-c39d-4a66-9a0e-bf12e0e4715c" start_index="0" end="9961247d-7fac-41d8-be00-b88a88ce24b3" end_index="0" portType="0" />
     <Dynamo.Graph.Connectors.ConnectorModel start="9255e31d-c39d-4a66-9a0e-bf12e0e4715c" start_index="1" end="9961247d-7fac-41d8-be00-b88a88ce24b3" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="bf4397ee-8a4f-486d-8f66-6b5de025f2fb" start_index="0" end="43a3d23c-e416-43ae-94a3-24ce5b403a58" end_index="0" portType="0" />
   </Connectors>
   <Notes>
     <Dynamo.Graph.Notes.NoteModel guid="9b871203-4215-454b-95e4-e28977391387" text="Set to &quot;Select&quot; to print the selected views" x="1253.88275763663" y="410.046767191256" />
@@ -329,6 +337,10 @@
     <Dynamo.Graph.Annotations.AnnotationModel guid="1304b6e6-98f2-49b9-b91f-1a54148141a5" annotationText="Merge PDF files" left="1300.14159081052" top="1599.73236493684" width="736" height="218" fontSize="30" InitialTop="1645.73236493684" InitialHeight="202" TextblockHeight="36" backgrouund="#FFBB87C6">
       <Models ModelGuid="9255e31d-c39d-4a66-9a0e-bf12e0e4715c" />
       <Models ModelGuid="9961247d-7fac-41d8-be00-b88a88ce24b3" />
+    </Dynamo.Graph.Annotations.AnnotationModel>
+    <Dynamo.Graph.Annotations.AnnotationModel guid="bd5fe96c-2a63-4969-a9bb-785a48dac1e5" annotationText="" left="299.781307122833" top="-619.943717510318" width="418" height="140" fontSize="30" InitialTop="-573.943717510318" InitialHeight="130.409010160724" TextblockHeight="36" backgrouund="#FFC1D676">
+      <Models ModelGuid="bf4397ee-8a4f-486d-8f66-6b5de025f2fb" />
+      <Models ModelGuid="43a3d23c-e416-43ae-94a3-24ce5b403a58" />
     </Dynamo.Graph.Annotations.AnnotationModel>
   </Annotations>
   <Presets />

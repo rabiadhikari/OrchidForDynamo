@@ -1,0 +1,11 @@
+# Error handling
+  
+If the package is placed in the correct default folder according to the Dynamo installation out of the box, then should Orchid also work straight out of the box. However, If the folder is moved due to other reasons locally, then is there a need to tweak the Orchid folder location afterward.  
+  
+One thing there might go wrong. If Revit is running while installing, then will it work the first time Orchid is installed (after a restart of Dynamo), next time Orchid is being "upgraded" while Dynamo is running or has been started and Revit is still running, then will it fail. This is due to applications in Windows environment reads the needed assemblies (DLL files) when the application is opened. Windows will then protect these files from being changed unless they explicitly are unprotected. Unprotecting files could course other unintended issues and this is why Dynamo and Revit need to be closed during the installation of Orchid.  
+  
+Another thing there might go wrong. If some other package is shipped including Dynamo assemblies, then will some packages fail if dependencies for a specific version of Dynamo exist in the package. Orchid is written for specific versions due to the enormous scope of Orchid. This kind of error happens on rare occasions, however, if it happens, it seems to be if package builders are new to coding and the community. They might not know that this will involve unintended behavior in Dynamo. All packages should be shipped without any Dynamo assemblies, let Dynamo handle its assemblies. All serious codes ship packages without Dynamo assemblies.  
+  
+### Other challenges  
+In the last couple of years have many things changed in Revit, old methods change names and functions, new methods arrive, and some methods are being deprecated. Also, Dynamo is concurrently being developed which in itself involves challenges.  
+However, the largest challenge is the development of the Orchid package. The package is constantly expanding and the amount of new methods is huge. This involves challenges for the organization of nodes in the package, which are being reorganized when there is no other way around to keep the progress of Orchid development. However, migration doesn't work for Dynamo 2.x versions, this is a known source of errors for users of any package in the Dynamo 2.x range.

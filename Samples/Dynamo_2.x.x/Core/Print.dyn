@@ -1278,13 +1278,13 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "Orchid.RevitProject.Common.Document.ActiveView@Orchid.RevitProject.Common.Document",
+      "FunctionSignature": "Orchid.RevitProject.Common.Document.ActiveView@var",
       "Id": "f0f783d58305424d95aec536fe7fb03e",
       "Inputs": [
         {
           "Id": "274b0353253d4a16bc0286766407f66e",
           "Name": "document",
-          "Description": "Document (rvt) as Orchid document\n\nDocument\nDefault value : null",
+          "Description": "Document (rvt) as Orchid document\n\nvar\nDefault value : null",
           "UsingDefaultValue": true,
           "Level": 2,
           "UseLevels": false,
@@ -1303,7 +1303,7 @@
         }
       ],
       "Replication": "Auto",
-      "Description": "Get the active view in document\n\nDocument.ActiveView (document: Document = null): Element"
+      "Description": "Get the active view in document\n\nDocument.ActiveView (document: var = null): Element"
     },
     {
       "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
@@ -1976,6 +1976,65 @@
       ],
       "Replication": "Auto",
       "Description": "Merge list of PDF documents.\n\nPrint.MergePDF (documents: string[], filePath: string): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Orchid.Common.Print.PaperSize@string",
+      "Id": "bdedb4c0afb04380acf146daeb0290dc",
+      "Inputs": [
+        {
+          "Id": "d370bfaf88614243975f1804f12ac060",
+          "Name": "printer",
+          "Description": "Printer name as string. If value is not set is default printer selected\n\nstring\nDefault value : \"default\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "605cad9dab844731b428b4547104a334",
+          "Name": "PaperSize",
+          "Description": "Paper sizes as string values",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get printer paper sizes\n\nPrint.PaperSize (printer: string = \"default\"): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "f013c86b21e046b186ff3c67f31bf6b9",
+      "Inputs": [
+        {
+          "Id": "75aa8f603b8e409f905f12450acf1ad3",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9a0391c5e3de4de090864ea0065ea60b",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
     }
   ],
   "Connectors": [
@@ -2053,6 +2112,11 @@
       "Start": "770b17470e6147b1904cbe0948d38c19",
       "End": "dab770af18dd4e009fb5f5e0cf0056dd",
       "Id": "eb322a9aebb941b5ba23179f9344e4e5"
+    },
+    {
+      "Start": "770b17470e6147b1904cbe0948d38c19",
+      "End": "d370bfaf88614243975f1804f12ac060",
+      "Id": "72880d11df0e4a75b98d9ec8ef9a8ec4"
     },
     {
       "Start": "a5b17ce89bef450b96e98d61083a46b4",
@@ -2268,6 +2332,11 @@
       "Start": "cb7f221a80854544ba00d5696eb92a71",
       "End": "21aed9231425439f816f3f7150c13269",
       "Id": "0f8f06f32ccf4b7784aa41993a0ef452"
+    },
+    {
+      "Start": "605cad9dab844731b428b4547104a334",
+      "End": "75aa8f603b8e409f905f12450acf1ad3",
+      "Id": "116675b5bb1744878bc93ca538f56f93"
     }
   ],
   "Dependencies": [],
@@ -2853,6 +2922,26 @@
         "Excluded": true,
         "X": 1803.14159081052,
         "Y": 1681.2390316035
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Print.PaperSize",
+        "Id": "bdedb4c0afb04380acf146daeb0290dc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 310.02133867259829,
+        "Y": -566.67966143112085
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "f013c86b21e046b186ff3c67f31bf6b9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 630.02133867259829,
+        "Y": -566.67966143112085
       }
     ],
     "Annotations": [
@@ -2874,7 +2963,7 @@
         "Height": 807.20201500237317,
         "FontSize": 30.0,
         "InitialTop": -59.8382024436272,
-        "InitialHeight": 279.167996668561,
+        "InitialHeight": 813.20201500237317,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2882,12 +2971,12 @@
         "Id": "7dab551e9fb549c8833f61f7db47197b",
         "Title": "",
         "Nodes": [
-          "9b8712034215454b95e4e28977391387",
           "8a82c3b875ca4b24b31e360876f2c019",
           "3353e45923984b27adac7c541ca04765",
           "24cd6097de0c45f899068851d3232672",
           "cea555482922488ab0b472589631dbb1",
           "a8df5467f92645319f0e502e105e0961",
+          "9b8712034215454b95e4e28977391387",
           "c2149e24db224a6a9297c3e438278e0b"
         ],
         "Left": 979.79895095198,
@@ -2896,7 +2985,7 @@
         "Height": 561.29222373068,
         "FontSize": 30.0,
         "InitialTop": 225.218340202225,
-        "InitialHeight": 125.322634726971,
+        "InitialHeight": 592.29222373068,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2914,7 +3003,7 @@
         "Height": 315.81052736748904,
         "FontSize": 30.0,
         "InitialTop": -588.003133904853,
-        "InitialHeight": 260.209578798675,
+        "InitialHeight": 346.81052736748904,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2931,7 +3020,7 @@
         "Height": 225.64345194057998,
         "FontSize": 30.0,
         "InitialTop": -363.933891953061,
-        "InitialHeight": 192.206623824616,
+        "InitialHeight": 256.64345194058,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -2940,9 +3029,9 @@
         "Title": "Remove print setting",
         "Nodes": [
           "52e4d2ca90124d3bac55fe21aa6d5790",
-          "d4bf1839129f4262a2406a619841b313",
           "de8a339f5a704a818e5ce06b46ae1c85",
-          "52f5fb01801e4f24ad8feb7405317109"
+          "52f5fb01801e4f24ad8feb7405317109",
+          "d4bf1839129f4262a2406a619841b313"
         ],
         "Left": 299.654375437335,
         "Top": 476.24755985957495,
@@ -2950,7 +3039,7 @@
         "Height": 224.0586424249941,
         "FontSize": 30.0,
         "InitialTop": 522.247559859575,
-        "InitialHeight": 215.279343223358,
+        "InitialHeight": 255.0586424249941,
         "TextblockHeight": 36.0,
         "Background": "#FFFFB8D8"
       },
@@ -2977,7 +3066,7 @@
         "Height": 630.09920849099012,
         "FontSize": 30.0,
         "InitialTop": 866.47835893447,
-        "InitialHeight": 793.117914085882,
+        "InitialHeight": 636.09920849099012,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -3000,7 +3089,7 @@
         "Height": 303.27096285413893,
         "FontSize": 30.0,
         "InitialTop": -957.683138348668,
-        "InitialHeight": 574.288528237156,
+        "InitialHeight": 309.27096285413893,
         "TextblockHeight": 36.0,
         "Background": "#FFA4E1FF"
       },
@@ -3021,7 +3110,7 @@
         "Height": 525.0,
         "FontSize": 30.0,
         "InitialTop": 1575.40926483906,
-        "InitialHeight": 569.279050740557,
+        "InitialHeight": 531.0,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -3040,7 +3129,7 @@
         "Height": 341.1527677701169,
         "FontSize": 30.0,
         "InitialTop": -194.217795371717,
-        "InitialHeight": 316.146666666667,
+        "InitialHeight": 347.1527677701169,
         "TextblockHeight": 36.0,
         "Background": "#FFC1D676"
       },
@@ -3057,9 +3146,26 @@
         "Height": 218.0,
         "FontSize": 30.0,
         "InitialTop": 1645.73236493684,
-        "InitialHeight": 202.0,
+        "InitialHeight": 180.50666666666007,
         "TextblockHeight": 36.0,
         "Background": "#FFBB87C6"
+      },
+      {
+        "Id": "595cbb3cbdcc42cd9c22c203f6b65a70",
+        "Title": "",
+        "Nodes": [
+          "bdedb4c0afb04380acf146daeb0290dc",
+          "f013c86b21e046b186ff3c67f31bf6b9"
+        ],
+        "Left": 300.02133867259829,
+        "Top": -619.67966143112085,
+        "Width": 418.0,
+        "Height": 147.0,
+        "FontSize": 36.0,
+        "InitialTop": -566.67966143112085,
+        "InitialHeight": 123.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
       },
       {
         "Id": "9b8712034215454b95e4e28977391387",
@@ -3118,8 +3224,8 @@
         "Background": "#FFC1D676"
       }
     ],
-    "X": 356.04934411970362,
-    "Y": 404.507293897149,
-    "Zoom": 0.397979057951269
+    "X": 267.59427866926256,
+    "Y": 290.10345019281914,
+    "Zoom": 0.27159656443499175
   }
 }
